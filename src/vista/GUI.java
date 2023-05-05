@@ -14,8 +14,8 @@ public class GUI extends JFrame {
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados;
     private JLabel dadosActivos,dadosIncativos,dadosPuntos,dadosUsados;
     private ImageIcon imagen_activos, imagen_inactivos, imagen_puntos, imagen_usados,imagen_dado;
-    private GridBagConstraints constraints;
-    private JButton lanzar;
+    private GridBagConstraints constraints; // referencias del grid
+    private JButton lanzar; // lanza los dados
 
     /**
      * Constructor of GUI class
@@ -52,12 +52,12 @@ public class GUI extends JFrame {
         headerProject = new Header("The Geek Of Master", Color.BLACK);
         constraints.gridx=0;
         constraints.gridy=0;
-        constraints.gridwidth=13;
+        constraints.gridwidth=13; // combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
         this.add(headerProject,constraints); //Change this line if you change JFrame Container's Layout
 
-        //Zona dedos usados
+        //Zona dados usados
         panelUsados = new JPanel();
         imagen_usados = new ImageIcon(getClass().getResource("/recursos/zona.png"));
         dadosUsados = new JLabel(imagen_usados);
