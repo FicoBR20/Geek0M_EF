@@ -14,6 +14,8 @@ public class GUI extends JFrame {
 
     private Escucha escucha;
 
+    private Modelo_Geek obj_Modelo;
+
     private Header headerProject;
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados;
     private JLabel dadosActivos,dadosIncativos,dadosPuntos,dadosUsados;
@@ -21,7 +23,12 @@ public class GUI extends JFrame {
     private GridBagConstraints constraints; // referencias del grid
     private JButton lanzar; // lanza los dados
 
-    private JButton probador; // boton auxiliar para algunas pruebas en el desarrollo.
+
+    /*
+    Este buttom se usara para probar en consola los métodos que se desarrollen.
+     */
+    private JButton jBut_Probador;
+
 
     /**
      * Constructor of GUI class
@@ -46,6 +53,10 @@ public class GUI extends JFrame {
         //Set up JFrame Container's Layout
         //Create Listener Object and Control Object
 
+        escucha = new Escucha();
+
+        obj_Modelo = new Modelo_Geek();
+
         //Obtiene el contenedor por defecto de la ventana y le pongo el nuevo layout "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
         //Se crea un objeto "constrain" para configurar el Grib layout
@@ -53,8 +64,8 @@ public class GUI extends JFrame {
 
         //Set up JComponents
         lanzar = new JButton("LANZAR DADOS");
+        lanzar.addActionListener(escucha);
 
-        probador = new JButton("PARA PRUEBAS");
 
         //Se pone un el texto de cabecera, se igrasan las coordenadas constrain, se añade a la ventana
         headerProject = new Header("The Geek Of Master", Color.BLACK);
@@ -128,13 +139,17 @@ public class GUI extends JFrame {
 
         this.add(lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
+        //Agregar buttom PARA PRUEBAS.
+
         constraints.gridx=4;
         constraints.gridy=10;
         constraints.gridwidth=4;
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
+        jBut_Probador = new JButton("PARA PRUEBAS");
+        jBut_Probador.addActionListener(escucha);
 
-        this.add(probador,constraints); //Change this line if you change JFrame Container's Layout
+        this.add(jBut_Probador,constraints); //Change this line if you change JFrame Container's Layout
 
     }
 
@@ -157,7 +172,10 @@ public class GUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (e.getSource()== jBut_Probador){
+                obj_Modelo.getCara();
 
+            }
         }
     }
 }
