@@ -3,6 +3,7 @@ package vista;
 import control.Controlador;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +19,7 @@ public class GUI extends JFrame {
     private Header headerProject;
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu;
     private JLabel dadosActivos,dadosIncativos,dadosPuntos,dadosUsados;
-    private JLabel[] dado;
+    private JLabel[] dado,dado_puntos;
     private ImageIcon imagen_activos, imagen_inactivos, imagen_puntos, imagen_usados,imagen_dado;
     private GridBagConstraints constraints; // referencias del grid
     private JButton lanzar, menu, atras, salir; // lanza los dados
@@ -53,13 +54,22 @@ public class GUI extends JFrame {
      * create Listener and control Objects used for the GUI class
      */
     private void initGUI() {
+        //Creacion de los dados
+         dado = new JLabel[10];
+        dado_puntos = new JLabel[10];
+        for (int i=0;i<=9;i++){
+            imagen_dado =new ImageIcon(getClass().getResource("/recursos/comodin.png"));
+            dado[i] = new JLabel(imagen_dado);
+            imagen_dado =new ImageIcon(getClass().getResource("/recursos/p"+i+".png"));
+            dado_puntos[i] = new JLabel(imagen_dado);
+        }
         //Set up JFrame Container's Layout
         control = new Controlador();
         //Create Listener Object and Control Object
         escucha = new Escucha();
         menu1 = null;
         //Creo dados;
-        dado = new JLabel[10];
+
         //Obtiene el contenedor por defecto de la ventana y le pongo el nuevo layout "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
         //Se crea un objeto "constrain" para configurar el Grib layout
@@ -100,67 +110,73 @@ public class GUI extends JFrame {
 
         //Zona_1 dados usados
         panelUsados = new JPanel();
-        imagen_usados = new ImageIcon(getClass().getResource("/recursos/zona.png"));
-        dadosUsados = new JLabel(imagen_usados);
-//        panelUsados.setBackground(Color.BLACK);//preueba
+        panelUsados.setPreferredSize(new Dimension(250,200));
+        panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
+        panelUsados.setBackground(new Color(44,56,84));
+//        imagen_usados = new ImageIcon(getClass().getResource("/recursos/zona.png"));
+//        dadosUsados = new JLabel(imagen_usados);
         constraints.gridx=1;
         constraints.gridy=1;
         constraints.gridwidth=1;
         constraints.gridheight=1;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
-        panelUsados.add(dadosUsados);
+
+//        panelUsados.add(dadosUsados);
         this.add(panelUsados,constraints); //Change this line if you change JFrame Container's Layout
 
         //Zona_2 dedos inctivos
         panelIncativos = new JPanel();
-//        panelIncativos.setBackground(Color.BLACK);//preueba
-        imagen_inactivos = new ImageIcon(getClass().getResource("/recursos/zona.png"));
-        dadosIncativos = new JLabel(imagen_inactivos);
+        panelIncativos.setBorder(BorderFactory.createTitledBorder(null,"Dadso Inactivos", TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
+        panelIncativos.setBackground(new Color(44,56,84));//preueba
+//        imagen_inactivos = new ImageIcon(getClass().getResource("/recursos/zona.png"));
+//        dadosIncativos = new JLabel(imagen_inactivos);
+
         constraints.gridx=8;
         constraints.gridy=1;
         constraints.gridwidth=4;
         constraints.gridheight=4;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
-        panelIncativos.add(dadosIncativos);
+
+        for (int i=0;i<=3-1;i++){
+            panelIncativos.add(dado[i]);
+        }
+
+//        panelIncativos.add(dadosIncativos);
         this.add(panelIncativos,constraints); //Change this line if you change JFrame Container's Layout
 
         //Zona_3 de dados puntos
         panelPuntos = new JPanel();
-//        panelPuntos.setBackground(Color.BLACK);//preueba
-        imagen_puntos = new ImageIcon(getClass().getResource("/recursos/puntos.png"));
-        dadosPuntos = new JLabel(imagen_puntos);
+        panelPuntos.setPreferredSize(new Dimension(250,200));
+        panelPuntos.setBorder(BorderFactory.createTitledBorder(null,"Puntuación",TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
+        panelPuntos.setBackground(new Color(44,56,84));//preueba
+//        imagen_puntos = new ImageIcon(getClass().getResource("/recursos/puntos.png"));
+//        dadosPuntos = new JLabel(imagen_puntos);
+
         constraints.gridx=1;
         constraints.gridy=5;
         constraints.gridwidth=4;
         constraints.gridheight=4;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
-        panelPuntos.add(dadosPuntos);
-        this.add(panelPuntos,constraints); //Change this line if you change JFrame Container's Layout
 
-        //Zona dados activos
-        imagen_dado =new ImageIcon(getClass().getResource("/recursos/1.png"));
-        dado[0] = new JLabel(imagen_dado);
-        dado[1] = new JLabel(imagen_dado);
-        dado[2] = new JLabel(imagen_dado);
-        dado[3] = new JLabel(imagen_dado);
-        dado[4] = new JLabel(imagen_dado);
-        dado[5] = new JLabel(imagen_dado);
-        dado[6] = new JLabel(imagen_dado);
-        dado[7] = new JLabel(imagen_dado);
-        dado[8] = new JLabel(imagen_dado);
-        dado[9] = new JLabel(imagen_dado);
+        for (int i=0;i<=10-1;i++){
+            panelPuntos.add(dado_puntos[i]);
+        }
+
+//        panelPuntos.add(dadosPuntos);
+        this.add(panelPuntos,constraints); //Change this line if you change JFrame Container's Layout
 
 
         //Zona_4 dedos Activos
         panelActivos = new JPanel();
-//        panelActivos.setBackground(Color.BLACK);//preueba
-        panelActivos.setPreferredSize(new Dimension(200,200));
-        imagen_activos = new ImageIcon(getClass().getResource("/recursos/zona.png"));
-        dadosActivos = new JLabel(imagen_activos);
-//        dadosActivos.add(dado[0],BorderLayout.CENTER);
+        panelActivos.setBackground(new Color(44,56,84));//preueba
+        panelActivos.setPreferredSize(new Dimension(250,200));
+        panelActivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos", TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
+//        imagen_activos = new ImageIcon(getClass().getResource("/recursos/zona.png"));
+//        dadosActivos = new JLabel(imagen_activos);
+
         constraints.gridx=8;
         constraints.gridy=5;
         constraints.gridwidth=4;
@@ -168,7 +184,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
 
-        for (int i=0;i<=9;i++){
+        for (int i=4-1;i<=10-1;i++){
             panelActivos.add(dado[i]);
         }
 
@@ -240,6 +256,7 @@ public class GUI extends JFrame {
                     dado[i].setIcon(imagen_dado);
                     System.out.println("test");
                 }
+//                lanzar.setEnabled(false);
 
 //                mostrar_resultado.setText(control.getEstado_string().get(0));
 //                mensaje_salida.setText(control.getEstado_string().get(1));
