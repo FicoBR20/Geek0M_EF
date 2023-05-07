@@ -2,15 +2,40 @@ package modelo;
 
 import java.util.Vector;
 
-public class Model_craps {
+/**
+ *   @archivo Model_Geek.jar
+ *   @author federico.barbetti:  Codigo es 2181247-2724
+ *   @email federico.barbetti@correounivalle.edu.co
+ *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
+ *   @email jose.erley.murillo@correounivalle.edu.co
+ *   @version v.1.0.0 date:21/03/2023
+ *   @licencia GPL
+ */
+
+/**
+ * Esta clase maneja la logica del juego.
+ */
+
+public class Model_Geek {
+
+    /*
+
+    refactorar
+
+    estado : casos en los que se gana o pirde el juego
+    validacion : bandera meneja los 5 turnos.
+    tiro : ...s
+
+
+     */
     private int estado, validacion_tiro, punto, tiro;
     private Vector<String> estado_string;
 
-    public Model_craps(int estado) {
+    public Model_Geek(int estado) {
         this.estado = estado;
     }
 
-    public Model_craps() {
+    public Model_Geek() {
         estado = 0;
         validacion_tiro = 0;
         punto = 0;

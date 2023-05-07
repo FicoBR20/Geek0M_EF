@@ -4,23 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
+    <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Model_craps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Model_Geek.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,7 +22,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2PMMeOc1dkRGn8NonfkB8E0Beb6" />
+  <component name="ProjectId" id="2PTT0txFdyXzabnNaGYCZW4iyVb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,64 +30,29 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Design/Desktop/pro/Geek0M_EF/src/recursos",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Design\Desktop\pro\Geek0M_EF\src\recursos" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="control" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.GUI">
-    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUI (1)" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="" />
-      <created>1683262594899</created>
+      <changelist id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="" />
+      <created>1683479852512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683262594899</updated>
+      <updated>1683479852512</updated>
+      <workItem from="1683479854010" duration="2059000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -105,9 +64,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
