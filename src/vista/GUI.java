@@ -2,6 +2,8 @@ package vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This class is used for ...
@@ -10,12 +12,16 @@ import java.awt.*;
  */
 public class GUI extends JFrame {
 
+    private Escucha escucha;
+
     private Header headerProject;
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados;
     private JLabel dadosActivos,dadosIncativos,dadosPuntos,dadosUsados;
     private ImageIcon imagen_activos, imagen_inactivos, imagen_puntos, imagen_usados,imagen_dado;
     private GridBagConstraints constraints; // referencias del grid
     private JButton lanzar; // lanza los dados
+
+    private JButton probador; // boton auxiliar para algunas pruebas en el desarrollo.
 
     /**
      * Constructor of GUI class
@@ -47,6 +53,8 @@ public class GUI extends JFrame {
 
         //Set up JComponents
         lanzar = new JButton("LANZAR DADOS");
+
+        probador = new JButton("PARA PRUEBAS");
 
         //Se pone un el texto de cabecera, se igrasan las coordenadas constrain, se añade a la ventana
         headerProject = new Header("The Geek Of Master", Color.BLACK);
@@ -120,6 +128,14 @@ public class GUI extends JFrame {
 
         this.add(lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
+        constraints.gridx=4;
+        constraints.gridy=10;
+        constraints.gridwidth=4;
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.CENTER;
+
+        this.add(probador,constraints); //Change this line if you change JFrame Container's Layout
+
     }
 
     /**
@@ -136,7 +152,12 @@ public class GUI extends JFrame {
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-    private class Escucha{
+    private class Escucha implements ActionListener {
 
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
     }
 }
