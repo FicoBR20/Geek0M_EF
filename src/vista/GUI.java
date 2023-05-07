@@ -22,11 +22,11 @@ import java.util.Vector;
 public class GUI extends JFrame {
 
     private Header headerProject;
-    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu;
+    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
-    private JButton lanzar, menu, atras, salir; // Declaracion de los botones del juego
+    private JButton lanzar, menu = null, atras, salir, entrar, salir1; // Declaracion de los botones del juego
     private Escucha escucha;
     private Menu menu1;// Ventana que contiene el menu para salir del juego
     private Controlador control;
@@ -39,9 +39,9 @@ public class GUI extends JFrame {
      */
     public GUI(){
 
-        guiIni = new GUI_INI();
 
-//        initGUI();
+        ventana_entrada();
+        inicio_GUI();
 
         //Default JFrame configuration
         this.setTitle("Geek of master");
@@ -51,7 +51,7 @@ public class GUI extends JFrame {
         this.setUndecorated(true);//Quita los trs botones de la ventana
         this.pack();
         this.setResizable(true);
-        this.setVisible(true);
+        this.setVisible(false);// Oculta la ventana del juego, espera un evento que lo active
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -59,9 +59,29 @@ public class GUI extends JFrame {
 
     /**
      * This method is used to set up the default JComponent Configuration,
+     * create Listener and control Objects used for the GUI_INI class
+     */
+    private void ventana_entrada(){
+            guiIni = new GUI_INI();
+            escucha = new GUI.Escucha();
+            panelBoton = new JPanel();
+
+            entrar = new JButton("ENTRAR");
+            entrar.addActionListener(escucha);
+            salir1 = new JButton("SALIR");
+            salir1.addActionListener(escucha);
+//            entrar.setPreferredSize(new Dimension(100,50));
+
+            panelBoton.add(entrar,BorderLayout.SOUTH);
+            panelBoton.add(salir1,BorderLayout.SOUTH);
+            guiIni.add(panelBoton,BorderLayout.SOUTH);
+    }
+
+    /**
+     * This method is used to set up the default JComponent Configuration,
      * create Listener and control Objects used for the GUI class
      */
-    private void initGUI() {
+    private void inicio_GUI() {
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         dado = new JLabel[10];//Creacion de los dados
@@ -207,6 +227,7 @@ public class GUI extends JFrame {
 
     }
 
+
     /**
      * Main process of the Java program
      * @param args Object used in order to send input data from command line when
@@ -221,7 +242,7 @@ public class GUI extends JFrame {
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-    private class Escucha implements ActionListener {
+    public class Escucha implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -266,6 +287,13 @@ public class GUI extends JFrame {
                 lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
 
+            }
+            if (e.getSource() == entrar){
+                guiIni.dispose();
+                setVisible(true);
+            }
+            if (e.getSource() == salir1){
+                System.exit(0);
             }
         }
     }
