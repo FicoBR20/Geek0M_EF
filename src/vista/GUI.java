@@ -44,7 +44,7 @@ public class GUI extends JFrame {
 //        this.setSize(new Dimension(800,500));
         this.setBackground(Color.BLACK);
         this.isOpaque();
-        this.setUndecorated(true);//Quita los trs botones de la ventana
+        this.setUndecorated(false);//Quita los trs botones de la ventana
         this.pack();
         this.setResizable(true);
         this.setVisible(true);
@@ -117,7 +117,7 @@ public class GUI extends JFrame {
         //Añado botón de Menú
         constraints.gridx=0;
         constraints.gridy=0;
-        constraints.gridwidth=13; // combina 13 celdas para el titulo.
+        constraints.gridwidth=10; // combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.LINE_END;
         this.add(menu,constraints); //Change this line if you change JFrame Container's Layout
@@ -259,7 +259,7 @@ public class GUI extends JFrame {
                     dado[i].setIcon(imagen_dado);
                     System.out.println("test");
                 }
-                lanzar.setEnabled(false); //Deshabilita el boton lanzar
+            //    lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
 
             }
