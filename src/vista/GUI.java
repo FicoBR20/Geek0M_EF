@@ -31,13 +31,17 @@ public class GUI extends JFrame {
     private Menu menu1;// Ventana que contiene el menu para salir del juego
     private Controlador control;
     private int uso_boton_lanzar;
+    private GUI_INI guiIni;
 
 
     /**
      * Constructor of GUI class
      */
     public GUI(){
-        initGUI();
+
+        guiIni = new GUI_INI();
+
+//        initGUI();
 
         //Default JFrame configuration
         this.setTitle("Geek of master");
