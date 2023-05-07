@@ -174,6 +174,7 @@ public class GUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource()== jBut_Probador){
                 obj_Modelo.getCara();
+              //  obj_Modelo.puntaje
 
             }
         }
