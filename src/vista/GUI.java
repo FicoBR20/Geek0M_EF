@@ -136,7 +136,7 @@ public class GUI extends JFrame {
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-    private class Escucha {
+    private class Escucha{
 
     }
 }
