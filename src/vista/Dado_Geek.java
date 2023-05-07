@@ -4,10 +4,11 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * Clase que implementa las reglas del juego.
+ * Clase que genera la cara del dado, valor entero aliatorio entre [1, 6]
+ * cada numero se le asociara un icono y asi conformar las 6 caras del dado.
  */
 
-public class Modelo_Geek {
+public class Dado_Geek {
     private int cara;
 
 /*
@@ -24,7 +25,7 @@ cada entero se osociara a una imagen diversa.
 
     public static void main(String[] args){
         EventQueue.invokeLater(() -> {
-            Modelo_Geek modelo = new Modelo_Geek();
+            Dado_Geek modelo = new Dado_Geek();
             modelo.getCara();
         });
     }

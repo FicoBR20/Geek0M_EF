@@ -14,7 +14,7 @@ public class GUI extends JFrame {
 
     private Escucha escucha;
 
-    private Modelo_Geek obj_Modelo;
+    private Dado_Geek obj_Modelo;
 
     private Header headerProject;
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados;
@@ -55,7 +55,7 @@ public class GUI extends JFrame {
 
         escucha = new Escucha();
 
-        obj_Modelo = new Modelo_Geek();
+        obj_Modelo = new Dado_Geek();
 
         //Obtiene el contenedor por defecto de la ventana y le pongo el nuevo layout "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
