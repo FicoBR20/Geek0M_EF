@@ -22,12 +22,14 @@ public class GUI extends JFrame {
     private JLabel[] dado,dado_puntos;
     private ImageIcon imagen_activos, imagen_inactivos, imagen_puntos, imagen_usados,imagen_dado;
     private GridBagConstraints constraints; // referencias del grid
+
     private JButton lanzar, menu, atras, salir; // lanza los dados
     private Escucha escucha;
     private Menu menu1;
     private Container container;
     private JLayeredPane layeredPane;
     private Controlador control;
+
 
     /**
      * Constructor of GUI class
@@ -98,6 +100,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
         this.add(headerProject,constraints); //Change this line if you change JFrame Container's Layout
+
 
         //Boton de Menu
         constraints.gridx=0;
