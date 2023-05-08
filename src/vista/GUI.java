@@ -317,11 +317,13 @@ public class GUI extends JFrame {
                 if (opcion == JOptionPane.YES_OPTION){
                     System.out.println("salir");
 //                    System.exit(0);
+
                     boton_menu.setEnabled(true);
                     boton_lanzar.setEnabled(true);
                     dispose();
                     ventana_entrada();
                     menu.dispose();
+
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
                     System.out.println("nada");
