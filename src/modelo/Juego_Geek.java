@@ -102,8 +102,9 @@ definimos algunas variables constantes.
 
     public Vector<Integer> recibe_utilizados(int paraRecibir){// actualiza (recibe) los dados ya utilizados en un arreglo;
 
-        dados_Utilizados = new Vector<Integer>(10);// defaul size 10, cada campo es igual a 0;
-        dados_Utilizados.setSize(10);
+        dados_Utilizados = new Vector<Integer>();// defaul size 10, cada campo es igual a 0;
+       dados_Utilizados.setSize(10);
+
 
 
         System.out.println(" al inicio del juego \n el tamaño del Vector tirada_Activos es " + dados_Activos.size() + "\n");
@@ -123,7 +124,7 @@ definimos algunas variables constantes.
         }
 
 
-        System.out.println(dados_Utilizados.toString());
+        System.out.println("los dados utilizados son "+ dados_Utilizados.toString());
 
 
         return dados_Utilizados;
@@ -144,6 +145,28 @@ Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posi
 
 
         return dados_Inactivos;
+
+    }
+
+    public Vector<Integer> accion_Corazon(int cara_Recibida){ // retorna el entero representativo de la cara opuesta del dado
+
+        cara_Obtenida = new Dado();
+        dados_Inactivos = new Vector<Integer>(cant_Dados_Inactivos_Iniciales);
+        dados_Activos = new Vector<Integer>(cant_Dados_Actuvos_Iniciales);
+        dados_Utilizados = new Vector<Integer>(10);
+
+        entrega_Inactivos(cara_Recibida); // resta 1 dado de los inactivos.
+        recibe_utilizados(cara_Recibida); // adiciona 1 dado a los dados utilizados
+
+        /*
+        falta una funcion que busque el corazon (que se está jugando) y lo reemplaze por un nuevo lanzamiento.
+        Esta funcion del corazon, debe devolver UN NUEVO ELEMENTO en el arreglo de dados activos, osea un nuevo
+        vector de dados Activos.
+         */
+
+
+
+        return dados_Activos;
 
     }
 
