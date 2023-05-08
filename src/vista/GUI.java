@@ -51,7 +51,7 @@ public class GUI extends JFrame {
         this.setUndecorated(true);//Quita los trs botones de la ventana
         this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();
-        this.setSize(new Dimension(750,500));
+        this.setSize(new Dimension(700,500));
         this.setResizable(true);
         this.setVisible(false);// Oculta la ventana del juego, espera un evento que lo active
         this.setLocationRelativeTo(null);
@@ -299,8 +299,11 @@ public class GUI extends JFrame {
                 if (opcion == JOptionPane.YES_OPTION){
                     System.out.println("salir");
 //                    System.exit(0);
+                    menu1.dispose();
                     dispose();
                     ventana_entrada();
+                    menu.setEnabled(true);
+                    lanzar.setEnabled(true);
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
                     System.out.println("nada");
