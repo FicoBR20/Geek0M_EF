@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
+>>>>>>> gui
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +48,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="vista" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Design\Desktop\pro\Geek0M_EF\src\recursos" />
     </key>
@@ -50,6 +58,7 @@
       <recent name="control" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
@@ -60,10 +69,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+=======
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
+      <module name="Geek0M_EF" />
+>>>>>>> gui
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
       <module name="Geek0M_EF" />
@@ -83,6 +99,8 @@
         <item itemvalue="Application.GUI (1)" />
       </list>
     </recent_temporary>
+=======
+>>>>>>> gui
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
