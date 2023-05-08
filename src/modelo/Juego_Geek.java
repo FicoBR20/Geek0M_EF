@@ -29,7 +29,7 @@ definimos algunas variables constantes.
 
 
 
-    public Juego_Geek() {
+    public Juego_Geek() { // constructor
         cant_Dados_Actuvos_Iniciales = 7;
         cant_Dados_Inactivos_Iniciales=3;
         inicio();
@@ -37,9 +37,8 @@ definimos algunas variables constantes.
 
     }
 
-    public void inicio(){
+    public void inicio(){ // funcion inicializadora
         System.out.println("\nInicio el juego");
-        nombres_de_Iconos(); // arreglo string_Nombres_Iconos[6]
         tirada_DadosActivos();
         tirada_DadosInactivos();
 
@@ -47,7 +46,7 @@ definimos algunas variables constantes.
 
     }
 
-    public Vector<Integer> tirada_DadosActivos(){
+    public Vector<Integer> tirada_DadosActivos(){ // lanzamiento de los dados activos en el inicio de cada ronda.
         cara_Obtenida = new Dado();
         tirada_Activos = new Vector<Integer>(cant_Dados_Actuvos_Iniciales);
 
@@ -58,7 +57,7 @@ definimos algunas variables constantes.
         for(int i = 0; i < cant_Dados_Actuvos_Iniciales; i++){
             int receptor = cara_Obtenida.get_cara();
            tirada_Activos.add(receptor);
-           auxiliar = auxiliar + "el receptor es " + receptor + string_Nombres_Iconos[receptor] + "\n";
+           auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
            //System.out.println(" nombres Activos" + tirada_Activos.get(i));
         }
 
@@ -71,7 +70,7 @@ definimos algunas variables constantes.
 
     }
 
-    public Vector<Integer> tirada_DadosInactivos(){
+    public Vector<Integer> tirada_DadosInactivos(){// lanzamiento de los dados inactivos en el inicio de cada ronda.
         cara_Obtenida = new Dado();
         tirada_Inactivos = new Vector<Integer>(cant_Dados_Inactivos_Iniciales);
 
@@ -85,27 +84,7 @@ definimos algunas variables constantes.
 
     }
 
-    public void nombres_de_Iconos(){
 
-        String string_Nombres_Iconos[] = new String[6];
-
-        string_Nombres_Iconos[0]="Corazon";
-        string_Nombres_Iconos[1]="Dragon";
-        string_Nombres_Iconos[2]="Mepplet";
-        string_Nombres_Iconos[3]="Cohete";
-        string_Nombres_Iconos[4]="Super_Heroe";
-        string_Nombres_Iconos[5]="42";
-
-
-
-        System.out.println(" \nSale corazon -> " + string_Nombres_Iconos[0]);
-        System.out.println(" \nSale Mepplet -> " + string_Nombres_Iconos[2]);
-        System.out.println(" \nSale 42 -> " + string_Nombres_Iconos[5]);
-
-
-
-
-    }
 
 
 
