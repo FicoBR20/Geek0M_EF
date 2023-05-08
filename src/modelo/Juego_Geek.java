@@ -43,6 +43,7 @@ definimos algunas variables constantes.
         System.out.println("\nInicio el juego");
         tirada_DadosActivos();
         tirada_DadosInactivos();
+        recibe_utilizados(99);//prueba
 
         //recibe_utilizados(2);
 
@@ -96,35 +97,34 @@ definimos algunas variables constantes.
 
     }
 
-//    public Vector<Integer> recibe_utilizados(int paraRecibir){// gestiona los dados ya utilizados;
-//        cara_Obtenida = new Dado();
-//        dados_Utilizados = new Vector<Integer>(10);// defaul size 10, cada campo es igual a 0;
-//
-//        String auxiliar = "";
-//
-//        for(int i = 0; i < cant_Dados_Inactivos_Iniciales; i++){
-//            int receptor = cara_Obtenida.get_cara();
-//            tirada_Inactivos.add(receptor);
-//            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
-//
-//
-//        }
-//
-//
-//            auxiliar = auxiliar + "Se recibe en la posicion [ "+ (i) + " ] del vector de dados utilizdos\n" +
-//                    " " + paraRecibir + " verificamos el arreglo "+ dados_Utilizados.get(i) + "\n";
-//
-//
-//        }
+    public Vector<Integer> recibe_utilizados(int paraRecibir){// Recibe los dados ya utilizados en un arreglo;
+        //cara_Obtenida = new Dado();
+        dados_Utilizados = new Vector<Integer>(10);// defaul size 10, cada campo es igual a 0;
+        dados_Utilizados.setSize(10);
 
-//
-//        System.out.println(" \nDados inutilizados -> " + dados_Utilizados.toString());
-//        System.out.println(" \nTirada Inicial Inactivos Nombres->\n" + auxiliar.toString());
-//
-//
-//        return dados_Utilizados;
-//
-//    }
+        String auxiliar = ""; // variable local
+
+        for(int i = 0; i < dados_Utilizados.size(); i++){
+            if (dados_Utilizados.get(i)==null){
+                dados_Utilizados.set(i,paraRecibir);
+                auxiliar = auxiliar + "Dados Utilizados [ "+ i + " ] es: " + dados_Utilizados.get(i) + "\n";
+
+                break;
+            }
+
+        }
+
+
+        System.out.println(dados_Utilizados.toString());
+
+
+        return dados_Utilizados;
+
+    }
+
+
+
+
 
 
 
