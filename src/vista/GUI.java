@@ -75,6 +75,7 @@ public class GUI extends JFrame {
             panelBoton.add(entrar,BorderLayout.SOUTH);
             panelBoton.add(salir1,BorderLayout.SOUTH);
             guiIni.add(panelBoton,BorderLayout.SOUTH);
+
     }
 
     /**
@@ -292,9 +293,11 @@ public class GUI extends JFrame {
                 guiIni.dispose();
                 setVisible(true);
             }
+
             if (e.getSource() == salir1){
                 System.exit(0);
             }
+
         }
     }
 }
