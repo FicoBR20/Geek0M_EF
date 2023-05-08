@@ -212,7 +212,7 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
 
         for (int i=4-1;i<=10-1;i++){
-            panelActivos.add(dado[i]);
+            panelActivos.add(dado[i],BorderLayout.SOUTH);
         }
 
         this.add(panelActivos,constraints); //Change this line if you change JFrame Container's Layout
@@ -266,10 +266,12 @@ public class GUI extends JFrame {
 
             }
             if (e.getSource() == salir){
-                int opcion = JOptionPane.showConfirmDialog(null, "¿Si oprime 'si' se cerrara el programa?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if (opcion == JOptionPane.YES_OPTION){
                     System.out.println("salir");
-                    System.exit(0);
+//                    System.exit(0);
+                    dispose();
+                    ventana_entrada();
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
                     System.out.println("nada");
