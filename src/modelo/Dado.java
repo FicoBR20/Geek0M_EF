@@ -26,23 +26,23 @@ public class Dado {
 
         //pruebas
 
-         System.out.println("El primer elemento es " + get_Nombre_Cara(0)+ "\n");
-
-
-
+        // System.out.println("El primer elemento es " + get_Nombre_Cara(0)+ "\n");
 
     }
-    //Si presiono "Alt + Insert" genera un método predefinido
+
+
+
+
     public int get_cara() {
         //Creo un objeto randon que me permite crear un numeros aleatorios
         Random aleatorio = new Random();
-        cara = aleatorio.nextInt(5)+1;
+        cara = aleatorio.nextInt(6)+1;
         return cara;
     }
 
     public void inicioDado(){ // se llena el arreglo con los nombres de las caras del dado.
 
-         string_Nombres_Iconos = new String[6];
+        string_Nombres_Iconos = new String[6];
 
         string_Nombres_Iconos[0]="Corazon";
         string_Nombres_Iconos[1]="Dragon";
