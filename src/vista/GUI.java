@@ -27,6 +27,7 @@ public class GUI extends JFrame {
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
     private JButton boton_lanzar, boton_menu = null, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
+    private Boton_Skim botonSkim_salir1;
     private Escucha escucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control;
