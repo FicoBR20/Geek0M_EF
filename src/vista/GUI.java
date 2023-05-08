@@ -76,6 +76,7 @@ public class GUI extends JFrame {
         constraints.gridheight=1;// combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
+        constraints.insets = new Insets(100,0,0,0);
 
         entrar = new JButton("ENTRAR");
         entrar.addActionListener(escucha);
@@ -88,6 +89,7 @@ public class GUI extends JFrame {
         constraints.gridheight=1;// combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
+        constraints.insets = new Insets(10,0,0,0);
 
         salir1 = new JButton("SALIR");
         salir1.addActionListener(escucha);
@@ -130,8 +132,8 @@ public class GUI extends JFrame {
 
         //Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
-        //Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
-        constraints = new GridBagConstraints();
+        constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
+        constraints.insets = new Insets(3,30,3,30);// Inserta margenes en los componentes insertados en la ventana
 
         //Set up JComponents
         //Configuración de los botones
@@ -148,19 +150,20 @@ public class GUI extends JFrame {
 
 
         //Texto de cabecera y coordenadas constrain para añadirlo a la ventana
-        headerProject = new Header("The Geek Of Master", Color.BLACK);
         constraints.gridx=0;
         constraints.gridy=0;
-        constraints.gridwidth=13; // combina 13 celdas para el titulo.
+        constraints.gridwidth=2; // combina 2 celdas para el titulo.
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
+
+        headerProject = new Header("The Geek Out! Master", null);
         this.add(headerProject,constraints); //Change this line if you change JFrame Container's Layout
 
 
         //Añado botón de Menú
         constraints.gridx=0;
         constraints.gridy=0;
-        constraints.gridwidth=13; // combina 13 celdas para el titulo.
+        constraints.gridwidth=2; // combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.LINE_END;
 
@@ -170,26 +173,27 @@ public class GUI extends JFrame {
 
 
         //Zona_1: Dados usados
-        panelUsados = new JPanel();
-        panelUsados.setPreferredSize(new Dimension(250,200));
-        panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
-        panelUsados.setBackground(new Color(255, 255, 255, 100));
-        constraints.gridx=1;
+        constraints.gridx=0;
         constraints.gridy=1;
         constraints.gridwidth=1;
         constraints.gridheight=1;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
+
+        panelUsados = new JPanel();
+        panelUsados.setPreferredSize(new Dimension(250,200));
+        panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
+        panelUsados.setBackground(new Color(13, 64, 123, 128));
         this.add(panelUsados,constraints); //Change this line if you change JFrame Container's Layout
 
         //Zona_2: Dados inctivos
         panelIncativos = new JPanel();
         panelIncativos.setBorder(BorderFactory.createTitledBorder(null,"Dadso Inactivos", TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
-        panelIncativos.setBackground(new Color(44,56,84));//preueba
-        constraints.gridx=8;
+        panelIncativos.setBackground(new Color(13, 64, 123, 128));
+        constraints.gridx=1;
         constraints.gridy=1;
-        constraints.gridwidth=4;
-        constraints.gridheight=4;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
 
@@ -203,11 +207,11 @@ public class GUI extends JFrame {
         panelPuntos = new JPanel();
         panelPuntos.setPreferredSize(new Dimension(250,200));
         panelPuntos.setBorder(BorderFactory.createTitledBorder(null,"Puntuación",TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
-        panelPuntos.setBackground(new Color(44,56,84));//preueba
-        constraints.gridx=1;
-        constraints.gridy=5;
-        constraints.gridwidth=4;
-        constraints.gridheight=4;
+        panelPuntos.setBackground(new Color(13, 64, 123, 128));
+        constraints.gridx=0;
+        constraints.gridy=2;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
 
@@ -222,14 +226,14 @@ public class GUI extends JFrame {
 
         //Zona_4 dedos Activos
         panelActivos = new JPanel();
-        panelActivos.setBackground(new Color(44,56,84));//preueba
         panelActivos.setPreferredSize(new Dimension(250,200));
         panelActivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos", TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
-        constraints.gridx=8;
-        constraints.gridy=5;
-        constraints.gridwidth=4;
-        constraints.gridheight=4;
-        constraints.fill=GridBagConstraints.BOTH;
+        panelActivos.setBackground(new Color(13, 64, 123, 128));
+        constraints.gridx=1;
+        constraints.gridy=2;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;
+        constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
 
         for (int i=4-1;i<=10-1;i++){
@@ -239,9 +243,9 @@ public class GUI extends JFrame {
         this.add(panelActivos,constraints); //Change this line if you change JFrame Container's Layout
 
         //Zona_5 grgar boton lanzar
-        constraints.gridx=8;
-        constraints.gridy=10;
-        constraints.gridwidth=4;
+        constraints.gridx=0;
+        constraints.gridy=3;
+        constraints.gridwidth=2;
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
 
