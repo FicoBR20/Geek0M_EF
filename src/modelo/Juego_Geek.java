@@ -149,6 +149,43 @@ Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posi
 
 
 
+    public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
+
+        int entrega=999; // se inicializa
+
+        String auxiliar =""; // para pruebas.
+
+        switch (jugado) {
+            case 0:
+                entrega=6;
+                auxiliar = "Corazon";
+                break;
+            case 1:
+                auxiliar = "Dragon";
+                break;
+            case 2:
+                auxiliar = "Mepplet";
+                break;
+            case 3:
+                auxiliar = "Cohete";
+                break;
+            case 4:
+                auxiliar = "Super-heroe";
+                break;
+            case 5:
+                auxiliar = "42";
+                break;
+            default:
+                auxiliar = " hay problemas..";
+        }
+
+
+
+
+    }
+
+
+
 
 
 
