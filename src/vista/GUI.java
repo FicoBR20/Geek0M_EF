@@ -1,12 +1,12 @@
 package vista;
 
 import control.Controlador;
+import modelo.Dado;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.Vector;
 
 /**
@@ -21,13 +21,19 @@ import java.util.Vector;
 
 public class GUI extends JFrame {
 
+    private modelo.Dado dado_Probador; // adiciono para probar "lanzar dados"
+
+    private Vector<Dado> mis_Dados;
+
+
     private Header headerProject;
-    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu;
+    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
     private JButton lanzar, menu, atras, salir; // Declaracion de los botones del juego
-    private Escucha escucha;
+    private Escucha escucha, segundaEscucha;
+
     private Menu menu1;// Ventana que contiene el menu para salir del juego
     private Controlador control;
     private int uso_boton_lanzar;
@@ -59,6 +65,15 @@ public class GUI extends JFrame {
      */
     private void initGUI() {
 
+        dado_Probador = new Dado();
+        segundaEscucha = new Escucha();
+        mis_Dados = new Vector<Dado>();
+        jP_misdados = new JPanel();
+        jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
+
+
+
+
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         dado = new JLabel[10];//Creacion de los dados
         puntos_dado = new JLabel[11];//Creacion de las carillas para los puntos
@@ -67,8 +82,10 @@ public class GUI extends JFrame {
         for (int i=0;i<=9;i++){
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/comodin.png"));
             dado[i] = new JLabel(imagen_dado);
+
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/p"+i+".png"));
             puntos_dado[i] = new JLabel(imagen_dado);
+            dado[i].addMouseListener((MouseListener) escucha);
         }
 
         imagen_dado =new ImageIcon(getClass().getResource("/recursos/puntaje.png"));
@@ -214,10 +231,12 @@ public class GUI extends JFrame {
         });
     }
 
+
+
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-    private class Escucha implements ActionListener {
+    public class Escucha implements ActionListener, MouseListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -253,16 +272,60 @@ public class GUI extends JFrame {
             }
             if (e.getSource() == lanzar){
                 for (int i=0;i<=9;i++){
-                    control.inicio(10);
-                    Vector<Integer> face = control.getCara();
-                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(0)+".png"));
-                    dado[i].setIcon(imagen_dado);
+                    control.inicio(10); // cantidad de dados
+                    Vector<Integer> face = control.getCara(); // arreglo Integer suministra un entero.
+                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(0)+".png"));//Image Icon
+                    dado[i].setIcon(imagen_dado); // arreglo de JLabels
+
+
                     System.out.println("test");
                 }
+
             //    lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
 
             }
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getSource()==dado[2]){
+
+                System.out.println("estoy en el dado [0]");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public void activarDados(){
+
+        dado = new JLabel[10];
+
+        for (int i=0;i<=9;i++){
+            dado[i].addMouseMotionListener((MouseMotionListener) escucha);
+
+
+
+            System.out.println("activados");
         }
     }
 }

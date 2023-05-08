@@ -14,11 +14,12 @@ public class Controlador {
     int flag, estado, punto;
     Vector<String>Estado_string;
 
-    public Controlador() {
+    public Controlador() {// contructor sin parametros
+
         this.numero_de_dados = numero_de_dados;
     }
 
-    public Controlador(int numero_de_dados) {
+    public Controlador(int numero_de_dados) { // constructor con parametros
         this.numero_de_dados = numero_de_dados;
         inicio(numero_de_dados);
     }
