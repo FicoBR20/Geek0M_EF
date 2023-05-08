@@ -26,9 +26,9 @@ public class GUI extends JFrame {
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
-    private JButton lanzar, menu = null, atras, salir, entrar, salir1; // Declaracion de los botones del juego
+    private JButton boton_lanzar, boton_menu = null, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
     private Escucha escucha;
-    private Menu menu1;// Ventana que contiene el menu para salir del juego
+    private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control;
     private int uso_boton_lanzar;
     private GUI_INI guiIni;
@@ -78,9 +78,9 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(100,0,0,0);
 
-        entrar = new JButton("ENTRAR");
-        entrar.addActionListener(escucha);
-        guiIni.add(entrar,constraints);
+        boton_entrar = new JButton("ENTRAR");
+        boton_entrar.addActionListener(escucha);
+        guiIni.add(boton_entrar,constraints);
 
         //Añado Boton a la ventana
         constraints.gridx=0;
@@ -91,9 +91,9 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(10,0,0,0);
 
-        salir1 = new JButton("SALIR");
-        salir1.addActionListener(escucha);
-        guiIni.add(salir1,constraints);
+        boton_salir1 = new JButton("SALIR");
+        boton_salir1.addActionListener(escucha);
+        guiIni.add(boton_salir1,constraints);
 
     }
 
@@ -128,7 +128,7 @@ public class GUI extends JFrame {
         escucha = new Escucha();
 
         //Instancio el menú del juego para utilizarlo luego el metodo escucha
-        menu1 = null;
+        menu = null;
 
         //Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
@@ -139,13 +139,14 @@ public class GUI extends JFrame {
         //Configuración de los botones
 
 
-        atras = new JButton("ATRAS");
-        atras.setPreferredSize(new Dimension(100,50));
-        atras.addActionListener(escucha);
+        boton_atras = new JButton("ATRAS");
+        boton_atras.setPreferredSize(new Dimension(100,50));
+        boton_atras.addActionListener(escucha);
 
-        salir = new JButton("SALIR");
-        salir.setPreferredSize(new Dimension(100,50));
-        salir.addActionListener(escucha);
+        boton_salir = new JButton("SALIR");
+        boton_salir.setPreferredSize(new Dimension(100,50));
+        boton_salir.addActionListener(escucha);
+
 
 
 
@@ -167,9 +168,9 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.LINE_END;
 
-        menu = new JButton("MENU");
-        menu.addActionListener(escucha);
-        this.add(menu,constraints); //Change this line if you change JFrame Container's Layout
+        boton_menu = new JButton("MENU");
+        boton_menu.addActionListener(escucha);
+        this.add(boton_menu,constraints); //Change this line if you change JFrame Container's Layout
 
 
         //Zona_1: Dados usados
@@ -249,9 +250,9 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
 
-        lanzar = new JButton("LANZAR DADOS");
-        lanzar.addActionListener(escucha);
-        this.add(lanzar,constraints); //Change this line if you change JFrame Container's Layout
+        boton_lanzar = new JButton("LANZAR DADOS");
+        boton_lanzar.addActionListener(escucha);
+        this.add(boton_lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
     }
 
@@ -276,40 +277,58 @@ public class GUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getActionCommand() == "MENU"){
-                menu1 = new Menu();
-                menu.setEnabled(false);//Deshabilita el botón menu
-                lanzar.setEnabled(false); //Deshabilita el botón lanzar
-                panelMenu = new JPanel();//Contiene los botones del menu
-                panelMenu.add(atras,BorderLayout.CENTER);
-                panelMenu.add(salir,BorderLayout.SOUTH);
-                menu1.add(panelMenu);
+
+                // Inicia una nueva ventanade menu
+                menu = new Menu();
+
+                // deshabilita el boton menu y el boton
+                boton_menu.setEnabled(false);//Deshabilita el botón menu
+                boton_lanzar.setEnabled(false); //Deshabilita el botón lanzar
+
+                // Añade el boton atras al menu
+                constraints.gridx=0;
+                constraints.gridy=0;
+                constraints.gridwidth=1;
+                constraints.fill=GridBagConstraints.NONE;
+                constraints.anchor=GridBagConstraints.CENTER;
+                constraints.insets = new Insets(50,0,0,0);
+                menu.add(boton_atras,constraints);
+
+                // Añade el boton salir al menu
+                constraints.gridx=0;
+                constraints.gridy=1;
+                constraints.gridwidth=1;
+                constraints.fill=GridBagConstraints.NONE;
+                constraints.anchor=GridBagConstraints.CENTER;
+                constraints.insets = new Insets(5,0,0,0);
+                menu.add(boton_salir,constraints);
             }
-            if (e.getActionCommand() == "ATRAS" && menu1 != null){
-                menu1.dispose(); //Cierra la ventana de menu sin cerrar el programa
-                menu.setEnabled(true);// Habilita el boton menu
+            if (e.getActionCommand() == "ATRAS" && menu != null){
+                menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
+                boton_menu.setEnabled(true);// Habilita el boton menu
                 if (uso_boton_lanzar == 0){
-                    lanzar.setEnabled(true);
+                    boton_lanzar.setEnabled(true);
                 }
 
             }
-            if (e.getSource() == salir){
+            if (e.getSource() == boton_salir){
                 int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if (opcion == JOptionPane.YES_OPTION){
                     System.out.println("salir");
 //                    System.exit(0);
-                    menu.setEnabled(true);
-                    lanzar.setEnabled(true);
+                    boton_menu.setEnabled(true);
+                    boton_lanzar.setEnabled(true);
                     dispose();
                     ventana_entrada();
-                    menu1.dispose();
+                    menu.dispose();
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
                     System.out.println("nada");
-                    menu1.dispose();
-                    menu.setEnabled(true);
+                    menu.dispose();
+                    boton_menu.setEnabled(true);
                 }
             }
-            if (e.getSource() == lanzar){
+            if (e.getSource() == boton_lanzar){
                 for (int i=0;i<=9;i++){
                     control.inicio(10);
                     Vector<Integer> face = control.getCara();
@@ -317,16 +336,16 @@ public class GUI extends JFrame {
                     dado[i].setIcon(imagen_dado);
                     System.out.println("test");
                 }
-                lanzar.setEnabled(false); //Deshabilita el boton lanzar
+                boton_lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
 
             }
-            if (e.getSource() == entrar){
+            if (e.getSource() == boton_entrar){
                 guiIni.dispose();
                 setVisible(true);
             }
 
-            if (e.getSource() == salir1){
+            if (e.getSource() == boton_salir1){
                 System.exit(0);
             }
 
