@@ -32,6 +32,7 @@ public class GUI extends JFrame {
     private Controlador control;
     private int uso_boton_lanzar;
     private GUI_INI guiIni;
+    private FondoPanel fondoPanel;
 
 
     /**
@@ -45,11 +46,11 @@ public class GUI extends JFrame {
 
         //Default JFrame configuration
         this.setTitle("Geek of master");
-//        this.setSize(new Dimension(800,500));
-        this.setBackground(Color.BLACK);
         this.isOpaque();
         this.setUndecorated(true);//Quita los trs botones de la ventana
+        this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();
+        this.setSize(new Dimension(750,500));
         this.setResizable(true);
         this.setVisible(false);// Oculta la ventana del juego, espera un evento que lo active
         this.setLocationRelativeTo(null);
@@ -62,19 +63,35 @@ public class GUI extends JFrame {
      * create Listener and control Objects used for the GUI_INI class
      */
     private void ventana_entrada(){
-            guiIni = new GUI_INI();
-            escucha = new GUI.Escucha();
-            panelBoton = new JPanel();
 
-            entrar = new JButton("ENTRAR");
-            entrar.addActionListener(escucha);
-            salir1 = new JButton("SALIR");
-            salir1.addActionListener(escucha);
-//            entrar.setPreferredSize(new Dimension(100,50));
+        escucha = new GUI.Escucha();
+        guiIni = new GUI_INI();
+        guiIni.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
+        constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
 
-            panelBoton.add(entrar,BorderLayout.SOUTH);
-            panelBoton.add(salir1,BorderLayout.SOUTH);
-            guiIni.add(panelBoton,BorderLayout.SOUTH);
+        //Añado Boton a la ventana
+        constraints.gridx=0;
+        constraints.gridy=0;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;// combina 13 celdas para el titulo.
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.CENTER;
+
+        entrar = new JButton("ENTRAR");
+        entrar.addActionListener(escucha);
+        guiIni.add(entrar,constraints);
+
+        //Añado Boton a la ventana
+        constraints.gridx=0;
+        constraints.gridy=1;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;// combina 13 celdas para el titulo.
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.CENTER;
+
+        salir1 = new JButton("SALIR");
+        salir1.addActionListener(escucha);
+        guiIni.add(salir1,constraints);
 
     }
 
@@ -83,6 +100,9 @@ public class GUI extends JFrame {
      * create Listener and control Objects used for the GUI class
      */
     private void inicio_GUI() {
+        fondoPanel = new FondoPanel();
+        fondoPanel.set_ruta_Icon("/recursos/fondo2.png");
+        this.setContentPane(fondoPanel);
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         dado = new JLabel[10];//Creacion de los dados
@@ -115,8 +135,7 @@ public class GUI extends JFrame {
 
         //Set up JComponents
         //Configuración de los botones
-        lanzar = new JButton("LANZAR DADOS");
-        lanzar.addActionListener(escucha);
+
 
         atras = new JButton("ATRAS");
         atras.setPreferredSize(new Dimension(100,50));
@@ -126,8 +145,7 @@ public class GUI extends JFrame {
         salir.setPreferredSize(new Dimension(100,50));
         salir.addActionListener(escucha);
 
-        menu = new JButton("MENU");
-        menu.addActionListener(escucha);
+
 
         //Texto de cabecera y coordenadas constrain para añadirlo a la ventana
         headerProject = new Header("The Geek Of Master", Color.BLACK);
@@ -145,6 +163,9 @@ public class GUI extends JFrame {
         constraints.gridwidth=13; // combina 13 celdas para el titulo.
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.LINE_END;
+
+        menu = new JButton("MENU");
+        menu.addActionListener(escucha);
         this.add(menu,constraints); //Change this line if you change JFrame Container's Layout
 
 
@@ -152,7 +173,7 @@ public class GUI extends JFrame {
         panelUsados = new JPanel();
         panelUsados.setPreferredSize(new Dimension(250,200));
         panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
-        panelUsados.setBackground(new Color(44,56,84));
+        panelUsados.setBackground(new Color(255, 255, 255, 100));
         constraints.gridx=1;
         constraints.gridy=1;
         constraints.gridwidth=1;
@@ -212,7 +233,7 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
 
         for (int i=4-1;i<=10-1;i++){
-            panelActivos.add(dado[i]);
+            panelActivos.add(dado[i],BorderLayout.SOUTH);
         }
 
         this.add(panelActivos,constraints); //Change this line if you change JFrame Container's Layout
@@ -224,6 +245,8 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
 
+        lanzar = new JButton("LANZAR DADOS");
+        lanzar.addActionListener(escucha);
         this.add(lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
     }
@@ -266,10 +289,12 @@ public class GUI extends JFrame {
 
             }
             if (e.getSource() == salir){
-                int opcion = JOptionPane.showConfirmDialog(null, "¿Si oprime 'si' se cerrara el programa?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if (opcion == JOptionPane.YES_OPTION){
                     System.out.println("salir");
-                    System.exit(0);
+//                    System.exit(0);
+                    dispose();
+                    ventana_entrada();
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
                     System.out.println("nada");

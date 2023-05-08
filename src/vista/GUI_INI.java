@@ -7,6 +7,7 @@ public class GUI_INI extends JFrame{
     private ImageIcon imageIcon;
     private JLabel jLabel;
     private JPanel jPanel;
+    private FondoPanel fondoPanel;
 
     public GUI_INI(){
 
@@ -14,10 +15,10 @@ public class GUI_INI extends JFrame{
 
         //Default JFrame configuration
         this.setTitle("menu");
-        this.setBackground(Color.BLACK);
         this.setUndecorated(true);
+        this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();
-        this.setSize(new Dimension(500,250));
+        this.setSize(new Dimension(760,500));
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -26,7 +27,9 @@ public class GUI_INI extends JFrame{
     }
 //
     private void inicio() {
-        imageIcon = new ImageIcon();
+        fondoPanel = new FondoPanel();
+        fondoPanel.set_ruta_Icon("/recursos/fondo1.png");
+        this.setContentPane(fondoPanel);
     }
 
 
