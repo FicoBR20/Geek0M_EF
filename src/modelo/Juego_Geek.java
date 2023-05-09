@@ -1,6 +1,7 @@
 package modelo;
 
 import java.awt.*;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class Juego_Geek {
@@ -243,7 +244,26 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
 
     }
 
-    public Vector<Integer> accion_Mepplet(int cara_Recibida){ // el jugador pierde el juego
+public int solicitaEntero(){ // se solicita un entero via consola
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(" \nHola cual es tu eleccion ?\n");
+            int respuesta = scanner.nextInt();
+            System.out.println(" escogio bien..va ganando " + respuesta);
+
+            return respuesta;
+
+    }
+
+
+
+
+    public Vector<Integer> accion_Mepplet(int cara_Recibida){ // [3] -> meeplet permite relanzar un dado de los activos.
+
+        borra_Activos_Jugados(cara_Recibida); // borra el meeplet qqe activó
+
+        /*
+
 
         for (int i = 0; i < dados_Activos.size(); i++) {
 
@@ -261,12 +281,10 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
 
         }
 
+*/
 
-        dados_Activos.clear();
-        //dados_Utilizados.clear();
-        // dados_Inactivos.clear();
 
-        System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
+        System.out.println(" El nuevo arreglo de dados Activos es:" + dados_Activos.toString());
 
 
         return dados_Activos;
