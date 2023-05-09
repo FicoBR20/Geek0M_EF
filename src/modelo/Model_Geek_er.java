@@ -2,15 +2,15 @@ package modelo;
 
 import java.util.Vector;
 
-public class Model_craps {
+public class Model_Geek_er {
     private int estado, validacion_tiro, punto, tiro;
     private Vector<String> estado_string;
 
-    public Model_craps(int estado) {
+    public Model_Geek_er(int estado) {
         this.estado = estado;
     }
 
-    public Model_craps() {
+    public Model_Geek_er() {
         estado = 0;
         validacion_tiro = 0;
         punto = 0;

@@ -1,6 +1,6 @@
 package control;
 
-import modelo.Model_craps;
+import modelo.Model_Geek_er;
 import modelo.Tirar_dados;
 
 import java.util.Vector;
@@ -28,25 +28,25 @@ public class Controlador {
         //Creo un objeto donde tiro unos dados el cual recibe n cantidad de dados
         //creo un objeto que aplicara la regla
         Tirar_dados _tirar_dados = new Tirar_dados();
-        Model_craps _model_craps = new Model_craps();
+        Model_Geek_er _model_geekEr = new Model_Geek_er();
 
         //Aqui tiro el o los dados
         _tirar_dados.iniciar(numero_de_dados);
 
         //Recojo el resultado de los dados y lo capturo en la clase de regla
-        _model_craps.setPunto(getPunto());
-        _model_craps.setValidacion_tiro(getFlag());
-        _model_craps.setTiro(_tirar_dados.getSumatoria());
-        _model_craps.ronda_tiro();
-        setPunto(_model_craps.getPunto());
+        _model_geekEr.setPunto(getPunto());
+        _model_geekEr.setValidacion_tiro(getFlag());
+        _model_geekEr.setTiro(_tirar_dados.getSumatoria());
+        _model_geekEr.ronda_tiro();
+        setPunto(_model_geekEr.getPunto());
 
         setCara(_tirar_dados.getCaras());
-        setFlag( _model_craps.getValidacion_tiro());
-        setEstado(_model_craps.getEstado());
-        setEstado_string(_model_craps.getEstado_string());
+        setFlag( _model_geekEr.getValidacion_tiro());
+        setEstado(_model_geekEr.getEstado());
+        setEstado_string(_model_geekEr.getEstado_string());
 
-        System.out.println("\nCONTROL estado del juego = "+_model_craps.getEstado()+" || El tiro fue "+_tirar_dados.getSumatoria());
-        System.out.println("CONTROL |Bandera|"+_model_craps.getValidacion_tiro());
+        System.out.println("\nCONTROL estado del juego = "+ _model_geekEr.getEstado()+" || El tiro fue "+_tirar_dados.getSumatoria());
+        System.out.println("CONTROL |Bandera|"+ _model_geekEr.getValidacion_tiro());
     }
 
     public int getNumero_de_dados() {

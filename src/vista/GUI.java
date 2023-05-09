@@ -1,12 +1,15 @@
 package vista;
 
 import control.Controlador;
+import modelo.Juego_Geek;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
 /**
@@ -31,9 +34,11 @@ public class GUI extends JFrame {
     private Escucha escucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control;
-    private int uso_boton_lanzar;
+    private int uso_boton_lanzar, dado_activo;
     private GUI_INI guiIni;
     private FondoPanel fondoPanel;
+    private Vector<Integer> face;
+    private Integer[] caras;
 
 
     /**
@@ -108,6 +113,10 @@ public class GUI extends JFrame {
         this.setContentPane(fondoPanel);
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
+        dado_activo = 0;// '0' = botón no se puede usar
+        face = null;//vector que guarda las cara de los dados
+        caras = null;
+
         dado = new JLabel[10];//Creacion de los dados
         puntos_dado = new JLabel[11];//Creacion de las carillas para los puntos
 
@@ -115,6 +124,7 @@ public class GUI extends JFrame {
         for (int i=0;i<=9;i++){
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/comodin.png"));
             dado[i] = new JLabel(imagen_dado);
+            dado[i].addMouseListener(escucha);
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/p"+i+".png"));
             puntos_dado[i] = new JLabel(imagen_dado);
         }
@@ -272,7 +282,7 @@ public class GUI extends JFrame {
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-    public class Escucha implements ActionListener {
+    public class Escucha implements ActionListener, MouseListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -332,12 +342,17 @@ public class GUI extends JFrame {
                 }
             }
             if (e.getSource() == boton_lanzar){
-                for (int i=0;i<=9;i++){
                     control.inicio(10);
-                    Vector<Integer> face = control.getCara();
-                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(0)+".png"));
+                    face = control.getCara();
+                for (int i=0;i<=9;i++){
+                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(i)+".png"));
                     dado[i].setIcon(imagen_dado);
-                    System.out.println("test");
+//                    caras[i] = face.get(i);
+//                    System.out.println("Numero de la cara es = "+face.get(0));
+                }
+                for (int i=0;i<=9;i++){
+//                    face = control.getCara();
+                    System.out.println("Dado "+(i+1)+" cara= "+face.get(i));
                 }
                 boton_lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
@@ -351,6 +366,93 @@ public class GUI extends JFrame {
             if (e.getSource() == boton_salir1){
                 System.exit(0);
             }
+
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            if(e.getSource()==dado[0]){
+                if (dado_activo == 1){
+                    JOptionPane.showMessageDialog(null,"dado 1 bloqueado");
+                    dado_activo = 0;
+                }
+            }
+            if(e.getSource()==dado[1]){
+                if (dado_activo == 1){
+                    JOptionPane.showMessageDialog(null,"dado 2 bloqueado");
+                    dado_activo = 0;
+                }
+            }
+            if(e.getSource()==dado[2]){
+                if (dado_activo == 1){
+                    JOptionPane.showMessageDialog(null,"dado 3 bloqueado");
+                    dado_activo = 0;
+                }
+            }
+            if(e.getSource()==dado[3]){
+                if (face.get(3) == 1 ){
+                    JOptionPane.showMessageDialog(null,"Corazon ");
+                }
+                else if (face.get(3) == 2 ){
+                    JOptionPane.showMessageDialog(null,"Dragon ");
+                }
+                else if (face.get(3) == 3 ){
+                    JOptionPane.showMessageDialog(null,"Meeple ");
+                }
+                else if (face.get(3) == 4 ){
+                    JOptionPane.showMessageDialog(null,"Ship ");
+                }
+                else if (face.get(3) == 5 ){
+                    JOptionPane.showMessageDialog(null,"Hero");
+                }
+                else if (face.get(3) == 6 ){
+                    JOptionPane.showMessageDialog(null,"Point ");
+                }
+
+            }
+            if(e.getSource()==dado[4]){
+                JOptionPane.showMessageDialog(null,"dado 5 cara "+face.get(4));
+            }
+            if(e.getSource()==dado[5]){
+                JOptionPane.showMessageDialog(null,"dad0 6 cara "+face.get(5));
+            }
+            if(e.getSource()==dado[6]){
+                JOptionPane.showMessageDialog(null,"dado 7 cara "+face.get(6));
+            }
+            if(e.getSource()==dado[7]){
+                JOptionPane.showMessageDialog(null,"dado 8 cara "+face.get(7));
+            }
+            if(e.getSource()==dado[8]){
+                JOptionPane.showMessageDialog(null,"dado 9 cara "+face.get(8));
+            }
+            if(e.getSource()==dado[9]){
+
+                face.get(9);
+                Juego_Geek juegoGeek = new Juego_Geek();
+
+                JOptionPane.showMessageDialog(null,"dado 10 cara "+face.get(9));
+            }
+
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
 
         }
     }
