@@ -252,12 +252,20 @@ definimos algunas variables constantes.
      * @return dados_Activos
      */
 
-    public Vector<Integer> accion_Corazon(int cara_Recibida){ // retorna el entero representativo de la cara opuesta del dado
+    public Vector<Integer> accion_Corazon(int cara_Recibida){ // [ 1 ] -> Lanza un dado de los inactivos
 
-        borra_Activos_Jugados(cara_Recibida); // borra el corazon qqe activó
-        dados_Activos.setSize(dados_Activos.size()+1);
-        dados_Activos.add(cara_Obtenida.get_cara()); // juega el dado que tomo de inactivos
+        if (cara_Recibida==1) {
 
+            borra_Activos_Jugados(cara_Recibida); // borra el corazon qqe activó
+            dados_Activos.setSize(dados_Activos.size() + 1);
+            dados_Activos.add(cara_Obtenida.get_cara()); // juega el dado que tomo de inactivos
+
+
+            return dados_Activos;
+        }
+        else{
+            System.out.println(" para CORAZON Usa el numero 1... TODO QUEDO IGUAL." + dados_Activos.toString());
+        }
 
         return dados_Activos;
 
@@ -271,29 +279,39 @@ definimos algunas variables constantes.
      * @return dados_Activos
      */
 
-    public Vector<Integer> accion_Dragon(int cara_Recibida){ // el jugador pierde el juego
+    public Vector<Integer> accion_Dragon(int cara_Recibida){ // [ 2 ] -> el jugador pierde el juego
 
-        for (int i = 0; i < dados_Activos.size(); i++) {
+        if (cara_Recibida==2) {
 
-            if (dados_Activos.elementAt(i)== cara_Recibida){
+            for (int i = 0; i < dados_Activos.size(); i++) {
 
-                System.out.println(" El juego terminó....Perdiste todo.");
+                if (dados_Activos.elementAt(i) == cara_Recibida) {
+
+                    System.out.println(" El juego terminó....Perdiste todo.");
+                }
+
+
             }
 
 
+            dados_Activos.clear();
+            //dados_Utilizados.clear();
+            // dados_Inactivos.clear();
+
+            System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
+
+
+            return dados_Activos;
         }
+        else {
+            System.out.println(" para DRAGON Usa el numero .2.. TODO QUEDO IGUAL." + dados_Activos.toString());
 
-
-        dados_Activos.clear();
-        //dados_Utilizados.clear();
-       // dados_Inactivos.clear();
-
-        System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
-
+        }
 
         return dados_Activos;
 
     }
+
 
     /**
      * Método para ingresar un valor de tipo int vía consola, retornandolo
@@ -348,39 +366,58 @@ public int solicitaEntero(){ // se solicita un entero via consola
         return dados_Activos;
     }
 
-
-
+    /**
+     * Metodo que ejecuta el accionar del Meeple, retirando un Meeple del
+     * arreglo de dados_Activos y aleatoriamente, modificar una posición del
+     * arreglo de dados_Activos.
+     * Al final entrega un arreglo de dados Activos actualizado en su nuevo size y con
+     * un elemento (field) modificado
+     * @param cara_Recibida
+     * @return dados_Activos
+     */
 
     public Vector<Integer> accion_Mepplet(int cara_Recibida){ // [3] -> meeplet permite relanzar un dado de los activos.
 
-        borra_Activos_Jugados(cara_Recibida); // borra el meeplet qqe activó
-
-        /*
+        if (cara_Recibida==3){
 
 
-        for (int i = 0; i < dados_Activos.size(); i++) {
+            borra_Activos_Jugados(cara_Recibida); // borra el meeplet qqe activó
 
-            if (dados_Activos.elementAt(i)== cara_Recibida){
+            int cara_seleccionada_para_Modificar = 999; // nueva cara para ingresar al arreglo, sera RANDOM.
 
-                dados_Activos.removeElementAt(i);
-                dados_Activos.setSize(dados_Activos.size()+1);
-                dados_Activos.add(cara_Obtenida.get_cara());
+            cara_seleccionada_para_Modificar = cara_Obtenida.get_cara();
 
-                System.out.println(" El juego terminó....Perdiste todos los puntos.");
+            System.out.println(" La cara que modicaré será " + cara_seleccionada_para_Modificar);
 
-                break;
+            int contador_Auxiliar = 0; // para desbloquear ciclo.
+
+            while (dados_Activos.contains(cara_seleccionada_para_Modificar)) {
+
+                jugar_Un_Solo_Dado(cara_seleccionada_para_Modificar);
+
+                contador_Auxiliar += 1;
+
+                if (contador_Auxiliar == 2) {
+
+                    break;
+                }
+
             }
 
 
+            System.out.println(" El nuevo arreglo de dados Activos es:" + dados_Activos.toString());
+
+
+            return dados_Activos;
+
+        }
+        else {
+
+            System.out.println(" no se pudo hacer nada.. debe usar el numero 3" + dados_Activos.toString());
         }
 
-*/
-
-
-        System.out.println(" El nuevo arreglo de dados Activos es:" + dados_Activos.toString());
-
-
         return dados_Activos;
+
 
     }
 
