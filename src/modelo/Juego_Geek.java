@@ -4,6 +4,10 @@ import java.awt.*;
 import java.util.Scanner;
 import java.util.Vector;
 
+/**
+ * Esta clase gestinorá la lógica del juego, las reglas.
+ */
+
 public class Juego_Geek {
 
     private Dado cara_Obtenida; // objeto Dado entrega un entero representativo de la cara del dado.
@@ -40,6 +44,10 @@ definimos algunas variables constantes.
 
     }
 
+    /**
+     * Este método gestina el inicio del juego
+     */
+
     public void inicio(){ // funcion inicializadora
         System.out.println("\nInicio el juego");
 //        tirada_DadosActivos();
@@ -60,6 +68,13 @@ definimos algunas variables constantes.
        // tirada_Activos = new Vector<Integer>(cant_Dados_Actuvos_Iniciales);
 
     }
+
+    /**
+     * Este método genera el arreglo de tipo Integer dados_Activos.
+     * Usa un objeto de tipo Dado para generar los campos con volores enteros aleatorios
+     * en el rango [1  -->  6]
+     * @return dados_Activos
+     */
 
     public Vector<Integer> tirada_DadosActivos(){ // lanzamiento de los dados activos en el inicio de cada ronda.
         cara_Obtenida = new Dado();
@@ -86,6 +101,13 @@ definimos algunas variables constantes.
 
     }
 
+    /**
+     * Este método genera el arreglo de tipo Integer dados_Inactivos.
+     * Usa un objeto de tipo Dado para generar los campos con volores enteros aleatorios
+     * en el rango [1  -->  6]
+     * @return dados_Inactivos
+     */
+
     public Vector<Integer> tirada_DadosInactivos(){// lanzamiento de los dados inactivos en el inicio de cada ronda.
         cara_Obtenida = new Dado();
         dados_Inactivos = new Vector<Integer>(cant_Dados_Inactivos_Iniciales);
@@ -107,6 +129,13 @@ definimos algunas variables constantes.
         return dados_Inactivos;
 
     }
+
+    /**
+     * Este método gestiona el arreglo de dados_Utilizados.
+     * Recibe un entero en el rango [1  -->  6]
+     * @param paraRecibir
+     * @return dados_Activos
+     */
 
     public Vector<Integer> recibe_utilizados(int paraRecibir){// actualiza (recibe) los dados ya utilizados en un arreglo;
 
@@ -138,9 +167,14 @@ definimos algunas variables constantes.
         return dados_Utilizados;
 
     }
-/*
-Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posición inicial.
- */
+
+
+    /**
+     * Este método gestiona el arreglo de dados_Inactivos.
+     * Recibe un entero en el rango [1  -->  6]
+     * @param paraEntregar
+     * @return dados_Inactivos
+     */
     public Vector<Integer> entrega_Inactivos(int paraEntregar){// actualiza (entrega) los dados inactivos en un arreglo;
 
         paraEntregar = dados_Inactivos.remove(0);
@@ -157,10 +191,16 @@ Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posi
     }
 
 
-/*
-Este Metodo actualiza el arreglo de dados activos cada que se realize una activacion de un dado
 
- */
+    /**
+     * Este método gestiona el arreglo de dados_Activos asi;
+     * cada vez que se juegue un dado, lo elimina del arreglo dados_Activos
+     * retornando el nuevo estado del arreglo dados_Activos
+     * Recibe un entero en el rango [1  -->  6]
+     * @param caraDado
+     * @return dados_Activos
+     */
+
     public Vector<Integer> borra_Activos_Jugados(int caraDado) {// caraDado tiene rango [1 -> 6]
 
        // dados_Activos = new Vector<Integer>(cant_Dados_Activos_Iniciales);
@@ -186,28 +226,31 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
 
     }
 
-    /*
 
-    Este metodo recorrre un entero
+    /**
+     * Metodo usado para probar métodos de la clase Vector
+     * y sacar provecho de ellos en el proyecto.
+     * @param buscado
      */
 
-    public void imprimeDatos(int buscado) {
+    public void probadora(int buscado) {
 
-
-        for (int i = 0; i < dados_Activos.size(); i++) {
-
-            if (dados_Activos.elementAt(i)== buscado){
-
-                System.out.println(" Se encontro lo buscado");
-            }
-            else {
-
+        if (dados_Activos.contains(buscado)){
+            System.out.println(" Se encontro lo buscado");
+        }
+        else {
             System.out.println(" NO Se encontro lo buscado");
-            }
-
         }
 
     }
+
+    /**
+     * Método que ejecuta las acciones pertinentes al personaje CORAZON.
+     * Este personaje está representado por el numero 1 [ int = 1 ]
+     * Retorna el nuevo estado del arreglo dados_Activos
+     * @param cara_Recibida
+     * @return dados_Activos
+     */
 
     public Vector<Integer> accion_Corazon(int cara_Recibida){ // retorna el entero representativo de la cara opuesta del dado
 
@@ -219,6 +262,14 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
         return dados_Activos;
 
     }
+
+    /**
+     * Método que ejecuta las acciones pertinentes al personaje DRAGON.
+     * Este personaje está representado por el numero 2 [ int = 2 ]
+     * Retorna el  arreglo dados_Activos CLEAR y un MENSAJE de "el juego se perdio"
+     * @param cara_Recibida
+     * @return dados_Activos
+     */
 
     public Vector<Integer> accion_Dragon(int cara_Recibida){ // el jugador pierde el juego
 
@@ -244,6 +295,11 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
 
     }
 
+    /**
+     * Método para ingresar un valor de tipo int vía consola, retornandolo
+     * @return respuesta
+     */
+
 public int solicitaEntero(){ // se solicita un entero via consola
 
             Scanner scanner = new Scanner(System.in);
@@ -255,27 +311,43 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     }
 
+    /**
+     * este método modifica una sola posición del arreglo de dados_Activos,
+     * retornando el arreglo dados_Activos con esa modificación.
+     * @param dado_seleccionado
+     * @return dados_Activos
+     */
+
     public Vector<Integer> jugar_Un_Solo_Dado(int dado_seleccionado) { // dado_seleccionado --> representa la cara del dado que selecciono para volverla a lanzar
 
-        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_seleccionado]. se inicializa con cualquier valor.
+       int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_seleccionado]. se inicializa con cualquier valor.
+
+       // int auxiliar = 111; // variable auxiliar inicializada.
 
         if (dados_Activos.contains(dado_seleccionado)){ // verifica que exista...que este disponible.
 
-            recoge_La_Posicion = dados_Activos.indexOf(dado_seleccionado);
+          recoge_La_Posicion = dados_Activos.indexOf(dado_seleccionado);
 
-            System.out.println(" la posicion de " + dado_seleccionado + " es " + recoge_La_Posicion);
+           // auxiliar = cara_Obtenida.get_cara(); // cambia a un nuevo valor
+
+           // dados_Activos.setElementAt(dado_seleccionado,auxiliar);//cambia al nuevo valor en la misma poscion
+
+            System.out.println(" dado_seleccionado..si exite y su primera ubicacion es " + recoge_La_Posicion);
+
+
+            //System.out.println(" Me juego el dado  " + dado_seleccionado + " que está en la posicion " + recoge_La_Posicion);
         }
 
         else {
-            System.out.println(" la cara " + dado_seleccionado + " no esta disponible, ese dado NO exite ");
+            System.out.println(" la cara " + dado_seleccionado + " no esta disponible, ese dado NO exite "); // check
 
         }
 
-        System.out.println(" un Entero recoge esto -> Aqui debe ir la funcion PLAY con el parametro [dado_seleccionado] ");
+        //System.out.println(" un Entero recoge esto -> Aqui debe ir la funcion PLAY con el parametro [dado_seleccionado] ");
 
-        System.out.println(" Aqui debe ir la asignacion del valor de PLAY a la posicion [recoge_La_posicion ");
+        //System.out.println(" Aqui debe ir la asignacion del valor de PLAY a la posicion [recoge_La_posicion ");
 
-
+        System.out.println(dados_Activos.toString());
 
         return dados_Activos;
     }
@@ -327,40 +399,46 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
 
-    public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
+    public int pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
 
-        int entrega=999; // se inicializa
+        int entrega=999; // retornará el entero que reprenta la cara obtenida al jugar.
 
         String auxiliar =""; // para pruebas.
 
         switch (jugado) {
             case 0:
-                entrega=6;
-                auxiliar = "Corazon";
+                entrega=1100;
+                auxiliar = "EL Corazon está en acción";
                 break;
             case 1:
-                auxiliar = "Dragon";
+                entrega=2200;
+                auxiliar = "EL Dragon está en acción";
                 break;
             case 2:
-                auxiliar = "Mepplet";
+                auxiliar = "EL Meeple está en acción";
                 break;
             case 3:
-                auxiliar = "Cohete";
+                entrega=3300;
+                auxiliar = "EL Cohete está en acción";
                 break;
             case 4:
-                auxiliar = "Super-heroe";
+                entrega=4400;
+                auxiliar = "EL SuperHeroe está en acción";
                 break;
             case 5:
-                auxiliar = "42";
+                entrega=5500;
+                auxiliar = " a sumar puntos con el 42";
                 break;
             default:
-                auxiliar = " hay problemas..";
+                entrega=6600;
+                auxiliar = " hay problemas..para RESOLVER en el método puraAccion.";
         }
 
-
+        return entrega;
 
 
     }
+
 
 
 
