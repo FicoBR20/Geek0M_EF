@@ -532,9 +532,13 @@ public int solicitaEntero(){ // se solicita un entero via consola
             while (dados_Activos.contains(cara_para_Girar)) {
 
                 ubicacionCaraParaGirar = dados_Activos.indexOf(cara_para_Girar);
-                dados_Activos.remove(ubicacionCaraParaGirar);
 
-                dados_Activos.insertElementAt(cara_Opuesta, dados_Activos.indexOf(cara_para_Girar));
+                dados_Activos.set(ubicacionCaraParaGirar, cara_Opuesta);
+//
+//                dados_Activos.remove(ubicacionCaraParaGirar);
+//                dados_Activos.setSize(dados_Activos.size()+1);
+//
+//                dados_Activos.insertElementAt(cara_Opuesta, dados_Activos.indexOf(cara_para_Girar));
 
 
 
