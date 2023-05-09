@@ -380,7 +380,6 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
         if (cara_Recibida==3){
 
-
             borra_Activos_Jugados(cara_Recibida); // borra el meeplet qqe activó
 
             int cara_seleccionada_para_Modificar = 999; // nueva cara para ingresar al arreglo, sera RANDOM.
@@ -420,6 +419,57 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
     }
+
+
+    public Vector<Integer> accion_Cohete(int cara_Recibida){ // [4] -> cohete permite eliminar un dado de los activos.
+
+        if (cara_Recibida==4){
+
+            borra_Activos_Jugados(cara_Recibida); // borra el meeplet qqe activó
+
+            int cara_seleccionada_para_Eliminar = 999; // nueva cara para eliminar del arreglo, sera RANDOM.
+
+            cara_seleccionada_para_Eliminar = cara_Obtenida.get_cara();
+
+            System.out.println(" La cara que eliminaré será " + cara_seleccionada_para_Eliminar);
+
+            int contador_Auxiliar = 0; // para desbloquear ciclo.
+
+            while (dados_Activos.contains(cara_seleccionada_para_Eliminar)) {
+
+                //jugar_Un_Solo_Dado(cara_seleccionada_para_Eliminar);
+
+                dados_Activos.remove(cara_seleccionada_para_Eliminar);
+
+
+
+                contador_Auxiliar += 1;
+
+                if (contador_Auxiliar == 1) {
+
+                    break;
+                }
+
+            }
+
+
+            System.out.println(" Después del COHETE -->: " + dados_Activos.toString());
+
+
+            return dados_Activos;
+
+        }
+        else {
+
+            System.out.println(" Para usar el COHETE debes ingresar el número 4 " + dados_Activos.toString());
+        }
+
+        return dados_Activos;
+
+
+    }
+
+
 
 
 
