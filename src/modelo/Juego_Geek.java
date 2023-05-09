@@ -295,8 +295,7 @@ definimos algunas variables constantes.
 
 
             dados_Activos.clear();
-            //dados_Utilizados.clear();
-            // dados_Inactivos.clear();
+
 
             System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
 
@@ -331,7 +330,7 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     /**
      * este método modifica una sola posición del arreglo de dados_Activos,
-     * retornando el arreglo dados_Activos con esa modificación.
+     * retornando el arreglo dados_Activos (CON EL MISMO SIZE) y ya con esa modificación.
      * @param dado_seleccionado
      * @return dados_Activos
      */
@@ -412,13 +411,20 @@ public int solicitaEntero(){ // se solicita un entero via consola
         }
         else {
 
-            System.out.println(" no se pudo hacer nada.. debe usar el numero 3" + dados_Activos.toString());
+            System.out.println(" para usar el Meeple debe ingresar el numero 3" + dados_Activos.toString());
         }
 
         return dados_Activos;
 
 
     }
+
+    /**
+     * Este método rige la acción del COHETE eliminando un dado de los activos
+     * Entrega el arreglo dados_Activos actualizado.
+     * @param cara_Recibida
+     * @return dados_Activos
+     */
 
 
     public Vector<Integer> accion_Cohete(int cara_Recibida){ // [4] -> cohete permite eliminar un dado de los activos.
@@ -462,6 +468,96 @@ public int solicitaEntero(){ // se solicita un entero via consola
         else {
 
             System.out.println(" Para usar el COHETE debes ingresar el número 4 " + dados_Activos.toString());
+        }
+
+        return dados_Activos;
+
+
+    }
+
+
+    public Vector<Integer> accion_SuperHeroe(int cara_Recibida){ // [5] -> SuperHeroe permite voltear un dado de los activos.
+
+        if (cara_Recibida==5){
+
+            borra_Activos_Jugados(cara_Recibida); // borra el SuperHeroe qqe activó
+
+            int cara_para_Girar = 999; //  cara a ser girada, existe en el arreglo, sera RANDOM .. inicialización
+
+            int cara_Opuesta = 999; // cara opuesta a la cara para girar.. inicialización
+
+            String auxiliar="";
+
+            cara_para_Girar = cara_Obtenida.get_cara();
+
+            System.out.println(" La cara que se girará será " + cara_para_Girar);
+
+            switch (cara_para_Girar) {
+                case 1:
+                    cara_Opuesta = 6;
+                    auxiliar = "antes Corazon..ahora 42";
+                    break;
+                case 2:
+                    cara_Opuesta = 5;
+                    auxiliar = "antes Dragon ..ahora SuperHeroe";
+                    break;
+                case 3:
+                    cara_Opuesta = 4;
+                    auxiliar = "antes Meeple...ahora Cohete";
+                    break;
+                case 4:
+                    cara_Opuesta = 3;
+                    auxiliar = "antes Cohete..ahora Meeple";
+                    break;
+                case 5:
+                    cara_Opuesta = 3;
+                    auxiliar = "antes SuperHeroe...ahora Dragón";
+                    break;
+                case 6:
+                    cara_Opuesta = 1;
+                    auxiliar = " antes 42...ahora Corazón";
+                    break;
+                default:
+                    cara_Opuesta = 6600;
+                    auxiliar = " hay problemas..en acción_Superheroe.";
+
+            }
+
+            //cara_Opuesta ya está definida, cara_para_Girar..tambien.
+
+            int contador_Auxiliar = 0; // para desbloquear ciclo.
+
+            int ubicacionCaraParaGirar=999; // auxiliar ...inicialización.
+
+            while (dados_Activos.contains(cara_para_Girar)) {
+
+                ubicacionCaraParaGirar = dados_Activos.indexOf(cara_para_Girar);
+                dados_Activos.remove(ubicacionCaraParaGirar);
+
+                dados_Activos.insertElementAt(cara_Opuesta, dados_Activos.indexOf(cara_para_Girar));
+
+
+
+
+                contador_Auxiliar += 1;
+
+                if (contador_Auxiliar == 1) {
+
+                    break;
+                }
+
+            }
+
+
+            System.out.println(" Después del SUPERHEROE -->: " + dados_Activos.toString());
+
+
+            return dados_Activos;
+
+        }
+        else {
+
+            System.out.println(" Para usar el SUPERHEROR debes ingresar el número 5 " + dados_Activos.toString());
         }
 
         return dados_Activos;

@@ -53,7 +53,7 @@
       <recent name="modelo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProbadorEnConsola (2)">
+  <component name="RunManager" selected="Application.ProbadorEnConsola (3)">
     <configuration name="Juego_Geek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.Juego_Geek" />
       <module name="Geek0M_EF" />
@@ -93,7 +93,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProbadorEnConsola (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ProbadorEnConsola (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
@@ -121,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProbadorEnConsola (3)" />
         <item itemvalue="Application.ProbadorEnConsola (2)" />
         <item itemvalue="Application.Juego_Geek" />
         <item itemvalue="Application.ProbadorEnConsola (1)" />
         <item itemvalue="Application.ProbadorEnConsola" />
-        <item itemvalue="Application.ProbadorEnConsola (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +142,7 @@
       <workItem from="1683543899055" duration="11477000" />
       <workItem from="1683579995801" duration="30196000" />
       <workItem from="1683638490519" duration="11448000" />
-      <workItem from="1683657185573" duration="7651000" />
+      <workItem from="1683657185573" duration="11769000" />
     </task>
     <servers />
   </component>
