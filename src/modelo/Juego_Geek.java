@@ -322,20 +322,19 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_seleccionado]. se inicializa con cualquier valor.
 
-       // int auxiliar = 111; // variable auxiliar inicializada.
+       int auxiliar = 111; // variable auxiliar inicializada.
 
         if (dados_Activos.contains(dado_seleccionado)){ // verifica que exista...que este disponible.
 
           recoge_La_Posicion = dados_Activos.indexOf(dado_seleccionado);
 
-           // auxiliar = cara_Obtenida.get_cara(); // cambia a un nuevo valor
+           auxiliar = cara_Obtenida.get_cara(); // cambia a un nuevo valor
 
-           // dados_Activos.setElementAt(dado_seleccionado,auxiliar);//cambia al nuevo valor en la misma poscion
+           dados_Activos.setElementAt(auxiliar,recoge_La_Posicion);//cambia al nuevo valor en la misma poscion
 
             System.out.println(" dado_seleccionado..si exite y su primera ubicacion es " + recoge_La_Posicion);
 
 
-            //System.out.println(" Me juego el dado  " + dado_seleccionado + " que está en la posicion " + recoge_La_Posicion);
         }
 
         else {
@@ -343,9 +342,6 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
         }
 
-        //System.out.println(" un Entero recoge esto -> Aqui debe ir la funcion PLAY con el parametro [dado_seleccionado] ");
-
-        //System.out.println(" Aqui debe ir la asignacion del valor de PLAY a la posicion [recoge_La_posicion ");
 
         System.out.println(dados_Activos.toString());
 
