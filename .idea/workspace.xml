@@ -8,7 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$Escucha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +53,7 @@
       <recent name="modelo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProbadorEnConsola (2)">
-    <configuration name="Juego_Geek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="modelo.Juego_Geek" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="modelo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.ProbadorEnConsola (3)">
     <configuration name="ProbadorEnConsola (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
       <module name="Geek0M_EF" />
@@ -79,6 +68,19 @@
       </method>
     </configuration>
     <configuration name="ProbadorEnConsola (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProbadorEnConsola (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
@@ -119,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProbadorEnConsola (3)" />
         <item itemvalue="Application.ProbadorEnConsola (2)" />
         <item itemvalue="Application.ProbadorEnConsola (1)" />
         <item itemvalue="Application.ProbadorEnConsola" />
         <item itemvalue="Application.Probadora_Mddo_Consola" />
-        <item itemvalue="Application.Juego_Geek" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +140,7 @@
       <workItem from="1683479854010" duration="43091000" />
       <workItem from="1683542536324" duration="1213000" />
       <workItem from="1683543899055" duration="11477000" />
-      <workItem from="1683579995801" duration="17473000" />
+      <workItem from="1683579995801" duration="23127000" />
     </task>
     <servers />
   </component>

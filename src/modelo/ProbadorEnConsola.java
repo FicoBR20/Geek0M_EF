@@ -89,7 +89,7 @@ public class ProbadorEnConsola extends JFrame {
 
                // System.out.println(" la suma es " + (8 + probar));
 
-                juegoGeek.borra_Activos_Jugados(probar);
+                juegoGeek.accion_Dragon(probar);
 
 
 

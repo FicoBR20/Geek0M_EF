@@ -155,46 +155,11 @@ Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posi
 
     }
 
-    public Vector<Integer> accion_Corazon(int cara_Recibida){ // retorna el entero representativo de la cara opuesta del dado
 
-        cara_Obtenida = new Dado();
-        dados_Inactivos = new Vector<Integer>(cant_Dados_Inactivos_Iniciales);
-        dados_Activos = new Vector<Integer>(cant_Dados_Activos_Iniciales);
-        dados_Utilizados = new Vector<Integer>(10);
+/*
+Este Metodo actualiza el arreglo de dados activos cada que se realize una activacion de un dado
 
-        entrega_Inactivos(cara_Recibida); // resta 1 dado de los inactivos.
-        recibe_utilizados(cara_Recibida); // adiciona 1 dado a los dados utilizados
-
-
-
-
-        /*
-        falta una funcion que busque el corazon (que se está jugando) y lo reemplaze por un nuevo lanzamiento.
-        Esta funcion del corazon, debe devolver UN NUEVO ELEMENTO en el arreglo de dados activos, osea un nuevo
-        vector de dados Activos.
-         */
-
-
-
-        return dados_Activos;
-
-    }
-    
-    
-    public void imprimeDatos() {
-
-
-        for (int i = 0; i < dados_Activos.size(); i++) {
-
-            if (dados_Activos.elementAt(i)== 1){
-
-                System.out.println(" es un corazon");
-            }
-
-        }
-
-    }
-
+ */
     public Vector<Integer> borra_Activos_Jugados(int caraDado) {// caraDado tiene rango [1 -> 6]
 
        // dados_Activos = new Vector<Integer>(cant_Dados_Activos_Iniciales);
@@ -206,19 +171,113 @@ Metodo que reduce en 1 el arreglo de dados_Inactivos, removiendo siempre la posi
 
                 dados_Activos.removeElementAt(i);
 
-                System.out.println(" prueba con corazon " + dados_Activos.size());
+                System.out.println(" Nuevo size de dados Activos " + dados_Activos.size());
 
                 break;
             }
 
         }
 
-        System.out.println(" Vector sin un corazon " + dados_Activos.toString());
+        System.out.println(" Vector sin el elemento jugado " + dados_Activos.toString());
 
 
         return dados_Activos;
 
     }
+
+    /*
+
+    Este metodo recorrre un entero
+     */
+
+    public void imprimeDatos(int buscado) {
+
+
+        for (int i = 0; i < dados_Activos.size(); i++) {
+
+            if (dados_Activos.elementAt(i)== buscado){
+
+                System.out.println(" Se encontro lo buscado");
+            }
+            else {
+
+            System.out.println(" NO Se encontro lo buscado");
+            }
+
+        }
+
+    }
+
+    public Vector<Integer> accion_Corazon(int cara_Recibida){ // retorna el entero representativo de la cara opuesta del dado
+
+        borra_Activos_Jugados(cara_Recibida); // borra el corazon qqe activó
+        dados_Activos.setSize(dados_Activos.size()+1);
+        dados_Activos.add(cara_Obtenida.get_cara()); // juega el dado que tomo de inactivos
+
+
+        return dados_Activos;
+
+    }
+
+    public Vector<Integer> accion_Dragon(int cara_Recibida){ // el jugador pierde el juego
+
+        for (int i = 0; i < dados_Activos.size(); i++) {
+
+            if (dados_Activos.elementAt(i)== cara_Recibida){
+
+                System.out.println(" El juego terminó....Perdiste todo.");
+            }
+
+
+        }
+
+
+        dados_Activos.clear();
+        //dados_Utilizados.clear();
+       // dados_Inactivos.clear();
+
+        System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
+
+
+        return dados_Activos;
+
+    }
+
+    public Vector<Integer> accion_Mepplet(int cara_Recibida){ // el jugador pierde el juego
+
+        for (int i = 0; i < dados_Activos.size(); i++) {
+
+            if (dados_Activos.elementAt(i)== cara_Recibida){
+
+                dados_Activos.removeElementAt(i);
+                dados_Activos.setSize(dados_Activos.size()+1);
+                dados_Activos.add(cara_Obtenida.get_cara());
+
+                System.out.println(" El juego terminó....Perdiste todo.");
+
+                break;
+            }
+
+
+        }
+
+
+        dados_Activos.clear();
+        //dados_Utilizados.clear();
+        // dados_Inactivos.clear();
+
+        System.out.println(" El juego terminó....Perdiste todo." + dados_Activos.toString());
+
+
+        return dados_Activos;
+
+    }
+
+
+
+
+
+
 
 
 
