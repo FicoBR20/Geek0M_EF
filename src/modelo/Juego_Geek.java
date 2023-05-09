@@ -255,6 +255,31 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     }
 
+    public Vector<Integer> jugar_Un_Solo_Dado(int dado_seleccionado) { // dado_seleccionado --> representa la cara del dado que selecciono para volverla a lanzar
+
+        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_seleccionado]. se inicializa con cualquier valor.
+
+        if (dados_Activos.contains(dado_seleccionado)){ // verifica que exista...que este disponible.
+
+            recoge_La_Posicion = dados_Activos.indexOf(dado_seleccionado);
+
+            System.out.println(" la posicion de " + dado_seleccionado + " es " + recoge_La_Posicion);
+        }
+
+        else {
+            System.out.println(" la cara " + dado_seleccionado + " no esta disponible, ese dado NO exite ");
+
+        }
+
+        System.out.println(" un Entero recoge esto -> Aqui debe ir la funcion PLAY con el parametro [dado_seleccionado] ");
+
+        System.out.println(" Aqui debe ir la asignacion del valor de PLAY a la posicion [recoge_La_posicion ");
+
+
+
+        return dados_Activos;
+    }
+
 
 
 
@@ -273,7 +298,7 @@ public int solicitaEntero(){ // se solicita un entero via consola
                 dados_Activos.setSize(dados_Activos.size()+1);
                 dados_Activos.add(cara_Obtenida.get_cara());
 
-                System.out.println(" El juego terminó....Perdiste todo.");
+                System.out.println(" El juego terminó....Perdiste todos los puntos.");
 
                 break;
             }
