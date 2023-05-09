@@ -124,7 +124,8 @@ public class GUI extends JFrame {
         for (int i=0;i<=9;i++){
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/comodin.png"));
             dado[i] = new JLabel(imagen_dado);
-            dado[i].addMouseListener(escucha);
+
+
             imagen_dado =new ImageIcon(getClass().getResource("/recursos/p"+i+".png"));
             puntos_dado[i] = new JLabel(imagen_dado);
         }
@@ -347,6 +348,7 @@ public class GUI extends JFrame {
                 for (int i=0;i<=9;i++){
                     imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(i)+".png"));
                     dado[i].setIcon(imagen_dado);
+                    dado[i].addMouseListener(escucha);
 //                    caras[i] = face.get(i);
 //                    System.out.println("Numero de la cara es = "+face.get(0));
                 }
@@ -437,8 +439,11 @@ public class GUI extends JFrame {
             }
             if(e.getSource()==dado[9]){
 
-                face.get(9);
                 Juego_Geek juegoGeek = new Juego_Geek();
+                juegoGeek.accion_Corazon(face.get(9));
+//                juegoGeek.accion_Dragon(face.get(9));
+//                juegoGeek.accion_Mepplet(face.get(9));
+
 
                 JOptionPane.showMessageDialog(null,"dado 10 cara "+face.get(9));
             }

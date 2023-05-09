@@ -294,6 +294,7 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
             case 0:
                 entrega=6;
                 auxiliar = "Corazon";
+                accion_Corazon(jugado);
                 break;
             case 1:
                 auxiliar = "Dragon";
