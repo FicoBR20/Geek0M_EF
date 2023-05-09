@@ -59,15 +59,21 @@ public class Controlador {
     public void recoge_dado(int numero_del_dado,int cara_dado){
         if (cara_dado == 1 ){
             for (int i = 0; i<=9; i++){
-                if (habilitar_dado_inactivo[i] == 0 && habilitar_dado_usado[i] == 0) {
+                    System.out.println("Dado "+(i+1)+"         inactivo = "+habilitar_dado_inactivo[i]+" ||        activo = "+habilitar_dado_usado[i]);
+                if (habilitar_dado_inactivo[i] == 0 && habilitar_dado_usado[i] == 1) {
                     habilitar_dado_inactivo[i] = 1;
-                    habilitar_dado_usado[i] = 1;
+//                    habilitar_dado_usado[i] = 0;
+                    System.out.println("Dado "+(i+1)+" cambia  inactivo = "+habilitar_dado_inactivo[i]+" || cambia activo = "+habilitar_dado_usado[i]);
                 }
             }
-//            else if (habilitar_dado_inactivo[1] == 0) {
+            System.out.println("________________");
+//            if (habilitar_dado_inactivo[0] == 0) {
+//                habilitar_dado_inactivo[0] = 1;
+//            }
+//            if (habilitar_dado_inactivo[1] == 0) {
 //                habilitar_dado_inactivo[1] = 1;
 //            }
-//            else if (habilitar_dado_inactivo[2] == 0) {
+//            if (habilitar_dado_inactivo[2] == 0) {
 //                habilitar_dado_inactivo[2] = 1;
 //            }
 //            else if (habilitar_dado_inactivo[3] == 0) {
@@ -91,23 +97,23 @@ public class Controlador {
 //            else if (habilitar_dado_inactivo[9] == 0) {
 //                habilitar_dado_inactivo[9] = 1;
 //            }
-            JOptionPane.showMessageDialog(null,"Corazon (activa dados inactivo)\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Corazon (activa dados inactivo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 2 ){
-            JOptionPane.showMessageDialog(null,"Dragon (borra los puntos si es el ultimo dado dela ronda )\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Dragon (borra los puntos si es el ultimo dado dela ronda )\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 3 ){
-            JOptionPane.showMessageDialog(null,"Meeple (permite relanzar otro dado en juego)\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Meeple (permite relanzar otro dado en juego)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 4 ){
-            JOptionPane.showMessageDialog(null,"Ship (manda un dada a los inactivos)\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Ship (manda un dada a los inactivos)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 5 ){
-            JOptionPane.showMessageDialog(null,"Hero (gira un dado activo)\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Hero (gira un dado activo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 6 ){
 
-            JOptionPane.showMessageDialog(null,"Point (permite sumar puntos al final de la ronda)\n "+"dado #"+numero_del_dado+" cara = "+ cara_dado);
+            JOptionPane.showMessageDialog(null,"Point (permite sumar puntos al final de la ronda)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
     }
 

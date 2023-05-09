@@ -408,16 +408,28 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            for (int i=3;i<=9;i++){
-                if(e.getSource()==dado[i]){
-                    if (control.dado_activo(i) == 1){
-    //                    control.estado_inicio(2);
+            for (int i=0;i<=9;i++){
+                System.out.println("Dado "+(i+1)+" activo "+control.dado_activo(i)+" usado "+control.dado_usado(i));
+                if(e.getSource()== GUI.this.dado[i]){
+                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 1){
+                        System.out.println("agarre el dado = "+(i+1));
                         control.recoge_dado(i,cara_dado.get(i));
                         control.deshabilitar_dado_inactivo(i);
+                        control.deshabilitar_dado_usado(i);
                         control.setEstado(1);
                         cambiar_posicion_dado(i);
                     }
                 }
+//                else if(e.getSource()== GUI.this.dado[i]){
+//                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 1){
+//                        System.out.println("agarre el dado = "+(i+1));
+//                        control.recoge_dado(i,cara_dado.get(i));
+//                        control.deshabilitar_dado_inactivo(i);
+//                        control.deshabilitar_dado_usado(i);
+//                        control.setEstado(4);
+//                        cambiar_posicion_dado(i);
+//                    }
+//                }
             }
         }
 
