@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
     </list>
@@ -34,14 +33,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Design/Desktop/pro/Geek0M_EF/src/recursos",
-    "settings.editor.selected.configurable": "configurable.group.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Design/Desktop/pro/Geek0M_EF/src/recursos&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="vista" />

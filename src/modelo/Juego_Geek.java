@@ -273,17 +273,6 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
 
         int entrega=999; // se inicializa
@@ -315,23 +304,7 @@ Este Metodo actualiza el arreglo de dados activos cada que se realize una activa
                 auxiliar = " hay problemas..";
         }
 
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {

@@ -1,7 +1,6 @@
 package vista;
 
 import control.Controlador;
-import modelo.Juego_Geek;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -37,7 +36,7 @@ public class GUI extends JFrame {
     private int uso_boton_lanzar, dado_activo;
     private GUI_INI guiIni;
     private FondoPanel fondoPanel;
-    private Vector<Integer> face;
+    private Vector<Integer> cara_dado;
     private Integer[] caras;
 
 
@@ -114,7 +113,7 @@ public class GUI extends JFrame {
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         dado_activo = 0;// '0' = botón no se puede usar
-        face = null;//vector que guarda las cara de los dados
+        cara_dado = null;//vector que guarda las cara de los dados
         caras = null;
 
         dado = new JLabel[10];//Creacion de los dados
@@ -210,9 +209,9 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
 
-        for (int i=0;i<=3-1;i++){
-            panelIncativos.add(dado[i]);
-        }
+//        for (int i=0;i<=3-1;i++){
+//            panelIncativos.add(dado[i]);
+//        }
 
         this.add(panelIncativos,constraints); //Change this line if you change JFrame Container's Layout
 
@@ -249,7 +248,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
 
-        for (int i=4-1;i<=10-1;i++){
+        for (int i=1-1;i<=10-1;i++){
             panelActivos.add(dado[i],BorderLayout.SOUTH);
         }
 
@@ -266,6 +265,24 @@ public class GUI extends JFrame {
         boton_lanzar.addActionListener(escucha);
         this.add(boton_lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
+    }
+    public void cambiar_posicion_dado(int _dado){
+        switch (control.getEstado()){
+            case 1:
+                panelUsados.add(dado[_dado],BorderLayout.SOUTH);
+                break;
+            case 2:
+                panelIncativos.add(dado[_dado],BorderLayout.SOUTH);
+//                control.recoge_dado(_dado);
+                control.deshabilitar_dado_inactivo(_dado);
+                break;
+            case 3:
+                panelPuntos.add(dado[_dado],BorderLayout.SOUTH);
+                break;
+            case 4:
+                panelActivos.add(dado[_dado],BorderLayout.SOUTH);
+                break;
+        }
     }
 
 
@@ -344,19 +361,27 @@ public class GUI extends JFrame {
             }
             if (e.getSource() == boton_lanzar){
                     control.inicio(10);
-                    face = control.getCara();
-                for (int i=0;i<=9;i++){
-                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(i)+".png"));
+                    cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
+                for (int i=0;i<=2;i++){
+                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+ cara_dado.get(i)+".png"));
                     dado[i].setIcon(imagen_dado);
                     dado[i].addMouseListener(escucha);
-//                    caras[i] = face.get(i);
-//                    System.out.println("Numero de la cara es = "+face.get(0));
+                    panelIncativos.add(dado[i]);
+                    control.deshabilitar_dado_inactivo(i);
+                    control.habilitar_dado_usado(i);
+                }
+                for (int i=3;i<=9;i++){
+                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+ cara_dado.get(i)+".png"));
+                    dado[i].setIcon(imagen_dado);
+                    dado[i].addMouseListener(escucha);
+                    panelActivos.add(dado[i]);
+                    control.habilitar_dado_inactivo(i);
+                    control.habilitar_dado_usado(i);
                 }
                 for (int i=0;i<=9;i++){
-//                    face = control.getCara();
-                    System.out.println("Dado "+(i+1)+" cara= "+face.get(i));
+                    System.out.println("Dado "+(i+1)+" cara= "+ cara_dado.get(i));
                 }
-                boton_lanzar.setEnabled(false); //Deshabilita el boton lanzar
+//                boton_lanzar.setEnabled(false); //Deshabilita el boton lanzar
                 uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
 
             }
@@ -383,72 +408,17 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            if(e.getSource()==dado[0]){
-                if (dado_activo == 1){
-                    JOptionPane.showMessageDialog(null,"dado 1 bloqueado");
-                    dado_activo = 0;
+            for (int i=3;i<=9;i++){
+                if(e.getSource()==dado[i]){
+                    if (control.dado_activo(i) == 1){
+    //                    control.estado_inicio(2);
+                        control.recoge_dado(i,cara_dado.get(i));
+                        control.deshabilitar_dado_inactivo(i);
+                        control.setEstado(1);
+                        cambiar_posicion_dado(i);
+                    }
                 }
             }
-            if(e.getSource()==dado[1]){
-                if (dado_activo == 1){
-                    JOptionPane.showMessageDialog(null,"dado 2 bloqueado");
-                    dado_activo = 0;
-                }
-            }
-            if(e.getSource()==dado[2]){
-                if (dado_activo == 1){
-                    JOptionPane.showMessageDialog(null,"dado 3 bloqueado");
-                    dado_activo = 0;
-                }
-            }
-            if(e.getSource()==dado[3]){
-                if (face.get(3) == 1 ){
-                    JOptionPane.showMessageDialog(null,"Corazon ");
-                }
-                else if (face.get(3) == 2 ){
-                    JOptionPane.showMessageDialog(null,"Dragon ");
-                }
-                else if (face.get(3) == 3 ){
-                    JOptionPane.showMessageDialog(null,"Meeple ");
-                }
-                else if (face.get(3) == 4 ){
-                    JOptionPane.showMessageDialog(null,"Ship ");
-                }
-                else if (face.get(3) == 5 ){
-                    JOptionPane.showMessageDialog(null,"Hero");
-                }
-                else if (face.get(3) == 6 ){
-                    JOptionPane.showMessageDialog(null,"Point ");
-                }
-
-            }
-            if(e.getSource()==dado[4]){
-                JOptionPane.showMessageDialog(null,"dado 5 cara "+face.get(4));
-            }
-            if(e.getSource()==dado[5]){
-                JOptionPane.showMessageDialog(null,"dad0 6 cara "+face.get(5));
-            }
-            if(e.getSource()==dado[6]){
-                JOptionPane.showMessageDialog(null,"dado 7 cara "+face.get(6));
-            }
-            if(e.getSource()==dado[7]){
-                JOptionPane.showMessageDialog(null,"dado 8 cara "+face.get(7));
-            }
-            if(e.getSource()==dado[8]){
-                JOptionPane.showMessageDialog(null,"dado 9 cara "+face.get(8));
-            }
-            if(e.getSource()==dado[9]){
-
-                Juego_Geek juegoGeek = new Juego_Geek();
-                juegoGeek.accion_Corazon(face.get(9));
-//                juegoGeek.accion_Dragon(face.get(9));
-//                juegoGeek.accion_Mepplet(face.get(9));
-
-
-                JOptionPane.showMessageDialog(null,"dado 10 cara "+face.get(9));
-            }
-
-
         }
 
         @Override
