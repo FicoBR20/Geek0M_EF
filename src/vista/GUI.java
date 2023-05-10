@@ -29,7 +29,6 @@ public class GUI extends JFrame {
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
     private JButton boton_lanzar, boton_menu = null, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
-    private Boton_Skim botonSkim_salir1;
     private Escucha escucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control;
@@ -266,21 +265,27 @@ public class GUI extends JFrame {
         this.add(boton_lanzar,constraints); //Change this line if you change JFrame Container's Layout
 
     }
-    public void cambiar_posicion_dado(int _dado){
-        switch (control.getEstado()){
+    public void cambiar_posicion_dado(int _posicion, int estado ){
+        switch (control.getEstado(_posicion)){
             case 1:
-                panelUsados.add(dado[_dado],BorderLayout.SOUTH);
+                control.deshabilitar_dado_inactivo(_posicion);
+                control.deshabilitar_dado_usado(_posicion);
+                panelUsados.add(dado[_posicion],BorderLayout.SOUTH);
                 break;
             case 2:
-                panelIncativos.add(dado[_dado],BorderLayout.SOUTH);
-//                control.recoge_dado(_dado);
-                control.deshabilitar_dado_inactivo(_dado);
+                control.deshabilitar_dado_inactivo(_posicion);
+                control.habilitar_dado_usado(_posicion);
+                panelIncativos.add(dado[_posicion],BorderLayout.SOUTH);
                 break;
             case 3:
-                panelPuntos.add(dado[_dado],BorderLayout.SOUTH);
+                control.deshabilitar_dado_inactivo(_posicion);
+                control.deshabilitar_dado_usado(_posicion);
+                panelPuntos.add(dado[_posicion],BorderLayout.SOUTH);
                 break;
             case 4:
-                panelActivos.add(dado[_dado],BorderLayout.SOUTH);
+                control.habilitar_dado_inactivo(_posicion);
+                control.habilitar_dado_usado(_posicion);
+                panelActivos.add(dado[_posicion],BorderLayout.SOUTH);
                 break;
         }
     }
@@ -369,6 +374,7 @@ public class GUI extends JFrame {
                     panelIncativos.add(dado[i]);
                     control.deshabilitar_dado_inactivo(i);
                     control.habilitar_dado_usado(i);
+                    control.setEstado(i,2);
                 }
                 for (int i=3;i<=9;i++){
                     imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+ cara_dado.get(i)+".png"));
@@ -377,6 +383,7 @@ public class GUI extends JFrame {
                     panelActivos.add(dado[i]);
                     control.habilitar_dado_inactivo(i);
                     control.habilitar_dado_usado(i);
+                    control.setEstado(i,4);
                 }
                 for (int i=0;i<=9;i++){
                     System.out.println("Dado "+(i+1)+" cara= "+ cara_dado.get(i));
@@ -408,29 +415,68 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            for (int i=0;i<=9;i++){
-                System.out.println("Dado "+(i+1)+" activo "+control.dado_activo(i)+" usado "+control.dado_usado(i));
-                if(e.getSource()== GUI.this.dado[i]){
-                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 1){
-                        System.out.println("agarre el dado = "+(i+1));
-                        control.recoge_dado(i,cara_dado.get(i));
-                        control.deshabilitar_dado_inactivo(i);
-                        control.deshabilitar_dado_usado(i);
-                        control.setEstado(1);
-                        cambiar_posicion_dado(i);
-                    }
-                }
-//                else if(e.getSource()== GUI.this.dado[i]){
-//                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 1){
-//                        System.out.println("agarre el dado = "+(i+1));
-//                        control.recoge_dado(i,cara_dado.get(i));
+            for (int posicion=0;posicion<=9;posicion++){
+                System.out.println("Dado "+(posicion+1)+" activo "+control.dado_activo(posicion)+" usado "+control.dado_usado(posicion));
+                if(e.getSource()== GUI.this.dado[posicion]){
+                    if (control.dado_activo(posicion) == 1 && control.dado_usado(posicion) == 1){
+                        System.out.println("agarre el dado = "+(posicion+1));
+                        control.recoge_dado(posicion,cara_dado.get(posicion));
 //                        control.deshabilitar_dado_inactivo(i);
 //                        control.deshabilitar_dado_usado(i);
-//                        control.setEstado(4);
-//                        cambiar_posicion_dado(i);
-//                    }
-//                }
+
+                        switch (control.getEstado(posicion)){
+                            case  1:
+                                control.setEstado(posicion,1);
+                                cambiar_posicion_dado(posicion,1);
+                                break;
+                            case  2:
+                                control.setEstado(posicion,4);
+//                                control.habilitar_dado_inactivo(i);
+//                                control.habilitar_dado_usado(i);
+                                cambiar_posicion_dado(posicion,4);
+                                break;
+                            case  3:
+                                control.setEstado(posicion,3);
+                                cambiar_posicion_dado(posicion,3);
+                                break;
+                            case  4:
+                                control.setEstado(posicion,1);
+                                cambiar_posicion_dado(posicion,1);
+                                break;
+                        }
+                    }
+                }
+                 if(e.getSource()== GUI.this.dado[posicion]){
+                    System.out.println("inside ");
+                    if (control.dado_activo(posicion) == 1 && control.dado_usado(posicion) == 0){
+                        System.out.println("agarre el dado = "+(posicion+1));
+                        control.recoge_dado(posicion,cara_dado.get(posicion));
+//                        control.deshabilitar_dado_inactivo(posicion);
+//                        control.deshabilitar_dado_usado(posicion);
+                        control.setEstado(posicion,4);
+
+                        switch (control.getEstado(posicion)){
+                            case  1:
+                                control.setEstado(posicion,1);
+                                cambiar_posicion_dado(posicion,1);
+                                break;
+                            case  2:
+                                control.setEstado(posicion,4);
+                                cambiar_posicion_dado(posicion,4);
+                                break;
+                            case  3:
+                                control.setEstado(posicion,3);
+                                cambiar_posicion_dado(posicion,3);
+                                break;
+                            case  4:
+                                control.setEstado(posicion,1);
+                                cambiar_posicion_dado(posicion,1);
+                                break;
+                        }
+                    }
+                }
             }
+            System.out.println("__________________");
         }
 
         @Override

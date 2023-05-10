@@ -12,15 +12,17 @@ import java.util.Vector;
 public class Controlador {
     private int numero_de_dados;
     private Vector<Integer> cara;
-    private int flag, estado, punto;
+    private int flag, punto;
     private Vector<String>Estado_string;
     private Integer[] habilitar_dado_inactivo;
     private Integer[] habilitar_dado_usado;
+    private Integer[] estado;
 
     public Controlador() {
         this.numero_de_dados = numero_de_dados;
         habilitar_dado_inactivo = new Integer[10];
         habilitar_dado_usado = new Integer[10];
+        estado = new Integer[10];
     }
 
     public Controlador(int numero_de_dados) {
@@ -58,46 +60,70 @@ public class Controlador {
     }
     public void recoge_dado(int numero_del_dado,int cara_dado){
         if (cara_dado == 1 ){
-            for (int i = 0; i<=9; i++){
-                    System.out.println("Dado "+(i+1)+"         inactivo = "+habilitar_dado_inactivo[i]+" ||        activo = "+habilitar_dado_usado[i]);
-                if (habilitar_dado_inactivo[i] == 0 && habilitar_dado_usado[i] == 1) {
-                    habilitar_dado_inactivo[i] = 1;
-//                    habilitar_dado_usado[i] = 0;
-                    System.out.println("Dado "+(i+1)+" cambia  inactivo = "+habilitar_dado_inactivo[i]+" || cambia activo = "+habilitar_dado_usado[i]);
-                }
-            }
+
             System.out.println("________________");
-//            if (habilitar_dado_inactivo[0] == 0) {
+            System.out.println("________________");
+            if (habilitar_dado_inactivo[0] == 0 && habilitar_dado_usado[0] == 1) {
 //                habilitar_dado_inactivo[0] = 1;
-//            }
-//            if (habilitar_dado_inactivo[1] == 0) {
+//                habilitar_dado_usado[0] = 1;
+//                setEstado(0,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+0);
+            }
+            else if (habilitar_dado_inactivo[1] == 0 && habilitar_dado_usado[1] == 1) {
 //                habilitar_dado_inactivo[1] = 1;
-//            }
-//            if (habilitar_dado_inactivo[2] == 0) {
+//                habilitar_dado_usado[1] = 1;
+//                setEstado(1,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+1);
+            }
+            else if (habilitar_dado_inactivo[2] == 0 && habilitar_dado_usado[2] == 1) {
 //                habilitar_dado_inactivo[2] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[3] == 0) {
+//                habilitar_dado_usado[2] = 1;
+//                setEstado(2,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+2);
+            }
+            else if (habilitar_dado_inactivo[3] == 0 && habilitar_dado_usado[3] == 1) {
 //                habilitar_dado_inactivo[3] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[4] == 0) {
+//                habilitar_dado_usado[3] = 1;
+//                setEstado(3,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+3);
+            }
+            else if (habilitar_dado_inactivo[4] == 0 && habilitar_dado_usado[4] == 1) {
 //                habilitar_dado_inactivo[4] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[5] == 0) {
+//                habilitar_dado_usado[4] = 1;
+//                setEstado(4,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+4);
+            }
+            else if (habilitar_dado_inactivo[5] == 0 && habilitar_dado_usado[5] == 1) {
 //                habilitar_dado_inactivo[5] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[6] == 0) {
+//                habilitar_dado_usado[5] = 1;
+//                setEstado(5,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+5);
+            }
+            else if (habilitar_dado_inactivo[6] == 0 && habilitar_dado_usado[6] == 1) {
 //                habilitar_dado_inactivo[6] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[7] == 0) {
+//                habilitar_dado_usado[6] = 1;
+//                setEstado(6,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+6);
+            }
+            else if (habilitar_dado_inactivo[7] == 0 && habilitar_dado_usado[7] == 1) {
 //                habilitar_dado_inactivo[7] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[8] == 0) {
+//                habilitar_dado_usado[7] = 1;
+//                setEstado(7,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+7);
+            }
+            else if (habilitar_dado_inactivo[8] == 0 && habilitar_dado_usado[8] == 1) {
 //                habilitar_dado_inactivo[8] = 1;
-//            }
-//            else if (habilitar_dado_inactivo[9] == 0) {
+//                habilitar_dado_usado[8] = 1;
+//                setEstado(8,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+8);
+            }
+            else if (habilitar_dado_inactivo[9] == 0 && habilitar_dado_usado[9] == 1) {
 //                habilitar_dado_inactivo[9] = 1;
-//            }
-            JOptionPane.showMessageDialog(null,"Corazon (activa dados inactivo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+//                habilitar_dado_usado[9] = 1;
+//                setEstado(9,4);
+                JOptionPane.showMessageDialog(null,"Carazon = "+9);
+            }
+//            JOptionPane.showMessageDialog(null,"Corazon (activa dados inactivo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 2 ){
             JOptionPane.showMessageDialog(null,"Dragon (borra los puntos si es el ultimo dado dela ronda )\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
@@ -108,7 +134,9 @@ public class Controlador {
         else if (cara_dado == 4 ){
             JOptionPane.showMessageDialog(null,"Ship (manda un dada a los inactivos)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
+        //Gira dado
         else if (cara_dado == 5 ){
+
             JOptionPane.showMessageDialog(null,"Hero (gira un dado activo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 6 ){
@@ -138,8 +166,8 @@ public class Controlador {
     }
 
 
-    public void dado_estado(){
-        switch (estado){
+    public void dado_estado(int dado){
+        switch (estado[dado]){
             case 1:
                 JOptionPane.showMessageDialog(null,"pasa a dados usados");
                 break;
@@ -154,10 +182,10 @@ public class Controlador {
                 break;
         }
     }
-    public void estado_inicio(int estado){
-        this.estado = estado;
-        dado_estado();
-    }
+//    public void estado_inicio(int estado){
+//        this.estado[dado] = estado;
+//        dado_estado();
+//    }
 
     public int getNumero_de_dados() {
         return numero_de_dados;
@@ -183,12 +211,12 @@ public class Controlador {
         this.cara = cara;
     }
 
-    public int getEstado() {
-        return estado;
+    public int getEstado(int dado) {
+        return estado[dado];
     }
 
-    public void setEstado(int estado) {
-        this.estado = estado;
+    public void setEstado(int dado, int estado) {
+        this.estado[dado] = estado;
     }
 
     public Vector<String> getEstado_string() {
