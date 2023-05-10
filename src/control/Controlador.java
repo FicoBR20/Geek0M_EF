@@ -1,7 +1,7 @@
 package control;
 
+import modelo.Model_Geek;
 import modelo.Tirar_dados;
-import modelo.Juego_Geek;
 
 import javax.swing.*;
 import java.util.Vector;
@@ -19,7 +19,6 @@ public class Controlador {
     private Integer[] estado;
 
     public Controlador() {
-        this.numero_de_dados = numero_de_dados;
         habilitar_dado_inactivo = new Integer[10];
         habilitar_dado_usado = new Integer[10];
         estado = new Integer[10];
@@ -31,117 +30,68 @@ public class Controlador {
     }
 
     public void inicio(int numero_de_dados){
-        System.out.println("Entro");
+
         //Creo un objeto donde tiro unos dados el cual recibe n cantidad de dados
         //creo un objeto que aplicara la regla
         Tirar_dados _tirar_dados = new Tirar_dados();
-        Juego_Geek juegoGeek = new Juego_Geek();
+        Model_Geek juegoGeek = new Model_Geek();
 
         //Aqui tiro el o los dados
         _tirar_dados.iniciar(numero_de_dados);
-
-        //Recojo el resultado de los dados y lo capturo en la clase de regla
-
-//        _model_geekEr.setPunto(getPunto());
-//        _model_geekEr.setValidacion_tiro(getFlag());
-//        _model_geekEr.setTiro(_tirar_dados.getSumatoria());
-//        _model_geekEr.ronda_tiro();
-//        setPunto(_model_geekEr.getPunto());
-
-
         setCara(_tirar_dados.getCaras());//Toma las caras que se generan en la clase tirar_dados y las guarda en esta clase
-//
-//        setFlag( _model_geekEr.getValidacion_tiro());
-//        setEstado(_model_geekEr.getEstado());
-//        setEstado_string(_model_geekEr.getEstado_string());
-
-//        System.out.println("\nCONTROL estado del juego = "+ _model_geekEr.getEstado()+" || El tiro fue "+_tirar_dados.getSumatoria());
-//        System.out.println("CONTROL |Bandera|"+ _model_geekEr.getValidacion_tiro());
     }
-    public void recoge_dado(int numero_del_dado,int cara_dado){
+    public void recoger_dado(int numero_del_dado, int cara_dado){
         if (cara_dado == 1 ){
+            desbloquear_dados_inactivos();
 
-            System.out.println("________________");
-            System.out.println("________________");
-            if (habilitar_dado_inactivo[0] == 0 && habilitar_dado_usado[0] == 1) {
-//                habilitar_dado_inactivo[0] = 1;
-//                habilitar_dado_usado[0] = 1;
-//                setEstado(0,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+0);
-            }
-            else if (habilitar_dado_inactivo[1] == 0 && habilitar_dado_usado[1] == 1) {
-//                habilitar_dado_inactivo[1] = 1;
-//                habilitar_dado_usado[1] = 1;
-//                setEstado(1,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+1);
-            }
-            else if (habilitar_dado_inactivo[2] == 0 && habilitar_dado_usado[2] == 1) {
-//                habilitar_dado_inactivo[2] = 1;
-//                habilitar_dado_usado[2] = 1;
-//                setEstado(2,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+2);
-            }
-            else if (habilitar_dado_inactivo[3] == 0 && habilitar_dado_usado[3] == 1) {
-//                habilitar_dado_inactivo[3] = 1;
-//                habilitar_dado_usado[3] = 1;
-//                setEstado(3,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+3);
-            }
-            else if (habilitar_dado_inactivo[4] == 0 && habilitar_dado_usado[4] == 1) {
-//                habilitar_dado_inactivo[4] = 1;
-//                habilitar_dado_usado[4] = 1;
-//                setEstado(4,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+4);
-            }
-            else if (habilitar_dado_inactivo[5] == 0 && habilitar_dado_usado[5] == 1) {
-//                habilitar_dado_inactivo[5] = 1;
-//                habilitar_dado_usado[5] = 1;
-//                setEstado(5,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+5);
-            }
-            else if (habilitar_dado_inactivo[6] == 0 && habilitar_dado_usado[6] == 1) {
-//                habilitar_dado_inactivo[6] = 1;
-//                habilitar_dado_usado[6] = 1;
-//                setEstado(6,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+6);
-            }
-            else if (habilitar_dado_inactivo[7] == 0 && habilitar_dado_usado[7] == 1) {
-//                habilitar_dado_inactivo[7] = 1;
-//                habilitar_dado_usado[7] = 1;
-//                setEstado(7,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+7);
-            }
-            else if (habilitar_dado_inactivo[8] == 0 && habilitar_dado_usado[8] == 1) {
-//                habilitar_dado_inactivo[8] = 1;
-//                habilitar_dado_usado[8] = 1;
-//                setEstado(8,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+8);
-            }
-            else if (habilitar_dado_inactivo[9] == 0 && habilitar_dado_usado[9] == 1) {
-//                habilitar_dado_inactivo[9] = 1;
-//                habilitar_dado_usado[9] = 1;
-//                setEstado(9,4);
-                JOptionPane.showMessageDialog(null,"Carazon = "+9);
-            }
 //            JOptionPane.showMessageDialog(null,"Corazon (activa dados inactivo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 2 ){
-            JOptionPane.showMessageDialog(null,"Dragon (borra los puntos si es el ultimo dado dela ronda )\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+            bloquear_dados_inactivos();
+
+//            JOptionPane.showMessageDialog(null,"Dragon (borra los puntos si es el ultimo dado dela ronda )\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 3 ){
-            JOptionPane.showMessageDialog(null,"Meeple (permite relanzar otro dado en juego)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+            bloquear_dados_inactivos();
+
+//            JOptionPane.showMessageDialog(null,"Meeple (permite relanzar otro dado en juego)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 4 ){
-            JOptionPane.showMessageDialog(null,"Ship (manda un dada a los inactivos)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+            bloquear_dados_inactivos();
+
+//            JOptionPane.showMessageDialog(null,"Ship (manda un dada a los inactivos)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         //Gira dado
         else if (cara_dado == 5 ){
+            bloquear_dados_inactivos();
 
-            JOptionPane.showMessageDialog(null,"Hero (gira un dado activo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+//            JOptionPane.showMessageDialog(null,"Hero (gira un dado activo)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
         }
         else if (cara_dado == 6 ){
+            bloquear_dados_inactivos();
 
-            JOptionPane.showMessageDialog(null,"Point (permite sumar puntos al final de la ronda)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+//            JOptionPane.showMessageDialog(null,"Point (permite sumar puntos al final de la ronda)\n "+"dado #"+(numero_del_dado+1)+" cara = "+ cara_dado);
+        }
+    }
+
+    private void  desbloquear_dados_inactivos(){
+        for (int i=0; i<=9;i++){
+            if (habilitar_dado_inactivo[i] == 0 && habilitar_dado_usado[i] == 1) {
+                habilitar_dado_inactivo[i] = 1;
+                habilitar_dado_usado[i] = 0;
+//                setEstado(0,4);
+                JOptionPane.showMessageDialog(null,"Cambió = "+i);
+            }
+        }
+    }
+
+    private void  bloquear_dados_inactivos(){
+        for (int i=0; i<=9;i++){
+            if (habilitar_dado_inactivo[i] == 1 && habilitar_dado_usado[i] == 0){
+                habilitar_dado_inactivo[i] = 0;
+                habilitar_dado_usado[i] = 1;
+                JOptionPane.showMessageDialog(null,"Cambió 2 = "+i);
+            }
         }
     }
 
@@ -234,4 +184,5 @@ public class Controlador {
     public void setPunto(int punto) {
         this.punto = punto;
     }
+
 }

@@ -2,15 +2,15 @@ package modelo;
 
 import java.util.Vector;
 
-public class Model_Geek_er {
+public class Model_Geek {
     private int estado, validacion_tiro, punto, tiro;
     private Vector<String> estado_string;
 
-    public Model_Geek_er(int estado) {
+    public Model_Geek(int estado) {
         this.estado = estado;
     }
 
-    public Model_Geek_er() {
+    public Model_Geek() {
         estado = 0;
         validacion_tiro = 0;
         punto = 0;
@@ -52,6 +52,25 @@ public class Model_Geek_er {
                 break;
         }
         return estado_string;
+    }
+
+    public void cambiar_posicion_dado(int _posicion, int estado ){
+        switch (getEstado()){
+            case 1:
+                setEstado_string("Tiro de salida ("+tiro+")");
+                setEstado_string("|Haz sacado un natural !GANASTE¡|");
+                break;
+            case 2:
+                setEstado_string("Tu tiro de salida fue ("+tiro+")");
+                setEstado_string("Sacaste Craps, has perdido!!");
+                break;
+            case 3:
+                setEstado_string("Tu tiro fue ("+tiro+")"+"\nHiciste punto" );
+                setEstado_string("Estableaste Punto en \""+punto+"\" Debes seguir lanzando!!\n" +
+                        "Pero si sacas \"7\" antes que \""+punto+"\" perderás");
+                break;
+            case 4:
+        }
     }
 
     public void setEstado_string(String texto) {

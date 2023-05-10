@@ -45,7 +45,7 @@ public class GUI extends JFrame {
     public GUI(){
 
 
-        ventana_entrada();
+//        ventana_entrada();
         inicio_GUI();
 
         //Default JFrame configuration
@@ -56,7 +56,7 @@ public class GUI extends JFrame {
         this.pack();
         this.setSize(new Dimension(700,500));
         this.setResizable(true);
-        this.setVisible(false);// Oculta la ventana del juego, espera un evento que lo active
+        this.setVisible(true);// Oculta la ventana del juego, espera un evento que lo active
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -66,7 +66,7 @@ public class GUI extends JFrame {
      * This method is used to set up the default JComponent Configuration,
      * create Listener and control Objects used for the GUI_INI class
      */
-    private void ventana_entrada(){
+    public void ventana_entrada(){
 
         escucha = new GUI.Escucha();
         guiIni = new GUI_INI();
@@ -143,7 +143,7 @@ public class GUI extends JFrame {
         //Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
         constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
-        constraints.insets = new Insets(3,30,3,30);// Inserta margenes en los componentes insertados en la ventana
+        constraints.insets = new Insets(10,30,10,30);// Inserta margenes en los componentes insertados en la ventana
 
         //Set up JComponents
         //Configuración de los botones
@@ -192,13 +192,14 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
 
         panelUsados = new JPanel();
-        panelUsados.setPreferredSize(new Dimension(250,200));
+        panelUsados.setPreferredSize(new Dimension(250,180));
         panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
         panelUsados.setBackground(new Color(13, 64, 123, 128));
         this.add(panelUsados,constraints); //Change this line if you change JFrame Container's Layout
 
         //Zona_2: Dados inctivos
         panelIncativos = new JPanel();
+        panelIncativos.setPreferredSize(new Dimension(250,180));
         panelIncativos.setBorder(BorderFactory.createTitledBorder(null,"Dadso Inactivos", TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
         panelIncativos.setBackground(new Color(13, 64, 123, 128));
         constraints.gridx=1;
@@ -216,7 +217,7 @@ public class GUI extends JFrame {
 
         //Zona_3: Dados puntos
         panelPuntos = new JPanel();
-        panelPuntos.setPreferredSize(new Dimension(250,200));
+        panelPuntos.setPreferredSize(new Dimension(250,180));
         panelPuntos.setBorder(BorderFactory.createTitledBorder(null,"Puntuación",TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
         panelPuntos.setBackground(new Color(13, 64, 123, 128));
         constraints.gridx=0;
@@ -237,7 +238,7 @@ public class GUI extends JFrame {
 
         //Zona_4 dedos Activos
         panelActivos = new JPanel();
-        panelActivos.setPreferredSize(new Dimension(250,200));
+        panelActivos.setPreferredSize(new Dimension(250,180));
         panelActivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos", TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
         panelActivos.setBackground(new Color(13, 64, 123, 128));
         constraints.gridx=1;
@@ -415,62 +416,62 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            for (int posicion=0;posicion<=9;posicion++){
-                System.out.println("Dado "+(posicion+1)+" activo "+control.dado_activo(posicion)+" usado "+control.dado_usado(posicion));
-                if(e.getSource()== GUI.this.dado[posicion]){
-                    if (control.dado_activo(posicion) == 1 && control.dado_usado(posicion) == 1){
-                        System.out.println("agarre el dado = "+(posicion+1));
-                        control.recoge_dado(posicion,cara_dado.get(posicion));
+            for (int i=0;i<=9;i++){
+                System.out.println("Dado "+(i+1)+" activo "+control.dado_activo(i)+" usado "+control.dado_usado(i));
+                if(e.getSource()== dado[i]){
+                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 1){
+                        System.out.println("agarre el dado = "+(i+1));
+                        control.recoger_dado(i,cara_dado.get(i));
 //                        control.deshabilitar_dado_inactivo(i);
 //                        control.deshabilitar_dado_usado(i);
 
-                        switch (control.getEstado(posicion)){
+                        switch (control.getEstado(i)){
                             case  1:
-                                control.setEstado(posicion,1);
-                                cambiar_posicion_dado(posicion,1);
+                                control.setEstado(i,1);
+                                cambiar_posicion_dado(i,1);
                                 break;
                             case  2:
-                                control.setEstado(posicion,4);
+                                control.setEstado(i,4);
 //                                control.habilitar_dado_inactivo(i);
 //                                control.habilitar_dado_usado(i);
-                                cambiar_posicion_dado(posicion,4);
+                                cambiar_posicion_dado(i,4);
                                 break;
                             case  3:
-                                control.setEstado(posicion,3);
-                                cambiar_posicion_dado(posicion,3);
+                                control.setEstado(i,3);
+                                cambiar_posicion_dado(i,3);
                                 break;
                             case  4:
-                                control.setEstado(posicion,1);
-                                cambiar_posicion_dado(posicion,1);
+                                control.setEstado(i,1);
+                                cambiar_posicion_dado(i,1);
                                 break;
                         }
                     }
                 }
-                 if(e.getSource()== GUI.this.dado[posicion]){
+                 if(e.getSource()== dado[i]){
                     System.out.println("inside ");
-                    if (control.dado_activo(posicion) == 1 && control.dado_usado(posicion) == 0){
-                        System.out.println("agarre el dado = "+(posicion+1));
-                        control.recoge_dado(posicion,cara_dado.get(posicion));
-//                        control.deshabilitar_dado_inactivo(posicion);
-//                        control.deshabilitar_dado_usado(posicion);
-                        control.setEstado(posicion,4);
+                    if (control.dado_activo(i) == 1 && control.dado_usado(i) == 0){
+                        System.out.println("agarre el dado = "+(i+1));
+                        control.recoger_dado(i,cara_dado.get(i));
+                        control.deshabilitar_dado_inactivo(i);
+                        control.deshabilitar_dado_usado(i);
+                        control.setEstado(i,4);
 
-                        switch (control.getEstado(posicion)){
+                        switch (control.getEstado(i)){
                             case  1:
-                                control.setEstado(posicion,1);
-                                cambiar_posicion_dado(posicion,1);
+                                control.setEstado(i,1);
+                                cambiar_posicion_dado(i,1);
                                 break;
                             case  2:
-                                control.setEstado(posicion,4);
-                                cambiar_posicion_dado(posicion,4);
+                                control.setEstado(i,4);
+                                cambiar_posicion_dado(i,4);
                                 break;
                             case  3:
-                                control.setEstado(posicion,3);
-                                cambiar_posicion_dado(posicion,3);
+                                control.setEstado(i,3);
+                                cambiar_posicion_dado(i,3);
                                 break;
                             case  4:
-                                control.setEstado(posicion,1);
-                                cambiar_posicion_dado(posicion,1);
+                                control.setEstado(i,1);
+                                cambiar_posicion_dado(i,1);
                                 break;
                         }
                     }

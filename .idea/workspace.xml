@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modelo/GeekOutMaster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Boton_Skim.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado_2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Model_Geek_er.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$Escucha.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/Boton_Skim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Dado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Dado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Dado_2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Model_Geek_er.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Model_Geek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +71,7 @@
       <recent name="control" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Geek">
     <configuration name="Geek" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
       <module name="Geek0M_EF" />
@@ -68,6 +79,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="contrller" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="control.Controlador" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Geek" />
+      <item itemvalue="Application.contrller" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.contrller" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
