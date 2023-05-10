@@ -98,9 +98,17 @@ public class ProbadorEnConsola extends JFrame {
 
             } else if (e.getSource()==Probador_3) {
 
-                System.out.println(" hola soy el probador tres");
+//                int probar =0;
+//
+//                probar=Integer.parseInt(JOptionPane.showInputDialog(" Ingresa solo el numero 6"));
+//
+//                System.out.println(" hola soy el probador tres el TRAMPOSO");
+
+                juegoGeek.puraTrampa();
 
             }
+
+
 
 
         }

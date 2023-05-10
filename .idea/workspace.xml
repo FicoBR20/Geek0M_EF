@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/ProbadorEnConsola$Escucha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" afterDir="false" />
     </list>
@@ -140,7 +143,7 @@
       <workItem from="1683579995801" duration="30196000" />
       <workItem from="1683638490519" duration="11448000" />
       <workItem from="1683657185573" duration="31023000" />
-      <workItem from="1683730686875" duration="2593000" />
+      <workItem from="1683730686875" duration="8696000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ package modelo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.EventListener;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -38,8 +39,13 @@ definimos algunas variables constantes.
 
     private String [] string_Nombres_Iconos;
 
-
-
+//    public void setDados_Activos(Vector<Integer> dados_Activos) {
+//        this.dados_Activos = dados_Activos;
+//    }
+//
+//    public Vector<Integer> getDados_Activos() {
+//        return dados_Activos;
+//    }
 
     public Juego_Geek() { // constructor
         cant_Dados_Activos_Iniciales = 7;
@@ -751,26 +757,37 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 //    +++++++++++++______+++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS
 
-    public Vector<Integer> lanza_purosGanadores(){ // lanzamiento de los dados GANADORES .
+    public Vector<Integer> puraTrampa(){ // lanzamiento de los dados GANADORES
+
         cara_Obtenida = new Dado();
-        dados_Activos = new Vector<Integer>(cant_Dados_Activos_Iniciales);
+        dados_Activos = new Vector<Integer>();
 
         String auxiliar = ""; // para probar en consola la funcionalidad
 
 
+        int sizeCaprichoso = cara_Obtenida.get_cara(); // valor de size aleatorio
 
-        for(int i = 0; i < cant_Dados_Activos_Iniciales; i++){
+        dados_Activos.setSize(sizeCaprichoso);
 
-            int receptor = cara_Obtenida.get_cara(); // obtiene el valor random (int)
+        System.out.println(" soy el caprichoso " + sizeCaprichoso + " " + dados_Activos.toString());
 
-            dados_Activos.add(receptor);// adiciona el valor al arreglo
+        dados_Activos.clear();
 
-            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
+        for(int i = 0; i < sizeCaprichoso; i++){
+
+            int receptor = 6; // obtiene el valor random (int)
+
+
+          dados_Activos.insertElementAt(receptor, i);// adiciona el valor al arreglo TODOS SON 6... TODOS PUNTUAN..
+
+            auxiliar = auxiliar + " Este juego tramposo ..la cara [ "+ (i+1) + " ] SIEMPRE es: " + receptor + "\n" +
+                    " El size es "+ dados_Activos.size() + "\n";
 
         }
 
-        System.out.println(" \nTirada Inicial Activos-> " + dados_Activos.toString());
-        System.out.println(" \nTirada Inicial Activos Nombres->\n" + auxiliar.toString());
+
+        System.out.println(" \nTirada Inicial TRAMPOSA-> " + dados_Activos.toString());
+        System.out.println(" \nTirada Inicial TRAMPOSA Nombres->\n" + auxiliar);
 
 
 
