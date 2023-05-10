@@ -29,11 +29,11 @@ definimos algunas variables constantes.
 
     private Vector<Integer>dados_Utilizados; // guarda los dados utilizados
 
+    private Vector<Integer>puntos_de_Ronda; // registra los puntos obtenidos en cada ronda.
+
     private int cantidad_FichasGanadoras; // totaliza al final cuantos dados "42" quedaron para aplicar a puntuación.
 
     private int rondes_de_Turnos; // registra la cantidad de turnos del jugador.
-
-    private Vector<Integer>ronda_del_Juego; // control de la ronda del juego [1 ; 5]
 
     private String [] string_Nombres_Iconos;
 
@@ -296,6 +296,8 @@ definimos algunas variables constantes.
                 if (dados_Activos.elementAt(i) == cara_Recibida) {
 
                     System.out.println(" El juego terminó....Perdiste todo.");
+
+                    setCantidad_FichasGanadoras(0); // no obtiene puntos en la ronda.
                 }
 
 
@@ -633,27 +635,47 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     }
 
-    public int sumatorioPuntos (int contidadGanadores) { // camtodad de dadps 42
+    /**
+     * Este método calcula la cantidad de puntos ganados segun el número de
+     * dados ganadores que se tenga al final de la ronda. (Representados por el numero 6)
+     * @param contidadGanadores
+     * @return sumatotal
+     */
+
+    public int sumatorioPuntos (int contidadGanadores) { // camtodad de dadps 42 -> representados por el numero 6
 
         int sumaTotal=0; // acumulador
 
-        int auxiliar=0;
-
-        // recursion es n + (n-1)
 
         if (contidadGanadores==1){
-            sumaTotal =1;
+            setCantidad_FichasGanadoras(1);
 
         }
         else{
 
-            sumaTotal= contidadGanadores + sumatorioPuntos(contidadGanadores-1);
+            setCantidad_FichasGanadoras(contidadGanadores + sumatorioPuntos(contidadGanadores-1));
         }
 
-        System.out.println(" los puntos ganados son " + sumaTotal);
+        //setCantidad_FichasGanadoras(sumaTotal);
 
-        return sumaTotal;
+        System.out.println(" los puntos ganados son " + getCantidad_FichasGanadoras());
 
+        return cantidad_FichasGanadoras;
+
+
+    }
+
+    public int registraPuntosDe_UnaRonda(int cierraRonda){
+
+        int acumulador = 0;
+
+
+        System.out.println(" aqui deben de ir las condiciones para puntear" +
+                "por ejemplo; que solo queden dados 42 representados por el" +
+                "numero 6 en ésta implementación.");
+
+
+        return acumulador;
 
     }
 
