@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
 import java.util.Vector;
@@ -586,18 +587,19 @@ public int solicitaEntero(){ // se solicita un entero via consola
     }
 
     /**
-     * Este método totaliza la cantidad de fichas ganadoras
-     * Verificando que solo existan ese tipo de fichas para puntuar
+     * Este método vefifica que solo existan fichas tipo "42" en el arrego de dados_Activos
+     * Si se cumple esa condicion, actualiza cantidad_FichasGanadoras y cierra ronda y o juego.
+     * De lo contrario..sigue el juego normal...sale un mensaje...sugue jugando...animo.
      * @param cara_Recibida
      * @return cantidad_FichasGanadoras
      */
 
 
-    public int accion_Cuarenta_y_Dos(int cara_Recibida){ // [ 6 ] -> genera el puntaje del juego
+    public Vector<Integer> accion_Cuarenta_y_Dos(int cara_Recibida){ // [ 6 ] -> genera el puntaje del juego
 
         if (cara_Recibida==6) {
 
-            int contador=0;
+            int contador=0; // acumulador de dados tipo "42" al recorrer el arreglo dados_Activos.
 
             for (int i = 0; i < dados_Activos.size(); i++) {
 
@@ -611,27 +613,45 @@ public int solicitaEntero(){ // se solicita un entero via consola
             }
 
 
-            if (contador==dados_Activos.size()){
+            if (contador==dados_Activos.size()){ // Todas son fichas ganadoras..se procede a calcular puntaje obtenido.
 
                 setCantidad_FichasGanadoras(contador);
 
                 dados_Activos.clear(); // termina suamando puntos.
+
+                JOptionPane.showMessageDialog(null, "..felicitaciones...has ganado");
+
+                /*
+                dados_Activos despues del clear final, puede mostrar un saludo...o algo..animacion..en fin..
+                 */
+
+                /*
+                AQUI TERMINA UNA RONDA CON PUNTUACION...DEBE PREGUNTARSE QUE RONDA ES ..SI ES 5TA .
+                .TERMINA EL JUEGO...Y ENTREGA RESULTADOS..SINO REINICIA DE NUEVO CON LANZAMIENTO INCIAL...SIN
+                BORRAR LOS RESULTADOS.. A MENOS QUE DRAGON APAREZCA..
+                 */
             }
 
             else {
 
                 setCantidad_FichasGanadoras(0);
 
+                JOptionPane.showMessageDialog(null, "..Debes seguir jugando...\n..quedan fichas aun.");
+                /*
+                Se puede programar un aviso de un mensaje que diga ...sigue jugando..
+                porque todavia existen otras fichas.
+                 */
+
             }
 
 
         }
 
-        System.out.println(" no  habra resutados " + getCantidad_FichasGanadoras());
+        System.out.println(" queda mucho juego por delante...NO has puntuado AUN....sigue adelante.. " + getCantidad_FichasGanadoras());
 
 
 
-        return cantidad_FichasGanadoras;
+        return dados_Activos;
 
     }
 
@@ -639,12 +659,10 @@ public int solicitaEntero(){ // se solicita un entero via consola
      * Este método calcula la cantidad de puntos ganados segun el número de
      * dados ganadores que se tenga al final de la ronda. (Representados por el numero 6)
      * @param contidadGanadores
-     * @return sumatotal
+     * @return cantidad_FichasGanadoras
      */
 
     public int sumatorioPuntos (int contidadGanadores) { // camtodad de dadps 42 -> representados por el numero 6
-
-        int sumaTotal=0; // acumulador
 
 
         if (contidadGanadores==1){
@@ -655,8 +673,6 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
             setCantidad_FichasGanadoras(contidadGanadores + sumatorioPuntos(contidadGanadores-1));
         }
-
-        //setCantidad_FichasGanadoras(sumaTotal);
 
         System.out.println(" los puntos ganados son " + getCantidad_FichasGanadoras());
 
@@ -733,6 +749,34 @@ public int solicitaEntero(){ // se solicita un entero via consola
     }
 
 
+//    +++++++++++++______+++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS
+
+    public Vector<Integer> lanza_purosGanadores(){ // lanzamiento de los dados GANADORES .
+        cara_Obtenida = new Dado();
+        dados_Activos = new Vector<Integer>(cant_Dados_Activos_Iniciales);
+
+        String auxiliar = ""; // para probar en consola la funcionalidad
+
+
+
+        for(int i = 0; i < cant_Dados_Activos_Iniciales; i++){
+
+            int receptor = cara_Obtenida.get_cara(); // obtiene el valor random (int)
+
+            dados_Activos.add(receptor);// adiciona el valor al arreglo
+
+            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
+
+        }
+
+        System.out.println(" \nTirada Inicial Activos-> " + dados_Activos.toString());
+        System.out.println(" \nTirada Inicial Activos Nombres->\n" + auxiliar.toString());
+
+
+
+        return dados_Activos;
+
+    }
 
 
 
@@ -741,6 +785,9 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
 
+
+
+//    +++++++++++++______+++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS
 
 
 

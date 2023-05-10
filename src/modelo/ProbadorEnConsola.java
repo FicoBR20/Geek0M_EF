@@ -10,7 +10,7 @@ public class ProbadorEnConsola extends JFrame {
 
     private Dado dado;
     private Escucha escucha;
-    private JButton Probador_1, Probador_2;
+    private JButton Probador_1, Probador_2, Probador_3;
 
 
     private JPanel containerButtons, containerImage;
@@ -35,19 +35,23 @@ public class ProbadorEnConsola extends JFrame {
         escucha = new Escucha();
         Probador_1 = new JButton("Porbador 1");
         Probador_2 = new JButton("Probador 2");
+        Probador_3 = new JButton("Probador 3");
 
         containerButtons = new JPanel();
 
 
         containerButtons.add(Probador_1);
         containerButtons.add(Probador_2);
+        containerButtons.add(Probador_3);
 
         //containerButtons.setFocusable(true);
 
         Probador_1.addMouseListener(escucha);
         Probador_2.addMouseListener(escucha);
+        Probador_3.addMouseListener(escucha);
         Probador_1.addActionListener(escucha);
         Probador_2.addActionListener(escucha);
+        Probador_3.addActionListener(escucha);
 
 
         this.add(containerButtons, BorderLayout.CENTER);
@@ -89,16 +93,14 @@ public class ProbadorEnConsola extends JFrame {
 
                // System.out.println(" la suma es " + (8 + probar));
 
-                juegoGeek.sumatorioPuntos(probar);
+                juegoGeek.accion_Cuarenta_y_Dos(probar);
 
 
+            } else if (e.getSource()==Probador_3) {
 
-
-
-
+                System.out.println(" hola soy el probador tres");
 
             }
-
 
 
         }

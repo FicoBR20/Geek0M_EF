@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ProbadorEnConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
       <recent name="modelo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProbadorEnConsola (3)">
+  <component name="RunManager" selected="Application.ProbadorEnConsola (4)">
     <configuration name="Juego_Geek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.Juego_Geek" />
       <module name="Geek0M_EF" />
@@ -104,7 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProbadorEnConsola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ProbadorEnConsola (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
@@ -119,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProbadorEnConsola (4)" />
         <item itemvalue="Application.ProbadorEnConsola (3)" />
         <item itemvalue="Application.ProbadorEnConsola (2)" />
         <item itemvalue="Application.Juego_Geek" />
         <item itemvalue="Application.ProbadorEnConsola (1)" />
-        <item itemvalue="Application.ProbadorEnConsola" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +139,8 @@
       <workItem from="1683543899055" duration="11477000" />
       <workItem from="1683579995801" duration="30196000" />
       <workItem from="1683638490519" duration="11448000" />
-      <workItem from="1683657185573" duration="30924000" />
+      <workItem from="1683657185573" duration="31023000" />
+      <workItem from="1683730686875" duration="2593000" />
     </task>
     <servers />
   </component>
