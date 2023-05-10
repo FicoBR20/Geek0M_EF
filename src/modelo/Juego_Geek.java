@@ -29,6 +29,10 @@ definimos algunas variables constantes.
 
     private Vector<Integer>dados_Utilizados; // guarda los dados utilizados
 
+    private int cantidad_FichasGanadoras; // totaliza al final cuantos dados "42" quedaron para aplicar a puntuación.
+
+    private int rondes_de_Turnos; // registra la cantidad de turnos del jugador.
+
     private Vector<Integer>ronda_del_Juego; // control de la ronda del juego [1 ; 5]
 
     private String [] string_Nombres_Iconos;
@@ -39,9 +43,27 @@ definimos algunas variables constantes.
     public Juego_Geek() { // constructor
         cant_Dados_Activos_Iniciales = 7;
         cant_Dados_Inactivos_Iniciales=3;
+        cantidad_FichasGanadoras=0;
+        rondes_de_Turnos=5;
         inicio();
 
 
+    }
+
+    public int getRondes_de_Turnos() {
+        return rondes_de_Turnos;
+    }
+
+    public void setRondes_de_Turnos(int rondes_de_Turnos) {
+        this.rondes_de_Turnos = rondes_de_Turnos;
+    }
+
+    public int getCantidad_FichasGanadoras() {
+        return cantidad_FichasGanadoras;
+    }
+
+    public void setCantidad_FichasGanadoras(int cantidad_FichasGanadoras) {
+        this.cantidad_FichasGanadoras = cantidad_FichasGanadoras;
     }
 
     /**
@@ -49,23 +71,9 @@ definimos algunas variables constantes.
      */
 
     public void inicio(){ // funcion inicializadora
+
         System.out.println("\nInicio el juego");
-//        tirada_DadosActivos();
-//
-//        tirada_DadosInactivos();
-//
-//        imprimeDatos();
-//
-//        recibe_utilizados(99);//prueba
-//        recibe_utilizados(88);//prueba
-//        entrega_Inactivos(3);//prueba // reduce en 1 el arreglo dados_Inactivos.
 
-        
-
-
-        //recibe_utilizados(2);
-
-       // tirada_Activos = new Vector<Integer>(cant_Dados_Actuvos_Iniciales);
 
     }
 
@@ -475,88 +483,94 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     }
 
+    /**
+     * Metodo que gestiona el accionar del SuperHeroe.
+     * Entrega el arreglo dados_Activos actualizado
+     * @param cara_Recibida
+     * @return dados_Activos
+     */
+
 
     public Vector<Integer> accion_SuperHeroe(int cara_Recibida){ // [5] -> SuperHeroe permite voltear un dado de los activos.
 
-        if (cara_Recibida==5){
+        if (cara_Recibida==5) {
 
             borra_Activos_Jugados(cara_Recibida); // borra el SuperHeroe qqe activó
 
+
             int cara_para_Girar = 999; //  cara a ser girada, existe en el arreglo, sera RANDOM .. inicialización
-
-            int cara_Opuesta = 999; // cara opuesta a la cara para girar.. inicialización
-
-            String auxiliar="";
 
             cara_para_Girar = cara_Obtenida.get_cara();
 
-            System.out.println(" La cara que se girará será " + cara_para_Girar);
+            int cara_Opuesta = 999; // cara opuesta a la cara para girar.. inicialización
 
-            switch (cara_para_Girar) {
-                case 1:
-                    cara_Opuesta = 6;
-                    auxiliar = "antes Corazon..ahora 42";
-                    break;
-                case 2:
-                    cara_Opuesta = 5;
-                    auxiliar = "antes Dragon ..ahora SuperHeroe";
-                    break;
-                case 3:
-                    cara_Opuesta = 4;
-                    auxiliar = "antes Meeple...ahora Cohete";
-                    break;
-                case 4:
-                    cara_Opuesta = 3;
-                    auxiliar = "antes Cohete..ahora Meeple";
-                    break;
-                case 5:
-                    cara_Opuesta = 3;
-                    auxiliar = "antes SuperHeroe...ahora Dragón";
-                    break;
-                case 6:
-                    cara_Opuesta = 1;
-                    auxiliar = " antes 42...ahora Corazón";
-                    break;
-                default:
-                    cara_Opuesta = 6600;
-                    auxiliar = " hay problemas..en acción_Superheroe.";
-
-            }
-
-            //cara_Opuesta ya está definida, cara_para_Girar..tambien.
-
-            int contador_Auxiliar = 0; // para desbloquear ciclo.
-
-            int ubicacionCaraParaGirar=999; // auxiliar ...inicialización.
-
-            while (dados_Activos.contains(cara_para_Girar)) {
-
-                ubicacionCaraParaGirar = dados_Activos.indexOf(cara_para_Girar);
-
-                dados_Activos.set(ubicacionCaraParaGirar, cara_Opuesta);
-//
-//                dados_Activos.remove(ubicacionCaraParaGirar);
-//                dados_Activos.setSize(dados_Activos.size()+1);
-//
-//                dados_Activos.insertElementAt(cara_Opuesta, dados_Activos.indexOf(cara_para_Girar));
+            String auxiliar = "";
 
 
 
 
-                contador_Auxiliar += 1;
+                System.out.println(" La cara que se girará será " + cara_para_Girar);
 
-                if (contador_Auxiliar == 1) {
+                switch (cara_para_Girar) {
+                    case 1:
+                        cara_Opuesta = 6;
+                        auxiliar = "antes Corazon..ahora 42";
+                        break;
+                    case 2:
+                        cara_Opuesta = 5;
+                        auxiliar = "antes Dragon ..ahora SuperHeroe";
+                        break;
+                    case 3:
+                        cara_Opuesta = 4;
+                        auxiliar = "antes Meeple...ahora Cohete";
+                        break;
+                    case 4:
+                        cara_Opuesta = 3;
+                        auxiliar = "antes Cohete..ahora Meeple";
+                        break;
+                    case 5:
+                        cara_Opuesta = 3;
+                        auxiliar = "antes SuperHeroe...ahora Dragón";
+                        break;
+                    case 6:
+                        cara_Opuesta = 1;
+                        auxiliar = " antes 42...ahora Corazón";
+                        break;
+                    default:
+                        cara_Opuesta = 6600;
+                        auxiliar = " hay problemas..en acción_Superheroe.";
 
-                    break;
                 }
 
-            }
+
+                //cara_Opuesta ya está definida, cara_para_Girar..tambien.
+
+                int contador_Auxiliar = 0; // para desbloquear ciclo.
+
+                int ubicacionCaraParaGirar = 999; // auxiliar ...inicialización.
+
+                while (dados_Activos.contains(cara_para_Girar)) {
+
+                    ubicacionCaraParaGirar = dados_Activos.indexOf(cara_para_Girar);
+
+                    dados_Activos.set(ubicacionCaraParaGirar, cara_Opuesta);
 
 
-            System.out.println(" Después del SUPERHEROE -->: " + dados_Activos.toString());
+                    contador_Auxiliar += 1;
+
+                    if (contador_Auxiliar == 1) {
+
+                        break;
+                    }
+
+                }
 
 
-            return dados_Activos;
+                System.out.println(" Después del SUPERHEROE -->: " + dados_Activos.toString());
+
+
+                return dados_Activos;
+
 
         }
         else {
@@ -565,6 +579,80 @@ public int solicitaEntero(){ // se solicita un entero via consola
         }
 
         return dados_Activos;
+
+
+    }
+
+    /**
+     * Este método totaliza la cantidad de fichas ganadoras
+     * Verificando que solo existan ese tipo de fichas para puntuar
+     * @param cara_Recibida
+     * @return cantidad_FichasGanadoras
+     */
+
+
+    public int accion_Cuarenta_y_Dos(int cara_Recibida){ // [ 6 ] -> genera el puntaje del juego
+
+        if (cara_Recibida==6) {
+
+            int contador=0;
+
+            for (int i = 0; i < dados_Activos.size(); i++) {
+
+                if (dados_Activos.get(i)==cara_Recibida){
+
+                    contador++;
+
+                    System.out.println("somos igualitas." + contador);
+                }
+
+            }
+
+
+            if (contador==dados_Activos.size()){
+
+                setCantidad_FichasGanadoras(contador);
+
+                dados_Activos.clear(); // termina suamando puntos.
+            }
+
+            else {
+
+                setCantidad_FichasGanadoras(0);
+
+            }
+
+
+        }
+
+        System.out.println(" no  habra resutados " + getCantidad_FichasGanadoras());
+
+
+
+        return cantidad_FichasGanadoras;
+
+    }
+
+    public int sumatorioPuntos (int contidadGanadores) { // camtodad de dadps 42
+
+        int sumaTotal=0; // acumulador
+
+        int auxiliar=0;
+
+        // recursion es n + (n-1)
+
+        if (contidadGanadores==1){
+            sumaTotal =1;
+
+        }
+        else{
+
+            sumaTotal= contidadGanadores + sumatorioPuntos(contidadGanadores-1);
+        }
+
+        System.out.println(" los puntos ganados son " + sumaTotal);
+
+        return sumaTotal;
 
 
     }
@@ -582,33 +670,34 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
 
-    public int pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
+    public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
 
         int entrega=999; // retornará el entero que reprenta la cara obtenida al jugar.
 
         String auxiliar =""; // para pruebas.
 
         switch (jugado) {
-            case 0:
-                entrega=1100;
+            case 1:
+                accion_Corazon(1);
                 auxiliar = "EL Corazon está en acción";
                 break;
-            case 1:
-                entrega=2200;
+            case 2:
+                accion_Dragon(2);
                 auxiliar = "EL Dragon está en acción";
                 break;
-            case 2:
+            case 3:
+                accion_Mepplet(3);
                 auxiliar = "EL Meeple está en acción";
                 break;
-            case 3:
-                entrega=3300;
+            case 4:
+                accion_Cohete(4);
                 auxiliar = "EL Cohete está en acción";
                 break;
-            case 4:
-                entrega=4400;
+            case 5:
+                accion_SuperHeroe(5);
                 auxiliar = "EL SuperHeroe está en acción";
                 break;
-            case 5:
+            case 6:
                 entrega=5500;
                 auxiliar = " a sumar puntos con el 42";
                 break;
@@ -617,7 +706,6 @@ public int solicitaEntero(){ // se solicita un entero via consola
                 auxiliar = " hay problemas..para RESOLVER en el método puraAccion.";
         }
 
-        return entrega;
 
 
     }
