@@ -12,7 +12,9 @@ import java.util.Objects;
 
 /**
  * Se genera esta clase para desarrollar una estrategia enfocada a un nuevo tipo de dato
- * denominado DadoPoderoso.
+ * denominado DadoPoderoso el cual Hereda de la Clase Dado y extiende JButtom.
+
+ * Se crea al inicio un arreglo size 10 con los escuhas activados...(en desarrollo)
  *
  */
 public class Gui_Basica_3_Buttons extends JFrame {
@@ -215,6 +217,10 @@ public class Gui_Basica_3_Buttons extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getSource() == PLAY) {
+
+                JOptionPane.showMessageDialog(null, "Muy agradecido por todo lo aprendido " +
+                        "en ésta practica, \nMil gracias Profe y Mil gracias Jose Erley...\n" +
+                        "Continuaremos en este lindo proceso de aprendizaje. Mil éxitos");
 
                 initGUI();
 
