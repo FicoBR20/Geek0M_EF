@@ -6,28 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$DadoPoderoso.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$DadoPoderoso.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$Escucha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Dado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Dado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Juego_Geek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador_v2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador_v2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/Controlador_v2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador_v2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/Gui_Basica_3_Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_Basica_3_Buttons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/Gui_Basica_Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_Basica_Final.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +53,7 @@
       <recent name="modelo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUI_Sencilla">
+  <component name="RunManager" selected="Application.Gui_Basica_3_Buttons (1)">
     <configuration name="GUI_Sencilla" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Principal.GUI_Sencilla" />
       <module name="Geek0M_EF" />
@@ -85,7 +67,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Gui_Basica_3_Buttons" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Gui_Basica_3_Buttons (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
@@ -98,12 +80,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProbadorEnConsola (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
+    <configuration name="Gui_Basica_3_Buttons" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="modelo.*" />
+          <option name="PATTERN" value="vista.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Gui_Basica_3_Buttons (1)" />
         <item itemvalue="Application.GUI_Sencilla" />
         <item itemvalue="Application.Gui_Basica_3_Buttons" />
         <item itemvalue="Application.ProbadorEnConsola (4)" />
         <item itemvalue="Application.ProbadorEnConsola (3)" />
-        <item itemvalue="Application.ProbadorEnConsola (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +146,7 @@
       <workItem from="1683730686875" duration="22773000" />
       <workItem from="1683767175401" duration="46884000" />
       <workItem from="1683816500023" duration="2575000" />
+      <workItem from="1683829182664" duration="605000" />
     </task>
     <servers />
   </component>

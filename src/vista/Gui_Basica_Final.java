@@ -1,4 +1,4 @@
-package Principal;
+package vista;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -37,7 +37,7 @@ public class Gui_Basica_Final extends JFrame {
         jTextArea = new JTextArea(10, 12);
 
 
-        jPanel2.add(jLabel);
+        jPanel2.add(jLabel1);
 
 
         jPanel2.add(jButton1);
@@ -62,7 +62,7 @@ public class Gui_Basica_Final extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Principal.Gui_Basica_Final myGUI = new Principal.Gui_Basica_Final();
+                Gui_Basica_Final myGUI = new Gui_Basica_Final();
             }
         });
     }
@@ -91,10 +91,13 @@ public class Gui_Basica_Final extends JFrame {
 
     }
 
-    @Override
 
+        @Override
+        public void mouseClicked(MouseEvent e) {
 
-    @Override
+        }
+
+        @Override
     public void mousePressed(MouseEvent e) {
 
 

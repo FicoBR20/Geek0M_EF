@@ -233,11 +233,11 @@ public class Gui_Basica_3_Buttons extends JFrame {
 
             if  ((e.getSource()==dadoPoderoso1) || (e.getSource()==dadoPoderoso2) || (e.getSource()==dadoPoderoso3) ) {
 
-//                juegoGeek.pura_Accion(dadoPoderoso1.darlaCara());
-//                juegoGeek.pura_Accion(dadoPoderoso2.darlaCara());
-//                juegoGeek.pura_Accion(dadoPoderoso3.darlaCara());
+                juegoGeek.pura_Accion(dadoPoderoso1.darlaCara());
+                juegoGeek.pura_Accion(dadoPoderoso2.darlaCara());
+                juegoGeek.pura_Accion(dadoPoderoso3.darlaCara());
 
-                control_2.inicio();
+
 
 
 

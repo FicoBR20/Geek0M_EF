@@ -16,20 +16,20 @@ public class Controlador_v2 {
 
     public void inicio(){
 
-        Dado dado;
-        dado = new Dado();
-
-
-
-
-        Juego_Geek juegoGeek;
-        juegoGeek = new Juego_Geek();
-        Gui_Basica_3_Buttons guiBasica3Buttons;
-        guiBasica3Buttons = new Gui_Basica_3_Buttons();
-
-
-
-        juegoGeek.pura_Accion(dado.get_cara());
+//        Dado dado;
+//        dado = new Dado();
+//
+//
+//
+//
+//        Juego_Geek juegoGeek;
+//        juegoGeek = new Juego_Geek();
+//        Gui_Basica_3_Buttons guiBasica3Buttons;
+//        guiBasica3Buttons = new Gui_Basica_3_Buttons();
+//
+//
+//
+//        juegoGeek.pura_Accion(dado.get_cara());
 
 
     }
