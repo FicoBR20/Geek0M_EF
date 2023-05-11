@@ -19,11 +19,19 @@ public class Dado {
         this.string_Nombres_Iconos = string_Nombres_Iconos;
     }
 
+    public void setCara(int cara) {
+        this.cara = cara;
+    }
+
+    public void setString_Nombres_Iconos(String[] string_Nombres_Iconos) {
+        this.string_Nombres_Iconos = string_Nombres_Iconos;
+    }
+
     public Dado(){ // contructor vacio
 
         inicioDado(); // inicia el arreglo de los nombres.
 
-
+        cara = 999;
         //pruebas
 
         // System.out.println("El primer elemento es " + get_Nombre_Cara(0)+ "\n");
@@ -34,9 +42,12 @@ public class Dado {
 
 
     public int get_cara() {
+
         //Creo un objeto randon que me permite crear un numeros aleatorios
+        int auxiliar=999;
         Random aleatorio = new Random();
-        cara = aleatorio.nextInt(6)+1;
+        auxiliar = aleatorio.nextInt(6)+1;
+        cara=auxiliar;
         return cara;
     }
 
@@ -50,6 +61,7 @@ public class Dado {
         string_Nombres_Iconos[3]="Cohete";
         string_Nombres_Iconos[4]="Super_Heroe";
         string_Nombres_Iconos[5]="42";
+
 
     }
 

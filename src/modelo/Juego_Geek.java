@@ -271,6 +271,8 @@ definimos algunas variables constantes.
 
     public Vector<Integer> accion_Corazon(int cara_Recibida){ // [ 1 ] -> Lanza un dado de los inactivos
 
+        cara_Obtenida = new Dado();
+
         if (cara_Recibida==1) {
 
             borra_Activos_Jugados(cara_Recibida); // borra el corazon qqe activó
@@ -365,6 +367,8 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     public Vector<Integer> jugar_Un_Solo_Dado(int dado_buscado) { // dado_buscado --> representa la cara del dado que selecciono para volverla a lanzar
 
+        cara_Obtenida = new Dado();
+
        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_buscado]. se inicializa con cualquier valor.
 
        int auxiliar = 111; // variable auxiliar inicializada.
@@ -404,6 +408,8 @@ public int solicitaEntero(){ // se solicita un entero via consola
      */
 
     public Vector<Integer> accion_Mepplet(int cara_Recibida){ // [3] -> meeplet permite relanzar un dado de los activos.
+
+        cara_Obtenida = new Dado();
 
         if (cara_Recibida==3){
 
@@ -456,6 +462,8 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
     public Vector<Integer> accion_Cohete(int cara_Recibida){ // [4] -> cohete permite eliminar un dado de los activos.
+
+        cara_Obtenida = new Dado();
 
         if (cara_Recibida==4){
 
@@ -512,6 +520,8 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 
     public Vector<Integer> accion_SuperHeroe(int cara_Recibida){ // [5] -> SuperHeroe permite voltear un dado de los activos.
+
+        cara_Obtenida = new Dado();
 
         if (cara_Recibida==5) {
 
@@ -727,6 +737,8 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
     public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
 
+        dados_Activos = new Vector<Integer>(7);
+
         int entrega=999; // retornará el entero que reprenta la cara obtenida al jugar.
 
         String auxiliar =""; // para pruebas.
@@ -737,27 +749,27 @@ public int solicitaEntero(){ // se solicita un entero via consola
                 auxiliar = "EL Corazon está en acción";
                 break;
             case 2:
-                accion_Dragon(2);
+               accion_Dragon(2);
                 auxiliar = "EL Dragon está en acción";
                 break;
             case 3:
-                accion_Mepplet(3);
+              //  accion_Mepplet(3);
                 auxiliar = "EL Meeple está en acción";
                 break;
             case 4:
-                accion_Cohete(4);
+               // accion_Cohete(4);
                 auxiliar = "EL Cohete está en acción";
                 break;
             case 5:
-                accion_SuperHeroe(5);
+               // accion_SuperHeroe(5);
                 auxiliar = "EL SuperHeroe está en acción";
                 break;
             case 6:
-                entrega=5500;
+                //accion_Cuarenta_y_Dos();
                 auxiliar = " a sumar puntos con el 42";
                 break;
             default:
-                entrega=6600;
+
                 auxiliar = " hay problemas..para RESOLVER en el método puraAccion.";
         }
 
