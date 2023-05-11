@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/fondo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/fondo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recursos/fondo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/fondo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
-    </list>
-=======
+
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="" />
->>>>>>> pruba_gui
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,15 +34,10 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-<<<<<<< HEAD
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Design/Desktop/pro/Geek0M_EF/src/recursos&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
-=======
+
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Design/IdeaProjects/My pesentacion&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
->>>>>>> pruba_gui
-  }
+
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -65,41 +53,16 @@
       <recent name="control" />
     </key>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="Application.Unnamed">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-=======
+
   <component name="RunManager" selected="Application.Geek">
     <configuration name="Geek" type="Application" factoryName="Application">
->>>>>>> pruba_gui
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
       <module name="Geek0M_EF" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-    <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.GUI" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.GUI" />
-=======
+
     <configuration name="contrller" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="control.Controlador" />
       <module name="Geek0M_EF" />
@@ -120,7 +83,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.contrller" />
->>>>>>> pruba_gui
+
       </list>
     </recent_temporary>
   </component>
