@@ -279,7 +279,7 @@ public class GUI extends JFrame {
 
                 panelActivos.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 4);
-                control.set_estado_dado(i,1);
+                control.set_estado_dado(i,0);
                 JOptionPane.showMessageDialog(null, "Pasa a dado Activos");
             }
             case 3 -> {
@@ -291,7 +291,7 @@ public class GUI extends JFrame {
 
                 panelUsados.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 1);
-                control.set_estado_dado(i,1);
+                control.set_estado_dado(i,8);
                 JOptionPane.showMessageDialog(null, "Pasa a dado Usados");
             }
         }
@@ -302,10 +302,16 @@ public class GUI extends JFrame {
         control.setCara_dado(i,control_2.getCara().get(i));
             imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara().get(i) + ".png")));
             dado[i].setIcon(imagen_dado);
-            dado[i].addMouseListener(escucha);
+//            dado[i].addMouseListener(escucha);
     }
-
-
+    public void voltear_dado(int i){
+        control.voltear_dado(i);
+//        control_2.lanzar_inicio(10);
+//        control.setCara_dado(i,control_2.getCara().get(i));
+        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara().get(i) + ".png")));
+        dado[i].setIcon(imagen_dado);
+//        dado[i].addMouseListener(escucha);
+    }
     /**
      * Main process of the Java program
      * @param args Object used in order to send input data from command line when
@@ -445,7 +451,6 @@ public class GUI extends JFrame {
                                 JOptionPane.showMessageDialog(null,"regla 0");
                                 System.out.println("agarre el dado = "+(i+1));
                                 control.activar_dado(i,cara_dado.get(i));
-//                                control.setEstado(i,4);
                                 cambiar_posicion_dado(i);
                                 break;
                             case 1:
@@ -467,12 +472,13 @@ public class GUI extends JFrame {
                                 relanzar_dado(i);
                                 break;
                             case 4:
-                                JOptionPane.showMessageDialog(null,"regla 4 heroe");
-                                control.bloquear_heroe();
+                                JOptionPane.showMessageDialog(null,"regla 4 nave");
+                                control.bloquear_nave();
                                 break;
                             case 5:
-                                JOptionPane.showMessageDialog(null,"regla 5 nave");
-                                control.bloquear_nave();
+                                JOptionPane.showMessageDialog(null,"regla 5 heroe");
+                                control.bloquear_heroe();
+                                voltear_dado(i);
                                 break;
                             case 6:
                                 JOptionPane.showMessageDialog(null,"regla 6 punto");

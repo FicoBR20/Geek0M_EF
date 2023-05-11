@@ -80,7 +80,7 @@ public class Controlador {
             }
 
             case 4 -> {
-                desbloquear_nave();
+//                desbloquear_nave();
                 bloquear_heroe();
                 bloquear_punto();
                 bloquear_dragon();
@@ -116,6 +116,19 @@ public class Controlador {
         }
     }
 
+    public void voltear_dado(int i){
+//        for (int i=0; i<=9;i++){
+            switch (cara.get(i)) {
+                case 1 -> cara.add(i,6);
+                case 2 -> cara.add(i,5);
+                case 3 -> cara.add(i,4);
+                case 4 -> cara.add(i,3);
+                case 5 -> cara.add(i,2);
+                case 6 -> cara.add(i,1);
+            }
+//        }
+    }
+
     public void desbloquear_punto() {
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==0){
@@ -125,7 +138,6 @@ public class Controlador {
         }
         JOptionPane.showMessageDialog(null,"Los dados pueden poner punto");
     }
-
     public void bloquear_punto() {
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==0 || estado_dado[i]==6){
@@ -134,46 +146,6 @@ public class Controlador {
             }
         }
         JOptionPane.showMessageDialog(null,"Los dados no pueden poner punto");
-    }
-
-    public void desbloquear_dragon() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=2;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden quitar punto");
-    }
-
-    public void bloquear_dragon() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==2){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden quitar punto");
-    }
-
-    public void desbloquear_nave() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=4;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden destruir");
-    }
-
-    public void bloquear_nave() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==4){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden destruir");
     }
 
     public void desbloquear_heroe() {
@@ -185,7 +157,6 @@ public class Controlador {
         }
         JOptionPane.showMessageDialog(null,"Los dados pueden votear");
     }
-
     public void bloquear_heroe() {
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==0 || estado_dado[i]==5){
@@ -196,7 +167,24 @@ public class Controlador {
         JOptionPane.showMessageDialog(null,"Los dados no pueden voltear");
     }
 
-
+    public void desbloquear_nave() {
+        for (int i=0; i<=9;i++){
+            if (estado_dado[i]==0){
+                estado_dado[i]=4;
+//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Los dados pueden destruir");
+    }
+    public void bloquear_nave() {
+        for (int i=0; i<=9;i++){
+            if (estado_dado[i]==0 || estado_dado[i]==4){
+                estado_dado[i]=0;
+//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Los dados no pueden destruir");
+    }
 
     public   void desbloquear_meeple(){
         for (int i=0; i<=9;i++){
@@ -207,7 +195,6 @@ public class Controlador {
         }
         JOptionPane.showMessageDialog(null,"Los dados pueden girar");
     }
-
     public   void bloquear_meeple(){
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==0 || estado_dado[i]==3){
@@ -216,6 +203,25 @@ public class Controlador {
             }
         }
         JOptionPane.showMessageDialog(null,"Los dados no pueden girar");
+    }
+
+    public void desbloquear_dragon() {
+        for (int i=0; i<=9;i++){
+            if (estado_dado[i]==0){
+                estado_dado[i]=2;
+//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Los dados pueden quitar punto");
+    }
+    public void bloquear_dragon() {
+        for (int i=0; i<=9;i++){
+            if (estado_dado[i]==0 || estado_dado[i]==2){
+                estado_dado[i]=0;
+//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Los dados no pueden quitar punto");
     }
 
     public void desbloquear_corazon(){
@@ -230,7 +236,6 @@ public class Controlador {
             }
         }
     }
-
     public void bloquear_corazon(){
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==1){
