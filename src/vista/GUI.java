@@ -273,6 +273,7 @@ public class GUI extends JFrame {
 
                 panelUsados.add(dado[i], BorderLayout.SOUTH);
 //                control.setEstado(i, 1);
+                control.set_estado_dado(i,8);
                 JOptionPane.showMessageDialog(null, "Sigue en Usados");
             }
             case 2 -> {
@@ -285,6 +286,7 @@ public class GUI extends JFrame {
             case 3 -> {
                 panelPuntos.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 3);
+                control.set_estado_dado(i,9);
                 JOptionPane.showMessageDialog(null, "Pasa a dado Puntos");
             }
             case 4 -> {
@@ -446,49 +448,50 @@ public class GUI extends JFrame {
                                         "\nEstados panel : \n" +
                                         "Es dado esta en el panel = "+control.getEstado(i));
 
-                        switch (control.get_estado_dado(i)){
-                            case 0:
-                                JOptionPane.showMessageDialog(null,"regla 0");
-                                System.out.println("agarre el dado = "+(i+1));
-                                control.activar_dado(i,cara_dado.get(i));
-                                cambiar_posicion_dado(i);
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null,"regla 1 corazon");
-                                System.out.println("agarre el dado = "+(i+1));
-                                control.bloquear_corazon();
-                                control.setEstado(i,2);
-                                cambiar_posicion_dado(i);
-                                break;
-                            case 2:
-                                JOptionPane.showMessageDialog(null,"regla 2 dragon");
-                                control.bloquear_dragon();
-                                break;
-                            case 3:
-                                JOptionPane.showMessageDialog(null,"regla 3 meeple");
-                                System.out.println("agarre el dado = "+(i+1));
-                                control.bloquear_meeple();
-                                control.setEstado(i,4);
-                                relanzar_dado(i);
-                                break;
-                            case 4:
-                                JOptionPane.showMessageDialog(null,"regla 4 nave");
-                                control.bloquear_nave();
-                                break;
-                            case 5:
-                                JOptionPane.showMessageDialog(null,"regla 5 heroe");
-                                control.bloquear_heroe();
-                                voltear_dado(i);
-                                break;
-                            case 6:
-                                JOptionPane.showMessageDialog(null,"regla 6 punto");
-                                control.bloquear_punto();
-                                control.setEstado(i,3);
-                                JOptionPane.showMessageDialog(null, "El dado esta en el panel = "+control.getEstado(i));
-                                cambiar_posicion_dado(i);
-                                break;
-
+                    switch (control.get_estado_dado(i)) {
+                        case 0 -> {
+                            JOptionPane.showMessageDialog(null, "regla 0");
+                            System.out.println("agarre el dado = " + (i + 1));
+                            control.activar_dado(i, cara_dado.get(i));
+                            cambiar_posicion_dado(i);
                         }
+                        case 1 -> {
+                            JOptionPane.showMessageDialog(null, "regla 1 corazon");
+                            System.out.println("agarre el dado = " + (i + 1));
+                            control.bloquear_corazon();
+                            control.setEstado(i, 2);
+                            cambiar_posicion_dado(i);
+                        }
+                        case 2 -> {
+                            JOptionPane.showMessageDialog(null, "regla 2 dragon");
+                            control.bloquear_dragon();
+                        }
+                        case 3 -> {
+                            JOptionPane.showMessageDialog(null, "regla 3 meeple");
+                            System.out.println("agarre el dado = " + (i + 1));
+                            control.bloquear_meeple();
+                            control.setEstado(i, 4);
+                            relanzar_dado(i);
+                        }
+                        case 4 -> {
+                            JOptionPane.showMessageDialog(null, "regla 4 nave");
+                            control.bloquear_nave();
+                            control.setEstado(i, 4);
+                            cambiar_posicion_dado(i);
+                        }
+                        case 5 -> {
+                            JOptionPane.showMessageDialog(null, "regla 5 heroe");
+                            control.bloquear_heroe();
+                            voltear_dado(i);
+                        }
+                        case 6 -> {
+                            JOptionPane.showMessageDialog(null, "regla 6 punto");
+                            control.bloquear_punto();
+                            control.setEstado(i, 3);
+                            JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + control.getEstado(i));
+                            cambiar_posicion_dado(i);
+                        }
+                    }
                 }
             }
             System.out.println("__________________");

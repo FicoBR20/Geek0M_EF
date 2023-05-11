@@ -80,7 +80,7 @@ public class Controlador {
             }
 
             case 4 -> {
-//                desbloquear_nave();
+                desbloquear_nave();
                 bloquear_heroe();
                 bloquear_punto();
                 bloquear_dragon();
