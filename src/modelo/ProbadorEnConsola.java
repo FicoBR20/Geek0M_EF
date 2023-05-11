@@ -104,7 +104,7 @@ public class ProbadorEnConsola extends JFrame {
 //
 //                System.out.println(" hola soy el probador tres el TRAMPOSO");
 
-                juegoGeek.puraTrampa();
+                juegoGeek.jugar_Un_Solo_Dado(1);
 
             }
 

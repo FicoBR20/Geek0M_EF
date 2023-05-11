@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Juego_Geek.class" afterDir="false" />
@@ -38,6 +39,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -53,13 +55,13 @@
       <recent name="modelo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProbadorEnConsola (4)">
-    <configuration name="Juego_Geek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="modelo.Juego_Geek" />
+  <component name="RunManager" selected="Application.Gui_Basica_3_Buttons">
+    <configuration name="Gui_Basica_3_Buttons" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="modelo.*" />
+          <option name="PATTERN" value="vista.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -67,8 +69,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProbadorEnConsola (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
+    <configuration name="Juego_Geek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="modelo.Juego_Geek" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
@@ -121,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Gui_Basica_3_Buttons" />
         <item itemvalue="Application.ProbadorEnConsola (4)" />
         <item itemvalue="Application.ProbadorEnConsola (3)" />
         <item itemvalue="Application.ProbadorEnConsola (2)" />
         <item itemvalue="Application.Juego_Geek" />
-        <item itemvalue="Application.ProbadorEnConsola (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +145,8 @@
       <workItem from="1683579995801" duration="30196000" />
       <workItem from="1683638490519" duration="11448000" />
       <workItem from="1683657185573" duration="31023000" />
-      <workItem from="1683730686875" duration="8696000" />
+      <workItem from="1683730686875" duration="22773000" />
+      <workItem from="1683767175401" duration="25914000" />
     </task>
     <servers />
   </component>

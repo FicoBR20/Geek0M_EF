@@ -39,22 +39,12 @@ definimos algunas variables constantes.
 
     private String [] string_Nombres_Iconos;
 
-//    public void setDados_Activos(Vector<Integer> dados_Activos) {
-//        this.dados_Activos = dados_Activos;
-//    }
-//
-//    public Vector<Integer> getDados_Activos() {
-//        return dados_Activos;
-//    }
+    public void setDados_Activos(Vector<Integer> dados_Activos) {
+        this.dados_Activos = dados_Activos;
+    }
 
-    public Juego_Geek() { // constructor
-        cant_Dados_Activos_Iniciales = 7;
-        cant_Dados_Inactivos_Iniciales=3;
-        cantidad_FichasGanadoras=0;
-        rondes_de_Turnos=5;
-        inicio();
-
-
+    public Vector<Integer> getDados_Activos() {
+        return dados_Activos;
     }
 
     public int getRondes_de_Turnos() {
@@ -72,6 +62,18 @@ definimos algunas variables constantes.
     public void setCantidad_FichasGanadoras(int cantidad_FichasGanadoras) {
         this.cantidad_FichasGanadoras = cantidad_FichasGanadoras;
     }
+
+
+    public Juego_Geek() { // constructor
+        cant_Dados_Activos_Iniciales = 7;
+        cant_Dados_Inactivos_Iniciales=3;
+        cantidad_FichasGanadoras=0;
+        rondes_de_Turnos=5;
+        inicio();
+
+
+    }
+
 
     /**
      * Este método gestina el inicio del juego
@@ -272,8 +274,16 @@ definimos algunas variables constantes.
         if (cara_Recibida==1) {
 
             borra_Activos_Jugados(cara_Recibida); // borra el corazon qqe activó
-            dados_Activos.setSize(dados_Activos.size() + 1);
-            dados_Activos.add(cara_Obtenida.get_cara()); // juega el dado que tomo de inactivos
+
+            dados_Activos.setSize(dados_Activos.size() );
+
+            int auxiliar =999;
+
+            auxiliar = cara_Obtenida.get_cara();
+
+
+            jugar_Un_Solo_Dado( auxiliar); // método de clase invocado.
+
 
 
             return dados_Activos;
@@ -348,31 +358,32 @@ public int solicitaEntero(){ // se solicita un entero via consola
     /**
      * este método modifica una sola posición del arreglo de dados_Activos,
      * retornando el arreglo dados_Activos (CON EL MISMO SIZE) y ya con esa modificación.
-     * @param dado_seleccionado
+     * @param dado_buscado ->  entero que se busca en el arreglo, de existir, se cambiara
+     *                     por un valor random entre [1 , 6] y en la misma ubicacion del vector.
      * @return dados_Activos
      */
 
-    public Vector<Integer> jugar_Un_Solo_Dado(int dado_seleccionado) { // dado_seleccionado --> representa la cara del dado que selecciono para volverla a lanzar
+    public Vector<Integer> jugar_Un_Solo_Dado(int dado_buscado) { // dado_buscado --> representa la cara del dado que selecciono para volverla a lanzar
 
-       int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_seleccionado]. se inicializa con cualquier valor.
+       int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_buscado]. se inicializa con cualquier valor.
 
        int auxiliar = 111; // variable auxiliar inicializada.
 
-        if (dados_Activos.contains(dado_seleccionado)){ // verifica que exista...que este disponible.
+        if (dados_Activos.contains(dado_buscado)){ // verifica que exista...que este disponible.
 
-          recoge_La_Posicion = dados_Activos.indexOf(dado_seleccionado);
+          recoge_La_Posicion = dados_Activos.indexOf(dado_buscado);
 
            auxiliar = cara_Obtenida.get_cara(); // cambia a un nuevo valor
 
            dados_Activos.setElementAt(auxiliar,recoge_La_Posicion);//cambia al nuevo valor en la misma poscion
 
-            System.out.println(" dado_seleccionado..si exite y su primera ubicacion es " + recoge_La_Posicion);
+            System.out.println(" dado_buscado..si exite y su primera ubicacion es " + recoge_La_Posicion);
 
 
         }
 
         else {
-            System.out.println(" la cara " + dado_seleccionado + " no esta disponible, ese dado NO exite "); // check
+            System.out.println(" la cara " + dado_buscado + " no esta disponible, ese dado NO exite "); // check
 
         }
 
@@ -643,6 +654,7 @@ public int solicitaEntero(){ // se solicita un entero via consola
                 setCantidad_FichasGanadoras(0);
 
                 JOptionPane.showMessageDialog(null, "..Debes seguir jugando...\n..quedan fichas aun.");
+
                 /*
                 Se puede programar un aviso de un mensaje que diga ...sigue jugando..
                 porque todavia existen otras fichas.
@@ -653,7 +665,6 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
         }
 
-        System.out.println(" queda mucho juego por delante...NO has puntuado AUN....sigue adelante.. " + getCantidad_FichasGanadoras());
 
 
 
