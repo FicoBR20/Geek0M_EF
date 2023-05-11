@@ -1,5 +1,6 @@
 package modelo;
 
+import java.net.Inet4Address;
 import java.util.Vector;
 
 /**
@@ -12,19 +13,22 @@ public class Tirar_dados {
     private int sumatoria;
     //Vector donde se guarda las dos caras del dado
     private Vector<Integer> caras;
+    private final Vector<Integer> caras_2;
 
     public Tirar_dados() {
         dado = new Vector<Dado>();
         tiro = 0;
         sumatoria = 0;
-        caras = new Vector<>(0);
+        caras = new Vector<>();
+        caras_2 = new Vector<>();
         cantidad_de_dados=0;
     }
     public Tirar_dados(int cantidad_de_dados) {
         dado = new Vector<Dado>();
         tiro = 0;
         sumatoria = 0;
-        caras = new Vector<>(0);
+        caras = new Vector<>();
+        caras_2 = new Vector<>();
         this.cantidad_de_dados=cantidad_de_dados-1;
     }
 

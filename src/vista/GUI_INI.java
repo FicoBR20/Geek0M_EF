@@ -14,7 +14,7 @@ public class GUI_INI extends JFrame{
         inicio();
 
         //Default JFrame configuration
-        this.setTitle("menu");
+        this.setTitle("gui inicio");
         this.setUndecorated(true);
         this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();

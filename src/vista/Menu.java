@@ -11,19 +11,29 @@ public class Menu extends JFrame{
      * Constructor of GUI class
      */
     public Menu(){
+        iniMenu();
 
         //Default JFrame configuration
         this.setTitle("menu");
-        this.setSize(new Dimension(200,150));
-        this.setBackground(Color.BLACK);
-//        this.setUndecorated(true);
-//        this.pack();
+        this.setUndecorated(true);
+        this.setBackground(new Color(255,255,255,0));
+        this.pack();
+        this.setSize(new Dimension(135,188));
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 //        this.setAlwaysOnTop(true); //Hace que esta ventana siempre este visible
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(new GridBagLayout());
     }
+
+    private void iniMenu() {
+
+        FondoPanel fondoPanel = new FondoPanel();
+        fondoPanel.set_ruta_Icon("/recursos/menu.png");
+        this.setContentPane(fondoPanel);
+    }
+
 }
 
 
