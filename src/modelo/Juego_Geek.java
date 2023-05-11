@@ -745,11 +745,11 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
         switch (jugado) {
             case 1:
-                accion_Corazon(1);
+                //accion_Corazon(1);
                 auxiliar = "EL Corazon está en acción";
                 break;
             case 2:
-               accion_Dragon(2);
+              // accion_Dragon(2);
                 auxiliar = "EL Dragon está en acción";
                 break;
             case 3:

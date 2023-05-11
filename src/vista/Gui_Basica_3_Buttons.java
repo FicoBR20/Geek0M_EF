@@ -9,6 +9,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
 
+
+/**
+ * Se genera esta clase para desarrollar una estrategia enfocada a un nuevo tipo de dato
+ * denominado DadoPoderoso.
+ *
+ */
 public class Gui_Basica_3_Buttons extends JFrame {
 
     private Controlador_v2 control_2;
@@ -19,6 +25,18 @@ public class Gui_Basica_3_Buttons extends JFrame {
     private DadoPoderoso dadoPoderoso2;
 
     private DadoPoderoso dadoPoderoso3;
+
+    private DadoPoderoso dadoPoderoso4;
+    private DadoPoderoso dadoPoderoso5;
+
+    private DadoPoderoso dadoPoderoso6;
+
+    private DadoPoderoso dadoPoderoso7;
+    private DadoPoderoso dadoPoderoso8;
+
+    private DadoPoderoso dadoPoderoso9;
+
+    private DadoPoderoso dadoPoderoso10;
 
 
     private Dado dado;
@@ -58,6 +76,13 @@ public class Gui_Basica_3_Buttons extends JFrame {
         dadoPoderoso1 = new DadoPoderoso();
         dadoPoderoso2 = new DadoPoderoso();
         dadoPoderoso3 = new DadoPoderoso();
+        dadoPoderoso4 = new DadoPoderoso();
+        dadoPoderoso5 = new DadoPoderoso();
+        dadoPoderoso6 = new DadoPoderoso();
+        dadoPoderoso7 = new DadoPoderoso();
+        dadoPoderoso8 = new DadoPoderoso();
+        dadoPoderoso9 = new DadoPoderoso();
+        dadoPoderoso10 = new DadoPoderoso();
 
 
         escucha = new Escucha();
@@ -71,73 +96,56 @@ public class Gui_Basica_3_Buttons extends JFrame {
         imageLabel = new JLabel();
 
 
+        jPanel1 = new JPanel();
+        int sabio = 999;
+
+        DadoPoderoso[] dadoOrganizado; // arreglo
+
+        dadoOrganizado = new DadoPoderoso[10];
+
+        dadoOrganizado[0] = dadoPoderoso1;
+        dadoOrganizado[1] = dadoPoderoso2;
+        dadoOrganizado[2] = dadoPoderoso3;
+        dadoOrganizado[3] = dadoPoderoso4;
+        dadoOrganizado[4] = dadoPoderoso5;
+        dadoOrganizado[5] = dadoPoderoso6;
+        dadoOrganizado[6] = dadoPoderoso7;
+        dadoOrganizado[7] = dadoPoderoso8;
+        dadoOrganizado[8] = dadoPoderoso9;
+        dadoOrganizado[9] = dadoPoderoso10;
 
 
-            jPanel1 = new JPanel();
-            int sabio = 999;
+        for (int i = 0; i < dadoOrganizado.length; i++) {
 
-            DadoPoderoso[] dadoOrganizado ; // arreglo
+            // dadoOrganizado[i] = new DadoPoderoso();
 
-            dadoOrganizado= new DadoPoderoso[3];
+            int selector = dadoPoderoso1.darlaCara_Poderosa();// genera un random
 
-            dadoOrganizado[0]=dadoPoderoso1;
-            dadoOrganizado[1]=dadoPoderoso2;
-            dadoOrganizado[2]=dadoPoderoso3;
+            imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
+                    selector + ".png")));
 
+            dadoOrganizado[i].setIcon(imagen_dado);
+            dadoOrganizado[i].addMouseListener(escucha);
+            dadoOrganizado[i].addActionListener(escucha);
+            dadoOrganizado[i].addKeyListener(escucha);
 
+            dadoOrganizado[i].setCara_Poderosa(selector);
 
+            jPanel1.add(dadoOrganizado[i]);
 
+            System.out.println(" asi quedaron los nombres " + selector + " representa la figura " + dadoOrganizado[i].darlaCara_Poderosa(selector - 1));
 
-            for (int i = 0; i < dadoOrganizado.length; i++) {
-
-                // dadoOrganizado[i] = new DadoPoderoso();
-
-                int selector = dadoPoderoso1.darlaCara();// genera un random
-
-                imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
-                        selector + ".png")));
-
-                dadoOrganizado[i].setIcon(imagen_dado);
-                dadoOrganizado[i].addMouseListener(escucha);
-                dadoOrganizado[i].addActionListener(escucha);
-                dadoOrganizado[i].addKeyListener(escucha);
-                dadoOrganizado[i].setCara(selector);
-
-                jPanel1.add(dadoOrganizado[i]);
-
-                System.out.println(" asi quedaron los nombres " + selector);
-
-                repaint();
-            }
+            repaint();
+        }
 
 
+        jPanel1.add(PLAY);
 
 
-
-        //=========================
-
-
-
-
-        //===============================
-
-//
-//        jPanel1.add(jButton1,BorderLayout.SOUTH);
-//        jPanel1.add(jButton2, BorderLayout.EAST);
-           jPanel1.add(PLAY);
-
-
-
-//
-//        jButton1.addMouseListener(escucha);
-//        jButton1.addKeyListener(escucha);
-//        jButton2.addMouseListener(escucha);
-//        jButton2.addKeyListener(escucha);
         PLAY.addMouseListener(escucha);
         PLAY.addKeyListener(escucha);
+
         PLAY.addActionListener(escucha);
-
-
 
 
         //this refers a JFrame setup
@@ -145,8 +153,6 @@ public class Gui_Basica_3_Buttons extends JFrame {
 
 
     }
-
-
 
 
     // MAIN --> FUNCTION TO LAUNCH THE APP.
@@ -161,24 +167,30 @@ public class Gui_Basica_3_Buttons extends JFrame {
         });
     }
 
-    private class DadoPoderoso extends JButton{
+    /**
+     *
+     * Esta Clase herda de Dado y extiende JButton
+     * Creo que esta estrategia es eficiente...seguiré en el intento.
+     */
 
-        public DadoPoderoso(){
+    private class DadoPoderoso extends JButton {
+
+        public DadoPoderoso() {
             dado = new Dado();
             jBut_Poderoso = new JButton();
             //initGUI();
 
         }
 
-        public int darlaCara(){
+        public int darlaCara_Poderosa() {
             return dado.get_cara();
         }
 
-        public void setCara(int dd){
+        public void setCara_Poderosa(int dd) {
             dado.setCara(dd);
         }
 
-        public JButton ponerImagen(ImageIcon im){
+        public JButton ponerImagen(ImageIcon im) {
             jBut_Poderoso.setIcon(im);
 
             return jBut_Poderoso;
@@ -186,10 +198,9 @@ public class Gui_Basica_3_Buttons extends JFrame {
         }
 
 
+        public String darlaCara_Poderosa(int x) { // 0 Corazon, 1 dragon, 2 meeple, 3 cohete, 4 superheroe, 5 el 42.
 
-        public String darlaCara(int x){ // 0 Corazon, 1 dragon, 2 meeple, 3 cohete, 4 superheroe, 5 el 42.
-
-           return dado.get_Nombre_Cara(x);
+            return dado.get_Nombre_Cara(x);
 
 
         }
@@ -198,15 +209,73 @@ public class Gui_Basica_3_Buttons extends JFrame {
     }
 
 
-    private class Escucha implements MouseListener, KeyListener, ActionListener {
+    private class Escucha implements MouseListener, ActionListener, KeyListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            if (e.getSource() == PLAY) {
+
+                initGUI();
 
 
+            }
 
         }
+
+
+            @Override
+            public void mouseClicked (MouseEvent e){
+
+               // dado = new Dado();
+
+
+                if ((e.getSource() == dadoPoderoso1) || (e.getSource() == dadoPoderoso2) || (e.getSource() == dadoPoderoso3)
+                        || (e.getSource() == dadoPoderoso4) || (e.getSource() == dadoPoderoso5) || (e.getSource() == dadoPoderoso6)
+                        || (e.getSource() == dadoPoderoso7) || (e.getSource() == dadoPoderoso8) || (e.getSource() == dadoPoderoso9)
+                        || (e.getSource() == dadoPoderoso10)) {
+
+                    juegoGeek.pura_Accion(dadoPoderoso1.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso2.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso3.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso4.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso5.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso6.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso7.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso8.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso9.darlaCara_Poderosa());
+                    juegoGeek.pura_Accion(dadoPoderoso10.darlaCara_Poderosa());
+
+
+
+
+                    System.out.println(" funcionara" + dadoPoderoso1.darlaCara_Poderosa());
+                    ;
+                }
+
+
+            }
+
+            @Override
+            public void mousePressed (MouseEvent e){
+
+            }
+
+            @Override
+            public void mouseReleased (MouseEvent e){
+
+            }
+
+            @Override
+            public void mouseEntered (MouseEvent e){
+
+            }
+
+            @Override
+            public void mouseExited (MouseEvent e){
+
+            }
+
 
         @Override
         public void keyTyped(KeyEvent e) {
@@ -216,61 +285,11 @@ public class Gui_Basica_3_Buttons extends JFrame {
         @Override
         public void keyPressed(KeyEvent e) {
 
-
-
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
 
         }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-            dado = new Dado();
-
-
-            if  ((e.getSource()==dadoPoderoso1) || (e.getSource()==dadoPoderoso2) || (e.getSource()==dadoPoderoso3) ) {
-
-                juegoGeek.pura_Accion(dadoPoderoso1.darlaCara());
-                juegoGeek.pura_Accion(dadoPoderoso2.darlaCara());
-                juegoGeek.pura_Accion(dadoPoderoso3.darlaCara());
-
-
-
-
-
-                System.out.println(" funcionara");
-            }
-
-
-
-
-
-
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-
     }
-
 }
