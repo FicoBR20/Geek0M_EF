@@ -274,27 +274,60 @@ public class GUI extends JFrame {
                 panelUsados.add(dado[i], BorderLayout.SOUTH);
 //                control.setEstado(i, 1);
                 control.set_estado_dado(i,8);
-                JOptionPane.showMessageDialog(null, "Sigue en Usados");
+
+//                control.cuenta_dados_usados();
+
+                JOptionPane.showMessageDialog(null, "Sigue en Usados"
+                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
             }
             case 2 -> {
 
                 panelActivos.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 4);
                 control.set_estado_dado(i,0);
-                JOptionPane.showMessageDialog(null, "Pasa a dado Activos");
+
+                control.resta_dados_inactivos();
+                control.cuenta_dados_activos();
+
+                JOptionPane.showMessageDialog(null, "Pasa a dado Activos"
+                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
             }
             case 3 -> {
                 panelPuntos.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 3);
                 control.set_estado_dado(i,9);
-                JOptionPane.showMessageDialog(null, "Pasa a dado Puntos");
+
+                control.resta_dados_activos();
+                control.cuenta_dados_enPunto();
+
+                JOptionPane.showMessageDialog(null, "Pasa a dado Puntos"
+                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
             }
             case 4 -> {
 
                 panelUsados.add(dado[i], BorderLayout.SOUTH);
                 control.setEstado(i, 1);
                 control.set_estado_dado(i,8);
-                JOptionPane.showMessageDialog(null, "Pasa a dado Usados");
+
+                control.resta_dados_activos();
+                control.cuenta_dados_usados();
+
+
+
+                JOptionPane.showMessageDialog(null, "Pasa a dado Usados"
+                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
             }
         }
     }
@@ -398,6 +431,8 @@ public class GUI extends JFrame {
 
                     control.setEstado(i,2);
                     control.set_estado_dado(i,7);
+
+                    control.cuenta_dados_inactivos();
                 }
                 for (int i=3;i<=9;i++){
                     imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado.get(i) + ".png")));
@@ -407,6 +442,8 @@ public class GUI extends JFrame {
 ;
                     control.setEstado(i,4);
                     control.set_estado_dado(i,0);
+
+                    control.cuenta_dados_activos();
                 }
                 for (int i=0;i<=9;i++){
                     System.out.println("Dado "+(i+1)+" cara= "+ cara_dado.get(i));

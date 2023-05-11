@@ -1,6 +1,7 @@
 package control;
 
 import modelo.Dado;
+import modelo.Juego_Geek;
 import modelo.Model_Geek;
 import modelo.Tirar_dados;
 
@@ -21,12 +22,18 @@ public class Controlador {
     private final Integer[] estado;
     private final Integer[] estado_dado;
     private Tirar_dados tirar_dados;
+    private  Juego_Geek juegoGeek;
+    private int cantidad_en_usados,cantidad_en_inactivos,cantidad_en_puntos,cantidad_en_activo;
 
     public Controlador() {
 
         cara = new Vector<Integer>();
         estado = new Integer[10];
         estado_dado = new Integer[10];
+        cantidad_en_usados = 0;
+        cantidad_en_inactivos = 0;
+        cantidad_en_puntos = 0;
+        cantidad_en_activo = 0;
     }
 
 //    public Controlador(int numero_de_dados) {
@@ -111,9 +118,77 @@ public class Controlador {
                 bloquear_corazon();
                 bloquear_meeple();
                 estado[i] = 3;
+//                juegoGeek.accion_Cuarenta_y_Dos(6);
                 JOptionPane.showMessageDialog(null, "Seleccionaste point");
             }
         }
+    }
+
+    public int getCantidad_en_usados() {
+        return cantidad_en_usados;
+    }
+
+    public int getCantidad_en_inactivos() {
+        return cantidad_en_inactivos;
+    }
+
+    public int getCantidad_en_puntos() {
+        return cantidad_en_puntos;
+    }
+
+    public int getCantidad_en_activo() {
+        return cantidad_en_activo;
+    }
+
+
+
+    public void cuenta_dados_usados() {
+        cantidad_en_usados++;
+    }
+    public void cuenta_dados_inactivos() {
+
+        cantidad_en_inactivos++;
+    }
+    public void cuenta_dados_enPunto() {
+
+        cantidad_en_puntos++;
+    }
+    public void cuenta_dados_activos() {
+
+        cantidad_en_activo++;
+    }
+
+
+    public void resta_dados_usados() {
+        cantidad_en_usados--;
+    }
+    public void resta_dados_inactivos() {
+
+        cantidad_en_inactivos--;
+    }
+    public void resta_dados_enPunto() {
+
+        cantidad_en_puntos--;
+    }
+    public void resta_dados_activos() {
+
+        cantidad_en_activo--;
+    }
+
+
+
+
+
+
+
+
+    public int getPunto() {
+
+        return punto;
+    }
+
+    public void setPunto(int punto) {
+        this.punto = punto;
     }
 
     public void voltear_dado(int i){
@@ -314,12 +389,6 @@ public class Controlador {
         return tirar_dados.getDado();
     }
 
-    public int getPunto() {
-        return punto;
-    }
 
-    public void setPunto(int punto) {
-        this.punto = punto;
-    }
 
 }

@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.swing.*;
 import java.util.Vector;
 
 public class Model_Geek {
@@ -141,5 +142,62 @@ public class Model_Geek {
         }
         System.out.println("tiro "+getTiro()+ " punto " +punto);
     }
+
+//    public Vector<Integer> accion_Cuarenta_y_Dos(int cara_Recibida){ // [ 6 ] -> genera el puntaje del juego
+//
+//        if (cara_Recibida==6) {
+//            int contador=0; // acumulador de dados tipo "42" al recorrer el arreglo dados_Activos.
+//            for (int i = 0; i < dados_Activos.size(); i++) {
+//                if (dados_Activos.get(i)==cara_Recibida){
+//
+//                    contador++;
+//
+//                    System.out.println("somos igualitas." + contador);
+//                }
+//
+//            }
+//
+//
+//            if (contador==dados_Activos.size()){ // Todas son fichas ganadoras..se procede a calcular puntaje obtenido.
+//
+//                setCantidad_FichasGanadoras(contador);
+//
+//                dados_Activos.clear(); // termina suamando puntos.
+//
+//                JOptionPane.showMessageDialog(null, "..felicitaciones...has ganado");
+//
+//                /*
+//                dados_Activos despues del clear final, puede mostrar un saludo...o algo..animacion..en fin..
+//                 */
+//
+//                /*
+//                AQUI TERMINA UNA RONDA CON PUNTUACION...DEBE PREGUNTARSE QUE RONDA ES ..SI ES 5TA .
+//                .TERMINA EL JUEGO...Y ENTREGA RESULTADOS..SINO REINICIA DE NUEVO CON LANZAMIENTO INCIAL...SIN
+//                BORRAR LOS RESULTADOS.. A MENOS QUE DRAGON APAREZCA..
+//                 */
+//            }
+//
+//            else {
+//
+//                setCantidad_FichasGanadoras(0);
+//
+//                JOptionPane.showMessageDialog(null, "..Debes seguir jugando...\n..quedan fichas aun.");
+//
+//                /*
+//                Se puede programar un aviso de un mensaje que diga ...sigue jugando..
+//                porque todavia existen otras fichas.
+//                 */
+//
+//            }
+//
+//
+//        }
+//
+//
+//
+//
+//        return dados_Activos;
+//
+//    }
 
 }
