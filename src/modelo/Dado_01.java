@@ -3,7 +3,9 @@ package modelo;
 import java.util.Random;
 
 public class Dado_01 {
-
+    /**
+     * String auxiliar por si se necesita
+     */
     private String info_Auxiliar;
     /**
      * Cantidad de caras del Dado
@@ -41,9 +43,13 @@ public class Dado_01 {
 
     }
 
+    /**
+     * Método constructor de Dado_01
+     */
+
     public Dado_01(){
 
-        info_Auxiliar = " Hola soy Dado 01";
+        info_Auxiliar = "";
         selector_Figura = 6; // valor por defecto
     }
 

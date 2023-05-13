@@ -23,6 +23,7 @@ public class Control_01 {
      */
 
     private int alto_del_Dado;
+    private Dimension dimension_Dado;
 
     public int getAncho_del_Dado() {
         return ancho_del_Dado;
@@ -40,20 +41,17 @@ public class Control_01 {
         this.alto_del_Dado = alto_del_Dado;
     }
 
-    /**
-     * Es la Dimension ya configurada para el Dado.
-     * ( x, y )
-     */
-
-    private Dimension dimension_Dado;
-
-
 
     public Dimension getDimension_Dado() {
+
         return dimension_Dado;
     }
 
-    public void setDimension_Dado(Dimension dimension_Dado) {
+    public void setDimension_Dado() {
+
+        this.getAlto_del_Dado();
+        this.getAncho_del_Dado();
+
         this.dimension_Dado = dimension_Dado;
     }
 
@@ -64,10 +62,14 @@ public class Control_01 {
 
     }
 
+    /**
+     * Método que inicia configurando el tamaño
+     * de los dados
+     */
     public void inicio_Control(){
 
-        ancho_del_Dado = 0;
-        alto_del_Dado =0;
+        ancho_del_Dado = 42;
+        alto_del_Dado =42;
 
 
     }
@@ -77,7 +79,9 @@ public class Control_01 {
      * del Dado.
      */
 
-    public void configuro_Dado(){
+    public Dimension configuro_Dado(){
+
+        dimension_Dado = new Dimension();
 
         setAncho_del_Dado(Integer.parseInt(JOptionPane.showInputDialog("ingrese medida en X")));
 
@@ -86,6 +90,8 @@ public class Control_01 {
         Dimension dimen_Ungresada = new Dimension( getAncho_del_Dado(), getAlto_del_Dado());
 
         System.out.println(" yo soy el tamaño del dado: [ "+ getAncho_del_Dado() + " ] ; [ " + getAlto_del_Dado() + " ] ");
+
+        return dimension_Dado;
 
 
     }

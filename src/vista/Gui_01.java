@@ -16,7 +16,7 @@ public class Gui_01 extends JFrame {
 
     private Dado_Profesional dadoProfesional;
 
-    private Control_01 control01;
+  //  private Control_01 control01;
 
     private Dado_01 dado01;
 
@@ -28,7 +28,7 @@ public class Gui_01 extends JFrame {
     /**
      * Arreglo de datos tipo Dado_Profesional
      */
-    private Dado_Profesional[] arreglo_DP;
+    private JButton[] arreglo_jButton;
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
@@ -38,8 +38,6 @@ public class Gui_01 extends JFrame {
 
         Inicio();
 
-        control01 = new Control_01();
-        dado01 = new Dado_01();
 
         this.setSize( 600,300);
         this.setResizable(true);
@@ -57,16 +55,19 @@ public class Gui_01 extends JFrame {
 
         imageIcon = new ImageIcon();
 
-        dadoProfesional = new Dado_Profesional();
+        dado01 = new Dado_01();
 
-        control01 = new Control_01();
+      //  control01 = new Control_01();
 
-        control01.configuro_Dado();
+       // dadoProfesional = new Dado_Profesional();
+
+       // dimension_Auxiliar = control01.configuro_Dado();
+
 
 
         escuchas = new Escuchas();
 
-        jButton_BASICO = new JButton();
+       // jButton_BASICO = new JButton();
 
 
 
@@ -75,55 +76,49 @@ public class Gui_01 extends JFrame {
         jButton3 = new JButton("soy JB 3");
         jButton4 = new JButton("soy JB 4");
 
-        arreglo_DP = new Dado_Profesional[10];
+        arreglo_jButton = new JButton[6];
 
         jLabel1 = new JLabel();
         jLabel1.setText("Soy JLabel 1");
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
-        jLabel4 = new JLabel();
+
+//        jLabel2 = new JLabel();
+//        jLabel3 = new JLabel();
+//        jLabel4 = new JLabel();
 
         jPanel1 = new JPanel();
-        jPanel1.setPreferredSize(new Dimension(control01.getAncho_del_Dado()*5, control01.getAlto_del_Dado()*2));
-        jPanel2 = new JPanel();
-        jPanel3 = new JPanel();
-        jPanel4 = new JPanel();
+      //  jPanel1.setPreferredSize(new Dimension(control01.getAncho_del_Dado()*5, control01.getAlto_del_Dado()*2));
+
+//        jPanel2 = new JPanel();
+//        jPanel3 = new JPanel();
+//        jPanel4 = new JPanel();
 
         jButton1.addActionListener(escuchas);
         jButton1.addKeyListener(escuchas);
         jButton1.addMouseListener(escuchas);
 
-//        jPanel1.add(jButton1);
+        //jPanel1.add(jButton1);
+
 //        jPanel1.add(jButton2);
 //        jPanel1.add(jButton3);
 //        jPanel1.add(jButton4);
 
-//        for (int i = 0; i < arreglo_DP.length; i++) {
-//            arreglo_DP[i]=new JButton();
-//            arreglo_DP[i].setPreferredSize(control01.getDimension_Dado());
-//
-//            arreglo_DP[i].addActionListener(escuchas);
-//            arreglo_DP[i].addMouseListener(escuchas);
-//            arreglo_DP[i].addMouseListener(escuchas);
-//            jPanel1.add(arreglo_DP[i]);
-//
-//        }
+        for (int i = 0; i < arreglo_jButton.length; i++) {
+            arreglo_jButton[i]=new JButton();
+            arreglo_jButton[i].setPreferredSize(new Dimension(42,42));
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
+                    (i+1) + ".png")));
+            arreglo_jButton[i].setIcon(imageIcon);
+            arreglo_jButton[i].setText("estoy ya");
 
-//            for (int i = 0; i < dado01.getSelector_Figura(); i++) {
-//            arreglo_DP[i]=new Dado_Profesional();
-//            arreglo_DP[i].setPreferredSize(control01.getDimension_Dado());
-//            arreglo_DP[i].pinta_Cara();
-//
-//
-//
-//            arreglo_DP[i].addActionListener(escuchas);
-//            arreglo_DP[i].addMouseListener(escuchas);
-//            arreglo_DP[i].addMouseListener(escuchas);
-//            jPanel1.add(arreglo_DP[i]);
-//
-//        }
-//
-//        dadoProfesional.pinta_Cara();
+            arreglo_jButton[i].addActionListener(escuchas);
+            arreglo_jButton[i].addMouseListener(escuchas);
+            arreglo_jButton[i].addMouseListener(escuchas);
+            jPanel1.add(arreglo_jButton[i]);
+
+        }
+
+
+
 
 
 
@@ -150,6 +145,8 @@ public class Gui_01 extends JFrame {
     private class Dado_Profesional extends JButton{
 
         private Dado_01 dado_Completo;
+
+        private ImageIcon imageCaraDado;
         /**
          * Atributo entero que asocia secuencialmente
          * el icono de la cara del dado
@@ -169,40 +166,11 @@ public class Gui_01 extends JFrame {
          */
         public Dado_Profesional(){
 
-            dado_Completo = new Dado_01();
-            control01 = new Control_01();
+
 
         }
 
-        public Dado_Profesional[] pinta_Cara(){
 
-           // dado01 = new Dado_01();
-
-            int auxiliar = 999;
-
-            auxiliar= dado_Completo.getSelector_Figura();
-
-            arreglo_DP = new Dado_Profesional[auxiliar];
-
-
-
-            jButton_BASICO = new JButton();
-
-            imageIcon = new ImageIcon();
-
-
-            for (int i = 0; i < arreglo_DP.length; i++) {
-
-                arreglo_DP[i].setIcon(imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/ 1.png"))));
-                arreglo_DP[i].setSello(i);
-
-
-            }
-
-
-            return arreglo_DP;
-
-        }
 
 
 
@@ -215,11 +183,12 @@ public class Gui_01 extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-//            if (e.getSource()==jButton1){
-//
-//                System.out.println(" soy el JB 1");
-//                JOptionPane.showMessageDialog(null, " soy el JB 1");
-//            }
+            if (e.getSource()==arreglo_jButton[0]){
+
+                System.out.println(" soy el corazon");
+            }
+
+
 
         }
 
@@ -241,10 +210,7 @@ public class Gui_01 extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-//            if (e.getSource()==arreglo_DP[0]){
-//
-//                System.out.println(" soy el arrglo posicion [0]");
-//            }
+
 
         }
 
