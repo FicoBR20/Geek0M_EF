@@ -33,8 +33,7 @@ public class GUI extends JFrame {
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
-    private JButton lanzar, boton_menu, atras, salir; // Declaracion de los botones del juego
-    private JButton boton_lanzar, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
+    private JButton boton_lanzar, boton_menu,boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
     private Escucha escucha, segundaEscucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
@@ -404,7 +403,7 @@ public class GUI extends JFrame {
                 constraints.fill=GridBagConstraints.NONE;
                 constraints.anchor=GridBagConstraints.CENTER;
                 constraints.insets = new Insets(50,0,0,0);
-                boton_menu.add(boton_atras,constraints);
+                menu.add(boton_atras,constraints);
 
                 // Añade el boton salir al menu
                 constraints.gridx=0;
@@ -413,7 +412,7 @@ public class GUI extends JFrame {
                 constraints.fill=GridBagConstraints.NONE;
                 constraints.anchor=GridBagConstraints.CENTER;
                 constraints.insets = new Insets(5,0,0,0);
-                boton_menu.add(boton_salir,constraints);
+                menu.add(boton_salir,constraints);
             }
             if (Objects.equals(e.getActionCommand(), "ATRAS") && boton_menu != null){
                 menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
