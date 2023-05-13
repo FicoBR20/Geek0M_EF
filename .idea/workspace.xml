@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<!--&lt;!&ndash;<<<<<<< HEAD&ndash;&gt;-->
-<!--    <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">-->
-<!--&lt;!&ndash;<<<<<<< HEAD&ndash;&gt;-->
+    <list default="true" id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vista/Gui_01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$DadoPoderoso.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$DadoPoderoso.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons$Escucha.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_Basica_3_Buttons.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
-<!--=======-->
-<!--      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />-->
-<!--      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />-->
-<!--&gt;>>>>>> gui-->
-<!--    </list>-->
-<!--=======-->
-<!--    <list default="true" id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="" />-->
-<!--&gt;>>>>>> modelgeek-->
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="GUIPresentation_01 (2)" />
+        <option value="GUIPresentation_01" />
         <option value="Class" />
       </list>
     </option>
@@ -57,32 +58,36 @@
   }
 }</component>
   <component name="RecentsManager">
-<!--<<<<<<< HEAD-->
     <key name="CreateClassDialog.RecentsKey">
       <recent name="vista" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Design\Desktop\pro\Geek0M_EF\src\recursos" />
     </key>
-<!--=======-->
-<!--&gt;>>>>>> modelgeek-->
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="modelo" />
     </key>
   </component>
-<!--<<<<<<< HEAD-->
-<!--<<<<<<< HEAD-->
-<!--  <component name="RunManager" selected="Application.GUI">-->
-<!--    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">-->
-<!--      <option name="MAIN_CLASS_NAME" value="vista.GUI" />-->
-<!--&lt;!&ndash;=======&ndash;&gt;-->
-  <component name="RunManager" selected="Application.Gui_Basica_3_Buttons (2)">
-    <configuration name="GUI_Sencilla" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Principal.GUI_Sencilla" />
+  <component name="RunManager" selected="Application.Gui_01 (1)">
+    <configuration name="Gui_01 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_01" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Principal.*" />
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gui_01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_01" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,32 +97,6 @@
     </configuration>
     <configuration name="Gui_Basica_3_Buttons (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />
-<!--&gt;>>>>>> modelgeek-->
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-<!--=======-->
-<!--  <component name="RunManager">-->
-<!--    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">-->
-<!--      <option name="MAIN_CLASS_NAME" value="vista.GUI" />-->
-<!--      <module name="Geek0M_EF" />-->
-<!--&gt;>>>>>> gui-->
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-<!--<<<<<<< HEAD-->
-<!--<<<<<<< HEAD-->
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-<!--=======-->
-<!--    <configuration name="Gui_Basica_3_Buttons (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">-->
-<!--      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />-->
-<!--&gt;>>>>>> modelgeek-->
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
@@ -142,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProbadorEnConsola (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="modelo.ProbadorEnConsola" />
+    <configuration name="Gui_Basica_Final" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_Final" />
       <module name="Geek0M_EF" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="modelo.*" />
+          <option name="PATTERN" value="vista.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,20 +136,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Gui_Basica_3_Buttons (2)" />
-        <item itemvalue="Application.Gui_Basica_3_Buttons (1)" />
-        <item itemvalue="Application.GUI_Sencilla" />
+        <item itemvalue="Application.Gui_01 (1)" />
+        <item itemvalue="Application.Gui_01" />
+        <item itemvalue="Application.Gui_Basica_Final" />
         <item itemvalue="Application.Gui_Basica_3_Buttons" />
-        <item itemvalue="Application.ProbadorEnConsola (4)" />
+        <item itemvalue="Application.Gui_Basica_3_Buttons (1)" />
       </list>
     </recent_temporary>
-<!--=======-->
-<!--&gt;>>>>>> gui-->
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="" />
+      <changelist id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="" />
       <created>1683479852512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -186,6 +163,9 @@
       <workItem from="1683816500023" duration="2575000" />
       <workItem from="1683829182664" duration="8605000" />
       <workItem from="1683845908344" duration="1050000" />
+      <workItem from="1683858237080" duration="628000" />
+      <workItem from="1683953079759" duration="3261000" />
+      <workItem from="1683974719294" duration="1939000" />
     </task>
     <servers />
   </component>

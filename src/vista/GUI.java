@@ -27,22 +27,22 @@ public class GUI extends JFrame {
 
 
     private Header headerProject;
-<<<<<<< HEAD
-    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton;
-    private JLabel[] dado, puntos_dado;
-    private ImageIcon imagen_dado;
-    private GridBagConstraints constraints; // Referencias del grid
-    private JButton lanzar, menu = null, atras, salir, entrar, salir1; // Declaracion de los botones del juego
-    private Escucha escucha;
-=======
+//<<<<<<< HEAD
+//    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton;
+//    private JLabel[] dado, puntos_dado;
+//    private ImageIcon imagen_dado;
+//    private GridBagConstraints constraints; // Referencias del grid
+//    private JButton lanzar, menu = null, atras, salir, entrar, salir1; // Declaracion de los botones del juego
+//    private Escucha escucha;
+//=======
     private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
     private JButton lanzar, menu, atras, salir; // Declaracion de los botones del juego
     private Escucha escucha, segundaEscucha;
-
->>>>>>> modelgeek
+//
+//>>>>>>> modelgeek
     private Menu menu1;// Ventana que contiene el menu para salir del juego
     private Controlador control;
     private int uso_boton_lanzar;
@@ -94,9 +94,9 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(100,0,0,0);
 
-        entrar = new JButton("ENTRAR");
-        entrar.addActionListener(escucha);
-        guiIni.add(entrar,constraints);
+//        entrar = new JButton("ENTRAR");
+//        entrar.addActionListener(escucha);
+//        guiIni.add(entrar,constraints);
 
         //Añado Boton a la ventana
         constraints.gridx=0;
@@ -107,9 +107,9 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(10,0,0,0);
 
-        salir1 = new JButton("SALIR");
-        salir1.addActionListener(escucha);
-        guiIni.add(salir1,constraints);
+//        salir1 = new JButton("SALIR");
+//        salir1.addActionListener(escucha);
+//        guiIni.add(salir1,constraints);
 
     }
 
@@ -300,69 +300,69 @@ public class GUI extends JFrame {
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
-<<<<<<< HEAD
-    public class Escucha implements ActionListener {
-=======
+//<<<<<<< HEAD
+//    public class Escucha implements ActionListener {
+//=======
     public class Escucha implements ActionListener, MouseListener{
->>>>>>> modelgeek
+//>>>>>>> modelgeek
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if (e.getActionCommand() == "MENU"){
-                menu1 = new Menu();
-                menu.setEnabled(false);//Deshabilita el botón menu
-                lanzar.setEnabled(false); //Deshabilita el botón lanzar
-                panelMenu = new JPanel();//Contiene los botones del menu
-                panelMenu.add(atras,BorderLayout.CENTER);
-                panelMenu.add(salir,BorderLayout.SOUTH);
-                menu1.add(panelMenu);
-            }
-            if (e.getActionCommand() == "ATRAS" && menu1 != null){
-                menu1.dispose(); //Cierra la ventana de menu sin cerrar el programa
-                menu.setEnabled(true);// Habilita el boton menu
-                if (uso_boton_lanzar == 0){
-                    lanzar.setEnabled(true);
-                }
-
-            }
-            if (e.getSource() == salir){
-                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
-                if (opcion == JOptionPane.YES_OPTION){
-                    System.out.println("salir");
-//                    System.exit(0);
-                    dispose();
-                    ventana_entrada();
-                }
-                else if(opcion == JOptionPane.NO_OPTION){
-                    System.out.println("nada");
-                    menu1.dispose();
-                    menu.setEnabled(true);
-                }
-            }
-            if (e.getSource() == lanzar){
-                for (int i=0;i<=9;i++){
-                    control.inicio(10); // cantidad de dados
-                    Vector<Integer> face = control.getCara(); // arreglo Integer suministra un entero.
-                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(0)+".png"));//Image Icon
-                    dado[i].setIcon(imagen_dado); // arreglo de JLabels
-
-
-                    System.out.println("test");
-                }
-
-            //    lanzar.setEnabled(false); //Deshabilita el boton lanzar
-                uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
-
-            }
-            if (e.getSource() == entrar){
-                guiIni.dispose();
-                setVisible(true);
-            }
-
-            if (e.getSource() == salir1){
-                System.exit(0);
-            }
+//            if (e.getActionCommand() == "MENU"){
+//                menu1 = new Menu();
+//                menu.setEnabled(false);//Deshabilita el botón menu
+//                lanzar.setEnabled(false); //Deshabilita el botón lanzar
+//                panelMenu = new JPanel();//Contiene los botones del menu
+//                panelMenu.add(atras,BorderLayout.CENTER);
+//                panelMenu.add(salir,BorderLayout.SOUTH);
+//                menu1.add(panelMenu);
+//            }
+//            if (e.getActionCommand() == "ATRAS" && menu1 != null){
+//                menu1.dispose(); //Cierra la ventana de menu sin cerrar el programa
+//                menu.setEnabled(true);// Habilita el boton menu
+//                if (uso_boton_lanzar == 0){
+//                    lanzar.setEnabled(true);
+//                }
+//
+//            }
+//            if (e.getSource() == salir){
+//                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
+//                if (opcion == JOptionPane.YES_OPTION){
+//                    System.out.println("salir");
+////                    System.exit(0);
+//                    dispose();
+//                    ventana_entrada();
+//                }
+//                else if(opcion == JOptionPane.NO_OPTION){
+//                    System.out.println("nada");
+//                    menu1.dispose();
+//                    menu.setEnabled(true);
+//                }
+//            }
+//            if (e.getSource() == lanzar){
+//                for (int i=0;i<=9;i++){
+//                    control.inicio(10); // cantidad de dados
+//                    Vector<Integer> face = control.getCara(); // arreglo Integer suministra un entero.
+//                    imagen_dado =new ImageIcon(getClass().getResource("/recursos/"+face.get(0)+".png"));//Image Icon
+//                    dado[i].setIcon(imagen_dado); // arreglo de JLabels
+//
+//
+//                    System.out.println("test");
+//                }
+//
+//            //    lanzar.setEnabled(false); //Deshabilita el boton lanzar
+//                uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
+//
+//            }
+//            if (e.getSource() == entrar){
+//                guiIni.dispose();
+//                setVisible(true);
+//            }
+//
+//            if (e.getSource() == salir1){
+//                System.exit(0);
+//            }
 
         }
 
