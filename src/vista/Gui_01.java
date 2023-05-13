@@ -1,10 +1,16 @@
 package vista;
 
+import control.Control_01;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Gui_01 extends JFrame {
+
+    private Control_01 control01;
+
+    private Dimension dimension_Cara;
 
     private Escuchas escuchas;
 
@@ -20,6 +26,8 @@ public class Gui_01 extends JFrame {
 
         Inicio();
 
+        control01 = new Control_01();
+
         this.setSize( 600,300);
         this.setResizable(true);
         this.setVisible(true);
@@ -33,6 +41,10 @@ public class Gui_01 extends JFrame {
     }
 
     public void Inicio(){
+
+        control01 = new Control_01();
+        control01.configuro_Dado();
+
 
         escuchas = new Escuchas();
 
@@ -50,7 +62,7 @@ public class Gui_01 extends JFrame {
         jLabel4 = new JLabel();
 
         jPanel1 = new JPanel();
-        jPanel1.setVisible(true); // Ubicar booleana referenciada.
+        jPanel1.setPreferredSize(new Dimension(control01.getAncho_del_Dado()*5, control01.getAlto_del_Dado()*2));
         jPanel2 = new JPanel();
         jPanel3 = new JPanel();
         jPanel4 = new JPanel();
@@ -59,13 +71,15 @@ public class Gui_01 extends JFrame {
         jButton1.addKeyListener(escuchas);
         jButton1.addMouseListener(escuchas);
 
-        jPanel1.add(jButton1);
-        jPanel1.add(jButton2);
-        jPanel1.add(jButton3);
-        jPanel1.add(jButton4);
+//        jPanel1.add(jButton1);
+//        jPanel1.add(jButton2);
+//        jPanel1.add(jButton3);
+//        jPanel1.add(jButton4);
 
         for (int i = 0; i < arreglo.length; i++) {
             arreglo[i]=new JButton();
+            arreglo[i].setPreferredSize(control01.getDimension_Dado());
+
             arreglo[i].addActionListener(escuchas);
             arreglo[i].addMouseListener(escuchas);
             arreglo[i].addMouseListener(escuchas);
@@ -117,6 +131,11 @@ public class Gui_01 extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource()==arreglo[0]){
+
+                System.out.println(" soy el arrglo posicion [0]");
+            }
 
         }
 
