@@ -1,14 +1,12 @@
 package vista;
 
 import control.Controlador;
+import modelo.Dado;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.Objects;
 import java.util.Vector;
 
@@ -24,14 +22,23 @@ import java.util.Vector;
 
 public class GUI extends JFrame {
 
-    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton;
-    private JLabel[] dado;
+    private modelo.Dado dado_Probador; // adiciono para probar "lanzar dados"
+
+    private Vector<Dado> mis_Dados;
+
+
+    private Header headerProject;
+
+    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
+    private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
-    private JButton boton_lanzar, boton_menu = null, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
-    private Escucha escucha;
+    private JButton lanzar, boton_menu, atras, salir; // Declaracion de los botones del juego
+    private JButton boton_lanzar, boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
+    private Escucha escucha, segundaEscucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
+
     private int uso_boton_lanzar;
     private GUI_INI guiIni;
     private Vector<Integer> cara_dado;
@@ -109,6 +116,15 @@ public class GUI extends JFrame {
         fondoPanel.set_ruta_Icon("/recursos/fondo2.png");
         this.setContentPane(fondoPanel);
 
+        dado_Probador = new Dado();
+        segundaEscucha = new Escucha();
+        mis_Dados = new Vector<Dado>();
+        jP_misdados = new JPanel();
+        jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
+
+
+
+
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         int dado_activo = 0;// '0' = botón no se puede usar
         cara_dado = null;//vector que guarda las cara de los dados
@@ -122,9 +138,9 @@ public class GUI extends JFrame {
             imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/comodin.png")));
             dado[i] = new JLabel(imagen_dado);
 
-
             imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p" + i + ".png")));
             puntos_dado[i] = new JLabel(imagen_dado);
+            dado[i].addMouseListener((MouseListener) escucha);
         }
 
         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/puntaje.png")));
@@ -138,7 +154,7 @@ public class GUI extends JFrame {
         escucha = new Escucha();
 
         //Instancio el menú del juego para utilizarlo luego el metodo escucha
-        menu = null;
+        boton_menu = null;
 
         //Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         this.getContentPane().setLayout(new GridBagLayout());
@@ -360,10 +376,14 @@ public class GUI extends JFrame {
         });
     }
 
+
+
     /**
      * inner class that extends an Adapter Class or implements Listeners used by GUI class
      */
+
     public class Escucha implements ActionListener, MouseListener {
+
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -384,7 +404,7 @@ public class GUI extends JFrame {
                 constraints.fill=GridBagConstraints.NONE;
                 constraints.anchor=GridBagConstraints.CENTER;
                 constraints.insets = new Insets(50,0,0,0);
-                menu.add(boton_atras,constraints);
+                boton_menu.add(boton_atras,constraints);
 
                 // Añade el boton salir al menu
                 constraints.gridx=0;
@@ -393,9 +413,9 @@ public class GUI extends JFrame {
                 constraints.fill=GridBagConstraints.NONE;
                 constraints.anchor=GridBagConstraints.CENTER;
                 constraints.insets = new Insets(5,0,0,0);
-                menu.add(boton_salir,constraints);
+                boton_menu.add(boton_salir,constraints);
             }
-            if (Objects.equals(e.getActionCommand(), "ATRAS") && menu != null){
+            if (Objects.equals(e.getActionCommand(), "ATRAS") && boton_menu != null){
                 menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
                 boton_menu.setEnabled(true);// Habilita el boton menu
                 if (uso_boton_lanzar == 0){
@@ -422,6 +442,7 @@ public class GUI extends JFrame {
                     boton_menu.setEnabled(true);
                 }
             }
+
             if (e.getSource() == boton_lanzar){
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
@@ -470,6 +491,11 @@ public class GUI extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
 
+            if (e.getSource()==dado[2]){
+
+                System.out.println("estoy en el dado [0]");
+            }
+
         }
 
         @Override
@@ -479,6 +505,7 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
+
             for (int i=0;i<=9;i++){
 
                 if(e.getSource() == dado[i]){
@@ -536,6 +563,7 @@ public class GUI extends JFrame {
                 }
             }
             System.out.println("__________________");
+
         }
 
         @Override
@@ -547,5 +575,20 @@ public class GUI extends JFrame {
         public void mouseExited(MouseEvent e) {
 
         }
+
+    }
+
+    public void activarDados(){
+
+        dado = new JLabel[10];
+
+        for (int i=0;i<=9;i++){
+            dado[i].addMouseMotionListener((MouseMotionListener) escucha);
+
+
+
+            System.out.println("activados");
+        }
+
     }
 }

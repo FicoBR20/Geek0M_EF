@@ -105,7 +105,9 @@ definimos algunas variables constantes.
             int receptor = cara_Obtenida.get_cara(); // obtiene el valor random (int)
            dados_Activos.add(receptor);// adiciona el valor al arreglo
 
-//           auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
+
+           auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
+
 
         }
 
@@ -134,7 +136,8 @@ definimos algunas variables constantes.
         for(int i = 0; i < cant_Dados_Inactivos_Iniciales; i++){
             int receptor = cara_Obtenida.get_cara();
             dados_Inactivos.add(receptor);
-//            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.Z(receptor-1) + "\n";
+
+            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + cara_Obtenida.get_Nombre_Cara(receptor-1) + "\n";
 
 
         }
@@ -829,17 +832,13 @@ public int solicitaEntero(){ // se solicita un entero via consola
 
 //    +++++++++++++______+++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS
 
-
-
-
-
-//    public static void main(String[] args) {
-//        EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                Juego_Geek myGUI = new Juego_Geek();
-//            }
-//        });
-//    }
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Juego_Geek myGUI = new Juego_Geek();
+            }
+        });
+    }
 
 }

@@ -3,7 +3,36 @@ package modelo;
 import javax.swing.*;
 import java.util.Vector;
 
+
+
+/**
+ *   @archivo Model_Geek.jar
+ *   @author federico.barbetti:  Codigo es 2181247-2724
+ *   @email federico.barbetti@correounivalle.edu.co
+ *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
+ *   @email jose.erley.murillo@correounivalle.edu.co
+ *   @version v.1.0.0 date:21/03/2023
+ *   @licencia GPL
+ */
+
+/**
+ * Esta clase maneja la logica del juego.
+ */
+
 public class Model_Geek {
+
+    /*
+
+    refactorar
+
+    estado : casos en los que se gana o pirde el juego
+    validacion : bandera meneja los 5 turnos.
+    tiro : ...s
+
+
+     */
+
+
     private int estado, validacion_tiro, punto, tiro;
     private Vector<String> estado_string;
 
