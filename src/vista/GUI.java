@@ -403,7 +403,6 @@ public class GUI extends JFrame {
             dado[i].addMouseMotionListener((MouseMotionListener) escucha);
 
 
-
             System.out.println("activados");
         }
     }
