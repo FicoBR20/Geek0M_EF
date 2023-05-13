@@ -1,11 +1,9 @@
 package control;
 
-import modelo.Dado;
-import modelo.Juego_Geek;
-import modelo.Model_Geek;
-import modelo.Tirar_dados;
+import modelo.*;
 
 import javax.swing.*;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -13,9 +11,9 @@ import java.util.Vector;
  * */
 public class Controlador {
     private int numero_de_dados;
-    private Vector<Integer> cara;
+    private Integer[] cara;
     private int flag, punto;
-    private Vector<String>Estado_string;
+    private String[] Estado_string;
 //    private final Integer[] habilitar_dado_inactivo;
 //    private final Integer[] habilitar_dado_usado;
 //    private final Integer[] habiltar_relance_dado;
@@ -24,34 +22,146 @@ public class Controlador {
     private Tirar_dados tirar_dados;
     private  Juego_Geek juegoGeek;
     private int cantidad_en_usados,cantidad_en_inactivos,cantidad_en_puntos,cantidad_en_activo;
+    private Model_prueba modelPrueba,modelPrueba_2;
+    private Block_Unblock blockUnblock;
 
     public Controlador() {
 
-        cara = new Vector<Integer>();
+        cara = new Integer[10];
         estado = new Integer[10];
         estado_dado = new Integer[10];
         cantidad_en_usados = 0;
         cantidad_en_inactivos = 0;
         cantidad_en_puntos = 0;
         cantidad_en_activo = 0;
+        modelPrueba = new Model_prueba();
+        modelPrueba_2 = new Model_prueba();
     }
 
-//    public Controlador(int numero_de_dados) {
-//        this.numero_de_dados = numero_de_dados;
-//        lanzar_inicio(numero_de_dados);
+
+    public int getCara(int posicion) {
+        return modelPrueba.getCara(posicion);
+    }
+
+    public void setCara(int posicion,int cara) {
+        modelPrueba.setCara(posicion, cara);
+    }
+
+    //______________________________________________________________
+
+    public void lanzar_inicio(int cantidad_dados) {
+        JOptionPane.showMessageDialog(null, "Entro a lanzar en control ");
+        modelPrueba.lanzar_inicio(cantidad_dados);
+    }
+
+    public void reglas(int posicion){
+
+        switch (get_estado_dado(posicion)) {
+            case 0 -> {
+                JOptionPane.showMessageDialog(null, "regla 0");
+                System.out.println("agarre el dado = " + (posicion + 1));
+                activar_dado(posicion, cara[posicion]);
+                cambiar_posicion_dado(posicion);
+                JOptionPane.showMessageDialog(null, "Estados del dado = "+posicion+
+                        "\nNumero de cara = "+cara[posicion]);
+            }
+            case 1 -> {
+                JOptionPane.showMessageDialog(null, "regla 1 corazon");
+                System.out.println("agarre el dado = " + (posicion + 1));
+                bloquear_corazon();
+                setEstado(posicion, 2);
+                cambiar_posicion_dado(posicion);
+            }
+            case 2 -> {
+                JOptionPane.showMessageDialog(null, "regla 2 dragon");
+                bloquear_dragon();
+            }
+            case 3 -> {
+                JOptionPane.showMessageDialog(null, "regla 3 meeple");
+                System.out.println("agarre el dado = " + (posicion + 1));
+                bloquear_meeple();
+                setEstado(posicion, 4);
+                relanzar_dado(posicion);
+            }
+            case 4 -> {
+                JOptionPane.showMessageDialog(null, "regla 4 nave");
+                bloquear_nave();
+                setEstado(posicion, 4);
+                cambiar_posicion_dado(posicion);
+            }
+            case 5 -> {
+                JOptionPane.showMessageDialog(null, "regla 5 heroe");
+                bloquear_heroe();
+                voltear_dado(posicion);
+            }
+            case 6 -> {
+                JOptionPane.showMessageDialog(null, "regla 6 punto");
+                bloquear_punto();
+                setEstado(posicion, 3);
+                JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + getEstado(posicion));
+                cambiar_posicion_dado(posicion);
+            }
+        }
+    }
+
+
+    public void relanzar_dado(int i){
+        modelPrueba_2.lanzar_inicio(10);
+        modelPrueba.setCara(i,modelPrueba_2.getCara(i));
+//        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara().get(i) + ".png")));
+//        dado[i].setIcon(imagen_dado);
+    }
+//    public void voltear_dado(int i){
+//        voltear_dado(i);
+//        imagen_dado =new ImageIcon((getClass().getResource("/recursos/" + getCara().get(i) + ".png")));
+//        dado[i].setIcon(imagen_dado);
 //    }
 
-    public void lanzar_inicio(int numero_de_dados){
 
-        tirar_dados = new Tirar_dados();//Creo un objeto donde tiro unos dados el cual recibe n cantidad de dados
-        Model_Geek juegoGeek = new Model_Geek();//creo un objeto que aplicara la regla
-
-        //Aqui tiro el o los dados
-        tirar_dados.iniciar(numero_de_dados);
-        setCara(tirar_dados.getCaras());//Toma las caras que se generan en la clase tirar_dados y las guarda en esta clase
+    public void cambiar_posicion_dado(int posicion) {
+        modelPrueba.cambiar_posicion_dado(posicion);
     }
 
-//    public void activar_dado(int i, int cara_dado){
+
+    public void bloquear_corazon() {
+        modelPrueba.bloquear_corazon();
+    }
+
+    public void bloquear_dragon() {
+        modelPrueba.bloquear_dragon();
+    }
+
+    public void bloquear_meeple() {
+        modelPrueba.bloquear_meeple();
+    }
+
+    public void bloquear_nave() {
+        modelPrueba.bloquear_nave();
+    }
+
+    public void bloquear_heroe() {
+        modelPrueba.bloquear_heroe();
+    }
+
+    public void bloquear_punto() {
+        modelPrueba.bloquear_punto();
+    }
+
+
+
+    public void activar_dado(int posicion, Integer cara) {
+        modelPrueba.activar_dado(posicion, cara);
+    }
+
+    public void cuenta_dados_inactivos(){
+        modelPrueba.cuenta_dados_inactivos();
+    }
+
+    public void cuenta_dados_activos() {
+        modelPrueba.cuenta_dados_activos();
+    }
+
+ //    public void activar_dado(int i, int cara_dado){
 //        switch (cara_dado) {
 //            case 1 -> {
 //                desbloquear_corazon();
@@ -175,13 +285,6 @@ public class Controlador {
 //        cantidad_en_activo--;
 //    }
 
-
-
-
-
-
-
-
     public int getPunto() {
 
         return punto;
@@ -193,16 +296,17 @@ public class Controlador {
 
     public void voltear_dado(int i){
 //        for (int i=0; i<=9;i++){
-            switch (cara.get(i)) {
-                case 1 -> cara.add(i,6);
-                case 2 -> cara.add(i,5);
-                case 3 -> cara.add(i,4);
-                case 4 -> cara.add(i,3);
-                case 5 -> cara.add(i,2);
-                case 6 -> cara.add(i,1);
+            switch (cara[i]) {
+                case 1 -> cara[i] = 6;
+                case 2 -> cara[i] = 5;
+                case 3 -> cara[i] = 4;
+                case 4 -> cara[i] = 3;
+                case 5 -> cara[i] = 2;
+                case 6 -> cara[i] = 1;
             }
 //        }
     }
+    //________________________________________________________________________
 
 //    public void desbloquear_punto() {
 //        for (int i=0; i<=9;i++){
@@ -354,15 +458,9 @@ public class Controlador {
         this.flag = flag;
     }
 
-    public Vector<Integer> getCara() {
-        return cara;
-    }
 
-    public void setCara(Vector<Integer> cara) {
-        this.cara = cara;
-    }
     public void setCara_dado(int posicion, int cara) {
-        this.cara.add(posicion,cara);
+        this.cara[posicion] = cara;
     }
 
     public int getEstado(int dado) {
@@ -373,22 +471,24 @@ public class Controlador {
         this.estado[dado] = estado;
     }
 
-    public Vector<String> getEstado_string() {
-        return Estado_string;
+//    public Vector<String> getEstado_string() {
+//        return Estado_string;
+//    }
+
+//    public void setEstado_string(Vector<String> estado_string) {
+//        Estado_string = estado_string;
+//    }
+
+    public void setDado(int i, Dado dado) {
+        tirar_dados.setDado(i, dado);
     }
 
-    public void setEstado_string(Vector<String> estado_string) {
-        Estado_string = estado_string;
-    }
-
-    public void setDado(Dado dado) {
-        tirar_dados.setDado(dado);
-    }
-
-    public Vector<Dado> getDado() {
+    public Integer[] getDado() {
         return tirar_dados.getDado();
     }
 
 
-
+    public void limpiar_dados(int cantida_dados) {
+//        modelPrueba.limpiar_dados(cantida_dados);
+    }
 }

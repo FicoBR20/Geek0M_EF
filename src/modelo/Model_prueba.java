@@ -1,6 +1,3 @@
-
-
-
 package modelo;
 
         import javax.swing.*;
@@ -37,8 +34,10 @@ public class Model_prueba {
 
 
     private int  validacion_tiro, punto, tiro, cantidad_en_usados,cantidad_en_inactivos,cantidad_en_puntos, cantidad_en_activo;
-    private Vector<Integer> regla_del_dado,cara_dado, estado,dados_activos,dados_inactivos,dados_usados,dados_enPunto;
-    private Vector<String> estado_string;
+    private Integer[] regla_del_dado,cara_dado, estado,dados_activos,dados_inactivos,dados_usados,dados_enPunto;
+    private String[] estado_string;
+    private Block_Unblock block_Unblock;
+    private Tirar_dados tirar_dados;
 
     public Model_prueba() {
         cantidad_en_usados = 0;
@@ -50,24 +49,88 @@ public class Model_prueba {
         punto = 0;
         tiro = 0;
 
-        estado_string = new Vector<String>();
-        regla_del_dado = new Vector<>();
-        estado = new Vector<>();
-        cara_dado = new Vector<>();
-        dados_inactivos = new Vector<>();
-        dados_enPunto = new Vector<>();
-        dados_usados = new Vector<>();
-        dados_activos = new Vector<>();
+        estado_string = new String[10];
+        regla_del_dado = new Integer[10];
+        estado = new Integer[10];
+        cara_dado = new Integer[10];
+        dados_inactivos = new Integer[10];
+        dados_enPunto = new Integer[10];
+        dados_usados = new Integer[10];
+        dados_activos = new Integer[10];
+
+        block_Unblock = new Block_Unblock();
+        tirar_dados = new Tirar_dados();
     }
+
+//    public void limpiar_dados(int cantida_dados) {
+//        if (cara_dado.isEmpty()){
+//            JOptionPane.showMessageDialog(null,
+//                    "vector de caras vacio");
+//        }
+//        else{
+//
+//            for (int i=0; i<=cantida_dados-1;i++){
+//                cara_dado.remove(i);
+//                JOptionPane.showMessageDialog(null,
+//                        "REMUEVO DADO = "+i+
+//                                "\ncara"+tirar_dados.getCaras().get(i));
+//            }
+//        }
+//    }
+
+    public void lanzar_inicio(int cantida_dados){
+        //Aqui tiro el o los dados
+        tirar_dados.iniciar(cantida_dados);
+
+        for (int i=0; i<=cantida_dados-1;i++){
+            setCara(i,tirar_dados.getCaras()[i]);//Toma las caras que se generan en la clase tirar_dados y las guarda en esta clase
+//            JOptionPane.showMessageDialog(null,
+//                    "DADO = "+i+
+//                            "\ncara"+tirar_dados.getCaras().get(i));
+        }
+//        JOptionPane.showMessageDialog(null, "sale de tirar dados en model ");
+    }
+
+    public void setCara(int posicion, int caras) {
+        cara_dado[posicion] = caras;
+    }
+    public int getCara(int posicion) {
+        return  cara_dado[posicion];
+    }
+
+
+    public void bloquear_corazon() {
+        block_Unblock.bloquear_corazon();
+    }
+
+    public void bloquear_dragon() {
+        block_Unblock.bloquear_dragon();
+    }
+
+    public void bloquear_meeple() {
+        block_Unblock.bloquear_meeple();
+    }
+
+    public void bloquear_nave() {
+        block_Unblock.bloquear_nave();
+    }
+
+    public void bloquear_heroe() {
+        block_Unblock.bloquear_heroe();
+    }
+
+    public void bloquear_punto() {
+        block_Unblock.bloquear_punto();
+    }
+
+
 
     public void cambiar_posicion_dado(int posicion ){
         switch (getEstado(posicion)) {
             case 1 -> {
-
-                dados_usados.add(posicion, cara_dado.get(posicion));
+                dados_usados[posicion] = cara_dado[posicion];
+                regla_del_dado[posicion] = 8;
 //                setEstado(i, 1);
-                regla_del_dado.add(posicion,8);
-
 //                cuenta_dados_usados();
 
                 JOptionPane.showMessageDialog(null, "Sigue en Usados"
@@ -77,10 +140,9 @@ public class Model_prueba {
                         +"\nCantidad de dados activos ="+getCantidad_en_activo());
             }
             case 2 -> {
-
-                dados_activos.add(posicion, cara_dado.get(posicion));
+                dados_activos[posicion] = cara_dado[posicion];
+                regla_del_dado[posicion] = 8;
                 setEstado(posicion, 4);
-                regla_del_dado.add(posicion,8);
 
                 resta_dados_inactivos();
                 cuenta_dados_activos();
@@ -92,9 +154,9 @@ public class Model_prueba {
                         +"\nCantidad de dados activos ="+getCantidad_en_activo());
             }
             case 3 -> {
-                dados_enPunto.add(posicion, cara_dado.get(posicion));
+                dados_enPunto[posicion] = cara_dado[posicion];
+                regla_del_dado[posicion] = 8;
                 setEstado(posicion, 3);
-                regla_del_dado.add(posicion,8);
                 resta_dados_activos();
                 cuenta_dados_enPunto();
 
@@ -105,10 +167,9 @@ public class Model_prueba {
                         +"\nCantidad de dados activos ="+getCantidad_en_activo());
             }
             case 4 -> {
-
-                dados_usados.add(posicion, cara_dado.get(posicion));
+                dados_usados[posicion] = cara_dado[posicion];
+                regla_del_dado[posicion] = 8;
                 setEstado(posicion, 1);
-                regla_del_dado.add(posicion,8);
 
                 resta_dados_activos();
                 cuenta_dados_usados();
@@ -127,57 +188,57 @@ public class Model_prueba {
     public void activar_dado(int posicion, int cara_dado){
         switch (cara_dado) {
             case 1 -> {
-                desbloquear_corazon();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_meeple();
+                block_Unblock.desbloquear_corazon();
+                block_Unblock.bloquear_nave();
+                block_Unblock.bloquear_heroe();
+                block_Unblock.bloquear_punto();
+                block_Unblock.bloquear_dragon();
+                block_Unblock.bloquear_meeple();
                 setEstado(posicion, 4);
                 JOptionPane.showMessageDialog(null, "Seleccionaste Corazon");
             }
 
             case 2 -> {
-//                desbloquear_dragon();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_corazon();
-                bloquear_meeple();
+//                block_Unblock.desbloquear_dragon();
+                block_Unblock.bloquear_nave();
+                block_Unblock.bloquear_heroe();
+                block_Unblock.bloquear_punto();
+                block_Unblock.bloquear_corazon();
+                block_Unblock.bloquear_meeple();
                 setEstado(posicion, 4);
                 JOptionPane.showMessageDialog(null, "Seleccionaste Dragon");
             }
 
             case 3 -> {
-                desbloquear_meeple();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
+                block_Unblock.desbloquear_meeple();
+                block_Unblock.bloquear_nave();
+                block_Unblock.bloquear_heroe();
+                block_Unblock.bloquear_punto();
+                block_Unblock.bloquear_dragon();
+                block_Unblock.bloquear_corazon();
                 setEstado(posicion, 4);
                 JOptionPane.showMessageDialog(null, "Seleccionaste Meeple");
             }
 
             case 4 -> {
-                desbloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
+                block_Unblock.desbloquear_nave();
+                block_Unblock.bloquear_heroe();
+                block_Unblock.bloquear_punto();
+                block_Unblock.bloquear_dragon();
+                block_Unblock.bloquear_corazon();
+                block_Unblock.bloquear_meeple();
                 setEstado(posicion, 4);
                 JOptionPane.showMessageDialog(null, "Seleccionaste ship");
             }
 
             case 5 -> {
 
-                desbloquear_heroe();
-                bloquear_nave();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
+                block_Unblock.desbloquear_heroe();
+                block_Unblock.bloquear_nave();
+                block_Unblock.bloquear_punto();
+                block_Unblock.bloquear_dragon();
+                block_Unblock.bloquear_corazon();
+                block_Unblock.bloquear_meeple();
                 setEstado(posicion, 4);
                 JOptionPane.showMessageDialog(null, "Seleccionaste Hero");
             }
@@ -185,11 +246,11 @@ public class Model_prueba {
             case 6 -> {
 
 //                desbloquear_punto();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
+                block_Unblock.bloquear_nave();
+                block_Unblock.bloquear_heroe();
+                block_Unblock.bloquear_dragon();
+                block_Unblock.bloquear_corazon();
+                block_Unblock.bloquear_meeple();
                 setEstado(posicion, 4);
 //                juegoGeek.accion_Cuarenta_y_Dos(6);
                 JOptionPane.showMessageDialog(null, "Seleccionaste point");
@@ -250,18 +311,18 @@ public class Model_prueba {
 
 
         public int getEstado(int i) {
-            return estado.get(i);
+            return estado[i];
         }
 
         public void setEstado(int posicion, int estado) {
-            this.estado.add(posicion, estado);
+            this.estado[posicion] = estado;
 
 
 
         }
 
-        public void setEstado_string(String texto) {
-            estado_string.addElement(texto);
+        public void setEstado_string(int posicion, String texto) {
+            estado_string[posicion] = texto;
         }
 
         public void setValidacion_tiro(int validacion_tiro) {
@@ -271,6 +332,10 @@ public class Model_prueba {
         public int getValidacion_tiro() {
             return validacion_tiro;
         }
+
+
+
+
 //
 //    public Vector<String> getEstado_string() {
 //        switch (getEstado()){
