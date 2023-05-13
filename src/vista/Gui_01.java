@@ -109,21 +109,21 @@ public class Gui_01 extends JFrame {
 //
 //        }
 
-            for (int i = 0; i < dado01.getSelector_Figura(); i++) {
-            arreglo_DP[i]=new Dado_Profesional();
-            arreglo_DP[i].setPreferredSize(control01.getDimension_Dado());
-            arreglo_DP[i].pinta_Cara();
-
-
-
-            arreglo_DP[i].addActionListener(escuchas);
-            arreglo_DP[i].addMouseListener(escuchas);
-            arreglo_DP[i].addMouseListener(escuchas);
-            jPanel1.add(arreglo_DP[i]);
-
-        }
-
-        dadoProfesional.pinta_Cara();
+//            for (int i = 0; i < dado01.getSelector_Figura(); i++) {
+//            arreglo_DP[i]=new Dado_Profesional();
+//            arreglo_DP[i].setPreferredSize(control01.getDimension_Dado());
+//            arreglo_DP[i].pinta_Cara();
+//
+//
+//
+//            arreglo_DP[i].addActionListener(escuchas);
+//            arreglo_DP[i].addMouseListener(escuchas);
+//            arreglo_DP[i].addMouseListener(escuchas);
+//            jPanel1.add(arreglo_DP[i]);
+//
+//        }
+//
+//        dadoProfesional.pinta_Cara();
 
 
 
@@ -174,7 +174,9 @@ public class Gui_01 extends JFrame {
 
         }
 
-        public JButton[] pinta_Cara(){
+        public Dado_Profesional[] pinta_Cara(){
+
+           // dado01 = new Dado_01();
 
             int auxiliar = 999;
 
@@ -191,11 +193,9 @@ public class Gui_01 extends JFrame {
 
             for (int i = 0; i < arreglo_DP.length; i++) {
 
-                jButton_BASICO.setIcon(imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/ 1.png"))));
+                arreglo_DP[i].setIcon(imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/ 1.png"))));
+                arreglo_DP[i].setSello(i);
 
-               // System.out.println(" estoy probando" + i);
-
-              //  jPanel1.add(jButton_BASICO);
 
             }
 
