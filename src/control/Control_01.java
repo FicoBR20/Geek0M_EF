@@ -3,9 +3,24 @@ package control;
 import javax.swing.*;
 import java.awt.*;
 
-public class Control_01 {
+/**
+ * Esta clase tendra la funcion de relacionar el modelo con la vista.
+ */
 
+public class Control_01 {
+    /**
+     * Valor en pixeles del ancho de la imagen
+     * a ser usada para la cara del dado
+     * * Nota: TODAS las 6 imágenes deberán terner
+     * el mismo tamaño.
+     */
     private int ancho_del_Dado;
+    /**
+     * Valor en pixeles del alto de la imagen
+     * a ser usada para la cara del dado
+     * Nota: TODAS las 6 imágenes deberán terner
+     * el mismo tamaño.
+     */
 
     private int alto_del_Dado;
 
@@ -24,6 +39,11 @@ public class Control_01 {
     public void setAlto_del_Dado(int alto_del_Dado) {
         this.alto_del_Dado = alto_del_Dado;
     }
+
+    /**
+     * Es la Dimension ya configurada para el Dado.
+     * ( x, y )
+     */
 
     private Dimension dimension_Dado;
 
@@ -51,6 +71,11 @@ public class Control_01 {
 
 
     }
+
+    /**
+     * Metodo para ingresar los valores dimensionales
+     * del Dado.
+     */
 
     public void configuro_Dado(){
 
