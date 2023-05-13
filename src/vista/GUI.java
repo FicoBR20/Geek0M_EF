@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Vector;
 
 /**
- *   @archivo GUI.jar
+ *   @archivo GUI.java
  *   @author federico.barbetti:  Codigo es 2181247-2724
  *   @email federico.barbetti@correounivalle.edu.co
  *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
@@ -284,70 +284,70 @@ public class GUI extends JFrame {
 
     }
 
-    public void cambiar_posicion_dado(int i ){
-        switch (control.getEstado(i)) {
-            case 1 -> {
-
-                panelUsados.add(dado[i], BorderLayout.SOUTH);
+//    public void cambiar_posicion_dado(int i ){
+//        switch (control.getEstado(i)) {
+//            case 1 -> {
+//
+//                panelUsados.add(dado[i], BorderLayout.SOUTH);
+////                control.setEstado(i, 1);
+//                control.set_estado_dado(i,8);
+//
+////                control.cuenta_dados_usados();
+//
+//                JOptionPane.showMessageDialog(null, "Sigue en Usados"
+//                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+//                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+//                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+//                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
+//            }
+//            case 2 -> {
+//
+//                panelActivos.add(dado[i], BorderLayout.SOUTH);
+//                control.setEstado(i, 4);
+//                control.set_estado_dado(i,0);
+//
+//                control.resta_dados_inactivos();
+//                control.cuenta_dados_activos();
+//
+//                JOptionPane.showMessageDialog(null, "Pasa a dado Activos"
+//                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+//                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+//                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+//                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
+//            }
+//            case 3 -> {
+//                panelPuntos.add(dado[i], BorderLayout.SOUTH);
+//                control.setEstado(i, 3);
+//                control.set_estado_dado(i,9);
+//
+//                control.resta_dados_activos();
+//                control.cuenta_dados_enPunto();
+//
+//                JOptionPane.showMessageDialog(null, "Pasa a dado Puntos"
+//                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+//                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+//                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+//                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
+//            }
+//            case 4 -> {
+//
+//                panelUsados.add(dado[i], BorderLayout.SOUTH);
 //                control.setEstado(i, 1);
-                control.set_estado_dado(i,8);
-
+//                control.set_estado_dado(i,8);
+//
+//                control.resta_dados_activos();
 //                control.cuenta_dados_usados();
-
-                JOptionPane.showMessageDialog(null, "Sigue en Usados"
-                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
-                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
-                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 2 -> {
-
-                panelActivos.add(dado[i], BorderLayout.SOUTH);
-                control.setEstado(i, 4);
-                control.set_estado_dado(i,0);
-
-                control.resta_dados_inactivos();
-                control.cuenta_dados_activos();
-
-                JOptionPane.showMessageDialog(null, "Pasa a dado Activos"
-                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
-                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
-                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 3 -> {
-                panelPuntos.add(dado[i], BorderLayout.SOUTH);
-                control.setEstado(i, 3);
-                control.set_estado_dado(i,9);
-
-                control.resta_dados_activos();
-                control.cuenta_dados_enPunto();
-
-                JOptionPane.showMessageDialog(null, "Pasa a dado Puntos"
-                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
-                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
-                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 4 -> {
-
-                panelUsados.add(dado[i], BorderLayout.SOUTH);
-                control.setEstado(i, 1);
-                control.set_estado_dado(i,8);
-
-                control.resta_dados_activos();
-                control.cuenta_dados_usados();
-
-
-
-                JOptionPane.showMessageDialog(null, "Pasa a dado Usados"
-                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
-                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
-                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-        }
-    }
+//
+//
+//
+//                JOptionPane.showMessageDialog(null, "Pasa a dado Usados"
+//                        +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
+//                        +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
+//                        +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
+//                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
+//            }
+//        }
+//    }
 
     public void relanzar_dado(int i){
         control_2.lanzar_inicio(10);

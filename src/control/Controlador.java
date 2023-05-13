@@ -51,129 +51,129 @@ public class Controlador {
         setCara(tirar_dados.getCaras());//Toma las caras que se generan en la clase tirar_dados y las guarda en esta clase
     }
 
-    public void activar_dado(int i, int cara_dado){
-        switch (cara_dado) {
-            case 1 -> {
-                desbloquear_corazon();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_meeple();
-                estado[i] = 4;
-                JOptionPane.showMessageDialog(null, "Seleccionaste Corazon");
-            }
+//    public void activar_dado(int i, int cara_dado){
+//        switch (cara_dado) {
+//            case 1 -> {
+//                desbloquear_corazon();
+//                bloquear_nave();
+//                bloquear_heroe();
+//                bloquear_punto();
+//                bloquear_dragon();
+//                bloquear_meeple();
+//                estado[i] = 4;
+//                JOptionPane.showMessageDialog(null, "Seleccionaste Corazon");
+//            }
+//
+//            case 2 -> {
+////                desbloquear_dragon();
+//                bloquear_nave();
+//                bloquear_heroe();
+//                bloquear_punto();
+//                bloquear_corazon();
+//                bloquear_meeple();
+//                estado[i] = 4;
+//                JOptionPane.showMessageDialog(null, "Seleccionaste Dragon");
+//            }
+//
+//            case 3 -> {
+//                desbloquear_meeple();
+//                bloquear_nave();
+//                bloquear_heroe();
+//                bloquear_punto();
+//                bloquear_dragon();
+//                bloquear_corazon();
+//                estado[i] = 4;
+//                JOptionPane.showMessageDialog(null, "Seleccionaste Meeple");
+//            }
+//
+//            case 4 -> {
+//                desbloquear_nave();
+//                bloquear_heroe();
+//                bloquear_punto();
+//                bloquear_dragon();
+//                bloquear_corazon();
+//                bloquear_meeple();
+//                estado[i] = 4;
+//                JOptionPane.showMessageDialog(null, "Seleccionaste ship");
+//            }
+//
+//            case 5 -> {
+//
+//                desbloquear_heroe();
+//                bloquear_nave();
+//                bloquear_punto();
+//                bloquear_dragon();
+//                bloquear_corazon();
+//                bloquear_meeple();
+//                estado[i] = 4;
+//                JOptionPane.showMessageDialog(null, "Seleccionaste Hero");
+//            }
+//
+//            case 6 -> {
+//
+////                desbloquear_punto();
+//                bloquear_nave();
+//                bloquear_heroe();
+//                bloquear_dragon();
+//                bloquear_corazon();
+//                bloquear_meeple();
+//                estado[i] = 3;
+////                juegoGeek.accion_Cuarenta_y_Dos(6);
+//                JOptionPane.showMessageDialog(null, "Seleccionaste point");
+//            }
+//        }
+//    }
 
-            case 2 -> {
-//                desbloquear_dragon();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_corazon();
-                bloquear_meeple();
-                estado[i] = 4;
-                JOptionPane.showMessageDialog(null, "Seleccionaste Dragon");
-            }
+//    public int getCantidad_en_usados() {
+//        return cantidad_en_usados;
+//    }
+//
+//    public int getCantidad_en_inactivos() {
+//        return cantidad_en_inactivos;
+//    }
+//
+//    public int getCantidad_en_puntos() {
+//        return cantidad_en_puntos;
+//    }
+//
+//    public int getCantidad_en_activo() {
+//        return cantidad_en_activo;
+//    }
+//
+//
+//
+//    public void cuenta_dados_usados() {
+//        cantidad_en_usados++;
+//    }
+//    public void cuenta_dados_inactivos() {
+//
+//        cantidad_en_inactivos++;
+//    }
+//    public void cuenta_dados_enPunto() {
+//
+//        cantidad_en_puntos++;
+//    }
+//    public void cuenta_dados_activos() {
+//
+//        cantidad_en_activo++;
+//    }
 
-            case 3 -> {
-                desbloquear_meeple();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
-                estado[i] = 4;
-                JOptionPane.showMessageDialog(null, "Seleccionaste Meeple");
-            }
-
-            case 4 -> {
-                desbloquear_nave();
-                bloquear_heroe();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
-                estado[i] = 4;
-                JOptionPane.showMessageDialog(null, "Seleccionaste ship");
-            }
-
-            case 5 -> {
-
-                desbloquear_heroe();
-                bloquear_nave();
-                bloquear_punto();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
-                estado[i] = 4;
-                JOptionPane.showMessageDialog(null, "Seleccionaste Hero");
-            }
-
-            case 6 -> {
-
-//                desbloquear_punto();
-                bloquear_nave();
-                bloquear_heroe();
-                bloquear_dragon();
-                bloquear_corazon();
-                bloquear_meeple();
-                estado[i] = 3;
-//                juegoGeek.accion_Cuarenta_y_Dos(6);
-                JOptionPane.showMessageDialog(null, "Seleccionaste point");
-            }
-        }
-    }
-
-    public int getCantidad_en_usados() {
-        return cantidad_en_usados;
-    }
-
-    public int getCantidad_en_inactivos() {
-        return cantidad_en_inactivos;
-    }
-
-    public int getCantidad_en_puntos() {
-        return cantidad_en_puntos;
-    }
-
-    public int getCantidad_en_activo() {
-        return cantidad_en_activo;
-    }
-
-
-
-    public void cuenta_dados_usados() {
-        cantidad_en_usados++;
-    }
-    public void cuenta_dados_inactivos() {
-
-        cantidad_en_inactivos++;
-    }
-    public void cuenta_dados_enPunto() {
-
-        cantidad_en_puntos++;
-    }
-    public void cuenta_dados_activos() {
-
-        cantidad_en_activo++;
-    }
-
-
-    public void resta_dados_usados() {
-        cantidad_en_usados--;
-    }
-    public void resta_dados_inactivos() {
-
-        cantidad_en_inactivos--;
-    }
-    public void resta_dados_enPunto() {
-
-        cantidad_en_puntos--;
-    }
-    public void resta_dados_activos() {
-
-        cantidad_en_activo--;
-    }
+//
+//    public void resta_dados_usados() {
+//        cantidad_en_usados--;
+//    }
+//    public void resta_dados_inactivos() {
+//
+//        cantidad_en_inactivos--;
+//    }
+//    public void resta_dados_enPunto() {
+//
+//        cantidad_en_puntos--;
+//    }
+//    public void resta_dados_activos() {
+//
+//        cantidad_en_activo--;
+//    }
 
 
 
@@ -204,123 +204,123 @@ public class Controlador {
 //        }
     }
 
-    public void desbloquear_punto() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=6;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden poner punto");
-    }
-    public void bloquear_punto() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==6){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden poner punto");
-    }
-
-    public void desbloquear_heroe() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=5;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden votear");
-    }
-    public void bloquear_heroe() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==5){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden voltear");
-    }
-
-    public void desbloquear_nave() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=4;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden destruir");
-    }
-    public void bloquear_nave() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==4){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden destruir");
-    }
-
-    public   void desbloquear_meeple(){
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=3;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden girar");
-    }
-    public   void bloquear_meeple(){
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==3){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" no puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden girar");
-    }
-
-    public void desbloquear_dragon() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0){
-                estado_dado[i]=2;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados pueden quitar punto");
-    }
-    public void bloquear_dragon() {
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==0 || estado_dado[i]==2){
-                estado_dado[i]=0;
-//                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Los dados no pueden quitar punto");
-    }
-
-    public void desbloquear_corazon(){
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==7) {
-                estado_dado[i] = 1;
-//                setEstado(i,2);
-                JOptionPane.showMessageDialog(null,"Se desbloqueo el dado = "+(i+1));
-//                JOptionPane.showMessageDialog(null,
-//                        "inactivo "+habilitar_dado_inactivo[i]+"usado "+habilitar_dado_usado[i]+"relance "+habiltar_relance_dado[i]);
+//    public void desbloquear_punto() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0){
+//                estado_dado[i]=6;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados pueden poner punto");
+//    }
+//    public void bloquear_punto() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0 || estado_dado[i]==6){
+//                estado_dado[i]=0;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados no pueden poner punto");
+//    }
 //
-            }
-        }
-    }
-    public void bloquear_corazon(){
-        for (int i=0; i<=9;i++){
-            if (estado_dado[i]==1){
-//                habilitar_dado_inactivo[i] = 0;
-//                habilitar_dado_usado[i] = 1;
-                estado_dado[i] = 7;
-                JOptionPane.showMessageDialog(null,"Se bloqueo el dado = "+(i+1));
-            }
-        }
-    }
+//    public void desbloquear_heroe() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0){
+//                estado_dado[i]=5;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados pueden votear");
+//    }
+//    public void bloquear_heroe() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0 || estado_dado[i]==5){
+//                estado_dado[i]=0;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados no pueden voltear");
+//    }
+//
+//    public void desbloquear_nave() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0){
+//                estado_dado[i]=4;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados pueden destruir");
+//    }
+//    public void bloquear_nave() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0 || estado_dado[i]==4){
+//                estado_dado[i]=0;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados no pueden destruir");
+//    }
+//
+//    public   void desbloquear_meeple(){
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0){
+//                estado_dado[i]=3;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados pueden girar");
+//    }
+//    public   void bloquear_meeple(){
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0 || estado_dado[i]==3){
+//                estado_dado[i]=0;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" no puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados no pueden girar");
+//    }
+//
+//    public void desbloquear_dragon() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0){
+//                estado_dado[i]=2;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados pueden quitar punto");
+//    }
+//    public void bloquear_dragon() {
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==0 || estado_dado[i]==2){
+//                estado_dado[i]=0;
+////                JOptionPane.showMessageDialog(null,"El dado "+(i+1)+" ya puede girar");
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null,"Los dados no pueden quitar punto");
+//    }
+//
+//    public void desbloquear_corazon(){
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==7) {
+//                estado_dado[i] = 1;
+////                setEstado(i,2);
+//                JOptionPane.showMessageDialog(null,"Se desbloqueo el dado = "+(i+1));
+////                JOptionPane.showMessageDialog(null,
+////                        "inactivo "+habilitar_dado_inactivo[i]+"usado "+habilitar_dado_usado[i]+"relance "+habiltar_relance_dado[i]);
+////
+//            }
+//        }
+//    }
+//    public void bloquear_corazon(){
+//        for (int i=0; i<=9;i++){
+//            if (estado_dado[i]==1){
+////                habilitar_dado_inactivo[i] = 0;
+////                habilitar_dado_usado[i] = 1;
+//                estado_dado[i] = 7;
+//                JOptionPane.showMessageDialog(null,"Se bloqueo el dado = "+(i+1));
+//            }
+//        }
+//    }
 
     public void  set_estado_dado(int posicion, int _estado_dado){
         estado_dado[posicion] = _estado_dado;
