@@ -1,6 +1,5 @@
 package vista;
 
-import control.Control_01;
 import modelo.Dado_01;
 
 import javax.swing.*;
@@ -28,7 +27,10 @@ public class Gui_01 extends JFrame {
     /**
      * Arreglo de datos tipo Dado_Profesional
      */
-    private JButton[] arreglo_jButton;
+    private JButton[] arreglo_jButton_6_Caras;
+
+    private JButton[] arreglo_jButton_Dadps_Jugados;
+
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
@@ -53,6 +55,7 @@ public class Gui_01 extends JFrame {
 
     public void Inicio(){
 
+
         imageIcon = new ImageIcon();
 
         dado01 = new Dado_01();
@@ -76,7 +79,7 @@ public class Gui_01 extends JFrame {
         jButton3 = new JButton("soy JB 3");
         jButton4 = new JButton("soy JB 4");
 
-        arreglo_jButton = new JButton[6];
+        arreglo_jButton_6_Caras = new JButton[6];
 
         jLabel1 = new JLabel();
         jLabel1.setText("Soy JLabel 1");
@@ -88,9 +91,17 @@ public class Gui_01 extends JFrame {
         jPanel1 = new JPanel();
       //  jPanel1.setPreferredSize(new Dimension(control01.getAncho_del_Dado()*5, control01.getAlto_del_Dado()*2));
 
-//        jPanel2 = new JPanel();
-//        jPanel3 = new JPanel();
+        jPanel2 = new JPanel();
+
+        BorderLayout borderLayout = new BorderLayout();
+
+        jPanel3 = new JPanel();
+
+        jPanel3.setLayout(borderLayout);
+
+
 //        jPanel4 = new JPanel();
+
 
         jButton1.addActionListener(escuchas);
         jButton1.addKeyListener(escuchas);
@@ -98,31 +109,46 @@ public class Gui_01 extends JFrame {
 
         //jPanel1.add(jButton1);
 
-//        jPanel1.add(jButton2);
-//        jPanel1.add(jButton3);
-//        jPanel1.add(jButton4);
+        jPanel2.add(jButton2);
+        jPanel2.add(jButton3);
+        jPanel2.add(jButton4);
 
-        for (int i = 0; i < arreglo_jButton.length; i++) {
-            arreglo_jButton[i]=new JButton();
-            arreglo_jButton[i].setPreferredSize(new Dimension(42,42));
+        for (int i = 0; i < arreglo_jButton_6_Caras.length; i++) {
+            arreglo_jButton_6_Caras[i]=new JButton();
+            arreglo_jButton_6_Caras[i].setPreferredSize(new Dimension(42,42));
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
                     (i+1) + ".png")));
-            arreglo_jButton[i].setIcon(imageIcon);
-            arreglo_jButton[i].setText("estoy ya");
+            arreglo_jButton_6_Caras[i].setIcon(imageIcon);
+            arreglo_jButton_6_Caras[i].setText("estoy ya");
 
-            arreglo_jButton[i].addActionListener(escuchas);
-            arreglo_jButton[i].addMouseListener(escuchas);
-            arreglo_jButton[i].addMouseListener(escuchas);
-            jPanel1.add(arreglo_jButton[i]);
+            arreglo_jButton_6_Caras[i].addActionListener(escuchas);
+            arreglo_jButton_6_Caras[i].addMouseListener(escuchas);
+            arreglo_jButton_6_Caras[i].addMouseListener(escuchas);
+            jPanel1.add(arreglo_jButton_6_Caras[i]);
 
         }
 
+//        arreglo_jButton_Dadps_Jugados = new JButton[10];
+//
+//
+//        for (int i = 0; i < arreglo_jButton_Dadps_Jugados.length; i++) {
+//
+//            int auxiliar = 999;
+//            auxiliar=dado01.busqueda_Aleatoria();
+//            System.out.println(" el aleatorio vale; " + auxiliar);
+//
+//            arreglo_jButton_Dadps_Jugados[i]=arreglo_jButton_6_Caras[auxiliar-1];
+//            jPanel2.add(arreglo_jButton_Dadps_Jugados[i]);
+//
+//        }
+        jPanel3.add(jPanel1, new BorderLayout(N));
 
 
 
 
 
-        this.add(jPanel1);
+        this.add(jButton3);
+       // this.add(jPanel2);
 
     }
 
@@ -183,7 +209,7 @@ public class Gui_01 extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if (e.getSource()==arreglo_jButton[0]){
+            if (e.getSource()== arreglo_jButton_6_Caras[0]){
 
                 System.out.println(" soy el corazon");
             }
