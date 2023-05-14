@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
+import java.util.Random;
+import java.util.Vector;
 
 public class Gui_01 extends JFrame {
     /**
@@ -28,6 +30,11 @@ public class Gui_01 extends JFrame {
      * Arreglo de datos tipo Dado_Profesional
      */
     private JButton[] arreglo_jButton_6_Caras;
+
+    private Vector<Dado_Profesional> carasLanzadas;
+
+
+    // private Vector<JButton> diez_Dados;
 
     private JButton[] arreglo_jButton_Dadps_Jugados;
 
@@ -55,17 +62,16 @@ public class Gui_01 extends JFrame {
 
     public void Inicio(){
 
+        carasLanzadas = new Vector<>();
+        carasLanzadas.setSize(10);
+
+
 
         imageIcon = new ImageIcon();
 
         dado01 = new Dado_01();
 
-      //  control01 = new Control_01();
-
-       // dadoProfesional = new Dado_Profesional();
-
-       // dimension_Auxiliar = control01.configuro_Dado();
-
+       dadoProfesional = new Dado_Profesional();
 
 
         escuchas = new Escuchas();
@@ -78,7 +84,7 @@ public class Gui_01 extends JFrame {
         jButton3 = new JButton("soy JB 3");
         jButton4 = new JButton("soy JB 4");
 
-        arreglo_jButton_6_Caras = new JButton[6];
+        arreglo_jButton_6_Caras = new JButton[10];
 
         jLabel1 = new JLabel();
         jLabel1.setText("Soy JLabel 1");
@@ -112,55 +118,55 @@ public class Gui_01 extends JFrame {
 //        jPanel2.add(jButton3);
 //        jPanel2.add(jButton4);
 
-        for (int i = 0; i < arreglo_jButton_6_Caras.length; i++) {
-            arreglo_jButton_6_Caras[i]=new JButton();
-            arreglo_jButton_6_Caras[i].setPreferredSize(new Dimension(42,42));
+
+
+        for (int i = 0; i < carasLanzadas.size(); i++) {
+
+
+            dadoProfesional = new Dado_Profesional();
+
+            int auxiliar =0;
+
+            auxiliar = dadoProfesional.busqueda_Profesional();
+
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
-                    (i+1) + ".png")));
-            arreglo_jButton_6_Caras[i].setIcon(imageIcon);
-            arreglo_jButton_6_Caras[i].setText("estoy ya");
+                    (auxiliar ) + ".png")));
 
-            arreglo_jButton_6_Caras[i].addActionListener(escuchas);
-            arreglo_jButton_6_Caras[i].addMouseListener(escuchas);
-            arreglo_jButton_6_Caras[i].addMouseListener(escuchas);
-            jPanel1.add(arreglo_jButton_6_Caras[i]);
+           // System.out.println(" auxiliar vale " + auxiliar);
 
+
+            dadoProfesional.setIcon(imageIcon);
+
+            dadoProfesional.setSello(auxiliar);
+
+            dadoProfesional.addActionListener(escuchas);
+
+            dadoProfesional.addMouseListener(escuchas);
+
+            dadoProfesional.addKeyListener(escuchas);
+
+            carasLanzadas.setElementAt(dadoProfesional, i);
+
+            jPanel1.add(carasLanzadas.get(i));
+
+
+
+           // System.out.println("i");
         }
 
 
 
-        arreglo_jButton_Dadps_Jugados = new JButton[10];
-
-        jButton_BASICO = new JButton();
 
 
-        for (int i = 0; i < arreglo_jButton_Dadps_Jugados.length; i++) {
 
-            int auxiliar = 999;// se inicializa
-
-            auxiliar=dado01.busqueda_Aleatoria()-1; // debe ser de 0 a 6
-
-            System.out.println(" el aleatorio vale; " + auxiliar);
-
-            jButton_BASICO = arreglo_jButton_6_Caras[auxiliar];
-
-            arreglo_jButton_Dadps_Jugados[i]=jButton_BASICO;
-
-            jPanel2.add(arreglo_jButton_Dadps_Jugados[i]);
-
-            jButton_BASICO = new JButton(); // se limpia.
-
-        }
-
-
-        jPanel3.add(jPanel1, BorderLayout.NORTH);
-        jPanel3.add(jPanel2, BorderLayout.SOUTH);
+//        jPanel3.add(jPanel1, BorderLayout.NORTH);
+//        jPanel3.add(jPanel2, BorderLayout.SOUTH);
 
 
 
 
 
-        this.add(jPanel3);
+        this.add(jPanel1);
        // this.add(jPanel2);
 
     }
@@ -185,7 +191,6 @@ public class Gui_01 extends JFrame {
 
         private Dado_01 dado_Completo;
 
-        private ImageIcon imageCaraDado;
         /**
          * Atributo entero que asocia secuencialmente
          * el icono de la cara del dado
@@ -201,9 +206,25 @@ public class Gui_01 extends JFrame {
         }
 
         /**
+         * Método que entrega valores entre 1 y 6
+         * @return captura.
+         */
+        public int busqueda_Profesional(){
+
+            int captura = 999; // inicializacion
+            Random aleatorio = new Random();
+            captura = aleatorio.nextInt(6)+1;
+            return captura;
+
+
+        }
+
+        /**
          * Método constructor de Dado_Profesional
          */
         public Dado_Profesional(){
+
+            sello=999; // inicialización
 
 
 
@@ -219,13 +240,14 @@ public class Gui_01 extends JFrame {
 
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
 
+        int reconocedor = 0;
+        String recuerdo = "/recursos/1.png";
+
+
+
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if (e.getSource()== arreglo_jButton_6_Caras[0]){
-
-                System.out.println(" soy el corazon");
-            }
 
 
 
@@ -248,10 +270,35 @@ public class Gui_01 extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            /**
+             * Variable auxiliar que recepciona el atributo Sello
+             * de un objeto de la Clase Dado_Profesional
+             */
+            int receptorSello=999;
 
+            if (e.getSource().equals(carasLanzadas.elementAt(0))){
+                receptorSello = carasLanzadas.get(0).getSello();
+                System.out.println(" imprimo el sello " + receptorSello);
+            }
+            else {
 
+                for (int i = 0; i < carasLanzadas.size(); i++) {
+                    receptorSello = carasLanzadas.elementAt(i).getSello();
+
+                    /**
+                     * en adelante se ejecutaran las acciones según el valor
+                     * rececionado en la variable receptorSello.
+                     */
+
+                    System.out.println(" secuencia de sello es " + receptorSello);
+                }
+            }
 
         }
+
+
+
+
 
         @Override
         public void mousePressed(MouseEvent e) {
