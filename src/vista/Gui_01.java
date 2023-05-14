@@ -9,20 +9,31 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Vector;
 
+/**
+ * Clase que gestiona la interface gráfica de la aplicacíón
+ */
 public class Gui_01 extends JFrame {
     /**
-     * Icono de la cara del Dado
+     * Imagen gráfica de la cara del dado
      */
     private ImageIcon imageIcon;
-
+    /**
+     * Objeto de la clase privada Dado_Profesional
+     */
     private Dado_Profesional dadoProfesional;
-
-  //  private Control_01 control01;
-
+    /**
+     * Objeto de la clase pública Dado_01
+     */
     private Dado_01 dado01;
-
+    /**
+     * Atributo que representa la dimensión
+     * del dado
+     */
     private Dimension dimension_Auxiliar;
-
+    /**
+     * Objeto de la Clase privada Escuchas
+     * que implemnta los listeners.
+     */
     private Escuchas escuchas;
 
     private JButton jButton_BASICO, jButton1, jButton2, jButton3, jButton4;
@@ -239,9 +250,6 @@ public class Gui_01 extends JFrame {
     }
 
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
-
-        int reconocedor = 0;
-        String recuerdo = "/recursos/1.png";
 
 
 

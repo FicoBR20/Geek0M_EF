@@ -68,6 +68,11 @@ public class Control_01 {
      */
     public void inicio_Control(){
 
+        /**
+         * Se asigna el valor 42 dado que las imágenes
+         * de los dados que se disponen tienen esa medida.
+         */
+
         ancho_del_Dado = 42;
         alto_del_Dado =42;
 
@@ -75,8 +80,8 @@ public class Control_01 {
     }
 
     /**
-     * Metodo para ingresar los valores dimensionales
-     * del Dado.
+     * Método que configura la dimensión de los dados
+     * @return dimension_Dado
      */
 
     public Dimension configuro_Dado(){

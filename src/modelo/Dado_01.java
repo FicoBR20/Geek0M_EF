@@ -2,23 +2,18 @@ package modelo;
 
 import java.util.Random;
 
+/**
+ * Clase que implementa el objeto Dado_01.
+ * Representa las 6 caras del dado, maneja un
+ * valor entero comprendido en el rango [1 ; 6]
+ */
+
 public class Dado_01 {
-    /**
-     * String auxiliar por si se necesita
-     */
-    private String info_Auxiliar;
+
     /**
      * Cantidad de caras del Dado
      */
     private int selector_Figura;
-
-    public String getInfo_Auxiliar() {
-        return info_Auxiliar;
-    }
-
-    public void setInfo_Auxiliar(String info_Auxiliar) {
-        this.info_Auxiliar = info_Auxiliar;
-    }
 
     public int getSelector_Figura() {
         return selector_Figura;
@@ -49,7 +44,6 @@ public class Dado_01 {
 
     public Dado_01(){
 
-        info_Auxiliar = "";
         selector_Figura = 6; // valor por defecto
     }
 
