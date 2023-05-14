@@ -70,7 +70,6 @@ public class Gui_01 extends JFrame {
 
         escuchas = new Escuchas();
 
-       // jButton_BASICO = new JButton();
 
 
 
@@ -109,9 +108,9 @@ public class Gui_01 extends JFrame {
 
         //jPanel1.add(jButton1);
 
-        jPanel2.add(jButton2);
-        jPanel2.add(jButton3);
-        jPanel2.add(jButton4);
+//        jPanel2.add(jButton2);
+//        jPanel2.add(jButton3);
+//        jPanel2.add(jButton4);
 
         for (int i = 0; i < arreglo_jButton_6_Caras.length; i++) {
             arreglo_jButton_6_Caras[i]=new JButton();
@@ -128,26 +127,40 @@ public class Gui_01 extends JFrame {
 
         }
 
-//        arreglo_jButton_Dadps_Jugados = new JButton[10];
-//
-//
-//        for (int i = 0; i < arreglo_jButton_Dadps_Jugados.length; i++) {
-//
-//            int auxiliar = 999;
-//            auxiliar=dado01.busqueda_Aleatoria();
-//            System.out.println(" el aleatorio vale; " + auxiliar);
-//
-//            arreglo_jButton_Dadps_Jugados[i]=arreglo_jButton_6_Caras[auxiliar-1];
-//            jPanel2.add(arreglo_jButton_Dadps_Jugados[i]);
-//
-//        }
-        jPanel3.add(jPanel1, new BorderLayout(N));
+
+
+        arreglo_jButton_Dadps_Jugados = new JButton[10];
+
+        jButton_BASICO = new JButton();
+
+
+        for (int i = 0; i < arreglo_jButton_Dadps_Jugados.length; i++) {
+
+            int auxiliar = 999;// se inicializa
+
+            auxiliar=dado01.busqueda_Aleatoria()-1; // debe ser de 0 a 6
+
+            System.out.println(" el aleatorio vale; " + auxiliar);
+
+            jButton_BASICO = arreglo_jButton_6_Caras[auxiliar];
+
+            arreglo_jButton_Dadps_Jugados[i]=jButton_BASICO;
+
+            jPanel2.add(arreglo_jButton_Dadps_Jugados[i]);
+
+            jButton_BASICO = new JButton(); // se limpia.
+
+        }
+
+
+        jPanel3.add(jPanel1, BorderLayout.NORTH);
+        jPanel3.add(jPanel2, BorderLayout.SOUTH);
 
 
 
 
 
-        this.add(jButton3);
+        this.add(jPanel3);
        // this.add(jPanel2);
 
     }
