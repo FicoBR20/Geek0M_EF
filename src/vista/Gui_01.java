@@ -229,7 +229,7 @@ public class Gui_01 extends JFrame {
             carasLanzadas.setElementAt(dadoProfesional, i);
 
             jPanel_Dados_Activos.setPreferredSize(new Dimension(100,100));
-            jPanel_Dados_Activos.setBackground(Color.BLUE);
+            jPanel_Dados_Activos.setBackground(Color.BLACK);
             jPanel_Dados_Activos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,24),Color.WHITE));
             jPanel_Dados_Activos.add(carasLanzadas.get(i));
@@ -285,7 +285,7 @@ public class Gui_01 extends JFrame {
             carasLanzadas.setElementAt(dadoProfesional, i);
 
             jPanel_Dados_Inactivos.setPreferredSize(new Dimension(200,100));
-            jPanel_Dados_Inactivos.setBackground(Color.ORANGE);
+            jPanel_Dados_Inactivos.setBackground(Color.GRAY);
             jPanel_Dados_Inactivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Inactivos",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,16),Color.WHITE));
             jPanel_Dados_Inactivos.add(carasLanzadas.get(i));
@@ -375,16 +375,16 @@ public class Gui_01 extends JFrame {
 
             dadoProfesional = new Dado_Profesional();
 
-            int auxiliar =0;
+          //  int auxiliar =0;
 
-            auxiliar = dadoProfesional.busqueda_Profesional();
+           // auxiliar = dadoProfesional.busqueda_Profesional();
 
-            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p" +
-                    (auxiliar ) + ".png")));
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/ta_" +
+                    (i ) + ".png")));
 
             dadoProfesional.setIcon(imageIcon);
 
-            dadoProfesional.setSello(auxiliar);
+            dadoProfesional.setSello(i);
 //
 //            dadoProfesional.addActionListener(escuchas);
 //
@@ -431,14 +431,22 @@ public class Gui_01 extends JFrame {
 
         /**
          * Atributo entero que asocia secuencialmente
-         * el icono de la cara del dado
+         * al string que genera el nombre del icono de la cara del dado
          */
         private int sello;
 
+        /**
+         * Atributo que entrega el valor del sello
+         * @return sello
+         */
         public int getSello() {
             return sello;
         }
 
+        /**
+         * Atributo que asignar el dato sello
+         * @param sello
+         */
         public void setSello(int sello) {
             this.sello = sello;
         }

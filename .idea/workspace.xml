@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/Gui_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_01.java" afterDir="false" />
     </list>
@@ -62,6 +60,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Gui_01">
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Gui_01 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.Gui_01" />
       <module name="Geek0M_EF" />
@@ -101,19 +112,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Gui_Basica_Final" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_Final" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Modelo_01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelo.Modelo_01" />
       <module name="Geek0M_EF" />
@@ -130,10 +128,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Gui_01" />
+        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.Modelo_01" />
         <item itemvalue="Application.Gui_01 (2)" />
         <item itemvalue="Application.Gui_01 (1)" />
-        <item itemvalue="Application.Gui_Basica_Final" />
       </list>
     </recent_temporary>
   </component>
