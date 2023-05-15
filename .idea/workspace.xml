@@ -6,8 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/Gui_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/Basico_utilizados.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/Basico_utilizados.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/recursos/ta_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/Basico_utilizados.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/Basico_utilizados.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursos/ta_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/recursos/ta_9.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
