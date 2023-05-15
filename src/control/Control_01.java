@@ -1,5 +1,8 @@
 package control;
 
+import modelo.Dado_01;
+import modelo.Modelo_01;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +11,15 @@ import java.awt.*;
  */
 
 public class Control_01 {
+    /**
+     * Atributo privado de tipo Dado_01
+     */
+    private Dado_01 dado01;
+
+    /**
+     * Atributo privado de tipo Modelo_01
+     */
+    private Modelo_01 modelo01;
     /**
      * Valor en pixeles del ancho de la imagen
      * a ser usada para la cara del dado
@@ -68,6 +80,9 @@ public class Control_01 {
      */
     public void inicio_Control(){
 
+
+        modelo01 = new Modelo_01();
+
         /**
          * Se asigna el valor 42 dado que las imágenes
          * de los dados que se disponen tienen esa medida.
@@ -78,6 +93,8 @@ public class Control_01 {
 
 
     }
+
+
 
     /**
      * Método que configura la dimensión de los dados

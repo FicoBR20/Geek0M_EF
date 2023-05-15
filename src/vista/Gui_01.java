@@ -1,6 +1,8 @@
 package vista;
 
+import control.Control_01;
 import modelo.Dado_01;
+import modelo.Modelo_01;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +15,26 @@ import java.util.Vector;
  * Clase que gestiona la interface gráfica de la aplicacíón
  */
 public class Gui_01 extends JFrame {
+
+    // variables temporales...DEBEN QUITARSE...
+
+    private Modelo_01 modelo01;
+
+
+
+
+
+
+    // variables temporales...DEBEN QUITARSE...
+
+
+
+
+
+    /**
+     * Atributo privado de la clase Control_01
+     */
+    private Control_01 control01;
     /**
      * Imagen gráfica de la cara del dado
      */
@@ -21,10 +43,6 @@ public class Gui_01 extends JFrame {
      * Objeto de la clase privada Dado_Profesional
      */
     private Dado_Profesional dadoProfesional;
-    /**
-     * Objeto de la clase pública Dado_01
-     */
-    private Dado_01 dado01;
     /**
      * Atributo que representa la dimensión
      * del dado
@@ -40,14 +58,11 @@ public class Gui_01 extends JFrame {
     /**
      * Arreglo de datos tipo Dado_Profesional
      */
-    private JButton[] arreglo_jButton_6_Caras;
 
     private Vector<Dado_Profesional> carasLanzadas;
 
 
-    // private Vector<JButton> diez_Dados;
 
-    private JButton[] arreglo_jButton_Dadps_Jugados;
 
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
@@ -73,6 +88,26 @@ public class Gui_01 extends JFrame {
 
     public void Inicio(){
 
+        // Varibles temporales deben quitarse
+
+        modelo01 =  new Modelo_01();
+
+        modelo01.tirada_DadosActivos();
+
+        modelo01.tiradaInactivos();
+
+
+
+
+
+
+        // Varibles temporales deben quitarse
+
+
+
+
+        control01 = new Control_01();
+
         carasLanzadas = new Vector<>();
         carasLanzadas.setSize(10);
 
@@ -80,7 +115,6 @@ public class Gui_01 extends JFrame {
 
         imageIcon = new ImageIcon();
 
-        dado01 = new Dado_01();
 
        dadoProfesional = new Dado_Profesional();
 
@@ -95,7 +129,6 @@ public class Gui_01 extends JFrame {
         jButton3 = new JButton("soy JB 3");
         jButton4 = new JButton("soy JB 4");
 
-        arreglo_jButton_6_Caras = new JButton[10];
 
         jLabel1 = new JLabel();
         jLabel1.setText("Soy JLabel 1");
@@ -143,9 +176,6 @@ public class Gui_01 extends JFrame {
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
                     (auxiliar ) + ".png")));
 
-           // System.out.println(" auxiliar vale " + auxiliar);
-
-
             dadoProfesional.setIcon(imageIcon);
 
             dadoProfesional.setSello(auxiliar);
@@ -161,8 +191,6 @@ public class Gui_01 extends JFrame {
             jPanel1.add(carasLanzadas.get(i));
 
 
-
-           // System.out.println("i");
         }
 
 
@@ -253,6 +281,10 @@ public class Gui_01 extends JFrame {
 
 
 
+
+
+
+
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -278,11 +310,14 @@ public class Gui_01 extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+
+
             /**
              * Variable auxiliar que recepciona el atributo Sello
              * de un objeto de la Clase Dado_Profesional
              */
-            int receptorSello=999;
+            int receptorSello=0;
 
             if (e.getSource().equals(carasLanzadas.elementAt(0))){
                 receptorSello = carasLanzadas.get(0).getSello();
@@ -297,6 +332,7 @@ public class Gui_01 extends JFrame {
                      * en adelante se ejecutaran las acciones según el valor
                      * rececionado en la variable receptorSello.
                      */
+
 
                     System.out.println(" secuencia de sello es " + receptorSello);
                 }
