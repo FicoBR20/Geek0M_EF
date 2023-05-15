@@ -5,6 +5,7 @@ import modelo.Dado_01;
 import modelo.Modelo_01;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
@@ -66,7 +67,7 @@ public class Gui_01 extends JFrame {
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
-    private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel3, jPanel4;
+    private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel_Dados_Utilizados, jPanel_Tabla_Puntaje;
 
 
     private Container containerPricipal;
@@ -78,7 +79,7 @@ public class Gui_01 extends JFrame {
 
         Inicio();
 
-
+        this.setTitle("GOF");
         this.setSize( 1200,600);
         this.setResizable(true);
         this.setVisible(true);
@@ -135,8 +136,6 @@ public class Gui_01 extends JFrame {
         jButton4 = new JButton("soy JB 4");
 
 
-        jLabel1 = new JLabel();
-        jLabel1.setText("Soy JLabel 1");
 
 //        jLabel2 = new JLabel();
 //        jLabel3 = new JLabel();
@@ -145,17 +144,19 @@ public class Gui_01 extends JFrame {
         BorderLayout borderLayout = new BorderLayout();
 
         containerPricipal = new Container();
+
         containerPricipal.setLayout(borderLayout);
 
         jPanel_Dados_Activos = new JPanel();
 
+
         jPanel_Dados_Inactivos = new JPanel();
 
 
-        jPanel3 = new JPanel();
+        jPanel_Dados_Utilizados = new JPanel();
 
 
-        jPanel4 = new JPanel();
+        jPanel_Tabla_Puntaje = new JPanel();
 
 
 
@@ -172,7 +173,7 @@ public class Gui_01 extends JFrame {
 
 
         generador_Vectores_Pane_Activos(7);
-        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.CENTER);
+        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.SOUTH);
 
         generador_Vectores_Pane_Inactivos(3);
 
@@ -182,8 +183,8 @@ public class Gui_01 extends JFrame {
 
 
 
-//        jPanel3.add(jPanel_Dados_Activos, BorderLayout.NORTH);
-//        jPanel3.add(jPanel_Dados_Inactivos, BorderLayout.SOUTH);
+//        jPanel_Dados_Utilizados.add(jPanel_Dados_Activos, BorderLayout.NORTH);
+//        jPanel_Dados_Utilizados.add(jPanel_Dados_Inactivos, BorderLayout.SOUTH);
 
 
 
@@ -238,6 +239,8 @@ public class Gui_01 extends JFrame {
 
             jPanel_Dados_Activos.setPreferredSize(new Dimension(100,100));
             jPanel_Dados_Activos.setBackground(Color.BLUE);
+            jPanel_Dados_Activos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos",TitledBorder.CENTER,
+                    TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,24),Color.WHITE));
             jPanel_Dados_Activos.add(carasLanzadas.get(i));
 
 
@@ -290,8 +293,10 @@ public class Gui_01 extends JFrame {
 
             carasLanzadas.setElementAt(dadoProfesional, i);
 
-            jPanel_Dados_Inactivos.setPreferredSize(new Dimension(100,100));
+            jPanel_Dados_Inactivos.setPreferredSize(new Dimension(200,100));
             jPanel_Dados_Inactivos.setBackground(Color.ORANGE);
+            jPanel_Dados_Inactivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Inactivos",TitledBorder.CENTER,
+                    TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,16),Color.WHITE));
             jPanel_Dados_Inactivos.add(carasLanzadas.get(i));
 
 
