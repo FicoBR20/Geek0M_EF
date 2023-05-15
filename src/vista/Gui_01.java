@@ -68,6 +68,12 @@ public class Gui_01 extends JFrame {
 
     private JPanel jPanel1, jPanel2, jPanel3, jPanel4;
 
+
+    private Container containerPricipal;
+
+    /**
+     * Método constructor de la Gui
+     */
     public Gui_01 (){
 
         Inicio();
@@ -106,7 +112,7 @@ public class Gui_01 extends JFrame {
 
         // ELEMENTOS DE CLASE Gui_01
 
-       // dimension_Auxiliar = new Dimension(50*5 ,50*2);
+        dimension_Auxiliar = new Dimension(50*5 ,50*2);
 
         carasLanzadas = new Vector<>();
         carasLanzadas.setSize(10);
@@ -136,30 +142,32 @@ public class Gui_01 extends JFrame {
 //        jLabel3 = new JLabel();
 //        jLabel4 = new JLabel();
 
+        BorderLayout borderLayout = new BorderLayout();
+
+        containerPricipal = new Container();
+        containerPricipal.setLayout(borderLayout);
+
         jPanel1 = new JPanel();
-       // jPanel1.setPreferredSize(dimension_Auxiliar);
+        jPanel1.setPreferredSize(dimension_Auxiliar);
 
         jPanel2 = new JPanel();
 
-        BorderLayout borderLayout = new BorderLayout();
 
         jPanel3 = new JPanel();
 
-        jPanel3.setLayout(borderLayout);
 
-
-//        jPanel4 = new JPanel();
+        jPanel4 = new JPanel();
 
 
         jButton1.addActionListener(escuchas);
         jButton1.addKeyListener(escuchas);
         jButton1.addMouseListener(escuchas);
 
-        //jPanel1.add(jButton1);
 
-//        jPanel2.add(jButton2);
-//        jPanel2.add(jButton3);
-//        jPanel2.add(jButton4);
+
+        jPanel2.add(jButton2);
+        jPanel2.add(jButton3);
+        jPanel2.add(jButton4);
 
 
 
@@ -194,7 +202,7 @@ public class Gui_01 extends JFrame {
 
 
 
-
+        containerPricipal.add(jPanel1, BorderLayout.SOUTH);
 
 
 //        jPanel3.add(jPanel1, BorderLayout.NORTH);
@@ -204,7 +212,7 @@ public class Gui_01 extends JFrame {
 
 
 
-        this.add(jPanel1);
+        this.add(containerPricipal);
        // this.add(jPanel2);
 
     }
