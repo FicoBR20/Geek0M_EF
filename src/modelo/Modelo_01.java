@@ -93,10 +93,8 @@ public class Modelo_01 {
     public Vector<Dado_01> tirada_DadosActivos(){ // lanzamiento de los dados activos en el inicio de cada ronda.
 
 
-//        nuevaCara = new Dado_01();
        dados_Activos.setSize(7);
 
-        System.out.println(" en tirada dados Activos el size es " + dados_Activos.size());
         String auxiliar = ""; // para probar en consola la funcionalidad
 
 
@@ -107,7 +105,7 @@ public class Modelo_01 {
             Random aleatorio = new Random();
             captura = aleatorio.nextInt(captura)+1;
 
-            System.out.println("el receptor es" + captura);
+//            System.out.println("el receptor es" + captura);
             nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
            dados_Activos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
 
@@ -116,9 +114,9 @@ public class Modelo_01 {
 
         }
 
-        System.out.println(" \nTirada Inicial Activos-> " + dados_Activos.toString());
-        System.out.println(" \nEl tercer objeto es -> " + dados_Activos.get(2).toString());
         System.out.println(" \nTirada Inicial Activos Nombres->\n" + auxiliar.toString());
+
+
 
 
 
@@ -135,10 +133,8 @@ public class Modelo_01 {
     public Vector<Dado_01> tiradaInactivos(){ // lanzamiento de los dados Inactivos en el inicio de cada ronda.
 
 
-//        nuevaCara = new Dado_01();
         dados_Inactivos.setSize(3);
 
-        System.out.println(" en tirada dados Activos el size es " + dados_Inactivos.size());
         String auxiliar = ""; // para probar en consola la funcionalidad
 
 
@@ -149,7 +145,6 @@ public class Modelo_01 {
             Random aleatorio = new Random();
             captura = aleatorio.nextInt(captura)+1;
 
-            System.out.println("el receptor es" + captura);
             nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
             dados_Inactivos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
 
@@ -158,13 +153,71 @@ public class Modelo_01 {
 
         }
 
-        System.out.println(" \nTirada Inicial Inactivos-> " + dados_Inactivos.toString());
         System.out.println(" \nTirada Inicial Inactivos Nombres->\n" + auxiliar.toString());
 
 
 
         return dados_Inactivos;
 
+    }
+
+
+    /**
+     * este método modifica una sola posición del arreglo de dados_Activos,
+     * retornando el arreglo dados_Activos (CON EL MISMO SIZE) y ya con esa modificación.
+     * @param dado01 ->  entero que se busca en el arreglo, de existir, se cambiara
+     * por un valor random entre [1 , 6] y en la misma ubicacion del vector.
+     * @return dados_Activos
+     */
+
+    public Vector<Dado_01> jugar_Un_Solo_Dado( Dado_01 dado01) { // dado_buscado --> representa la cara del dado que selecciono para volverla a lanzar
+
+        nuevaCara = new Dado_01();
+
+
+
+        nuevaCara.setSelector_Figura(dado01.getSelector_Figura());
+
+
+
+        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_buscado]. se inicializa con cualquier valor.
+
+        int auxiliar = 111; // variable auxiliar inicializada.
+
+        if (dados_Activos.contains(nuevaCara)){ // verifica que exista...que este disponible.
+
+            recoge_La_Posicion = dados_Activos.indexOf(nuevaCara);
+
+        System.out.println(" El Dado de cara "+ nuevaCara.getSelector_Figura() + " es " + recoge_La_Posicion);
+
+            auxiliar = nuevaCara.busqueda_Aleatoria(); // cambia a un nuevo valor random
+
+
+            nuevaCara.setSelector_Figura(auxiliar);
+
+            dados_Activos.setElementAt(nuevaCara, recoge_La_Posicion);//cambia al nuevo valor en la misma poscion
+
+            System.out.println(" dado_buscado..si exite y su primera ubicacion es " + recoge_La_Posicion);
+
+
+        }
+
+        else {
+            System.out.println(" la cara  de dadp" + nuevaCara.getSelector_Figura() + " no esta disponible,\n" +
+                    " esa cara de dado NO exite "); // check
+
+        }
+
+        // impresion del arreglo de salids
+
+        for (int i = 0; i < dados_Activos.size(); i++) {
+            System.out.println(" el arreglo modificado es; [ " + dados_Activos.get(i).getSelector_Figura() + " ]\n");
+
+        }
+
+
+
+        return dados_Activos;
     }
 
     /**
@@ -199,6 +252,124 @@ public class Modelo_01 {
         return respuesta;
 
     }
+
+    public void probarArreglos(){
+
+        System.out.println(" en probar Arreglos");
+
+        Vector<Dado_01>losdados;
+        losdados = new Vector<Dado_01>();
+        losdados.setSize(7);
+
+
+        String auxiliar = ""; // para probar en consola la funcionalidad
+
+
+
+        for(int i = 0; i < losdados.size(); i++){
+
+            int captura = 6; // inicializacion
+            Random aleatorio = new Random();
+            captura = aleatorio.nextInt(captura)+1;
+
+            System.out.println("El arreglo de preubas es [ " + captura + " ]");
+            nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
+            dados_Activos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
+
+            auxiliar = auxiliar + "La cara para pruebas [ "+ (i+1) + " ] es: " + captura;
+            captura=0;
+
+        }
+        nuevaCara = new Dado_01();
+        nuevaCara.setSelector_Figura(5);
+
+        jugar_Un_Solo_Dado (nuevaCara);
+
+
+    }
+
+    /**
+     * Este método dirige toas las acciones segun el valor de la cara del dado
+     * @param jugado
+     */
+
+    public void accion_Directa(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
+
+        System.out.println(" soy Accion Directa");
+
+
+        String auxiliar =""; // para pruebas.
+        if ( jugado==1){
+            System.out.println(" programar lo que hace el corazon");
+            if (jugado==2){
+                System.out.println(" programar lo que hace dragon");
+            }
+            else{
+                System.out.println(" todo pasará");
+            }
+        }
+        else {
+            System.out.println(" se sigue o no");;
+        }
+//
+//        switch (jugado) {
+//            case 1:
+//                //accion_Corazon(1);
+//                auxiliar = "EL Corazon está en acción debe programarse \n en la funcion accion_Directa de la clase Modelo_01.";
+//                break;
+//            case 2:
+//                // accion_Dragon(2);
+//                auxiliar = "EL Dragon está en acción";
+//                break;
+//            case 3:
+//                //  accion_Mepplet(3);
+//                auxiliar = "EL Meeple está en acción";
+//                break;
+//            case 4:
+//                // accion_Cohete(4);
+//                auxiliar = "EL Cohete está en acción";
+//                break;
+//            case 5:
+//                // accion_SuperHeroe(5);
+//                auxiliar = "EL SuperHeroe está en acción";
+//                break;
+//            case 6:
+//                //accion_Cuarenta_y_Dos();
+//                auxiliar = " a sumar puntos con el 42";
+//                break;
+//            default:
+//
+//                auxiliar = " hay problemas..para RESOLVER en el método puraAccion.";
+//        }
+
+
+
+    }
+
+    /**
+     * Metodo para probar conectividad etre las clases.
+     */
+
+    public void probadoraComexion (){
+
+        System.out.println(" probando conectividad entre clases");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //    /**
 //     * Método que ejecuta las acciones pertinentes al personaje CORAZON.
@@ -296,49 +467,6 @@ public class Modelo_01 {
 //
 //    }
 
-    /**
-     * este método modifica una sola posición del arreglo de dados_Activos,
-     * retornando el arreglo dados_Activos (CON EL MISMO SIZE) y ya con esa modificación.
-     * @param dado_buscado ->  entero que se busca en el arreglo, de existir, se cambiara
-     * por un valor random entre [1 , 6] y en la misma ubicacion del vector.
-     * @return dados_Activos
-     */
-
-    public Vector<Dado_01> jugar_Un_Solo_Dado(Vector<Dado_01> arregloOriginal, int dado_buscado) { // dado_buscado --> representa la cara del dado que selecciono para volverla a lanzar
-
-        nuevaCara = new Dado_01();
-
-        arregloOriginal = new Vector<Dado_01>();
-
-       int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_buscado]. se inicializa con cualquier valor.
-
-       int auxiliar = 111; // variable auxiliar inicializada.
-
-        if (arregloOriginal.contains(dado_buscado)){ // verifica que exista...que este disponible.
-
-          recoge_La_Posicion = arregloOriginal.indexOf(dado_buscado);
-
-           auxiliar = nuevaCara.busqueda_Aleatoria(); // cambia a un nuevo valor random
-
-            nuevaCara.setSelector_Figura(auxiliar);
-
-           dados_Activos.setElementAt(nuevaCara, recoge_La_Posicion);//cambia al nuevo valor en la misma poscion
-
-            System.out.println(" dado_buscado..si exite y su primera ubicacion es " + recoge_La_Posicion);
-
-
-        }
-
-        else {
-            System.out.println(" la cara " + dado_buscado + " no esta disponible, ese dado NO exite "); // check
-
-        }
-
-
-        System.out.println(arregloOriginal.toString());
-
-        return arregloOriginal;
-    }
 //
 //    /**
 //     * Metodo que ejecuta el accionar del Meeple, retirando un Meeple del

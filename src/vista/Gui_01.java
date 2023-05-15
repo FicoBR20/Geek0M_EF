@@ -92,9 +92,13 @@ public class Gui_01 extends JFrame {
 
         modelo01 =  new Modelo_01();
 
-        modelo01.tirada_DadosActivos();
+//        modelo01.tirada_DadosActivos();
+//
+//        modelo01.tiradaInactivos();
+//
+//        modelo01.probarArreglos();
 
-        modelo01.tiradaInactivos();
+
 
 
 
@@ -279,6 +283,8 @@ public class Gui_01 extends JFrame {
 
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
 
+        private Modelo_01 modelo01;
+
 
 
 
@@ -313,6 +319,8 @@ public class Gui_01 extends JFrame {
 
 
 
+            modelo01 = new Modelo_01();
+
             /**
              * Variable auxiliar que recepciona el atributo Sello
              * de un objeto de la Clase Dado_Profesional
@@ -321,17 +329,26 @@ public class Gui_01 extends JFrame {
 
             if (e.getSource().equals(carasLanzadas.elementAt(0))){
                 receptorSello = carasLanzadas.get(0).getSello();
+
+
+
                 System.out.println(" imprimo el sello " + receptorSello);
             }
             else {
 
                 for (int i = 0; i < carasLanzadas.size(); i++) {
-                    receptorSello = carasLanzadas.elementAt(i).getSello();
+                    receptorSello = carasLanzadas.get(i).getSello();
 
                     /**
                      * en adelante se ejecutaran las acciones según el valor
                      * rececionado en la variable receptorSello.
                      */
+
+                    receptorSello =1;
+
+                    modelo01.accion_Directa(receptorSello);
+                   // modelo01.probadoraComexion();
+
 
 
                     System.out.println(" secuencia de sello es " + receptorSello);
