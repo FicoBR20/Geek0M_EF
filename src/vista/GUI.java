@@ -24,7 +24,7 @@ public class GUI extends JFrame {
 
     private modelo.Dado dado_Probador; // adiciono para probar "lanzar dados"
 
-    private Vector<Dado> mis_Dados;
+    private Dado[] mis_Dados;
 
 
     private Header headerProject;
@@ -40,7 +40,9 @@ public class GUI extends JFrame {
 
     private int uso_boton_lanzar;
     private GUI_INI guiIni;
-    private Vector<Integer> cara_dado;
+    private Integer[] cara_dado;
+
+    private int salio, entro;
 
 
     /**
@@ -64,7 +66,6 @@ public class GUI extends JFrame {
         this.setVisible(false);// Oculta la ventana del juego, espera un evento que lo active
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     /**
@@ -117,7 +118,7 @@ public class GUI extends JFrame {
 
         dado_Probador = new Dado();
         segundaEscucha = new Escucha();
-        mis_Dados = new Vector<Dado>();
+        mis_Dados = new Dado[10];
         jP_misdados = new JPanel();
         jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
 
@@ -286,23 +287,26 @@ public class GUI extends JFrame {
 
     public void cambiar_posicion_dado(int i ){
         switch (control.getEstado(i)) {
-            case 1 -> {
+            case 1:
 
-                panelUsados.add(dado[i], BorderLayout.SOUTH);
+
+                panelUsados.add(dado[i]);
 //                control.setEstado(i, 1);
                 control.set_estado_dado(i,8);
 
 //                control.cuenta_dados_usados();
 
                 JOptionPane.showMessageDialog(null, "Sigue en Usados"
+                        +"\nCambia posicion\n"
                         +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
                         +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
                         +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 2 -> {
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo()
+                        +"\n\nlinea 298");
+                break;
+            case 2:
 
-                panelActivos.add(dado[i], BorderLayout.SOUTH);
+                panelActivos.add(dado[i]);
                 control.setEstado(i, 4);
                 control.set_estado_dado(i,0);
 
@@ -310,13 +314,15 @@ public class GUI extends JFrame {
                 control.cuenta_dados_activos();
 
                 JOptionPane.showMessageDialog(null, "Pasa a dado Activos"
+                        +"\nCambia posicion\n"
                         +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
                         +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
                         +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 3 -> {
-                panelPuntos.add(dado[i], BorderLayout.SOUTH);
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo()
+                        +"\n\nlinea 314");
+                break;
+            case 3:
+                panelPuntos.add(dado[i]);
                 control.setEstado(i, 3);
                 control.set_estado_dado(i,9);
 
@@ -324,14 +330,16 @@ public class GUI extends JFrame {
                 control.cuenta_dados_enPunto();
 
                 JOptionPane.showMessageDialog(null, "Pasa a dado Puntos"
+                        +"\nCambia posicion\n"
                         +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
                         +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
                         +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
-            case 4 -> {
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo()
+                        +"\n\nlinea 329");
+                break;
+            case 4:
 
-                panelUsados.add(dado[i], BorderLayout.SOUTH);
+                panelUsados.add(dado[i]);
                 control.setEstado(i, 1);
                 control.set_estado_dado(i,8);
 
@@ -341,28 +349,36 @@ public class GUI extends JFrame {
 
 
                 JOptionPane.showMessageDialog(null, "Pasa a dado Usados"
+                        +"\nCambia posicion\n"
                         +"\nCantidad de dados usados ="+control.getCantidad_en_usados()
                         +"\nCantidad de dados inactivo ="+control.getCantidad_en_inactivos()
                         +"\nCantidad de dados en punto ="+control.getCantidad_en_puntos()
-                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo());
-            }
+                        +"\nCantidad de dados activos ="+control.getCantidad_en_activo()
+                        +"\n\nlinea 347");
+                break;
         }
     }
 
-    public void relanzar_dado(int i){
+    public void relanzar_dado(int posicion){
         control_2.lanzar_inicio(10);
-        control.setCara_dado(i,control_2.getCara().get(i));
-            imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara().get(i) + ".png")));
-            dado[i].setIcon(imagen_dado);
-//            dado[i].addMouseListener(escucha);
+        control.setCara_dado(posicion,control_2.getCara()[posicion]);
+            imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara()[posicion] + ".png")));
+            dado[posicion].setIcon(imagen_dado);
+
+            JOptionPane.showMessageDialog(null, "relanza dado"
+                +"\n\nlinea 357");
+//            dado[posicion].addMouseListener(escucha);
     }
-    public void voltear_dado(int i){
-        control.voltear_dado(i);
+    public void voltear_dado(int posicion){
+        control.voltear_dado(posicion);
 //        control_2.lanzar_inicio(10);
-//        control.setCara_dado(i,control_2.getCara().get(i));
-        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara().get(i) + ".png")));
-        dado[i].setIcon(imagen_dado);
-//        dado[i].addMouseListener(escucha);
+//        control.setCara_dado(posicion,control_2.getCara().get(posicion));
+        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + control.getCara()[posicion] + ".png")));
+        dado[posicion].setIcon(imagen_dado);
+
+        JOptionPane.showMessageDialog(null, "voltea dado"
+                +"\n\nlinea 367");
+//        dado[posicion].addMouseListener(escucha);
     }
     /**
      * Main process of the Java program
@@ -417,10 +433,7 @@ public class GUI extends JFrame {
             if (Objects.equals(e.getActionCommand(), "ATRAS") && boton_menu != null){
                 menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
                 boton_menu.setEnabled(true);// Habilita el boton menu
-                if (uso_boton_lanzar == 0){
-                    boton_lanzar.setEnabled(true);
-                }
-
+                boton_lanzar.setEnabled(true);
             }
             if (e.getSource() == boton_salir){
                 int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
@@ -445,37 +458,51 @@ public class GUI extends JFrame {
             if (e.getSource() == boton_lanzar){
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
-                for (int i=0;i<=2;i++){
-                    imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado.get(i) + ".png")));
-                    dado[i].setIcon(imagen_dado);
-                    dado[i].addMouseListener(escucha);
-                    panelIncativos.add(dado[i]);
 
-                    control.setEstado(i,2);
-                    control.set_estado_dado(i,7);
+                if (uso_boton_lanzar==0){
 
-                    control.cuenta_dados_inactivos();
+                    for (int posicion=0;posicion<=2;posicion++){
+                        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
+                        dado[posicion].setIcon(imagen_dado);
+                        dado[posicion].addMouseListener(escucha);
+                        panelIncativos.add(dado[posicion]);
+                        control.setEstado(posicion,2);
+                        control.set_estado_dado(posicion,7);
+                        control.cuenta_dados_inactivos();
+                    }
+
+                    for (int posicion=3;posicion<=9;posicion++){
+                        imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
+                        dado[posicion].setIcon(imagen_dado);
+                        dado[posicion].addMouseListener(escucha);
+                        panelActivos.add(dado[posicion]);
+                        control.setEstado(posicion,4);
+                        control.set_estado_dado(posicion,0);
+                        control.cuenta_dados_activos();
+                    }
+
+                    for (int posicion=0;posicion<=9;posicion++){
+                        System.out.println("Dado "+(posicion+1)+" cara= "+ cara_dado[posicion]+" linea 493");
+                    }
+                    uso_boton_lanzar=1; // Indica que el botón lanzar ya fue usado
+                    JOptionPane.showMessageDialog(null,"lanzar vale = "+uso_boton_lanzar);
+               }
+
+                else if (control.getCantidad_en_activo()==0){
+                    JOptionPane.showMessageDialog(null,"cambia de inactivos a activos"
+                    +"\n relanzar dados");
+                    uso_boton_lanzar++;
                 }
+                else if (uso_boton_lanzar >= 1){
 
-                for (int i=3;i<=9;i++){
-                    imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado.get(i) + ".png")));
-                    dado[i].setIcon(imagen_dado);
-                    dado[i].addMouseListener(escucha);
-                    panelActivos.add(dado[i]);
-;
-                    control.setEstado(i,4);
-                    control.set_estado_dado(i,0);
-
-                    control.cuenta_dados_activos();
-                }
-                for (int i=0;i<=9;i++){
-                    System.out.println("Dado "+(i+1)+" cara= "+ cara_dado.get(i));
-                }
-                boton_lanzar.setEnabled(false); //Deshabilita el boton lanzar
-
-                uso_boton_lanzar = 1; // Indica que el botón lanzar ya fue usado
-
+                        JOptionPane.showMessageDialog(null,
+                                "Solo se puede volver a lanzar\n"+
+                                "cunado se hayan usado\n todos los dados");
+                    }
             }
+
+
+
             if (e.getSource() == boton_entrar){
                 guiIni.dispose();
                 setVisible(true);
@@ -502,66 +529,92 @@ public class GUI extends JFrame {
 
         }
 
+
         @Override
         public void mouseReleased(MouseEvent e) {
+            entro = salio + entro;
+            JOptionPane.showMessageDialog(null,"entro "+entro);
 
-            for (int i=0;i<=9;i++){
+            if (entro == 1){
+                entro = 0;
+                salio = 0;
+            }
+            else {
+                for (int posicion=0;posicion<=9;posicion++){
+                    if(e.getComponent() == dado[posicion]){
+                        JOptionPane.showMessageDialog(null,
 
-                if(e.getSource() == dado[i]){
-
-                    JOptionPane.showMessageDialog(null,
-                                "Estados: \n" +
-                                        "Es estado para mover el dado es = "+control.get_estado_dado(i)+
+                                "Boton # "+(posicion+1)+" Cara # "+cara_dado[posicion]+
+                                        "\nEstados: \n" +
+                                        "Es estado para mover el dado es = "+control.get_estado_dado(posicion)+
                                         "\nEstados panel : \n" +
-                                        "Es dado esta en el panel = "+control.getEstado(i));
+                                        "Es dado esta en el panel = "+control.getEstado(posicion)+
+                                        "\n\nlinea 526");
 
-                    switch (control.get_estado_dado(i)) {
-                        case 0 -> {
-                            JOptionPane.showMessageDialog(null, "regla 0");
-                            System.out.println("agarre el dado = " + (i + 1));
-                            control.activar_dado(i, cara_dado.get(i));
-                            cambiar_posicion_dado(i);
-                        }
-                        case 1 -> {
-                            JOptionPane.showMessageDialog(null, "regla 1 corazon");
-                            System.out.println("agarre el dado = " + (i + 1));
-                            control.bloquear_corazon();
-                            control.setEstado(i, 2);
-                            cambiar_posicion_dado(i);
-                        }
-                        case 2 -> {
-                            JOptionPane.showMessageDialog(null, "regla 2 dragon");
-                            control.bloquear_dragon();
-                        }
-                        case 3 -> {
-                            JOptionPane.showMessageDialog(null, "regla 3 meeple");
-                            System.out.println("agarre el dado = " + (i + 1));
-                            control.bloquear_meeple();
-                            control.setEstado(i, 4);
-                            relanzar_dado(i);
-                        }
-                        case 4 -> {
-                            JOptionPane.showMessageDialog(null, "regla 4 nave");
-                            control.bloquear_nave();
-                            control.setEstado(i, 4);
-                            cambiar_posicion_dado(i);
-                        }
-                        case 5 -> {
-                            JOptionPane.showMessageDialog(null, "regla 5 heroe");
-                            control.bloquear_heroe();
-                            voltear_dado(i);
-                        }
-                        case 6 -> {
-                            JOptionPane.showMessageDialog(null, "regla 6 punto");
-                            control.bloquear_punto();
-                            control.setEstado(i, 3);
-                            JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + control.getEstado(i));
-                            cambiar_posicion_dado(i);
+                        switch (control.get_estado_dado(posicion)) {
+                            case 0 -> {
+                                JOptionPane.showMessageDialog(null, "regla 0");
+                                System.out.println("agarre el dado = " + (posicion + 1));
+                                control.activar_dado(posicion, cara_dado[posicion]);
+                                cambiar_posicion_dado(posicion);
+                                salio = 1;
+                            }
+                            case 1 -> {
+                                JOptionPane.showMessageDialog(null, "regla 1 corazon");
+                                System.out.println("agarre el dado = " + (posicion + 1));
+                                control.bloquear_corazon();
+                                control.setEstado(posicion, 2);
+                                cambiar_posicion_dado(posicion);
+                                salio = 1;
+                            }
+                            case 2 -> {
+                                JOptionPane.showMessageDialog(null, "regla 2 dragon");
+                                control.bloquear_dragon();
+                                salio = 1;
+                            }
+                            case 3 -> {
+                                JOptionPane.showMessageDialog(null, "regla 3 meeple");
+                                System.out.println("agarre el dado = " + (posicion + 1));
+                                control.bloquear_meeple();
+                                control.setEstado(posicion, 4);
+                                relanzar_dado(posicion);
+                                salio = 1;
+                            }
+                            case 4 -> {
+                                JOptionPane.showMessageDialog(null, "regla 4 nave");
+                                control.bloquear_nave();
+                                control.setEstado(posicion, 4);
+                                cambiar_posicion_dado(posicion);
+                                salio = 1;
+                            }
+                            case 5 -> {
+                                JOptionPane.showMessageDialog(null, "regla 5 heroe");
+                                control.bloquear_heroe();
+                                voltear_dado(posicion);
+                                salio = 1;
+                            }
+                            case 6 -> {
+                                JOptionPane.showMessageDialog(null, "regla 6 punto");
+                                control.bloquear_punto();
+                                control.setEstado(posicion, 3);
+                                JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + control.getEstado(posicion));
+                                cambiar_posicion_dado(posicion);
+                                salio = 1;
+                            }
+                            case 7 -> {
+                                JOptionPane.showMessageDialog(null, "regla 7 punto");
+                                salio = 1;
+                            }
+                            case 8 -> {
+                                JOptionPane.showMessageDialog(null, "regla 8 punto");
+                                salio = 1;
+                            }
                         }
                     }
                 }
+                System.out.println("__________________");
             }
-            System.out.println("__________________");
+
 
         }
 
@@ -583,9 +636,6 @@ public class GUI extends JFrame {
 
         for (int i=0;i<=9;i++){
             dado[i].addMouseMotionListener((MouseMotionListener) escucha);
-
-
-
             System.out.println("activados");
         }
 

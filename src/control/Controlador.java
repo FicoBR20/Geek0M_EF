@@ -13,9 +13,9 @@ import java.util.Vector;
  * */
 public class Controlador {
     private int numero_de_dados;
-    private Vector<Integer> cara;
+    private Integer[] cara;
     private int flag, punto;
-    private Vector<String>Estado_string;
+    private String[] Estado_string;
 //    private final Integer[] habilitar_dado_inactivo;
 //    private final Integer[] habilitar_dado_usado;
 //    private final Integer[] habiltar_relance_dado;
@@ -27,7 +27,7 @@ public class Controlador {
 
     public Controlador() {
 
-        cara = new Vector<Integer>();
+        cara = new Integer[10];
         estado = new Integer[10];
         estado_dado = new Integer[10];
         cantidad_en_usados = 0;
@@ -191,15 +191,15 @@ public class Controlador {
         this.punto = punto;
     }
 
-    public void voltear_dado(int i){
+    public void voltear_dado(int posicion){
 //        for (int i=0; i<=9;i++){
-            switch (cara.get(i)) {
-                case 1 -> cara.add(i,6);
-                case 2 -> cara.add(i,5);
-                case 3 -> cara.add(i,4);
-                case 4 -> cara.add(i,3);
-                case 5 -> cara.add(i,2);
-                case 6 -> cara.add(i,1);
+            switch (cara[posicion]) {
+                case 1 -> cara[posicion]=6;
+                case 2 -> cara[posicion]=5;
+                case 3 -> cara[posicion]=4;
+                case 4 -> cara[posicion]=3;
+                case 5 -> cara[posicion]=2;
+                case 6 -> cara[posicion]=1;
             }
 //        }
     }
@@ -354,15 +354,15 @@ public class Controlador {
         this.flag = flag;
     }
 
-    public Vector<Integer> getCara() {
+    public Integer[] getCara() {
         return cara;
     }
 
-    public void setCara(Vector<Integer> cara) {
+    public void setCara(Integer[] cara) {
         this.cara = cara;
     }
     public void setCara_dado(int posicion, int cara) {
-        this.cara.add(posicion,cara);
+        this.cara[posicion] = cara;
     }
 
     public int getEstado(int dado) {
@@ -373,22 +373,19 @@ public class Controlador {
         this.estado[dado] = estado;
     }
 
-    public Vector<String> getEstado_string() {
+    public String[] getEstado_string() {
         return Estado_string;
     }
 
-    public void setEstado_string(Vector<String> estado_string) {
+    public void setEstado_string(String[] estado_string) {
         Estado_string = estado_string;
     }
 
-    public void setDado(Dado dado) {
-        tirar_dados.setDado(dado);
+    public void setDado(int posicion) {
+        tirar_dados.setDado(posicion);
     }
 
-    public Vector<Dado> getDado() {
+    public Dado[] getDado() {
         return tirar_dados.getDado();
     }
-
-
-
 }

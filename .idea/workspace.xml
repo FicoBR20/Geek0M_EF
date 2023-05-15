@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/recursos/otros/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Tirar_dados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Tirar_dados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +35,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-
-}</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="vista" />
@@ -51,6 +57,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.GUI">
+    <configuration name="Dado poderoso" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_Basica_3_Buttons" />
+      <module name="Geek0M_EF" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GUI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
       <module name="Geek0M_EF" />
@@ -99,6 +112,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.Dado poderoso" />
       <item itemvalue="Application.GUI_Sencilla" />
       <item itemvalue="Application.Gui_Basica_3_Buttons (1)" />
       <item itemvalue="Application.contrller" />
@@ -113,7 +127,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e90db11c-55b0-4a52-9965-0e4b99672631" name="Changes" comment="" />
+      <changelist id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="" />
       <created>1683479852512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
