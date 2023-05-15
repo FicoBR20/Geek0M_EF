@@ -66,7 +66,7 @@ public class Gui_01 extends JFrame {
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
-    private JPanel jPanel1, jPanel2, jPanel3, jPanel4;
+    private JPanel jPanel_Dados_Activos, jPanel2, jPanel3, jPanel4;
 
 
     private Container containerPricipal;
@@ -147,7 +147,7 @@ public class Gui_01 extends JFrame {
         containerPricipal = new Container();
         containerPricipal.setLayout(borderLayout);
 
-        jPanel1 = new JPanel();
+        jPanel_Dados_Activos = new JPanel();
 
         jPanel2 = new JPanel();
 
@@ -156,6 +156,7 @@ public class Gui_01 extends JFrame {
 
 
         jPanel4 = new JPanel();
+
 
 
         jButton1.addActionListener(escuchas);
@@ -170,45 +171,12 @@ public class Gui_01 extends JFrame {
 
 
 
-        for (int i = 0; i < carasLanzadas.size(); i++) {
+        generador_Vectores_Pane_Activos(7);
+
+        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.SOUTH);
 
 
-            dadoProfesional = new Dado_Profesional();
-
-            int auxiliar =0;
-
-            auxiliar = dadoProfesional.busqueda_Profesional();
-
-            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
-                    (auxiliar ) + ".png")));
-
-            dadoProfesional.setIcon(imageIcon);
-
-            dadoProfesional.setSello(auxiliar);
-
-            dadoProfesional.addActionListener(escuchas);
-
-            dadoProfesional.addMouseListener(escuchas);
-
-            dadoProfesional.addKeyListener(escuchas);
-
-            carasLanzadas.setElementAt(dadoProfesional, i);
-
-            jPanel1.setPreferredSize(new Dimension(100,100));
-
-            jPanel1.setBackground(Color.BLUE);
-
-            jPanel1.add(carasLanzadas.get(i));
-
-
-        }
-
-
-
-        containerPricipal.add(jPanel1, BorderLayout.SOUTH);
-
-
-//        jPanel3.add(jPanel1, BorderLayout.NORTH);
+//        jPanel3.add(jPanel_Dados_Activos, BorderLayout.NORTH);
 //        jPanel3.add(jPanel2, BorderLayout.SOUTH);
 
 
@@ -220,15 +188,23 @@ public class Gui_01 extends JFrame {
 
     }
 
-    /**
-     * Método que genera Vectores de tipo Dado_Profesional
-     * @return caraslanzadas;
-     */
 
-    public Vector<Dado_Profesional> generador_Vectores(int campos){
+    /**
+     * Método que genera un Vector de tipo de dato Dado_Profesional
+     * en el panel de Dados Activos
+     * @param campos representa el tamaño del arreglo
+     * @return
+     */
+    public Vector<Dado_Profesional> generador_Vectores_Pane_Activos(int campos ){
+
 
         carasLanzadas = new Vector<>();
         carasLanzadas.setSize(campos);
+
+        jPanel_Dados_Activos = new JPanel();
+
+
+
 
         for (int i = 0; i < carasLanzadas.size(); i++) {
 
@@ -253,6 +229,10 @@ public class Gui_01 extends JFrame {
             dadoProfesional.addKeyListener(escuchas);
 
             carasLanzadas.setElementAt(dadoProfesional, i);
+
+            jPanel_Dados_Activos.setPreferredSize(new Dimension(100,100));
+            jPanel_Dados_Activos.setBackground(Color.BLUE);
+            jPanel_Dados_Activos.add(carasLanzadas.get(i));
 
 
         }
