@@ -69,7 +69,10 @@ public class Gui_01 extends JFrame {
 
     private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel_Dados_Utilizados, jPanel_Tabla_Puntaje;
 
-
+    /**
+     * Contenedor de mas alto nivel en
+     * este proyecto
+     */
     private Container containerPricipal;
 
     /**
@@ -88,8 +91,6 @@ public class Gui_01 extends JFrame {
 
 
 
-
-
     }
 
     public void Inicio(){
@@ -103,20 +104,15 @@ public class Gui_01 extends JFrame {
         modelo01.tiradaInactivos();
 
 
-
-
-
-
         control01 = new Control_01();
 
 
-
-        // ELEMENTOS DE CLASE Gui_01
-
+        /**
+         * Objeto Dimension para el tamaño de los dados
+         */
         dimension_Auxiliar = new Dimension(50*5 ,50*2);
 
         carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(10);
 
 
         imageIcon = new ImageIcon();
@@ -166,16 +162,10 @@ public class Gui_01 extends JFrame {
 
 
 
-//        jPanel_Dados_Inactivos.add(jButton2);
-//        jPanel_Dados_Inactivos.add(jButton3);
-//        jPanel_Dados_Inactivos.add(jButton4);
-
-
-
-        generador_Vectores_Pane_Activos(7);
+        generador_Vectores_Panel_Activos(7);
         containerPricipal.add(jPanel_Dados_Activos, BorderLayout.SOUTH);
 
-        generador_Vectores_Pane_Inactivos(3);
+        generador_Vectores_Panel_Inactivos(3);
 
 
 
@@ -183,15 +173,7 @@ public class Gui_01 extends JFrame {
 
 
 
-//        jPanel_Dados_Utilizados.add(jPanel_Dados_Activos, BorderLayout.NORTH);
-//        jPanel_Dados_Utilizados.add(jPanel_Dados_Inactivos, BorderLayout.SOUTH);
-
-
-
-
-
         this.add(containerPricipal);
-       // this.add(jPanel_Dados_Inactivos);
 
     }
 
@@ -202,7 +184,7 @@ public class Gui_01 extends JFrame {
      * @param campos representa el tamaño del arreglo
      * @return
      */
-    public Vector<Dado_Profesional> generador_Vectores_Pane_Activos(int campos ){
+    public Vector<Dado_Profesional> generador_Vectores_Panel_Activos(int campos ){
 
 
         carasLanzadas = new Vector<>();
@@ -258,7 +240,7 @@ public class Gui_01 extends JFrame {
      * @param campos representa el tamaño del arreglo
      * @return
      */
-    public Vector<Dado_Profesional> generador_Vectores_Pane_Inactivos(int campos ){
+    public Vector<Dado_Profesional> generador_Vectores_Panel_Inactivos(int campos ){
 
 
         carasLanzadas = new Vector<>();
