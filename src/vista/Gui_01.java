@@ -58,7 +58,6 @@ public class Gui_01 extends JFrame {
     /**
      * Arreglo de datos tipo Dado_Profesional
      */
-
     private Vector<Dado_Profesional> carasLanzadas;
 
 
@@ -88,39 +87,27 @@ public class Gui_01 extends JFrame {
 
     public void Inicio(){
 
-        // Varibles temporales deben quitarse
 
         modelo01 =  new Modelo_01();
-
-//        modelo01.tirada_DadosActivos();
-//
-//        modelo01.tiradaInactivos();
-//
-//        modelo01.probarArreglos();
-
-
-
-
-
-
-
-
-        // Varibles temporales deben quitarse
-
+        modelo01.tirada_DadosActivos();
 
 
 
         control01 = new Control_01();
 
-        carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(10);
 
+
+        // ELEMENTOS DE CLASE Gui_01
+
+       // dimension_Auxiliar = new Dimension(50*5 ,50*2);
+
+        carasLanzadas = new Vector<>();
 
 
         imageIcon = new ImageIcon();
 
 
-       dadoProfesional = new Dado_Profesional();
+        dadoProfesional = new Dado_Profesional();
 
 
         escuchas = new Escuchas();
@@ -142,7 +129,7 @@ public class Gui_01 extends JFrame {
 //        jLabel4 = new JLabel();
 
         jPanel1 = new JPanel();
-      //  jPanel1.setPreferredSize(new Dimension(control01.getAncho_del_Dado()*5, control01.getAlto_del_Dado()*2));
+       // jPanel1.setPreferredSize(dimension_Auxiliar);
 
         jPanel2 = new JPanel();
 
