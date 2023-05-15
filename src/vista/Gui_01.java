@@ -67,7 +67,7 @@ public class Gui_01 extends JFrame {
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
-    private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel_Dados_Utilizados, jPanel_Tabla_Puntaje;
+    private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel_Dados_Utilizados, jPanel_Tabla_Puntuación;
 
     /**
      * Contenedor de mas alto nivel en
@@ -152,7 +152,7 @@ public class Gui_01 extends JFrame {
         jPanel_Dados_Utilizados = new JPanel();
 
 
-        jPanel_Tabla_Puntaje = new JPanel();
+        jPanel_Tabla_Puntuación = new JPanel();
 
 
 
@@ -163,13 +163,22 @@ public class Gui_01 extends JFrame {
 
 
         generador_Vectores_Panel_Activos(7);
-        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.SOUTH);
+        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.CENTER);
 
         generador_Vectores_Panel_Inactivos(3);
+        containerPricipal.add(jPanel_Dados_Inactivos, BorderLayout.EAST);
+
+        generador_Vectores_Panel_Utilizados(10);
+        containerPricipal.add(jPanel_Dados_Utilizados, BorderLayout.WEST);
+
+        generador_Vectores_Tabla_de_Puntuacion(10);
+        containerPricipal.add(jPanel_Tabla_Puntuación, BorderLayout.SOUTH);
 
 
 
-        containerPricipal.add(jPanel_Dados_Inactivos, BorderLayout.WEST);
+
+
+
 
 
 
@@ -180,9 +189,9 @@ public class Gui_01 extends JFrame {
 
     /**
      * Método que genera un Vector de tipo de dato Dado_Profesional
-     * en el panel de Dados Activos
+     * en  jPanel_Dados_Activos
      * @param campos representa el tamaño del arreglo
-     * @return
+     * @return Vector<Dado_Profesional></Dado_Profesional>
      */
     public Vector<Dado_Profesional> generador_Vectores_Panel_Activos(int campos ){
 
@@ -236,9 +245,9 @@ public class Gui_01 extends JFrame {
 
     /**
      * Método que genera un Vector de tipo de dato Dado_Profesional
-     * en el panel de Dados Inactivos
+     * en el jPanel_Dados_Inactivos
      * @param campos representa el tamaño del arreglo
-     * @return
+     * @return Vector<Dado_Profesional></Dado_Profesional>
      */
     public Vector<Dado_Profesional> generador_Vectores_Panel_Inactivos(int campos ){
 
@@ -246,7 +255,7 @@ public class Gui_01 extends JFrame {
         carasLanzadas = new Vector<>();
         carasLanzadas.setSize(campos);
 
-        jPanel_Dados_Activos = new JPanel();
+        jPanel_Dados_Inactivos = new JPanel();
 
 
 
@@ -288,6 +297,117 @@ public class Gui_01 extends JFrame {
         return carasLanzadas;
 
     }
+
+    /**
+     * Método que genera un Vector de tipo de dato Dado_Profesional
+     * en el jPanel_Dados_Utilizados
+     * @param campos Representa el tamaño del arreglo
+     * @return Vector<Dado_Profesional></Dado_Profesional>
+     */
+    public Vector<Dado_Profesional> generador_Vectores_Panel_Utilizados(int campos ){
+
+
+        carasLanzadas = new Vector<>();
+        carasLanzadas.setSize(campos);
+
+        jPanel_Dados_Utilizados = new JPanel();
+
+
+
+
+        for (int i = 0; i < carasLanzadas.size(); i++) {
+
+
+            dadoProfesional = new Dado_Profesional();
+
+            int auxiliar =0;
+
+            auxiliar = dadoProfesional.busqueda_Profesional();
+
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/Basico_utilizados.png")));
+
+            dadoProfesional.setIcon(imageIcon);
+
+            dadoProfesional.setSello(auxiliar);
+//
+//            dadoProfesional.addActionListener(escuchas);
+//
+//            dadoProfesional.addMouseListener(escuchas);
+//
+//            dadoProfesional.addKeyListener(escuchas);
+
+            carasLanzadas.setElementAt(dadoProfesional, i);
+
+            jPanel_Dados_Utilizados.setPreferredSize(new Dimension(200,100));
+            jPanel_Dados_Utilizados.setBackground(Color.GRAY);
+            jPanel_Dados_Utilizados.setBorder(BorderFactory.createTitledBorder(null,"Dados Utilizados",TitledBorder.CENTER,
+                    TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,16),Color.WHITE));
+            jPanel_Dados_Utilizados.add(carasLanzadas.get(i));
+
+
+        }
+
+
+        return carasLanzadas;
+
+    }
+
+
+    /**
+     * Método que genera un Vector de tipo de dato Dado_Profesional
+     * en  jPanel_Tabla_Puntuación
+     * @param campos representa el tamaño del arreglo
+     * @return Vector<Dado_Profesional></Dado_Profesional>
+     */
+    public Vector<Dado_Profesional> generador_Vectores_Tabla_de_Puntuacion(int campos ){
+
+
+        carasLanzadas = new Vector<>();
+        carasLanzadas.setSize(campos);
+
+        jPanel_Tabla_Puntuación = new JPanel();
+
+
+
+
+        for (int i = 0; i < carasLanzadas.size(); i++) {
+
+
+            dadoProfesional = new Dado_Profesional();
+
+            int auxiliar =0;
+
+            auxiliar = dadoProfesional.busqueda_Profesional();
+
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p" +
+                    (auxiliar ) + ".png")));
+
+            dadoProfesional.setIcon(imageIcon);
+
+            dadoProfesional.setSello(auxiliar);
+//
+//            dadoProfesional.addActionListener(escuchas);
+//
+//            dadoProfesional.addMouseListener(escuchas);
+//
+//            dadoProfesional.addKeyListener(escuchas);
+
+            carasLanzadas.setElementAt(dadoProfesional, i);
+
+            jPanel_Tabla_Puntuación.setPreferredSize(new Dimension(100,100));
+            jPanel_Tabla_Puntuación.setBackground(Color.DARK_GRAY);
+            jPanel_Tabla_Puntuación.setBorder(BorderFactory.createTitledBorder(null,"Tabla de Puntuación",TitledBorder.CENTER,
+                    TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,24),Color.WHITE));
+            jPanel_Tabla_Puntuación.add(carasLanzadas.get(i));
+
+
+        }
+
+
+        return carasLanzadas;
+
+    }
+
 
 
 
