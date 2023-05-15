@@ -66,7 +66,7 @@ public class Gui_01 extends JFrame {
 
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4;
 
-    private JPanel jPanel_Dados_Activos, jPanel2, jPanel3, jPanel4;
+    private JPanel jPanel_Dados_Activos, jPanel_Dados_Inactivos, jPanel3, jPanel4;
 
 
     private Container containerPricipal;
@@ -149,7 +149,7 @@ public class Gui_01 extends JFrame {
 
         jPanel_Dados_Activos = new JPanel();
 
-        jPanel2 = new JPanel();
+        jPanel_Dados_Inactivos = new JPanel();
 
 
         jPanel3 = new JPanel();
@@ -165,26 +165,32 @@ public class Gui_01 extends JFrame {
 
 
 
-        jPanel2.add(jButton2);
-        jPanel2.add(jButton3);
-        jPanel2.add(jButton4);
+//        jPanel_Dados_Inactivos.add(jButton2);
+//        jPanel_Dados_Inactivos.add(jButton3);
+//        jPanel_Dados_Inactivos.add(jButton4);
 
 
 
         generador_Vectores_Pane_Activos(7);
+        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.CENTER);
 
-        containerPricipal.add(jPanel_Dados_Activos, BorderLayout.SOUTH);
+        generador_Vectores_Pane_Inactivos(3);
+
+
+
+        containerPricipal.add(jPanel_Dados_Inactivos, BorderLayout.WEST);
+
 
 
 //        jPanel3.add(jPanel_Dados_Activos, BorderLayout.NORTH);
-//        jPanel3.add(jPanel2, BorderLayout.SOUTH);
+//        jPanel3.add(jPanel_Dados_Inactivos, BorderLayout.SOUTH);
 
 
 
 
 
         this.add(containerPricipal);
-       // this.add(jPanel2);
+       // this.add(jPanel_Dados_Inactivos);
 
     }
 
@@ -233,6 +239,60 @@ public class Gui_01 extends JFrame {
             jPanel_Dados_Activos.setPreferredSize(new Dimension(100,100));
             jPanel_Dados_Activos.setBackground(Color.BLUE);
             jPanel_Dados_Activos.add(carasLanzadas.get(i));
+
+
+        }
+
+
+        return carasLanzadas;
+
+    }
+
+
+    /**
+     * Método que genera un Vector de tipo de dato Dado_Profesional
+     * en el panel de Dados Inactivos
+     * @param campos representa el tamaño del arreglo
+     * @return
+     */
+    public Vector<Dado_Profesional> generador_Vectores_Pane_Inactivos(int campos ){
+
+
+        carasLanzadas = new Vector<>();
+        carasLanzadas.setSize(campos);
+
+        jPanel_Dados_Activos = new JPanel();
+
+
+
+
+        for (int i = 0; i < carasLanzadas.size(); i++) {
+
+
+            dadoProfesional = new Dado_Profesional();
+
+            int auxiliar =0;
+
+            auxiliar = dadoProfesional.busqueda_Profesional();
+
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
+                    (auxiliar ) + ".png")));
+
+            dadoProfesional.setIcon(imageIcon);
+
+            dadoProfesional.setSello(auxiliar);
+
+            dadoProfesional.addActionListener(escuchas);
+
+            dadoProfesional.addMouseListener(escuchas);
+
+            dadoProfesional.addKeyListener(escuchas);
+
+            carasLanzadas.setElementAt(dadoProfesional, i);
+
+            jPanel_Dados_Inactivos.setPreferredSize(new Dimension(100,100));
+            jPanel_Dados_Inactivos.setBackground(Color.ORANGE);
+            jPanel_Dados_Inactivos.add(carasLanzadas.get(i));
 
 
         }
