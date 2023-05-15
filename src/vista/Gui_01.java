@@ -79,7 +79,7 @@ public class Gui_01 extends JFrame {
         Inicio();
 
 
-        this.setSize( 600,300);
+        this.setSize( 1200,600);
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -148,7 +148,6 @@ public class Gui_01 extends JFrame {
         containerPricipal.setLayout(borderLayout);
 
         jPanel1 = new JPanel();
-        jPanel1.setPreferredSize(dimension_Auxiliar);
 
         jPanel2 = new JPanel();
 
@@ -195,6 +194,10 @@ public class Gui_01 extends JFrame {
 
             carasLanzadas.setElementAt(dadoProfesional, i);
 
+            jPanel1.setPreferredSize(new Dimension(100,100));
+
+            jPanel1.setBackground(Color.BLUE);
+
             jPanel1.add(carasLanzadas.get(i));
 
 
@@ -214,6 +217,48 @@ public class Gui_01 extends JFrame {
 
         this.add(containerPricipal);
        // this.add(jPanel2);
+
+    }
+
+    /**
+     * Método que genera Vectores de tipo Dado_Profesional
+     * @return caraslanzadas;
+     */
+
+    public Vector<Dado_Profesional> generador_Vectores(int campos){
+
+        carasLanzadas = new Vector<>();
+        carasLanzadas.setSize(campos);
+
+        for (int i = 0; i < carasLanzadas.size(); i++) {
+
+
+            dadoProfesional = new Dado_Profesional();
+
+            int auxiliar =0;
+
+            auxiliar = dadoProfesional.busqueda_Profesional();
+
+            imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
+                    (auxiliar ) + ".png")));
+
+            dadoProfesional.setIcon(imageIcon);
+
+            dadoProfesional.setSello(auxiliar);
+
+            dadoProfesional.addActionListener(escuchas);
+
+            dadoProfesional.addMouseListener(escuchas);
+
+            dadoProfesional.addKeyListener(escuchas);
+
+            carasLanzadas.setElementAt(dadoProfesional, i);
+
+
+        }
+
+
+        return carasLanzadas;
 
     }
 
