@@ -57,9 +57,29 @@ public class Gui_01 extends JFrame {
 
     private JButton jButton_BASICO, jButton1, jButton2, jButton3, jButton4;
     /**
-     * Arreglo de datos tipo Dado_Profesional
+     * Vector que almacena los dados Activos desde
+     * el inicio del juego
      */
-    private Vector<Dado_Profesional> carasLanzadas;
+    private Vector<Dado_Profesional> caras_Dados_Activos;
+    /**
+     * Vector que almacena los dados Inactivos desde
+     * el inicio del juego
+     */
+    private Vector<Dado_Profesional> caras_Dados_Inactivos;
+
+    /**
+     * Vector que almacena los dados Utilizados desde
+     * el inicio del juego
+     */
+    private Vector<Dado_Profesional> caras_Dados_Utilizados;
+
+    /**
+     * Vectpr que almacena los dados que puntuan
+     * desde el inicio del juego
+     */
+    private Vector<Dado_Profesional> caras_Tabla_de_Puntuacion;
+
+
 
 
 
@@ -112,7 +132,17 @@ public class Gui_01 extends JFrame {
          */
         dimension_Auxiliar = new Dimension(50*5 ,50*2);
 
-        carasLanzadas = new Vector<>();
+
+
+        caras_Dados_Activos = new Vector<>();
+        caras_Dados_Inactivos = new Vector<>();
+        caras_Dados_Utilizados = new Vector<>();
+        caras_Tabla_de_Puntuacion = new Vector<>();
+
+
+
+
+
 
 
         imageIcon = new ImageIcon();
@@ -196,15 +226,15 @@ public class Gui_01 extends JFrame {
     public Vector<Dado_Profesional> generador_Vectores_Panel_Activos(int campos ){
 
 
-        carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(campos);
+        caras_Dados_Activos = new Vector<>();
+        caras_Dados_Activos.setSize(campos);
 
         jPanel_Dados_Activos = new JPanel();
 
 
 
 
-        for (int i = 0; i < carasLanzadas.size(); i++) {
+        for (int i = 0; i < caras_Dados_Activos.size(); i++) {
 
 
             dadoProfesional = new Dado_Profesional();
@@ -226,19 +256,19 @@ public class Gui_01 extends JFrame {
 
             dadoProfesional.addKeyListener(escuchas);
 
-            carasLanzadas.setElementAt(dadoProfesional, i);
+            caras_Dados_Activos.setElementAt(dadoProfesional, i);
 
             jPanel_Dados_Activos.setPreferredSize(new Dimension(100,100));
             jPanel_Dados_Activos.setBackground(Color.BLACK);
             jPanel_Dados_Activos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,24),Color.WHITE));
-            jPanel_Dados_Activos.add(carasLanzadas.get(i));
+            jPanel_Dados_Activos.add(caras_Dados_Activos.get(i));
 
 
         }
 
 
-        return carasLanzadas;
+        return caras_Dados_Activos;
 
     }
 
@@ -252,15 +282,15 @@ public class Gui_01 extends JFrame {
     public Vector<Dado_Profesional> generador_Vectores_Panel_Inactivos(int campos ){
 
 
-        carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(campos);
+        caras_Dados_Inactivos = new Vector<>();
+        caras_Dados_Inactivos.setSize(campos);
 
         jPanel_Dados_Inactivos = new JPanel();
 
 
 
 
-        for (int i = 0; i < carasLanzadas.size(); i++) {
+        for (int i = 0; i < caras_Dados_Inactivos.size(); i++) {
 
 
             dadoProfesional = new Dado_Profesional();
@@ -282,19 +312,19 @@ public class Gui_01 extends JFrame {
 
             dadoProfesional.addKeyListener(escuchas);
 
-            carasLanzadas.setElementAt(dadoProfesional, i);
+            caras_Dados_Inactivos.setElementAt(dadoProfesional, i);
 
             jPanel_Dados_Inactivos.setPreferredSize(new Dimension(200,100));
             jPanel_Dados_Inactivos.setBackground(Color.GRAY);
             jPanel_Dados_Inactivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Inactivos",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,16),Color.WHITE));
-            jPanel_Dados_Inactivos.add(carasLanzadas.get(i));
+            jPanel_Dados_Inactivos.add(caras_Dados_Inactivos.get(i));
 
 
         }
 
 
-        return carasLanzadas;
+        return caras_Dados_Inactivos;
 
     }
 
@@ -307,15 +337,15 @@ public class Gui_01 extends JFrame {
     public Vector<Dado_Profesional> generador_Vectores_Panel_Utilizados(int campos ){
 
 
-        carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(campos);
+        caras_Dados_Utilizados = new Vector<>();
+        caras_Dados_Utilizados.setSize(campos);
 
         jPanel_Dados_Utilizados = new JPanel();
 
 
 
 
-        for (int i = 0; i < carasLanzadas.size(); i++) {
+        for (int i = 0; i < caras_Dados_Utilizados.size(); i++) {
 
 
             dadoProfesional = new Dado_Profesional();
@@ -336,19 +366,19 @@ public class Gui_01 extends JFrame {
 //
 //            dadoProfesional.addKeyListener(escuchas);
 
-            carasLanzadas.setElementAt(dadoProfesional, i);
+            caras_Dados_Utilizados.setElementAt(dadoProfesional, i);
 
             jPanel_Dados_Utilizados.setPreferredSize(new Dimension(200,100));
             jPanel_Dados_Utilizados.setBackground(Color.GRAY);
             jPanel_Dados_Utilizados.setBorder(BorderFactory.createTitledBorder(null,"Dados Utilizados",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,16),Color.WHITE));
-            jPanel_Dados_Utilizados.add(carasLanzadas.get(i));
+            jPanel_Dados_Utilizados.add(caras_Dados_Utilizados.get(i));
 
 
         }
 
 
-        return carasLanzadas;
+        return caras_Dados_Utilizados;
 
     }
 
@@ -362,15 +392,15 @@ public class Gui_01 extends JFrame {
     public Vector<Dado_Profesional> generador_Vectores_Tabla_de_Puntuacion(int campos ){
 
 
-        carasLanzadas = new Vector<>();
-        carasLanzadas.setSize(campos);
+        caras_Tabla_de_Puntuacion = new Vector<>();
+        caras_Tabla_de_Puntuacion.setSize(campos);
 
         jPanel_Tabla_Puntuación = new JPanel();
 
 
 
 
-        for (int i = 0; i < carasLanzadas.size(); i++) {
+        for (int i = 0; i < caras_Tabla_de_Puntuacion.size(); i++) {
 
 
             dadoProfesional = new Dado_Profesional();
@@ -392,19 +422,19 @@ public class Gui_01 extends JFrame {
 //
 //            dadoProfesional.addKeyListener(escuchas);
 
-            carasLanzadas.setElementAt(dadoProfesional, i);
+            caras_Tabla_de_Puntuacion.setElementAt(dadoProfesional, i);
 
             jPanel_Tabla_Puntuación.setPreferredSize(new Dimension(100,100));
             jPanel_Tabla_Puntuación.setBackground(Color.DARK_GRAY);
             jPanel_Tabla_Puntuación.setBorder(BorderFactory.createTitledBorder(null,"Tabla de Puntuación",TitledBorder.CENTER,
                     TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.MONOSPACED, Font.BOLD,24),Color.WHITE));
-            jPanel_Tabla_Puntuación.add(carasLanzadas.get(i));
+            jPanel_Tabla_Puntuación.add(caras_Tabla_de_Puntuacion.get(i));
 
 
         }
 
 
-        return carasLanzadas;
+        return caras_Tabla_de_Puntuacion;
 
     }
 
@@ -486,6 +516,8 @@ public class Gui_01 extends JFrame {
 
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
 
+        Dado_Profesional dadoProfesional = new Dado_Profesional();
+
         Modelo_01 modelo01 = new Modelo_01();
 
 
@@ -518,6 +550,7 @@ public class Gui_01 extends JFrame {
 
         }
 
+
         @Override
         public void mouseClicked(MouseEvent e) {
 
@@ -529,17 +562,14 @@ public class Gui_01 extends JFrame {
              */
             int receptorSello=0;
 
-            if (e.getSource().equals(carasLanzadas.elementAt(0))){
-                receptorSello = carasLanzadas.get(0).getSello();
+            if (e.getSource().equals(caras_Dados_Activos.elementAt(0))){
+                receptorSello = caras_Dados_Activos.get(0).getSello();
                 System.out.println(" imprimo el sello " + receptorSello);
             }
             else {
 
-                for (int i = 0; i < carasLanzadas.size(); i++) {
-                    receptorSello = carasLanzadas.elementAt(i).getSello();
-
-
-                    modelo01.pura_Accion(receptorSello);
+                for (int i = 0; i < caras_Dados_Activos.size(); i++) {
+                    receptorSello = caras_Dados_Activos.elementAt(i).getSello();
 
                     /**
                      * en adelante se ejecutaran las acciones según el valor
@@ -547,11 +577,12 @@ public class Gui_01 extends JFrame {
                      */
 
 
-                   // System.out.println(" secuencia de sello es " + receptorSello);
+                    System.out.println(" secuencia de sello es " + receptorSello);
                 }
             }
 
         }
+
 
 
 
