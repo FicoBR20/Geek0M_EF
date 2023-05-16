@@ -150,7 +150,7 @@ public class GUI extends JFrame {
         Integer[] caras = null;
 
         dado = new JLabel[10];//Creacion de los dados
-        JLabel[] puntos_dado = new JLabel[11];//Creacion de las carillas para los puntos
+        puntos_dado = new JLabel[11];//Creacion de las carillas para los puntos
 
         //Ciclo que instancia los dados y las casillas y les pone una imagen
         for (int i=0;i<=9;i++){
@@ -267,9 +267,10 @@ public class GUI extends JFrame {
 
         panelPuntos.add(puntos_dado[10]);
 
-        for (int i=0;i<=10-1;i++){
+        for (int i=0;i<=9;i++){
             panelPuntos.add(puntos_dado[i]);
         }
+
 
         this.add(panelPuntos,constraints); //Change this line if you change JFrame Container's Layout
 
@@ -340,6 +341,7 @@ public class GUI extends JFrame {
                 control.set_estado_dado(posicion,0);
                 break;
             case 5:
+                int cont = 0;
                 for (int posicion2 = 0; posicion2<=9; posicion2++){
                     if (control.get_estado_dado(posicion2)==0){
                         relanzar_dado(posicion2);
@@ -356,20 +358,41 @@ public class GUI extends JFrame {
                         control.set_estado_dado(posicion2,0);
                     }
                 }
+
+                for (int posicion3=0;posicion3<9;posicion3++){
+                    imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p"+posicion3+".png")));
+                    puntos_dado[posicion3].setIcon(imagen_dado);
+                }
+                // Ciclo que toma la cantidad de dados en punto y cambia el icono
+                for (int posicion4=0;posicion4<cont;posicion4++){
+                    imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
+                    puntos_dado[posicion4].setIcon(imagen_dado);
+                }
                 break;
             case 6:
+                cont = 0;// Cuenta cuantos dados (42) quedan en el panel activos
                 for (int posicion2 = 0; posicion2<=9; posicion2++){
                     if (control.get_estado_dado(posicion2)==0){
                         panelNulo.add(dado[posicion2]);
                         control.setEstado(posicion2, 3);
                         control.set_estado_dado(posicion2,9);
                     }
-
                 }
-                for (int posicion3=0;posicion3<=3;posicion3++){
-                    imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
-                    puntos_dado[posicion3] = new JLabel(imagen_dado);
-                    panelPuntos.add(puntos_dado[posicion3]);
+//                 Cuenta cuantos dados (42) hay en el panel de puntos
+                for (int posicion2 = 0; posicion2<=9; posicion2++){
+                    if (control.get_estado_dado(posicion2)==9){
+                        cont++;
+                    }
+                }
+                for (int posicion3=0;posicion3<9;posicion3++){
+                    imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p"+posicion3+".png")));
+                    puntos_dado[posicion3].setIcon(imagen_dado);
+                }
+                JOptionPane.showMessageDialog(null, "limpia cantidad = "+cont);
+                // Ciclo que toma la cantidad de dados en punto y cambia el icono
+                for (int posicion4=0;posicion4<cont;posicion4++){
+                    imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
+                    puntos_dado[posicion4].setIcon(imagen_dado);
                 }
                 break;
         }
@@ -410,7 +433,7 @@ public class GUI extends JFrame {
     /**
      * Main process of the Java program
      * @param args Object used in order to send input data from command line when
-     *             the program is execute by console.
+     *             the program is executed by console.
      */
     public static void main(String[] args){
         EventQueue.invokeLater(() -> {
@@ -424,7 +447,6 @@ public class GUI extends JFrame {
      */
 
     public class Escucha implements ActionListener, MouseListener {
-
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -503,7 +525,7 @@ public class GUI extends JFrame {
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
 
-                if (uso_boton_lanzar == 5){
+                if (uso_boton_lanzar >= 5){
 
                     JOptionPane.showMessageDialog(null,
                             "FIN DEL JUEGO\n"+
@@ -579,7 +601,6 @@ public class GUI extends JFrame {
 
         }
 
-
         @Override
         public void mouseReleased(MouseEvent e) {
             entro = salio + entro;
@@ -649,7 +670,6 @@ public class GUI extends JFrame {
         public void mouseExited(MouseEvent e) {
 
         }
-
     }
 
 
