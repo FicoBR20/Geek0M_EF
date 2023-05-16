@@ -246,6 +246,82 @@ public class Modelo_01 {
         return arregloOriginal;
     }
 
+
+
+
+    public void pura_Accion(int jugado){ // toma el entero y desarrolla las acciones  según las reglas del juego.
+
+//        dados_Activos = new Vector<Integer>(7);
+//
+//        int entrega=999; // retornará el entero que reprenta la cara obtenida al jugar.
+
+        String auxiliar =""; // para pruebas.
+
+        switch (jugado) {
+            case 1:
+                //accion_Corazon(1);
+                auxiliar = "EL Corazon está en acción";
+                System.out.println(" El corazon debe ejecutar las siguientes acciones:\n" +
+                        "1 - Se va del arreglo de dados activos\n" +
+                        "2 - Trae un dado de los inactivos\n" +
+                        "3 - Lanza ese nuevo dado que trajo a los dados activos'\n" +
+                        "4 - El size del arreglo de dados Activos queda igualito\n" +
+                        "5 - El size del arreglo de dado Inactivos queda meno uno -1 \n" +
+                        "6 - retona el arreglo de dados activos con la cara modificada en donde estaba el corazon\n" +
+                        "7 - Se pregunta por el size de Dados Activos, si es 1, entonces se acaba el juego sin puntos\n" +
+                        "");
+                break;
+//
+//            case 2:
+//              // accion_Dragon(2);
+//                auxiliar = "EL Dragon está en acción";
+//                break;
+//            case 3:
+//              //  accion_Mepplet(3);
+//                auxiliar = "EL Meeple está en acción";
+//                break;
+//            case 4:
+//               // accion_Cohete(4);
+//                auxiliar = "EL Cohete está en acción";
+//                break;
+//            case 5:
+//               // accion_SuperHeroe(5);
+//                auxiliar = "EL SuperHeroe está en acción";
+//                break;
+//            case 6:
+//                //accion_Cuarenta_y_Dos();
+//                auxiliar = " a sumar puntos con el 42";
+//                break;
+            default:
+
+                auxiliar = " Seguir implementando las otras...";
+        }
+
+
+
+    }
+
+
+
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Modelo_01 myGUI = new Modelo_01();
+            }
+        });
+    }
+
+}
+
+
+
+
+
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 //
 //    /**
@@ -457,16 +533,3 @@ public class Modelo_01 {
 ////    +++++++++++++______+++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS++++++++)))))))))))) AREA DE PRUEBAS....ONLY PROOFS
 
 
-
-
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Modelo_01 myGUI = new Modelo_01();
-            }
-        });
-    }
-
-}

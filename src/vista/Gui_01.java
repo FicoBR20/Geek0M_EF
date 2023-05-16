@@ -486,6 +486,9 @@ public class Gui_01 extends JFrame {
 
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
 
+        Modelo_01 modelo01 = new Modelo_01();
+
+
 
 
 
@@ -535,13 +538,16 @@ public class Gui_01 extends JFrame {
                 for (int i = 0; i < carasLanzadas.size(); i++) {
                     receptorSello = carasLanzadas.elementAt(i).getSello();
 
+
+                    modelo01.pura_Accion(receptorSello);
+
                     /**
                      * en adelante se ejecutaran las acciones según el valor
                      * rececionado en la variable receptorSello.
                      */
 
 
-                    System.out.println(" secuencia de sello es " + receptorSello);
+                   // System.out.println(" secuencia de sello es " + receptorSello);
                 }
             }
 
