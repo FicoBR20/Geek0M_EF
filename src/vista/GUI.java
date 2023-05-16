@@ -44,12 +44,6 @@ public class GUI extends JFrame {
 
     private int salio, entro;
 
-    private JLabel[] array_dados_activos,array_dados_inactivos,array_dados_usados,array_dados_enPunto;
-
-    private int usados ;
-    private int inactovos ;
-    private int activos ;
-    private int puntos ;
 
 
     /**
@@ -128,18 +122,6 @@ public class GUI extends JFrame {
         mis_Dados = new Dado[10];
         jP_misdados = new JPanel();
         jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
-
-        array_dados_activos = new JLabel[10];
-        array_dados_inactivos = new JLabel[10];
-        array_dados_usados = new JLabel[10];
-        array_dados_enPunto = new JLabel[10];
-
-        usados = 0;
-        inactovos = 0;
-        activos = 0;
-        puntos = 0;
-
-
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         int dado_activo = 0;// '0' = botón no se puede usar
@@ -272,8 +254,7 @@ public class GUI extends JFrame {
         panelPuntos.add(puntos_dado[10]);
 
         for (int i=0;i<=10-1;i++){
-            array_dados_enPunto[i] = puntos_dado[i];
-            panelPuntos.add(array_dados_enPunto[i]);
+            panelPuntos.add(puntos_dado[i]);
         }
 
         this.add(panelPuntos,constraints); //Change this line if you change JFrame Container's Layout
@@ -292,8 +273,7 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
 
         for (int i = 0; i<=9; i++){
-            array_dados_activos[i] = dado[i];
-            panelActivos.add(array_dados_activos[i],BorderLayout.SOUTH);
+            panelActivos.add(dado[i],BorderLayout.SOUTH);
         }
 
         this.add(panelActivos,constraints); //Change this line if you change JFrame Container's Layout
@@ -366,9 +346,8 @@ public class GUI extends JFrame {
     public void activar_dados_usados(){
         for (int posicion = 0; posicion<=9; posicion++){
             if (control.get_estado_dado(posicion)==8){
-                array_dados_activos[posicion] = dado[posicion];
-                panelActivos.add(array_dados_activos[posicion]);
-                array_dados_usados[posicion] = null;
+                relanzar_dado(posicion);
+                panelActivos.add(dado[posicion]);
                 control.setEstado(posicion, 4);
                 control.set_estado_dado(posicion,0);
                 mensaje_cambio_de_panel();
@@ -380,41 +359,30 @@ public class GUI extends JFrame {
 
         switch (control.getEstado(posicion)) {
             case 1:
-
-                array_dados_usados[posicion] = dado[posicion];
-                panelUsados.add(array_dados_usados[posicion]);
+                panelUsados.add(dado[posicion]);
                 control.set_estado_dado(posicion,8);
                 mensaje_cambio_de_panel();
                 break;
             case 2:
-
-                array_dados_activos[posicion] = dado[posicion];
-                panelActivos.add(array_dados_activos[posicion]);
-                array_dados_inactivos[posicion] = null;
+                panelActivos.add(dado[posicion]);
                 control.setEstado(posicion, 4);
                 control.set_estado_dado(posicion,0);
                 mensaje_cambio_de_panel();
                 break;
             case 3:
-                array_dados_enPunto[posicion] = dado[posicion];
-                panelPuntos.add(array_dados_enPunto[posicion]);
-                array_dados_activos[posicion] = null;
+                panelPuntos.add(dado[posicion]);
                 control.setEstado(posicion, 3);
                 control.set_estado_dado(posicion,9);
                 mensaje_cambio_de_panel();
                 break;
             case 4:
-                array_dados_usados[posicion] = dado[posicion];
-                panelUsados.add(array_dados_usados[posicion]);
-                array_dados_activos[posicion] = null;
+                panelUsados.add(dado[posicion]);
                 control.setEstado(posicion, 1);
                 control.set_estado_dado(posicion,8);
                 mensaje_cambio_de_panel();
                 break;
             case 5:
-                array_dados_inactivos[posicion] = dado[posicion];
-                panelIncativos.add(array_dados_inactivos[posicion]);
-                array_dados_usados[posicion] = null;
+                panelIncativos.add(dado[posicion]);
                 control.setEstado(posicion, 2);
                 control.set_estado_dado(posicion,7);
                 mensaje_cambio_de_panel();
@@ -525,11 +493,9 @@ public class GUI extends JFrame {
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
                         dado[posicion].setIcon(imagen_dado);
                         dado[posicion].addMouseListener(escucha);
-                        array_dados_inactivos[posicion] = dado[posicion];
-                        panelIncativos.add(array_dados_inactivos[posicion]);
+                        panelIncativos.add(dado[posicion]);
                         control.setEstado(posicion,2);
                         control.set_estado_dado(posicion,7);
-                        inactovos++;
                     }
 //                        mensaje_cambio_de_panel();
 
@@ -537,11 +503,9 @@ public class GUI extends JFrame {
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
                         dado[posicion].setIcon(imagen_dado);
                         dado[posicion].addMouseListener(escucha);
-                        array_dados_activos[posicion] = dado[posicion];
-                        panelActivos.add(array_dados_activos[posicion]);
+                        panelActivos.add(dado[posicion]);
                         control.setEstado(posicion,4);
                         control.set_estado_dado(posicion,0);
-                        activos++;
                     }
 //                        mensaje_cambio_de_panel();
 
@@ -556,7 +520,6 @@ public class GUI extends JFrame {
                     JOptionPane.showMessageDialog(null,"cambia de inactivos a activos"
                     +"\n relanzar dados");
                     activar_dados_usados();
-                    panelUsados.removeAll();
                     uso_boton_lanzar++;
                 }
                 else if (uso_boton_lanzar >= 1){

@@ -167,12 +167,12 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/vista/GUI.java</url>
-          <line>573</line>
+          <line>535</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/vista/GUI.java</url>
-          <line>365</line>
+          <line>345</line>
           <properties class="vista.GUI" method="activar_dados_usados">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
