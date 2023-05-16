@@ -7,6 +7,7 @@
     <list default="true" id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Modelo_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Modelo_01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/Gui_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +160,7 @@
       <workItem from="1683974719294" duration="1939000" />
       <workItem from="1684025167329" duration="22412000" />
       <workItem from="1684241826042" duration="13389000" />
-      <workItem from="1684271096230" duration="4302000" />
+      <workItem from="1684271096230" duration="5645000" />
     </task>
     <servers />
   </component>

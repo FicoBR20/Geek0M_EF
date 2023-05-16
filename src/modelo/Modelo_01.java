@@ -261,7 +261,7 @@ public class Modelo_01 {
             case 1:
                 //accion_Corazon(1);
                 auxiliar = "EL Corazon está en acción";
-                System.out.println(" El corazon debe ejecutar las siguientes acciones:\n" +
+                System.out.println(auxiliar + "\n" +
                         "1 - Se va del arreglo de dados activos\n" +
                         "2 - Trae un dado de los inactivos\n" +
                         "3 - Lanza ese nuevo dado que trajo a los dados activos'\n" +
@@ -271,27 +271,37 @@ public class Modelo_01 {
                         "7 - Se pregunta por el size de Dados Activos, si es 1, entonces se acaba el juego sin puntos\n" +
                         "");
                 break;
-//
-//            case 2:
-//              // accion_Dragon(2);
-//                auxiliar = "EL Dragon está en acción";
-//                break;
-//            case 3:
-//              //  accion_Mepplet(3);
-//                auxiliar = "EL Meeple está en acción";
-//                break;
-//            case 4:
-//               // accion_Cohete(4);
-//                auxiliar = "EL Cohete está en acción";
-//                break;
-//            case 5:
-//               // accion_SuperHeroe(5);
-//                auxiliar = "EL SuperHeroe está en acción";
-//                break;
-//            case 6:
-//                //accion_Cuarenta_y_Dos();
-//                auxiliar = " a sumar puntos con el 42";
-//                break;
+
+            case 2:
+              // accion_Dragon(2);
+                auxiliar = "EL Dragon está en acción...que sera que hace ?";
+                System.out.println(auxiliar + "\n" );
+
+                break;
+            case 3:
+              //  accion_Mepplet(3);
+                auxiliar = "EL Meeple está en acción...que sera que hace ?";
+                System.out.println(auxiliar + "\n" );
+
+                break;
+            case 4:
+               // accion_Cohete(4);
+                auxiliar = "EL Cohete está en acción...que sera que hace ?";
+                System.out.println(auxiliar + "\n" );
+
+                break;
+            case 5:
+               // accion_SuperHeroe(5);
+                auxiliar = "EL SuperHeroe está en acción...que sera que hace ?";
+                System.out.println(auxiliar + "\n" );
+
+                break;
+            case 6:
+                //accion_Cuarenta_y_Dos();
+                auxiliar = " a sumar puntos con el 42...que sera que hace ?";
+                System.out.println(auxiliar + "\n" );
+
+                break;
             default:
 
                 auxiliar = " Seguir implementando las otras...";

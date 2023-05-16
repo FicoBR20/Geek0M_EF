@@ -560,37 +560,26 @@ public class Gui_01 extends JFrame {
              * Variable auxiliar que recepciona el atributo Sello
              * de un objeto de la Clase Dado_Profesional
              */
-            int receptorSello=0;
+            int recepciona_Sello =0;
 
             for (int i = 0; i < caras_Dados_Activos.size(); i++) {
                 if (e.getSource().equals(caras_Dados_Activos.elementAt(i))){
-                    receptorSello = caras_Dados_Activos.get(i).getSello();
-                    System.out.println(" imprimo el sello " + receptorSello);
+                    recepciona_Sello = caras_Dados_Activos.get(i).getSello();
+                    System.out.println(" imprimo el sello " + recepciona_Sello);
                 }
 
             }
 
-//
-//
-//            if (e.getSource().equals(caras_Dados_Activos.elementAt(0))){
-//                receptorSello = caras_Dados_Activos.get(0).getSello();
-//                System.out.println(" imprimo el sello " + receptorSello);
-//            }
-//            else {
-//
-//                for (int i = 0; i < caras_Dados_Activos.size(); i++) {
-//                    receptorSello = caras_Dados_Activos.elementAt(i).getSello();
-//
-//                    /**
-//                     * en adelante se ejecutaran las acciones según el valor
-//                     * rececionado en la variable receptorSello.
-//                     */
-//
-//
-//                    System.out.println(" secuencia de sello es " + receptorSello);
-//                }
-//            }
 
+            /**
+             * Se empiezan a desarrollar las acciones segun el valor entero
+             * del atributo sello
+             */
+
+            modelo01.pura_Accion(recepciona_Sello);
+
+
+            System.out.println(" ya al final el sello vale " + recepciona_Sello);
         }
 
 
