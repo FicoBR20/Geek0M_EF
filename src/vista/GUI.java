@@ -556,7 +556,7 @@ public class GUI extends JFrame {
                     uso_boton_lanzar=1; // Indica que el botón lanzar ya fue usado
                }
 
-                else if (panelActivos.getComponentCount()==0){
+                else if (panelActivos.getComponentCount()<=0){
                     JOptionPane.showMessageDialog(null,
                             "INICIA RONDA "+(uso_boton_lanzar+1)+
                             "\nActivacion de dados usados"
@@ -565,7 +565,6 @@ public class GUI extends JFrame {
                     uso_boton_lanzar++;
                 }
                 else if (uso_boton_lanzar >= 1 && uso_boton_lanzar <= 4){
-
                         JOptionPane.showMessageDialog(null,
                                 "Solo se puede volver a lanzar\n"+
                                 "cunado se hayan usado\n todos los dados");
@@ -628,7 +627,6 @@ public class GUI extends JFrame {
                                 salio = 1;
                             }
                             case 2 -> {
-                                control.bloquear_dragon();
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
@@ -651,6 +649,10 @@ public class GUI extends JFrame {
                                 salio = 1;
                             }
                             case 6,7,8,9 -> {
+                                salio = 1;
+                            }
+                            case 10-> {
+                                JOptionPane.showMessageDialog(null,"Debes usar un dado incactivo ");
                                 salio = 1;
                             }
                         }
