@@ -6,7 +6,6 @@ import modelo.Model_Geek;
 import modelo.Tirar_dados;
 
 import javax.swing.*;
-import java.util.Vector;
 
 /**
  * Esta clase aplica las reglas del juego
@@ -14,7 +13,7 @@ import java.util.Vector;
 public class Controlador {
     private int numero_de_dados;
     private Integer[] cara;
-    private int flag, punto;
+    private int flag, punto, contador_dado_42, contador_otros_dado;
     private String[] Estado_string;
 //    private final Integer[] habilitar_dado_inactivo;
 //    private final Integer[] habilitar_dado_usado;
@@ -118,10 +117,25 @@ public class Controlador {
                 bloquear_corazon();
                 bloquear_meeple();
 
+                contador_dado_42 = 0;
+                contador_otros_dado = 0;
+                for (int posicion=0; posicion<=9;posicion++){
+                    if (get_estado_dado(posicion)==0 && cara[posicion] == 6){
+                        contador_dado_42++;
+                    }
+                    else if (get_estado_dado(posicion)==0 && cara[posicion] != null){
+                        contador_otros_dado++;
+                    }
+                }
+                if(contador_otros_dado==0){
                     estado[i] = 3;
+                }
+                else{
+                    estado[i] = 2;
+                }
 
-//                juegoGeek.accion_Cuarenta_y_Dos(6);
-//                JOptionPane.showMessageDialog(null, "Seleccionaste point");
+                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_42+" dados 42");
+                JOptionPane.showMessageDialog(null, "Hay "+contador_otros_dado+" dados de otros");
             }
         }
     }

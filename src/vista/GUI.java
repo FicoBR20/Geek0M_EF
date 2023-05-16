@@ -653,20 +653,22 @@ public class GUI extends JFrame {
                                 voltear_dado(posicion);
                                 salio = 1;
                             }
-                            case 6 -> {
-                                if (panelActivos.getComponentCount()==0){
-//                                    JOptionPane.showMessageDialog(null, "regla 6 punto");
-                                    control.bloquear_punto();
-                                    control.setEstado(posicion, 3);
-    //                                JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + control.getEstado(posicion));
-                                    cambiar_posicion_dado(posicion);
-                                    salio = 1;
-                                }
-                                else {
-                                    salio = 1;
-                                }
-                            }
-                            case 7,8,9 -> {
+//                            case 6 -> {
+//                                if (panelActivos.getComponentCount()==0){
+////                                    JOptionPane.showMessageDialog(null, "regla 6 punto");
+////                                    control.bloquear_punto();
+//
+//
+//                                    control.setEstado(posicion, 3);
+//    //                                JOptionPane.showMessageDialog(null, "El dado esta en el panel = " + control.getEstado(posicion));
+//                                    cambiar_posicion_dado(posicion);
+//                                    salio = 1;
+//                                }
+//                                else {
+//                                    salio = 1;
+//                                }
+//                            }
+                            case 6,7,8,9 -> {
 //                                JOptionPane.showMessageDialog(null, "regla 7 punto");
                                 salio = 1;
                             }
