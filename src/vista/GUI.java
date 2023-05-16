@@ -34,13 +34,14 @@ public class GUI extends JFrame {
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
-    private JButton boton_lanzar, boton_menu,boton_atras, boton_salir, boton_entrar, boton_salir1; // Declaracion de los botones del juego
+    private JButton boton_lanzar, boton_menu,boton_atras, boton_salir, boton_entrar, boton_salir1, boton_ayuda, boton_cerrar; // Declaracion de los botones del juego
     private Escucha escucha, segundaEscucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
 
     private int uso_boton_lanzar;
     private GUI_INI guiIni;
+    private GUI_Ayuda ventana_ayuda;
     private Integer[] cara_dado;
 
     private int salio, entro;
@@ -57,6 +58,7 @@ public class GUI extends JFrame {
 
         ventana_entrada();
         inicio_GUI();
+        gui_ayuda();
 
         //Default JFrame configuration
         this.setTitle("Geek of master");
@@ -74,8 +76,29 @@ public class GUI extends JFrame {
 
     /**
      * This method is used to set up the default JComponent Configuration,
-     * create Listener and control Objects used for the GUI_INI class
+     * create Listener and control Objects used for the GUI_Ayuda class
      */
+    public void gui_ayuda(){
+
+        escucha = new GUI.Escucha();
+        ventana_ayuda = new GUI_Ayuda();
+        ventana_ayuda.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
+        constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
+
+        //Añado Boton a la ventana
+        constraints.gridx=0;
+        constraints.gridy=0;
+        constraints.gridwidth=2;
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.FIRST_LINE_END;
+        constraints.insets = new Insets(0,300,290,0);
+
+        boton_cerrar = new JButton("CERRAR");
+        boton_cerrar.addActionListener(escucha);
+        ventana_ayuda.add(boton_cerrar,constraints);
+
+    }
+
     public void ventana_entrada(){
 
         escucha = new GUI.Escucha();
@@ -178,8 +201,6 @@ public class GUI extends JFrame {
         boton_salir.addActionListener(escucha);
 
 
-
-
         //Texto de cabecera y coordenadas constrain para añadirlo a la ventana
         constraints.gridx=0;
         constraints.gridy=0;
@@ -202,6 +223,19 @@ public class GUI extends JFrame {
         boton_menu = new JButton("MENU");
         boton_menu.addActionListener(escucha);
         this.add(boton_menu,constraints); //Change this line if you change JFrame Container's Layout
+
+
+        //Añado botón de ayuda
+        constraints.gridx=0;
+        constraints.gridy=0;
+
+        constraints.gridwidth=2; // combina 13 celdas para el titulo.
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.LINE_START;
+
+        boton_ayuda = new JButton("AYUDA");
+        boton_ayuda.addActionListener(escucha);
+        this.add(boton_ayuda,constraints); //Change this line if you change JFrame Container's Layout
 
 
         //Zona_1: Dados usados
@@ -417,6 +451,12 @@ public class GUI extends JFrame {
                         control.setEstado(posicion2, 3);
                         control.set_estado_dado(posicion2,9);
                     }
+
+                }
+                for (int posicion3=0;posicion3<=3;posicion3++){
+                    imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
+                    puntos_dado[posicion3] = new JLabel(imagen_dado);
+                    panelPuntos.add(puntos_dado[posicion3]);
                 }
                 break;
         }
@@ -482,6 +522,23 @@ public class GUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            if (e.getActionCommand() == "AYUDA"){
+
+                // Inicia una nueva ventanade menu
+                ventana_ayuda.setVisible(true);
+
+                // deshabilita el boton menu y el boton
+                boton_ayuda.setEnabled(false);//Deshabilita el botón menu
+                boton_lanzar.setEnabled(false); //Deshabilita el botón lanzar
+                boton_menu.setEnabled(false);
+            }
+            if (Objects.equals(e.getActionCommand(), "CERRAR") && boton_menu != null){
+                ventana_ayuda.dispose(); //Cierra la ventana de menu sin cerrar el programa
+                boton_ayuda.setEnabled(true);// Habilita el boton menu
+                boton_lanzar.setEnabled(true);
+                boton_menu.setEnabled(true);
+            }
+
             if (e.getActionCommand() == "MENU"){
 
                 // Inicia una nueva ventanade menu
@@ -490,6 +547,7 @@ public class GUI extends JFrame {
                 // deshabilita el boton menu y el boton
                 boton_menu.setEnabled(false);//Deshabilita el botón menu
                 boton_lanzar.setEnabled(false); //Deshabilita el botón lanzar
+                boton_ayuda.setEnabled(false); //Deshabilita el botón lanzar
 
                 // Añade el boton atras al menu
                 constraints.gridx=0;
@@ -513,6 +571,7 @@ public class GUI extends JFrame {
                 menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
                 boton_menu.setEnabled(true);// Habilita el boton menu
                 boton_lanzar.setEnabled(true);
+                boton_ayuda.setEnabled(true);
             }
             if (e.getSource() == boton_salir){
                 int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
@@ -539,8 +598,8 @@ public class GUI extends JFrame {
 
                 if (uso_boton_lanzar==0){
                     panelActivos.removeAll();
-//                    JOptionPane.showMessageDialog(null,"He removido todo de activos");
 
+                    JOptionPane.showMessageDialog(null,"INICIA TURNO 1");
                     for (int posicion=0;posicion<=2;posicion++){
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
                         dado[posicion].setIcon(imagen_dado);
@@ -549,7 +608,6 @@ public class GUI extends JFrame {
                         control.setEstado(posicion,2);
                         control.set_estado_dado(posicion,7);
                     }
-//                        mensaje_cambio_de_panel();
 
                     for (int posicion=3;posicion<=9;posicion++){
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
@@ -559,18 +617,12 @@ public class GUI extends JFrame {
                         control.setEstado(posicion,4);
                         control.set_estado_dado(posicion,0);
                     }
-//                        mensaje_cambio_de_panel();
-
-                    for (int posicion=0;posicion<=9;posicion++){
-                        System.out.println("Dado "+(posicion+1)+" cara= "+ cara_dado[posicion]+" linea 493");
-                    }
                     uso_boton_lanzar=1; // Indica que el botón lanzar ya fue usado
-//                    JOptionPane.showMessageDialog(null,"lanzar vale = "+uso_boton_lanzar);
                }
 
                 else if (panelActivos.getComponentCount()==0){
-//                    JOptionPane.showMessageDialog(null,"cambia de inactivos a activos"
-//                    +"\n relanzar dados");
+                    JOptionPane.showMessageDialog(null,"Activacion de dados usados"
+                    +"\n se relanzan los dados usados");
                     activar_dados_usados();
                     uso_boton_lanzar++;
                 }
@@ -583,8 +635,8 @@ public class GUI extends JFrame {
                 if (uso_boton_lanzar == 6){
 
                     JOptionPane.showMessageDialog(null,
-                            "Findel juego\n"+
-                                    "tu puntaje fue = "+puntuacion());
+                            "FIN DEL JUEGO\n"+
+                                    "TU PUNTAJE FUE = "+puntuacion());
                 }
             }
 
