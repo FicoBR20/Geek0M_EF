@@ -704,7 +704,7 @@ public int solicitaEntero(){ // se solicita un entero via consola
             setCantidad_FichasGanadoras(contidadGanadores + sumatorioPuntos(contidadGanadores-1));
         }
 
-        System.out.println(" los puntos ganados son " + getCantidad_FichasGanadoras());
+//        System.out.println(" los puntos ganados son " + getCantidad_FichasGanadoras());
 
         return cantidad_FichasGanadoras;
 
