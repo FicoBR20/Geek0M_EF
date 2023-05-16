@@ -60,7 +60,7 @@ public class Controlador {
                 bloquear_dragon();
                 bloquear_meeple();
                 estado[i] = 1;
-//                JOptionPane.showMessageDialog(null, "Seleccionaste Corazon");
+                JOptionPane.showMessageDialog(null, "Activa un dado inactivo");
             }
 
             case 2 -> {
@@ -85,19 +85,21 @@ public class Controlador {
                     }
                 }
                 if(contador_dado_42>0 && contador_otros_dado ==0){
-                    JOptionPane.showMessageDialog(null, "pierde puntos");
+                    JOptionPane.showMessageDialog(null, "Pierde puntos" +
+                            "\n Se relanzan dados en punto");
                     estado[i] = 5;
 
                 }
                 else if (contador_otros_dado ==0 &&  contador_dado_42 == 0){
-                    estado[i] = 1;
+                    JOptionPane.showMessageDialog(null, "Pierde puntos");
+                    estado[i] = 5;
                 }
                 else{
+                    JOptionPane.showMessageDialog(null, "No se puede activar" +
+                            "\nhasta que sea el ultimo dado" +
+                            "\no solo queden dados 42");
                     estado[i] = 4;
                 }
-                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_42+" dados 42");
-                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_dragon +" dados dragon");
-                JOptionPane.showMessageDialog(null, "Hay "+contador_otros_dado+" dados de otros");
             }
 
             case 3 -> {
@@ -108,7 +110,7 @@ public class Controlador {
                 bloquear_dragon();
                 bloquear_corazon();
                 estado[i] = 1;
-//                JOptionPane.showMessageDialog(null, "Seleccionaste Meeple");
+                JOptionPane.showMessageDialog(null, "Relanza un dado activo");
             }
 
             case 4 -> {
@@ -119,7 +121,7 @@ public class Controlador {
                 bloquear_corazon();
                 bloquear_meeple();
                 estado[i] = 1;
-//                JOptionPane.showMessageDialog(null, "Seleccionaste ship");
+                JOptionPane.showMessageDialog(null, "Destruye un dado activo");
             }
 
             case 5 -> {
@@ -131,7 +133,7 @@ public class Controlador {
                 bloquear_corazon();
                 bloquear_meeple();
                 estado[i] = 1;
-//                JOptionPane.showMessageDialog(null, "Seleccionaste Hero");
+                JOptionPane.showMessageDialog(null, "Voltea un dado activo");
             }
 
             case 6 -> {
@@ -154,14 +156,19 @@ public class Controlador {
                     }
                 }
                 if(contador_otros_dado==0){
+                    if (contador_dado_42==1){
+                         JOptionPane.showMessageDialog(null, "El dado pasa a puntos");
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Los dados pasan a puntos");
+                    }
                     estado[i] = 6;
                 }
                 else{
+                    JOptionPane.showMessageDialog(null, "No se puede mover" +
+                            "\nhasta que sea el ultimo dado");
                     estado[i] = 4;
                 }
 
-                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_42+" dados 42");
-                JOptionPane.showMessageDialog(null, "Hay "+contador_otros_dado+" dados de otros");
             }
         }
     }
