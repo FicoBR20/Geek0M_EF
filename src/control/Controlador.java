@@ -13,7 +13,7 @@ import javax.swing.*;
 public class Controlador {
     private int numero_de_dados;
     private Integer[] cara;
-    private int flag, punto, contador_dado_42, contador_otros_dado;
+    private int flag, punto, contador_dado_42, contador_otros_dado, contador_dado_dragon;
     private String[] Estado_string;
 //    private final Integer[] habilitar_dado_inactivo;
 //    private final Integer[] habilitar_dado_usado;
@@ -59,19 +59,45 @@ public class Controlador {
                 bloquear_punto();
                 bloquear_dragon();
                 bloquear_meeple();
-                estado[i] = 4;
+                estado[i] = 1;
 //                JOptionPane.showMessageDialog(null, "Seleccionaste Corazon");
             }
 
             case 2 -> {
-//                desbloquear_dragon();
                 bloquear_nave();
                 bloquear_heroe();
                 bloquear_punto();
                 bloquear_corazon();
                 bloquear_meeple();
-                estado[i] = 4;
-//                JOptionPane.showMessageDialog(null, "Seleccionaste Dragon");
+
+                contador_dado_dragon = 0;
+                contador_otros_dado = 0;
+                contador_dado_42 = 0;
+                for (int posicion=0; posicion<=9;posicion++){
+                    if (get_estado_dado(posicion)==0 && cara[posicion] == 2){
+                        contador_dado_dragon++;
+                    }
+                    if (get_estado_dado(posicion)==0 && cara[posicion] == 6){
+                        contador_dado_42++;
+                    }
+                    else if (get_estado_dado(posicion)==0 && cara[posicion] != null&&cara[posicion] != 2){
+                        contador_otros_dado++;
+                    }
+                }
+                if(contador_dado_42>0 && contador_otros_dado ==0){
+                    JOptionPane.showMessageDialog(null, "pierde puntos");
+                    estado[i] = 5;
+
+                }
+                else if (contador_otros_dado ==0 &&  contador_dado_42 == 0){
+                    estado[i] = 1;
+                }
+                else{
+                    estado[i] = 4;
+                }
+                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_42+" dados 42");
+                JOptionPane.showMessageDialog(null, "Hay "+contador_dado_dragon +" dados dragon");
+                JOptionPane.showMessageDialog(null, "Hay "+contador_otros_dado+" dados de otros");
             }
 
             case 3 -> {
@@ -81,7 +107,7 @@ public class Controlador {
                 bloquear_punto();
                 bloquear_dragon();
                 bloquear_corazon();
-                estado[i] = 4;
+                estado[i] = 1;
 //                JOptionPane.showMessageDialog(null, "Seleccionaste Meeple");
             }
 
@@ -92,7 +118,7 @@ public class Controlador {
                 bloquear_dragon();
                 bloquear_corazon();
                 bloquear_meeple();
-                estado[i] = 4;
+                estado[i] = 1;
 //                JOptionPane.showMessageDialog(null, "Seleccionaste ship");
             }
 
@@ -104,7 +130,7 @@ public class Controlador {
                 bloquear_dragon();
                 bloquear_corazon();
                 bloquear_meeple();
-                estado[i] = 4;
+                estado[i] = 1;
 //                JOptionPane.showMessageDialog(null, "Seleccionaste Hero");
             }
 
@@ -128,10 +154,10 @@ public class Controlador {
                     }
                 }
                 if(contador_otros_dado==0){
-                    estado[i] = 3;
+                    estado[i] = 6;
                 }
                 else{
-                    estado[i] = 2;
+                    estado[i] = 4;
                 }
 
                 JOptionPane.showMessageDialog(null, "Hay "+contador_dado_42+" dados 42");

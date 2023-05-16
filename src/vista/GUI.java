@@ -30,7 +30,7 @@ public class GUI extends JFrame {
 
     private Header headerProject;
 
-    private JPanel panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
+    private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
@@ -127,6 +127,7 @@ public class GUI extends JFrame {
         mis_Dados = new Dado[10];
         jP_misdados = new JPanel();
         jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
+        panelNulo = new JPanel();
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
         int dado_activo = 0;// '0' = botón no se puede usar
@@ -351,12 +352,12 @@ public class GUI extends JFrame {
     }
 
     public void activar_dados_usados(){
-        for (int posicion = 0; posicion<=9; posicion++){
-            if (control.get_estado_dado(posicion)==8){
-                relanzar_dado(posicion);
-                panelActivos.add(dado[posicion]);
-                control.setEstado(posicion, 4);
-                control.set_estado_dado(posicion,0);
+        for (int posicion2 = 0; posicion2<=9; posicion2++){
+            if (control.get_estado_dado(posicion2)==8){
+                relanzar_dado(posicion2);
+                panelActivos.add(dado[posicion2]);
+                control.setEstado(posicion2, 4);
+                control.set_estado_dado(posicion2,0);
 //                mensaje_cambio_de_panel();
             }
         }
@@ -367,14 +368,19 @@ public class GUI extends JFrame {
     public void cambiar_posicion_dado(int posicion ){
 
         switch (control.getEstado(posicion)) {
+//            case 1:
+//                panelUsados.add(dado[posicion]);
+//                control.set_estado_dado(posicion,8);
+//                break;
             case 1:
                 panelUsados.add(dado[posicion]);
+                control.setEstado(posicion, 1);
                 control.set_estado_dado(posicion,8);
                 break;
             case 2:
-                panelActivos.add(dado[posicion]);
-                control.setEstado(posicion, 4);
-                control.set_estado_dado(posicion,0);
+                panelIncativos.add(dado[posicion]);
+                control.setEstado(posicion, 2);
+                control.set_estado_dado(posicion,7);
                 break;
             case 3:
                 panelPuntos.add(dado[posicion]);
@@ -382,14 +388,36 @@ public class GUI extends JFrame {
                 control.set_estado_dado(posicion,9);
                 break;
             case 4:
-                panelUsados.add(dado[posicion]);
-                control.setEstado(posicion, 1);
-                control.set_estado_dado(posicion,8);
+                panelActivos.add(dado[posicion]);
+                control.setEstado(posicion, 4);
+                control.set_estado_dado(posicion,0);
                 break;
             case 5:
-                panelIncativos.add(dado[posicion]);
-                control.setEstado(posicion, 2);
-                control.set_estado_dado(posicion,7);
+                for (int posicion2 = 0; posicion2<=9; posicion2++){
+                    if (control.get_estado_dado(posicion2)==0){
+                        relanzar_dado(posicion2);
+                        panelActivos.add(dado[posicion2]);
+                        control.setEstado(posicion2, 4);
+                        control.set_estado_dado(posicion2,0);
+                    }
+                }
+                for (int posicion2 = 0; posicion2<=9; posicion2++){
+                    if (control.get_estado_dado(posicion2)==9){
+                        relanzar_dado(posicion2);
+                        panelActivos.add(dado[posicion2]);
+                        control.setEstado(posicion2, 4);
+                        control.set_estado_dado(posicion2,0);
+                    }
+                }
+                break;
+            case 6:
+                for (int posicion2 = 0; posicion2<=9; posicion2++){
+                    if (control.get_estado_dado(posicion2)==0){
+                        panelNulo.add(dado[posicion2]);
+                        control.setEstado(posicion2, 3);
+                        control.set_estado_dado(posicion2,9);
+                    }
+                }
                 break;
         }
     }
@@ -624,13 +652,14 @@ public class GUI extends JFrame {
                             case 1 -> {
 //                                JOptionPane.showMessageDialog(null, "regla 1 corazon");
                                 control.bloquear_corazon();
-                                control.setEstado(posicion, 2);
+                                control.setEstado(posicion, 4);
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
                             case 2 -> {
 //                                JOptionPane.showMessageDialog(null, "regla 2 dragon");
                                 control.bloquear_dragon();
+                                cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
                             case 3 -> {
@@ -643,13 +672,14 @@ public class GUI extends JFrame {
                             case 4 -> {
 //                                JOptionPane.showMessageDialog(null, "regla 4 nave");
                                 control.bloquear_nave();
-                                control.setEstado(posicion, 5);
+                                control.setEstado(posicion, 2);
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
                             case 5 -> {
 //                                JOptionPane.showMessageDialog(null, "regla 5 heroe");
                                 control.bloquear_heroe();
+                                control.setEstado(posicion, 4);
                                 voltear_dado(posicion);
                                 salio = 1;
                             }
