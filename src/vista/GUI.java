@@ -365,8 +365,7 @@ public class GUI extends JFrame {
 
     public void activar_dados_usados(){
         for (int posicion = 0; posicion<=9; posicion++){
-//            array_dados_activos[posicion] = array_dados_usados[posicion];
-            if (panelUsados.getComponent(posicion).getName()==array_dados_usados[posicion].getName()){
+            if (control.get_estado_dado(posicion)==8){
                 array_dados_activos[posicion] = dado[posicion];
                 panelActivos.add(array_dados_activos[posicion]);
                 array_dados_usados[posicion] = null;
@@ -609,14 +608,14 @@ public class GUI extends JFrame {
             else {
                 for (int posicion=0;posicion<=9;posicion++){
                     if(e.getComponent() == dado[posicion]){
-//                        JOptionPane.showMessageDialog(null,
-//
-//                                "Boton # "+(posicion+1)+" Cara # "+cara_dado[posicion]+
-//                                        "\nEstados: \n" +
-//                                        "Es estado para mover el dado es = "+control.get_estado_dado(posicion)+
-//                                        "\nEstados panel : \n" +
-//                                        "Es dado esta en el panel = "+control.getEstado(posicion)+
-//                                        "\n\nlinea 526");
+                        JOptionPane.showMessageDialog(null,
+
+                                "Boton # "+(posicion+1)+" Cara # "+cara_dado[posicion]+
+                                        "\nEstados: \n" +
+                                        "Es estado para mover el dado es = "+control.get_estado_dado(posicion)+
+                                        "\nEstados panel : \n" +
+                                        "Es dado esta en el panel = "+control.getEstado(posicion)+
+                                        "\n\nlinea 526");
 
                         switch (control.get_estado_dado(posicion)) {
                             case 0 -> {
