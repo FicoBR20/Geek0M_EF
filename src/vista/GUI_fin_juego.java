@@ -3,13 +3,13 @@ package vista;
 import javax.swing.*;
 import java.awt.*;
 
-public class GUI_INI extends JFrame{
+public class GUI_fin_juego extends JFrame{
     private ImageIcon imageIcon;
     private JLabel jLabel;
     private JPanel jPanel;
     private FondoPanel fondoPanel;
 
-    public GUI_INI(String ruta){
+    public GUI_fin_juego(String ruta){
 
         inicio(ruta);
 
