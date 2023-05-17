@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/control/Controlador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado.class" afterDir="false" />
@@ -17,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/src/control/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Dado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Dado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Tirar_dados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Tirar_dados.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/GUI_INI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI_INI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Menu.java" afterDir="false" />
@@ -117,6 +119,7 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/vista/GUI.java</url>
           <line>568</line>
@@ -132,6 +135,7 @@
           <line>532</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
+
       </breakpoints>
     </breakpoint-manager>
   </component>

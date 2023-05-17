@@ -1,6 +1,15 @@
 package modelo;
 
 import java.util.Vector;
+/**
+ *   @archivo Tirar_dado.jar
+ *   @author federico.barbetti:  Codigo es 2181247-2724
+ *   @email federico.barbetti@correounivalle.edu.co
+ *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
+ *   @email jose.erley.murillo@correounivalle.edu.co
+ *   @version v.1.0.0 date:18/04/2023
+ *   @licencia GPL
+ */
 
 /**
  * Esta clase aplica las reglas del juego

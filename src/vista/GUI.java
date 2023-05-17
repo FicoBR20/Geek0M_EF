@@ -1,15 +1,12 @@
 package vista;
 
-import control.Controlador;
-import modelo.Dado;
-import modelo.Juego_Geek;
+import control.Controlador;;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
-import java.util.Vector;
 
 /**
  *   @archivo GUI.jar
@@ -146,7 +143,7 @@ public class GUI extends JFrame {
 
             imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p" + i + ".png")));
             puntos_dado[i] = new JLabel(imagen_dado);
-            dado[i].addMouseListener((MouseListener) escucha);
+            dado[i].addMouseListener( escucha);
         }
 
         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/puntaje.png")));
@@ -365,17 +362,20 @@ public class GUI extends JFrame {
                         control.set_estado_dado(posicion2,9);
                     }
                 }
-//                 Cuenta cuantos dados (42) hay en el panel de puntos
+
+//              Cuenta cuantos dados (42) hay en el panel de puntos
                 for (int posicion2 = 0; posicion2<=9; posicion2++){
                     if (control.get_estado_dado(posicion2)==9){
                         cont++;
                     }
                 }
+
+
                 for (int posicion3=0;posicion3<9;posicion3++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p"+posicion3+".png")));
                     puntos_dado[posicion3].setIcon(imagen_dado);
                 }
-                JOptionPane.showMessageDialog(null, "limpia cantidad = "+cont);
+
                 // Ciclo que toma la cantidad de dados en punto y cambia el icono
                 for (int posicion4=0;posicion4<cont;posicion4++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));

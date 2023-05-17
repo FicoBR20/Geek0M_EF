@@ -4,10 +4,15 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * Clase dado que genera un numero aleatorio entre 1 y 6
- * @autor Jose Erley Murillo Torres
- * @version v.0.0.0 data 18/04/2023
- * */
+ *   @archivo Dado.jar
+ *   @author federico.barbetti:  Codigo es 2181247-2724
+ *   @email federico.barbetti@correounivalle.edu.co
+ *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
+ *   @email jose.erley.murillo@correounivalle.edu.co
+ *   @version v.1.0.0 date:18/04/2023
+ *   @licencia GPL
+ */
+
 public class Dado {
 
     //Atributo que retorna un lado de la cara del dado
