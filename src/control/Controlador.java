@@ -1,8 +1,5 @@
 package control;
 
-import modelo.Dado;
-import modelo.Juego_Geek;
-import modelo.Model_Geek;
 import modelo.Tirar_dados;
 
 import javax.swing.*;
@@ -24,7 +21,6 @@ public class Controlador {
     public void lanzar_inicio(int numero_de_dados){
 
         Tirar_dados tirar_dados = new Tirar_dados();//Creo un objeto donde tiro unos dados el cual recibe n cantidad de dados
-        Model_Geek juegoGeek = new Model_Geek();//creo un objeto que aplicara la regla
 
         //Aqui tiro el o los dados
         tirar_dados.iniciar(numero_de_dados);
@@ -34,7 +30,10 @@ public class Controlador {
     public void activar_dado(int i, int cara_dado){
         int contador_dado_42;
         int contador_otros_dado;
+        int contador_dado_dragon;
         switch (cara_dado) {
+
+            //Desbloquea la habilidad del corazón
             case 1 -> {
                 desbloquear_corazon();
                 bloquear_nave();
@@ -44,15 +43,21 @@ public class Controlador {
                 JOptionPane.showMessageDialog(null, "Activa un dado inactivo");
             }
 
+            //Desbloquea la habilidad del dragon
             case 2 -> {
                 bloquear_nave();
                 bloquear_heroe();
                 bloquear_corazon();
                 bloquear_meeple();
 
+                contador_dado_dragon = 0;
                 contador_otros_dado = 0;
                 contador_dado_42 = 0;
                 for (int posicion=0; posicion<=9;posicion++){
+
+                    if (get_estado_dado(posicion)==0 && cara[posicion] == 2){
+                        contador_dado_dragon++;
+                    }
                     if (get_estado_dado(posicion)==0 && cara[posicion] == 6){
                         contador_dado_42++;
                     }
@@ -60,16 +65,15 @@ public class Controlador {
                         contador_otros_dado++;
                     }
                 }
-                if(contador_dado_42 >0 && contador_otros_dado ==0){
+
+                //Condición: Se pierden puntos si si dado 42 es mayor o igual a cero y n
+                if(contador_dado_42 >= 0 && contador_otros_dado <=0){
                     JOptionPane.showMessageDialog(null, "Pierde puntos" +
                             "\n Se relanzan dados en punto");
                     estado[i] = 5;
 
                 }
-                else if (contador_otros_dado ==0 &&  contador_dado_42 == 0){
-                    JOptionPane.showMessageDialog(null, "Pierde puntos");
-                    estado[i] = 5;
-                }
+                //Si no se cumple la condición el dado no hace nada
                 else{
                     JOptionPane.showMessageDialog(null, "No se puede activar" +
                             "\nhasta que sea el ultimo dado" +
@@ -78,6 +82,7 @@ public class Controlador {
                 }
             }
 
+            //Desbloquea la habilidad del meeple
             case 3 -> {
                 desbloquear_meeple();
                 bloquear_nave();
@@ -86,7 +91,7 @@ public class Controlador {
                 estado[i] = 1;
                 JOptionPane.showMessageDialog(null, "Relanza un dado activo");
             }
-
+            //Desbloquea la habilidad de la nave
             case 4 -> {
                 desbloquear_nave();
                 bloquear_heroe();
@@ -95,7 +100,7 @@ public class Controlador {
                 estado[i] = 1;
                 JOptionPane.showMessageDialog(null, "Destruye un dado activo");
             }
-
+            //Desbloque la habilidad del heroe
             case 5 -> {
                 desbloquear_heroe();
                 bloquear_nave();
@@ -104,7 +109,7 @@ public class Controlador {
                 estado[i] = 1;
                 JOptionPane.showMessageDialog(null, "Voltea un dado activo");
             }
-
+            //Desbloquea la habilidad de los puntos
             case 6 -> {
                 bloquear_nave();
                 bloquear_heroe();
@@ -203,7 +208,7 @@ public class Controlador {
                 estado_dado[i] = 1;
             }
             if (estado_dado[i]==0) {
-                estado_dado[i] = 10;
+                estado_dado[i] = 6;
             }
         }
     }
@@ -213,7 +218,7 @@ public class Controlador {
             if (estado_dado[i]==1){
                 estado_dado[i] = 7;
             }
-            if (estado_dado[i]==10){
+            if (estado_dado[i]==6){
                 estado_dado[i] = 0;
             }
         }

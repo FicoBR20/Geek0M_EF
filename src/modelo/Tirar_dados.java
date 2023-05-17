@@ -1,6 +1,15 @@
 package modelo;
 
 import java.util.Vector;
+/**
+ *   @archivo Tirar_dado.jar
+ *   @author federico.barbetti:  Codigo es 2181247-2724
+ *   @email federico.barbetti@correounivalle.edu.co
+ *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
+ *   @email jose.erley.murillo@correounivalle.edu.co
+ *   @version v.1.0.0 date:18/04/2023
+ *   @licencia GPL
+ */
 
 /**
  * Esta clase aplica las reglas del juego
@@ -10,7 +19,7 @@ public class Tirar_dados {
     private int tiro;
     private int cantidad_de_dados;
     private int sumatoria;
-    //Vector donde se guarda las dos caras del dado
+    //Array donde se guarda las dos caras del dado
     private Integer[] caras;
     private Integer[] caras_2;
 
@@ -31,44 +40,13 @@ public class Tirar_dados {
         this.cantidad_de_dados=cantidad_de_dados-1;
     }
 
-    public int getCantidad_de_dados() {
-        return cantidad_de_dados;
-    }
-
-    public void setCantidad_de_dados(int cantidad_de_dados) {
-        this.cantidad_de_dados = cantidad_de_dados - 1;
-    }
-
-    public Dado[] getDado() {
-        return dado;
-    }
-
-    public int getSumatoria() {
-        return sumatoria;
-    }
-
-    public void setSumatoria(int sumatoria) {
-        this.sumatoria = sumatoria;
-    }
 
     public void setDado(int posicion) {
         this.dado[posicion] = new Dado();
     }
 
-    public int getTiro() {
-        return tiro;
-    }
-
-    public void setTiro(int tiro) {
-        this.tiro = tiro;
-    }
-
     public Integer[] getCaras() {
         return caras;
-    }
-
-    public void setCaras(Integer[] caras) {
-        this.caras = caras;
     }
 
     public void iniciar(int cantidad_de_dados) {
