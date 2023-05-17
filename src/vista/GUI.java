@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class GUI extends JFrame {
 
-    private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
+    private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, paneltexto, panelBoton,jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
@@ -29,16 +29,16 @@ public class GUI extends JFrame {
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
     private int uso_boton_lanzar,salio, entro;
-    private GUI_INI guiIni;
+    private GUI_INI guiIni, guiIni_fin;
     private GUI_Ayuda ventana_ayuda;
     private Integer[] cara_dado;
+    private JTextArea textArea;
 
 
     /**
      * Constructor of GUI class
      */
     public GUI(){
-
 
         ventana_entrada();
         inicio_GUI();
@@ -82,10 +82,54 @@ public class GUI extends JFrame {
 
     }
 
+    public void ventana_entrada_fin_juego(){
+
+        escucha = new GUI.Escucha();
+        guiIni_fin = new GUI_INI("/recursos/fin.png");
+        guiIni_fin.setVisible(false);
+        guiIni_fin.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
+        constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
+
+        //Añado Boton a la ventana
+        constraints.gridx=0;
+        constraints.gridy=0;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;// combina 13 celdas para el titulo.
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.CENTER;
+        constraints.insets = new Insets(330,0,0,15);
+
+        paneltexto = new JPanel();
+        paneltexto.setPreferredSize(new Dimension(285,75));
+        paneltexto.setBackground(null);
+
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setBackground(null);
+        textArea.setFont(new Font(Font.DIALOG,Font.BOLD,20));
+
+        paneltexto.add(textArea);
+        guiIni_fin.add(paneltexto,constraints);
+
+        //Añado Boton a la ventana
+        constraints.gridx=0;
+        constraints.gridy=1;
+        constraints.gridwidth=1;
+        constraints.gridheight=1;// combina 13 celdas para el titulo.
+        constraints.fill=GridBagConstraints.NONE;
+        constraints.anchor=GridBagConstraints.CENTER;
+        constraints.insets = new Insets(10,0,0,15);
+
+        boton_salir1 = new JButton("SALIR DEL JUEGO");
+        boton_salir1.addActionListener(escucha);
+        guiIni_fin.add(boton_salir1,constraints);
+
+    }
+
     public void ventana_entrada(){
 
         escucha = new GUI.Escucha();
-        guiIni = new GUI_INI();
+        guiIni = new GUI_INI("/recursos/fondo1.png");
         guiIni.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
 
@@ -97,6 +141,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(100,0,0,0);
+
 
         boton_entrar = new JButton("ENTRAR");
         boton_entrar.addActionListener(escucha);
@@ -512,20 +557,62 @@ public class GUI extends JFrame {
             }
 
             if (e.getSource() == boton_salir1){
+                System.out.println("sale");
                 System.exit(0);
             }
 
             //Boton lanzar
             if (e.getSource() == boton_lanzar){
+
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
 
                 if (uso_boton_lanzar >= 5){
 
-                    JOptionPane.showMessageDialog(null,
-                            "FIN DEL JUEGO\n"+
-                                    "TU PUNTAJE FUE = "+puntuacion());
-                    gui_ayuda();
+                    setVisible(false);
+
+
+                    escucha = new GUI.Escucha();
+                    guiIni_fin = new GUI_INI("/recursos/fin.png");
+                    guiIni_fin.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
+                    constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
+
+                    //Añado Boton a la ventana
+                    constraints.gridx=0;
+                    constraints.gridy=0;
+                    constraints.gridwidth=1;
+                    constraints.gridheight=1;// combina 13 celdas para el titulo.
+                    constraints.fill=GridBagConstraints.NONE;
+                    constraints.anchor=GridBagConstraints.CENTER;
+                    constraints.insets = new Insets(330,0,0,15);
+
+                    paneltexto = new JPanel();
+                    paneltexto.setPreferredSize(new Dimension(285,75));
+                    paneltexto.setBackground(null);
+
+                    textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    textArea.setBackground(null);
+                    textArea.setFont(new Font(Font.DIALOG,Font.BOLD,20));
+                    textArea.setText("FIN DEL JUEGO\n"+ "TU PUNTAJE FUE = "+puntuacion());
+
+                    paneltexto.add(textArea);
+                    guiIni_fin.add(paneltexto,constraints);
+
+                    //Añado Boton a la ventana
+                    constraints.gridx=0;
+                    constraints.gridy=1;
+                    constraints.gridwidth=1;
+                    constraints.gridheight=1;// combina 13 celdas para el titulo.
+                    constraints.fill=GridBagConstraints.NONE;
+                    constraints.anchor=GridBagConstraints.CENTER;
+                    constraints.insets = new Insets(10,0,0,15);
+
+                    boton_salir1 = new JButton("SALIR DEL JUEGO");
+                    boton_salir1.addActionListener(escucha);
+                    guiIni_fin.add(boton_salir1,constraints);
+
+
                 }
                 else if (uso_boton_lanzar==0){
 
@@ -553,10 +640,14 @@ public class GUI extends JFrame {
 
                 else if (panelActivos.getComponentCount()<=0){
                     boton_lanzar.setEnabled(false);
+
+
+
                     JOptionPane.showMessageDialog(null,
                             "INICIA RONDA "+(uso_boton_lanzar+1)+
                             "\nActivacion de dados usados"
                     +"\n se relanzan los dados usados");
+
                     activar_dados_usados();
                     uso_boton_lanzar++;
                 }
@@ -647,7 +738,6 @@ public class GUI extends JFrame {
                             //Bloque dados activos si se usa corazon
                             case 6 -> {
                                 JOptionPane.showMessageDialog(null,"Debes usar un dado incactivo ");
-                                salio = 1;
                                 salio = 1;
                             }
                             //Indica que un dado esta en zona de inactivos
