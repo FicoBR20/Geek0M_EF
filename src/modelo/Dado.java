@@ -35,7 +35,6 @@ public class Dado {
         cara = 999;
         //pruebas
 
-        // System.out.println("El primer elemento es " + get_Nombre_Cara(0)+ "\n");
 
     }
 

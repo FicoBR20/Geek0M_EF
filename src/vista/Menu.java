@@ -22,7 +22,6 @@ public class Menu extends JFrame{
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-//        this.setAlwaysOnTop(true); //Hace que esta ventana siempre este visible
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(new GridBagLayout());
     }
