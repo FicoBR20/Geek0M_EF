@@ -460,42 +460,23 @@ public class Gui_01 extends JFrame {
         private Dado_01 dado_Heredado;
 
         /**
-         * Atributo entero que asocia secuencialmente
-         * al string que genera el nombre del icono de la cara del dado
+         * activo true -> disponible para jugar
+         *          false -> indisponible para jugar.
          */
-//        private int sello;
+        private boolean disponible;
+        /**
+         * Representan los JPanel a donde se pueden
+         * desplazar
+         */
+        private int jpAct, jpUti, jpInac, jpTaPuntos;
+
 
         /**
-         * Atributo que entrega el valor del sello
-         * @return sello
+         * Representa
          */
-//        public int getSello() {
-//            dado_Heredado = new Dado_01();
-//            sello=dado_Heredado.busqueda_Aleatoria();
-//            return sello;
-//        }
+        private boolean emigra;
 
-        /**
-         * Atributo que asignar el dato sello
-         * @param sello
-         */
-//        public void setSello(int sello) {
-//            this.sello = sello;
-//        }
 
-        /**
-         * Método que entrega valores entre 1 y 6
-         * @return captura.
-         */
-//        public int busqueda_Profesional(){
-//
-//            int captura = 999; // inicializacion
-//            Random aleatorio = new Random();
-//            captura = aleatorio.nextInt(6)+1;
-//            return captura;
-//
-//
-//        }
 
 
 

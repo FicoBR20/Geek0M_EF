@@ -14,10 +14,6 @@ public class Dado_01 {
      * Cantidad de caras del Dado
      */
     private int selector_Figura;
-    /**
-     * activo true -> habilitado para jugar
-     *          false -> inactivo para jugar.
-     */
 
     public int getSelector_Figura() {
         return selector_Figura;
