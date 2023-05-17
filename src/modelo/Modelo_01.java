@@ -47,17 +47,11 @@ public class Modelo_01 {
     /**
      * Arreglo que contiene los puntos obtenidos en el juego
      */
-    private Vector<Integer>puntos_de_Ronda; // registra los puntos obtenidos en cada ronda.
+    private Vector<Dado_01>puntos_de_Ronda; // registra los puntos obtenidos en cada ronda.
 
     private String [] string_Arreglo_Auxiliar;
 
-    public void setDados_Activos(Vector<Dado_01> dados_Activos) {
-        this.dados_Activos = dados_Activos;
-    }
 
-    public Vector<Dado_01> getDados_Activos() {
-        return dados_Activos;
-    }
 
     /**
      * Método contructor
@@ -89,83 +83,83 @@ public class Modelo_01 {
      * en el rango [1  -->  6]
      * @return dados_Activos[]
      */
-
-    public Vector<Dado_01> tirada_DadosActivos(){ // lanzamiento de los dados activos en el inicio de cada ronda.
-
-
-//        nuevaCara = new Dado_01();
-       dados_Activos.setSize(7);
-
-        System.out.println(" en tirada dados Activos el size es " + dados_Activos.size());
-        String auxiliar = ""; // para probar en consola la funcionalidad
-
-
-
-        for(int i = 0; i < dados_Activos.size(); i++){
-
-            int captura = 6; // inicializacion
-            Random aleatorio = new Random();
-            captura = aleatorio.nextInt(captura)+1;
-
-            System.out.println("el receptor es" + captura);
-            nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
-           dados_Activos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
-
-           auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + dados_Activos.get(i).getSelector_Figura() + "\n";
-           captura=0;
-
-        }
-
-        System.out.println(" \nTirada Inicial Activos-> " + dados_Activos.toString());
-        System.out.println(" \nEl tercer objeto es -> " + dados_Activos.get(2).toString());
-        System.out.println(" \nTirada Inicial Activos Nombres->\n" + auxiliar.toString());
-
-
-
-        return dados_Activos;
-
-    }
-
-    /**
-     * Este método genera el arreglo de Dados Inactivos
-     * @return dados_Inactivos[]
-     */
-
-
-    public Vector<Dado_01> tiradaInactivos(){ // lanzamiento de los dados Inactivos en el inicio de cada ronda.
-
-
-//        nuevaCara = new Dado_01();
-        dados_Inactivos.setSize(3);
-
-        System.out.println(" en tirada dados Activos el size es " + dados_Inactivos.size());
-        String auxiliar = ""; // para probar en consola la funcionalidad
-
-
-
-        for(int i = 0; i < dados_Inactivos.size(); i++){
-
-            int captura = 6; // inicializacion
-            Random aleatorio = new Random();
-            captura = aleatorio.nextInt(captura)+1;
-
-            System.out.println("el receptor es" + captura);
-            nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
-            dados_Inactivos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
-
-            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + dados_Inactivos.get(i).getSelector_Figura() + "\n";
-            captura=0;
-
-        }
-
-        System.out.println(" \nTirada Inicial Inactivos-> " + dados_Inactivos.toString());
-        System.out.println(" \nTirada Inicial Inactivos Nombres->\n" + auxiliar.toString());
-
-
-
-        return dados_Inactivos;
-
-    }
+//
+//    public Vector<Integer> tirada_DadosActivos(){ // lanzamiento de los dados activos en el inicio de cada ronda.
+//
+//
+////        nuevaCara = new Dado_01();
+//       dados_Activos.setSize(7);
+//
+//        System.out.println(" en tirada dados Activos el size es " + dados_Activos.size());
+//        String auxiliar = ""; // para probar en consola la funcionalidad
+//
+//
+//
+//        for(int i = 0; i < dados_Activos.size(); i++){
+//
+//            int captura = 6; // inicializacion
+//            Random aleatorio = new Random();
+//            captura = aleatorio.nextInt(captura)+1;
+//
+//            System.out.println("el receptor es" + captura);
+//            nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
+//           dados_Activos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
+//
+//           auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + dados_Activos.get(i).getSelector_Figura() + "\n";
+//           captura=0;
+//
+//        }
+//
+//        System.out.println(" \nTirada Inicial Activos-> " + dados_Activos.toString());
+//        System.out.println(" \nEl tercer objeto es -> " + dados_Activos.get(2).toString());
+//        System.out.println(" \nTirada Inicial Activos Nombres->\n" + auxiliar.toString());
+//
+//
+//
+//        return dados_Activos;
+//
+//    }
+//
+//    /**
+//     * Este método genera el arreglo de Dados Inactivos
+//     * @return dados_Inactivos[]
+//     */
+//
+//
+//    public Vector<Dado_01> tiradaInactivos(){ // lanzamiento de los dados Inactivos en el inicio de cada ronda.
+//
+//
+////        nuevaCara = new Dado_01();
+//        dados_Inactivos.setSize(3);
+//
+//        System.out.println(" en tirada dados Activos el size es " + dados_Inactivos.size());
+//        String auxiliar = ""; // para probar en consola la funcionalidad
+//
+//
+//
+//        for(int i = 0; i < dados_Inactivos.size(); i++){
+//
+//            int captura = 6; // inicializacion
+//            Random aleatorio = new Random();
+//            captura = aleatorio.nextInt(captura)+1;
+//
+//            System.out.println("el receptor es" + captura);
+//            nuevaCara.setSelector_Figura(captura);// obtiene el valor random (int)
+//            dados_Inactivos.setElementAt(nuevaCara,i);// adiciona el valor al arreglo
+//
+//            auxiliar = auxiliar + "La cara del dado [ "+ (i+1) + " ] es: " + dados_Inactivos.get(i).getSelector_Figura() + "\n";
+//            captura=0;
+//
+//        }
+//
+//        System.out.println(" \nTirada Inicial Inactivos-> " + dados_Inactivos.toString());
+//        System.out.println(" \nTirada Inicial Inactivos Nombres->\n" + auxiliar.toString());
+//
+//
+//
+//        return dados_Inactivos;
+//
+//    }
 
     /**
      * Metodo usado para probar métodos de la clase Vector
@@ -214,7 +208,7 @@ public class Modelo_01 {
 
         nuevaCara = new Dado_01();
 
-        arregloOriginal = new Vector<Dado_01>();
+        arregloOriginal = new Vector<>();
 
        int recoge_La_Posicion=999; // recogera la posicion en donde está ubicado [dado_buscado]. se inicializa con cualquier valor.
 
@@ -224,9 +218,9 @@ public class Modelo_01 {
 
           recoge_La_Posicion = arregloOriginal.indexOf(dado_buscado);
 
-           auxiliar = nuevaCara.busqueda_Aleatoria(); // cambia a un nuevo valor random
+           auxiliar = nuevaCara.busqueda_Aleatoria(); // se genera un int aleatorio para una nueva cara
 
-            nuevaCara.setSelector_Figura(auxiliar);
+            nuevaCara.setSelector_Figura(auxiliar); // se le asiga el valor al Dado_o1
 
            dados_Activos.setElementAt(nuevaCara, recoge_La_Posicion);//cambia al nuevo valor en la misma poscion
 
@@ -246,6 +240,33 @@ public class Modelo_01 {
         return arregloOriginal;
     }
 
+    public Vector<Dado_01> borra_Activos_Jugados(int caraDado) {// caraDado tiene rango [1 -> 6]
+
+        dados_Activos = new Vector<Dado_01>();
+
+
+        for (int i = 0; i < dados_Activos.size(); i++) {
+
+            if (dados_Activos.elementAt(i).getSelector_Figura()== caraDado){
+
+                dados_Activos.removeElementAt(i);
+
+                System.out.println(" Nuevo size de dados Activos " + dados_Activos.size());
+
+                break;
+            }
+
+        }
+
+        System.out.println(" Vector sin el elemento jugado " + dados_Activos.toString());
+
+
+        return dados_Activos;
+
+    }
+
+
+
 
 
 
@@ -259,6 +280,7 @@ public class Modelo_01 {
 
         switch (jugado) {
             case 1:
+                borra_Activos_Jugados(1);
                 //accion_Corazon(1);
                 auxiliar = "EL Corazon está en acción";
                 System.out.println(auxiliar + "\n" +

@@ -119,9 +119,6 @@ public class Gui_01 extends JFrame {
         modelo01 =  new Modelo_01();
 
 
-        modelo01.tirada_DadosActivos();
-
-        modelo01.tiradaInactivos();
 
 
         control01 = new Control_01();
@@ -226,6 +223,9 @@ public class Gui_01 extends JFrame {
     public Vector<Dado_Profesional> generador_Vectores_Panel_Activos(int campos ){
 
 
+
+
+
         caras_Dados_Activos = new Vector<>();
         caras_Dados_Activos.setSize(campos);
 
@@ -241,14 +241,14 @@ public class Gui_01 extends JFrame {
 
             int auxiliar =0;
 
-            auxiliar = dadoProfesional.busqueda_Profesional();
+            auxiliar = dadoProfesional.dado_Heredado.busqueda_Aleatoria();
 
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
                     (auxiliar ) + ".png")));
 
             dadoProfesional.setIcon(imageIcon);
 
-            dadoProfesional.setSello(auxiliar);
+            dadoProfesional.dado_Heredado.setSelector_Figura(auxiliar);
 
             dadoProfesional.addActionListener(escuchas);
 
@@ -297,14 +297,14 @@ public class Gui_01 extends JFrame {
 
             int auxiliar =0;
 
-            auxiliar = dadoProfesional.busqueda_Profesional();
+            auxiliar = dadoProfesional.dado_Heredado.busqueda_Aleatoria();
 
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" +
                     (auxiliar ) + ".png")));
 
             dadoProfesional.setIcon(imageIcon);
 
-            dadoProfesional.setSello(auxiliar);
+            dadoProfesional.dado_Heredado.setSelector_Figura(auxiliar);
 
             dadoProfesional.addActionListener(escuchas);
 
@@ -352,13 +352,13 @@ public class Gui_01 extends JFrame {
 
             int auxiliar =0;
 
-            auxiliar = dadoProfesional.busqueda_Profesional();
+            auxiliar = dadoProfesional.dado_Heredado.busqueda_Aleatoria();
 
             imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/Basico_utilizados.png")));
 
             dadoProfesional.setIcon(imageIcon);
 
-            dadoProfesional.setSello(auxiliar);
+            dadoProfesional.dado_Heredado.setSelector_Figura(auxiliar);
 //
 //            dadoProfesional.addActionListener(escuchas);
 //
@@ -414,7 +414,7 @@ public class Gui_01 extends JFrame {
 
             dadoProfesional.setIcon(imageIcon);
 
-            dadoProfesional.setSello(i);
+            dadoProfesional.dado_Heredado.setSelector_Figura(i);
 //
 //            dadoProfesional.addActionListener(escuchas);
 //
@@ -457,50 +457,57 @@ public class Gui_01 extends JFrame {
 
     private class Dado_Profesional extends JButton{
 
-        private Dado_01 dado_Completo;
+        private Dado_01 dado_Heredado;
 
         /**
          * Atributo entero que asocia secuencialmente
          * al string que genera el nombre del icono de la cara del dado
          */
-        private int sello;
+//        private int sello;
 
         /**
          * Atributo que entrega el valor del sello
          * @return sello
          */
-        public int getSello() {
-            return sello;
-        }
+//        public int getSello() {
+//            dado_Heredado = new Dado_01();
+//            sello=dado_Heredado.busqueda_Aleatoria();
+//            return sello;
+//        }
 
         /**
          * Atributo que asignar el dato sello
          * @param sello
          */
-        public void setSello(int sello) {
-            this.sello = sello;
-        }
+//        public void setSello(int sello) {
+//            this.sello = sello;
+//        }
 
         /**
          * Método que entrega valores entre 1 y 6
          * @return captura.
          */
-        public int busqueda_Profesional(){
+//        public int busqueda_Profesional(){
+//
+//            int captura = 999; // inicializacion
+//            Random aleatorio = new Random();
+//            captura = aleatorio.nextInt(6)+1;
+//            return captura;
+//
+//
+//        }
 
-            int captura = 999; // inicializacion
-            Random aleatorio = new Random();
-            captura = aleatorio.nextInt(6)+1;
-            return captura;
 
 
-        }
 
         /**
          * Método constructor de Dado_Profesional
          */
         public Dado_Profesional(){
 
-            sello=999; // inicialización
+
+            dado_Heredado = new Dado_01();
+
 
 
 
@@ -514,11 +521,16 @@ public class Gui_01 extends JFrame {
 
     }
 
+
+
     private class Escuchas implements ActionListener, MouseListener, KeyListener {
 
         Dado_Profesional dadoProfesional = new Dado_Profesional();
 
+
         Modelo_01 modelo01 = new Modelo_01();
+
+
 
 
 
@@ -564,8 +576,8 @@ public class Gui_01 extends JFrame {
 
             for (int i = 0; i < caras_Dados_Activos.size(); i++) {
                 if (e.getSource().equals(caras_Dados_Activos.elementAt(i))){
-                    recepciona_Sello = caras_Dados_Activos.get(i).getSello();
-                    System.out.println(" imprimo el sello " + recepciona_Sello);
+                    recepciona_Sello = caras_Dados_Activos.get(i).dado_Heredado.getSelector_Figura();
+                    System.out.println("\nimprimo el sello del Dado Profesional " + recepciona_Sello);
                 }
 
             }
@@ -579,7 +591,7 @@ public class Gui_01 extends JFrame {
             modelo01.pura_Accion(recepciona_Sello);
 
 
-            System.out.println(" ya al final el sello vale " + recepciona_Sello);
+            //System.out.println(" ya al final el sello vale " + recepciona_Sello);
         }
 
 
