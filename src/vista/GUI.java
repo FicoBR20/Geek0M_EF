@@ -362,20 +362,16 @@ public class GUI extends JFrame {
                         control.set_estado_dado(posicion2,9);
                     }
                 }
-
 //              Cuenta cuantos dados (42) hay en el panel de puntos
                 for (int posicion2 = 0; posicion2<=9; posicion2++){
                     if (control.get_estado_dado(posicion2)==9){
                         cont++;
                     }
                 }
-
-
                 for (int posicion3=0;posicion3<9;posicion3++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p"+posicion3+".png")));
                     puntos_dado[posicion3].setIcon(imagen_dado);
                 }
-
                 // Ciclo que toma la cantidad de dados en punto y cambia el icono
                 for (int posicion4=0;posicion4<cont;posicion4++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
@@ -533,6 +529,7 @@ public class GUI extends JFrame {
                 }
                 else if (uso_boton_lanzar==0){
 
+                    boton_lanzar.setEnabled(false);
                     JOptionPane.showMessageDialog(null,"INICIA RONDA 1");
                     for (int posicion=0;posicion<=2;posicion++){
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
@@ -555,17 +552,13 @@ public class GUI extends JFrame {
                }
 
                 else if (panelActivos.getComponentCount()<=0){
+                    boton_lanzar.setEnabled(false);
                     JOptionPane.showMessageDialog(null,
                             "INICIA RONDA "+(uso_boton_lanzar+1)+
                             "\nActivacion de dados usados"
                     +"\n se relanzan los dados usados");
                     activar_dados_usados();
                     uso_boton_lanzar++;
-                }
-                else if (uso_boton_lanzar >= 1 && uso_boton_lanzar <= 4){
-                        JOptionPane.showMessageDialog(null,
-                                "Solo se puede volver a lanzar\n"+
-                                "cunado se hayan usado\n todos los dados");
                 }
             }
 
@@ -596,6 +589,9 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
+            if(panelActivos.getComponentCount()==0){
+                boton_lanzar.setEnabled(true);
+            }
             entro = salio + entro;
 
             if (entro == 1){
