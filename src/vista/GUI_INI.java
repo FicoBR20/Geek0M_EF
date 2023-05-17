@@ -22,10 +22,8 @@ public class GUI_INI extends JFrame{
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-//        this.setAlwaysOnTop(true); //Hace que esta ventana siempre este visible
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-//
     private void inicio() {
         fondoPanel = new FondoPanel();
         fondoPanel.set_ruta_Icon("/recursos/fondo1.png");

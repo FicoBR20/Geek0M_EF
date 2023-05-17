@@ -23,26 +23,19 @@ import java.util.Vector;
 
 public class GUI extends JFrame {
 
-    private modelo.Dado dado_Probador; // adiciono para probar "lanzar dados"
-
-    private Dado[] mis_Dados;
-
-
-    private Header headerProject;
-
     private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
     private JButton boton_lanzar, boton_menu,boton_atras, boton_salir, boton_entrar, boton_salir1, boton_ayuda, boton_cerrar; // Declaracion de los botones del juego
-    private Escucha escucha, segundaEscucha;
+    private Escucha escucha;
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
-    private int uso_boton_lanzar;
+    private int uso_boton_lanzar,salio, entro;
     private GUI_INI guiIni;
     private GUI_Ayuda ventana_ayuda;
     private Integer[] cara_dado;
-    private int salio, entro;
+
 
     /**
      * Constructor of GUI class
@@ -57,7 +50,6 @@ public class GUI extends JFrame {
         //Default JFrame configuration
         this.setTitle("Geek of master");
         this.isOpaque();
-
         this.setUndecorated(true);//Quita los trs botones de la ventana
         this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();
@@ -137,17 +129,12 @@ public class GUI extends JFrame {
         fondoPanel.set_ruta_Icon("/recursos/fondo2.png");
         this.setContentPane(fondoPanel);
 
-        dado_Probador = new Dado();
-        segundaEscucha = new Escucha();
-        mis_Dados = new Dado[10];
         jP_misdados = new JPanel();
         jP_misdados.setBorder(new TitledBorder(" mis dados iniciales"));
         panelNulo = new JPanel();
 
         uso_boton_lanzar = 0;// '0' = botón lanzar sin usar
-        int dado_activo = 0;// '0' = botón no se puede usar
         cara_dado = null;//vector que guarda las cara de los dados
-        Integer[] caras = null;
 
         dado = new JLabel[10];//Creacion de los dados
         puntos_dado = new JLabel[11];//Creacion de las carillas para los puntos
@@ -230,7 +217,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.BOTH;
         constraints.anchor=GridBagConstraints.CENTER;
 
-        panelUsados = new JPanel();
+        panelUsados = new JPanel(new GridLayout(3, 4));
         panelUsados.setPreferredSize(new Dimension(250,180));
         panelUsados.setBorder(BorderFactory.createTitledBorder(null, "Dados Usados", TitledBorder.CENTER,TitledBorder.CENTER,null,Color.WHITE));
         panelUsados.setBackground(new Color(13, 64, 123, 128));
@@ -239,7 +226,7 @@ public class GUI extends JFrame {
 
 
         //Zona_2: Dados inctivos
-        panelIncativos = new JPanel();
+        panelIncativos = new JPanel(new GridLayout(3, 4));
         panelIncativos.setPreferredSize(new Dimension(250,180));
 
         panelIncativos.setBorder(BorderFactory.createTitledBorder(null,"Dadso Inactivos", TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
@@ -276,7 +263,7 @@ public class GUI extends JFrame {
 
 
         //Zona_4 dedos Activos
-        panelActivos = new JPanel();
+        panelActivos = new JPanel(new GridLayout(3, 4));
         panelActivos.setPreferredSize(new Dimension(250,180));
         panelActivos.setBorder(BorderFactory.createTitledBorder(null,"Dados Activos", TitledBorder.CENTER,TitledBorder.DEFAULT_JUSTIFICATION,null,Color.WHITE));
         panelActivos.setBackground(new Color(13, 64, 123, 128));
@@ -288,7 +275,7 @@ public class GUI extends JFrame {
         constraints.anchor=GridBagConstraints.CENTER;
 
         for (int i = 0; i<=9; i++){
-            panelActivos.add(dado[i],BorderLayout.SOUTH);
+            panelActivos.add(dado[i]);
         }
 
         this.add(panelActivos,constraints); //Change this line if you change JFrame Container's Layout
@@ -451,6 +438,7 @@ public class GUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            //Boton ayuda
             if (e.getActionCommand() == "AYUDA"){
 
                 // Inicia una nueva ventanade menu
@@ -468,6 +456,7 @@ public class GUI extends JFrame {
                 boton_menu.setEnabled(true);
             }
 
+            //Boton menu
             if (e.getActionCommand() == "MENU"){
 
                 // Inicia una nueva ventanade menu
@@ -496,12 +485,16 @@ public class GUI extends JFrame {
                 constraints.insets = new Insets(5,0,0,0);
                 menu.add(boton_salir,constraints);
             }
+
+            //Boton Atras
             if (Objects.equals(e.getActionCommand(), "ATRAS") && boton_menu != null){
                 menu.dispose(); //Cierra la ventana de menu sin cerrar el programa
                 boton_menu.setEnabled(true);// Habilita el boton menu
                 boton_lanzar.setEnabled(true);
                 boton_ayuda.setEnabled(true);
             }
+
+            //Boton SALIR
             if (e.getSource() == boton_salir){
                 int opcion = JOptionPane.showConfirmDialog(null, "¿Desea volver al Inicio?", "Confirmación", JOptionPane.YES_NO_OPTION);
                 if (opcion == JOptionPane.YES_OPTION){
@@ -512,6 +505,7 @@ public class GUI extends JFrame {
                     dispose();
                     ventana_entrada();
                     menu.dispose();
+                    System.exit(0);
 
                 }
                 else if(opcion == JOptionPane.NO_OPTION){
@@ -521,6 +515,11 @@ public class GUI extends JFrame {
                 }
             }
 
+            if (e.getSource() == boton_salir1){
+                System.exit(0);
+            }
+
+            //Boton lanzar
             if (e.getSource() == boton_lanzar){
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
@@ -533,7 +532,6 @@ public class GUI extends JFrame {
                     gui_ayuda();
                 }
                 else if (uso_boton_lanzar==0){
-                    panelActivos.removeAll();
 
                     JOptionPane.showMessageDialog(null,"INICIA RONDA 1");
                     for (int posicion=0;posicion<=2;posicion++){
@@ -571,16 +569,12 @@ public class GUI extends JFrame {
                 }
             }
 
-
-
+            //Boton entrar
             if (e.getSource() == boton_entrar){
                 guiIni.dispose();
                 setVisible(true);
                 boton_ayuda.setEnabled(true);
-            }
 
-            if (e.getSource() == boton_salir1){
-                System.exit(0);
             }
 
         }
@@ -613,12 +607,14 @@ public class GUI extends JFrame {
                     if(e.getComponent() == dado[posicion]){
 
                         switch (control.get_estado_dado(posicion)) {
+                            //Mueve un dado a la zona de usados y activa la habilidad
                             case 0 -> {
                                 System.out.println("agarre el dado = " + (posicion + 1));
                                 control.activar_dado(posicion, cara_dado[posicion]);
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
+                            //Mueve un dado de la zona de dados inactivos a la zona se dados activos
                             case 1 -> {
                                 control.bloquear_corazon();
                                 control.setEstado(posicion, 4);
@@ -626,34 +622,49 @@ public class GUI extends JFrame {
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
+                            //No implementada
                             case 2 -> {
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
+                            //Relanza dados que se encuentren en la zona de dados activos
                             case 3 -> {
                                 control.bloquear_meeple();
                                 control.setEstado(posicion, 4);
                                 relanzar_dado(posicion);
                                 salio = 1;
                             }
+                            //Destruye dados que se encuentren en la zona de dados activos
                             case 4 -> {
                                 control.bloquear_nave();
                                 control.setEstado(posicion, 2);
                                 cambiar_posicion_dado(posicion);
                                 salio = 1;
                             }
+                            //Voltea dados que se encuentren en la zona de dados activos
                             case 5 -> {
                                 control.bloquear_heroe();
                                 control.setEstado(posicion, 4);
                                 voltear_dado(posicion);
                                 salio = 1;
                             }
-                            case 6,7,8,9 -> {
-                                salio = 1;
-                            }
-                            case 10-> {
+                            //Bloque dados activos si se usa corazon
+                            case 6 -> {
                                 JOptionPane.showMessageDialog(null,"Debes usar un dado incactivo ");
                                 salio = 1;
+                                salio = 1;
+                            }
+                            //Indica que un dado esta en zona de inactivos
+                            case 7-> {
+                                salio = 2-1;
+                            }
+                            //Indica que un dado esta en zona de usados
+                            case 8-> {
+                                salio = 3-2;
+                            }
+                            //Indica que un dado esta en la zona de puntos
+                            case 9 -> {
+                                salio = 4-3;
                             }
                         }
                     }
@@ -674,15 +685,4 @@ public class GUI extends JFrame {
         }
     }
 
-
-    public void activarDados(){
-
-        dado = new JLabel[10];
-
-        for (int i=0;i<=9;i++){
-            dado[i].addMouseMotionListener((MouseMotionListener) escucha);
-            System.out.println("activados");
-        }
-
-    }
 }
