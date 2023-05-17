@@ -9,7 +9,7 @@ import java.awt.event.*;
 import java.util.Objects;
 
 /**
- *   @archivo GUI.jar
+ *   @archivo GUI.java
  *   @author federico.barbetti:  Codigo es 2181247-2724
  *   @email federico.barbetti@correounivalle.edu.co
  *   @author Jose Erley Murillo Torres:  Codigo es 2177964-2724
@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class GUI extends JFrame {
 
-    private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, panelMenu, panelBoton,jP_misdados;
+    private JPanel panelNulo, panelActivos,panelIncativos,panelPuntos,panelUsados, paneltexto, panelBoton,jP_misdados;
     private JLabel[] dado, puntos_dado;
     private ImageIcon imagen_dado;
     private GridBagConstraints constraints; // Referencias del grid
@@ -29,16 +29,17 @@ public class GUI extends JFrame {
     private Menu menu;// Ventana que contiene el menu para salir del juego
     private Controlador control, control_2;
     private int uso_boton_lanzar,salio, entro;
-    private GUI_INI guiIni;
+    private GUI_inicio guiIni, guiIni_fin;
+    private GUI_fin_juego guiFinJuego;
     private GUI_Ayuda ventana_ayuda;
     private Integer[] cara_dado;
+    private JTextArea textArea;
 
 
     /**
      * Constructor of GUI class
      */
     public GUI(){
-
 
         ventana_entrada();
         inicio_GUI();
@@ -85,7 +86,7 @@ public class GUI extends JFrame {
     public void ventana_entrada(){
 
         escucha = new GUI.Escucha();
-        guiIni = new GUI_INI();
+        guiIni = new GUI_inicio("/recursos/fondo1.png");
         guiIni.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
         constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
 
@@ -97,6 +98,7 @@ public class GUI extends JFrame {
         constraints.fill=GridBagConstraints.NONE;
         constraints.anchor=GridBagConstraints.CENTER;
         constraints.insets = new Insets(100,0,0,0);
+
 
         boton_entrar = new JButton("ENTRAR");
         boton_entrar.addActionListener(escucha);
@@ -165,11 +167,11 @@ public class GUI extends JFrame {
         constraints.insets = new Insets(10,30,10,30);// Inserta margenes en los componentes insertados en la ventana
 
         boton_atras = new JButton("ATRAS");
-        boton_atras.setPreferredSize(new Dimension(100,50));
+        boton_atras.setPreferredSize(new Dimension(100,40));
         boton_atras.addActionListener(escucha);
 
         boton_salir = new JButton("SALIR");
-        boton_salir.setPreferredSize(new Dimension(100,50));
+        boton_salir.setPreferredSize(new Dimension(100,40));
         boton_salir.addActionListener(escucha);
 
         //Texto de cabecera y coordenadas constrain para añadirlo a la ventana
@@ -362,20 +364,16 @@ public class GUI extends JFrame {
                         control.set_estado_dado(posicion2,9);
                     }
                 }
-
 //              Cuenta cuantos dados (42) hay en el panel de puntos
                 for (int posicion2 = 0; posicion2<=9; posicion2++){
                     if (control.get_estado_dado(posicion2)==9){
                         cont++;
                     }
                 }
-
-
                 for (int posicion3=0;posicion3<9;posicion3++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/p"+posicion3+".png")));
                     puntos_dado[posicion3].setIcon(imagen_dado);
                 }
-
                 // Ciclo que toma la cantidad de dados en punto y cambia el icono
                 for (int posicion4=0;posicion4<cont;posicion4++){
                     imagen_dado = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/6.png")));
@@ -414,8 +412,6 @@ public class GUI extends JFrame {
         }
         return punto;
     }
-
-
 
     /**
      * Main process of the Java program
@@ -473,7 +469,7 @@ public class GUI extends JFrame {
                 constraints.gridwidth=1;
                 constraints.fill=GridBagConstraints.NONE;
                 constraints.anchor=GridBagConstraints.CENTER;
-                constraints.insets = new Insets(50,0,0,0);
+                constraints.insets = new Insets(10,0,0,0);
                 menu.add(boton_atras,constraints);
 
                 // Añade el boton salir al menu
@@ -516,23 +512,68 @@ public class GUI extends JFrame {
             }
 
             if (e.getSource() == boton_salir1){
+                System.out.println("sale");
                 System.exit(0);
             }
 
             //Boton lanzar
             if (e.getSource() == boton_lanzar){
+
+
                     control.lanzar_inicio(10);
                     cara_dado = control.getCara();// Obtiene la cara de un dada que genera la clase controladora y la guarda en un vectos
 
                 if (uso_boton_lanzar >= 5){
 
-                    JOptionPane.showMessageDialog(null,
-                            "FIN DEL JUEGO\n"+
-                                    "TU PUNTAJE FUE = "+puntuacion());
-                    gui_ayuda();
+                    setVisible(false);
+
+
+                    escucha = new GUI.Escucha();
+                    guiFinJuego = new GUI_fin_juego("/recursos/fin.png");
+                    guiFinJuego.getContentPane().setLayout(new GridBagLayout());//Obtiene el contenedor por defecto de la ventana y pone un layout del tipo "GridBagLayout"
+                    constraints = new GridBagConstraints();//Se crea un objeto "constrain" para configurar el "GridBagLayout" cuando se esten ubicando los componetes de la ventana
+
+                    //Añado Boton a la ventana
+                    constraints.gridx=0;
+                    constraints.gridy=0;
+                    constraints.gridwidth=1;
+                    constraints.gridheight=1;// combina 13 celdas para el titulo.
+                    constraints.fill=GridBagConstraints.NONE;
+                    constraints.anchor=GridBagConstraints.CENTER;
+                    constraints.insets = new Insets(330,0,0,15);
+
+                    paneltexto = new JPanel();
+                    paneltexto.setPreferredSize(new Dimension(285,75));
+                    paneltexto.setBackground(null);
+
+                    textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    textArea.setBackground(null);
+                    textArea.setFont(new Font(Font.DIALOG,Font.BOLD,40));
+                    textArea.setCaretColor(new Color(2,2,2,0));
+                    textArea.setText("("+puntuacion()+")");
+
+                    paneltexto.add(textArea);
+                    guiFinJuego.add(paneltexto,constraints);
+
+                    //Añado Boton a la ventana
+                    constraints.gridx=0;
+                    constraints.gridy=1;
+                    constraints.gridwidth=1;
+                    constraints.gridheight=1;// combina 13 celdas para el titulo.
+                    constraints.fill=GridBagConstraints.NONE;
+                    constraints.anchor=GridBagConstraints.CENTER;
+                    constraints.insets = new Insets(10,0,0,15);
+
+                    boton_salir1 = new JButton("SALIR DEL JUEGO");
+                    boton_salir1.addActionListener(escucha);
+                    guiFinJuego.add(boton_salir1,constraints);
+
+
                 }
                 else if (uso_boton_lanzar==0){
 
+                    boton_lanzar.setEnabled(false);
                     JOptionPane.showMessageDialog(null,"INICIA RONDA 1");
                     for (int posicion=0;posicion<=2;posicion++){
                         imagen_dado =new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/" + cara_dado[posicion] + ".png")));
@@ -555,17 +596,17 @@ public class GUI extends JFrame {
                }
 
                 else if (panelActivos.getComponentCount()<=0){
+                    boton_lanzar.setEnabled(false);
+
+
+
                     JOptionPane.showMessageDialog(null,
                             "INICIA RONDA "+(uso_boton_lanzar+1)+
                             "\nActivacion de dados usados"
                     +"\n se relanzan los dados usados");
+
                     activar_dados_usados();
                     uso_boton_lanzar++;
-                }
-                else if (uso_boton_lanzar >= 1 && uso_boton_lanzar <= 4){
-                        JOptionPane.showMessageDialog(null,
-                                "Solo se puede volver a lanzar\n"+
-                                "cunado se hayan usado\n todos los dados");
                 }
             }
 
@@ -596,6 +637,9 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseReleased(MouseEvent e) {
+            if(panelActivos.getComponentCount()==0){
+                boton_lanzar.setEnabled(true);
+            }
             entro = salio + entro;
 
             if (entro == 1){
@@ -652,7 +696,6 @@ public class GUI extends JFrame {
                             case 6 -> {
                                 JOptionPane.showMessageDialog(null,"Debes usar un dado incactivo ");
                                 salio = 1;
-                                salio = 1;
                             }
                             //Indica que un dado esta en zona de inactivos
                             case 7-> {
@@ -668,6 +711,7 @@ public class GUI extends JFrame {
                             }
                         }
                     }
+
                 }
             }
 
@@ -684,5 +728,4 @@ public class GUI extends JFrame {
 
         }
     }
-
 }

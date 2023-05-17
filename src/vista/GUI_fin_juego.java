@@ -3,30 +3,30 @@ package vista;
 import javax.swing.*;
 import java.awt.*;
 
-public class GUI_INI extends JFrame{
+public class GUI_fin_juego extends JFrame{
     private ImageIcon imageIcon;
     private JLabel jLabel;
     private JPanel jPanel;
     private FondoPanel fondoPanel;
 
-    public GUI_INI(){
+    public GUI_fin_juego(String ruta){
 
-        inicio();
+        inicio(ruta);
 
         //Default JFrame configuration
         this.setTitle("gui inicio");
         this.setUndecorated(true);
         this.setBackground(new Color(255,255,255,0)); //Quita el fondo de la ventana tiene que estar despues de  setUndecorated y antes de para que funcione
         this.pack();
-        this.setSize(new Dimension(760,500));
+        this.setSize(new Dimension(850,480));
         this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    private void inicio() {
+    private void inicio(String ruta) {
         fondoPanel = new FondoPanel();
-        fondoPanel.set_ruta_Icon("/recursos/fondo1.png");
+        fondoPanel.set_ruta_Icon(ruta);
         this.setContentPane(fondoPanel);
     }
 

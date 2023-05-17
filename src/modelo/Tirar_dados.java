@@ -39,12 +39,9 @@ public class Tirar_dados {
         caras_2 = new Integer[10];
         this.cantidad_de_dados=cantidad_de_dados-1;
     }
-
-
     public void setDado(int posicion) {
         this.dado[posicion] = new Dado();
     }
-
     public Integer[] getCaras() {
         return caras;
     }
@@ -60,6 +57,7 @@ public class Tirar_dados {
         }
         //devuelve la cantidad de dados
         int tamano = dado.length;
+
         System.out.println("|| Dados usados "+tamano+" ||");
         System.out.println("Sunatoria = "+ sumatoria);
     }

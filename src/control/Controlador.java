@@ -1,8 +1,11 @@
 package control;
 
+
 import modelo.Tirar_dados;
 
 import javax.swing.*;
+
+
 
 /**
  * Esta clase aplica las reglas del juego
@@ -126,7 +129,7 @@ public class Controlador {
                         contador_otros_dado++;
                     }
                 }
-                if(contador_otros_dado ==0){
+                if(contador_otros_dado ==0&&contador_dado_42 >=1){
                     if (contador_dado_42 ==1){
                          JOptionPane.showMessageDialog(null, "El dado pasa a puntos");
                     }else {
@@ -137,12 +140,14 @@ public class Controlador {
                 else{
                     JOptionPane.showMessageDialog(null, "No se puede mover" +
                             "\nhasta que sea el ultimo dado");
-                    estado[i] = 4;
+//                    estado[i] = 4;
                 }
+
 
             }
         }
     }
+
 
     public void voltear_dado(int posicion){
             switch (cara[posicion]) {
@@ -152,8 +157,10 @@ public class Controlador {
                 case 4 -> cara[posicion]=3;
                 case 5 -> cara[posicion]=2;
                 case 6 -> cara[posicion]=1;
+
             }
     }
+    //________________________________________________________________________
 
 
     public void desbloquear_heroe() {
@@ -203,11 +210,20 @@ public class Controlador {
     }
 
     public void desbloquear_corazon(){
+        int contador_otros_dado=0;
+        for (int posicion=0; posicion<=9;posicion++){
+            if (get_estado_dado(posicion)==7 && cara[posicion] != null){
+                contador_otros_dado++;
+            }
+        }
         for (int i=0; i<=9;i++){
             if (estado_dado[i]==7) {
                 estado_dado[i] = 1;
             }
-            if (estado_dado[i]==0) {
+            if (contador_otros_dado==0) {
+                estado_dado[i] = 0;
+            }
+            else if (estado_dado[i]==0){
                 estado_dado[i] = 6;
             }
         }
