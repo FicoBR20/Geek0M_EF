@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="">
-<<<<<<< HEAD
+    <list default="true" id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/GUI.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI$Escucha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/GUI.class" afterDir="false" />
->>>>>>> gui
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado_01.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Dado_01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Modelo_01$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Modelo_01$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Modelo_01.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/modelo/Modelo_01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Dado_Profesional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geek0M_EF/vista/Gui_01$Escuchas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Dado_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Dado_01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Modelo_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Modelo_01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/Gui_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Gui_01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="GUIPresentation_01 (2)" />
+        <option value="GUIPresentation_01" />
         <option value="Class" />
       </list>
     </option>
@@ -33,20 +35,25 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2PMMeOc1dkRGn8NonfkB8E0Beb6" />
+  <component name="ProjectId" id="2PTT0txFdyXzabnNaGYCZW4iyVb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Design/Desktop/pro/Geek0M_EF/src/recursos",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="vista" />
@@ -55,31 +62,11 @@
       <recent name="C:\Users\Design\Desktop\pro\Geek0M_EF\src\recursos" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="control" />
+      <recent name="vista" />
+      <recent name="modelo" />
     </key>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="Application.GUI">
-    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-      <module name="Geek0M_EF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-=======
-  <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vista.GUI" />
-      <module name="Geek0M_EF" />
->>>>>>> gui
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-<<<<<<< HEAD
+  <component name="RunManager" selected="Application.Gui_01">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vista.GUI" />
       <module name="Geek0M_EF" />
@@ -93,25 +80,104 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Gui_01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_01" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gui_02_Ind (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_02_Ind" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gui_02_Ind" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.Gui_02_Ind" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Modelo_01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="modelo.Modelo_01" />
+      <module name="Geek0M_EF" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Gui_01" />
+        <item itemvalue="Application.Gui_02_Ind (1)" />
+        <item itemvalue="Application.Gui_02_Ind" />
         <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUI (1)" />
+        <item itemvalue="Application.Modelo_01" />
       </list>
     </recent_temporary>
-=======
->>>>>>> gui
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="41a723f9-dfd4-479b-b52d-f1e1e5015958" name="Changes" comment="" />
-      <created>1683262594899</created>
+      <changelist id="47aada04-7b04-487d-8924-de609eca6989" name="Changes" comment="" />
+      <created>1683479852512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683262594899</updated>
+      <updated>1683479852512</updated>
+      <workItem from="1683479854010" duration="43091000" />
+      <workItem from="1683542536324" duration="1213000" />
+      <workItem from="1683543899055" duration="11477000" />
+      <workItem from="1683579995801" duration="30196000" />
+      <workItem from="1683638490519" duration="11448000" />
+      <workItem from="1683657185573" duration="31023000" />
+      <workItem from="1683730686875" duration="22773000" />
+      <workItem from="1683767175401" duration="46884000" />
+      <workItem from="1683816500023" duration="2575000" />
+      <workItem from="1683829182664" duration="8605000" />
+      <workItem from="1683845908344" duration="1050000" />
+      <workItem from="1683858237080" duration="628000" />
+      <workItem from="1683953079759" duration="3261000" />
+      <workItem from="1683974719294" duration="1939000" />
+      <workItem from="1684025167329" duration="22412000" />
+      <workItem from="1684241826042" duration="13389000" />
+      <workItem from="1684271096230" duration="7925000" />
+      <workItem from="1684287803365" duration="95000" />
+      <workItem from="1684291911301" duration="16726000" />
+      <workItem from="1684312306689" duration="801000" />
+      <workItem from="1684313129528" duration="22000" />
+      <workItem from="1684313272922" duration="21281000" />
+      <workItem from="1684336147428" duration="11207000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -124,8 +190,14 @@
       </map>
     </option>
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
